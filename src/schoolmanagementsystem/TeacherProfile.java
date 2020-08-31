@@ -19,11 +19,34 @@ public class TeacherProfile extends javax.swing.JFrame {
      */
     public TeacherProfile() {
         initComponents();
+        hideSideMenu();
     }
     public TeacherProfile(String id) {
         initComponents();
+        hideSideMenu();
     }
+    
     int x =242;
+    public void hideSideMenu(){
+        if(x==242)
+        {
+	sideMenu.setSize(242,720);
+	Thread th = new Thread(){
+		@Override
+		public void run(){
+			try{
+				for(int i = 242;i>=0;i=i-11){
+					Thread.sleep(1);
+					sideMenu.setSize(i,720);
+				}
+			}catch(Exception e){
+				jOptionPane.showMessegeDialog(null,e);
+                        }  
+                }
+		};th.start();
+	x=0;
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -91,6 +114,7 @@ public class TeacherProfile extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         sideMenuHide = new javax.swing.JLabel();
         SideMenuShow = new javax.swing.JLabel();
+        MenuText = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -113,7 +137,7 @@ public class TeacherProfile extends javax.swing.JFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addComponent(close_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 210, Short.MAX_VALUE))
+                .addGap(0, 1250, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,10 +146,9 @@ public class TeacherProfile extends javax.swing.JFrame {
                 .addGap(0, 2, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 32));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 32));
 
         jLabel9.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Teacher Profile");
 
@@ -214,7 +237,6 @@ public class TeacherProfile extends javax.swing.JFrame {
 
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        jTextArea1.setForeground(new java.awt.Color(0, 0, 0));
         jTextArea1.setRows(5);
         jTextArea1.setCaretColor(new java.awt.Color(18, 30, 49));
         jScrollPane1.setViewportView(jTextArea1);
@@ -300,7 +322,6 @@ public class TeacherProfile extends javax.swing.JFrame {
         jTabbedPane1.addTab("homework", HomeworkPanel);
 
         jLabel10.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Attendance");
 
         javax.swing.GroupLayout AttendencePanelLayout = new javax.swing.GroupLayout(AttendencePanel);
@@ -352,7 +373,6 @@ public class TeacherProfile extends javax.swing.JFrame {
 
         jTextArea2.setColumns(20);
         jTextArea2.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        jTextArea2.setForeground(new java.awt.Color(0, 0, 0));
         jTextArea2.setRows(5);
         jTextArea2.setCaretColor(new java.awt.Color(18, 30, 49));
         jScrollPane2.setViewportView(jTextArea2);
@@ -369,7 +389,6 @@ public class TeacherProfile extends javax.swing.JFrame {
 
         N_ID.setColumns(20);
         N_ID.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        N_ID.setForeground(new java.awt.Color(0, 0, 0));
         N_ID.setRows(5);
         N_ID.setCaretColor(new java.awt.Color(18, 30, 49));
         jScrollPane3.setViewportView(N_ID);
@@ -446,7 +465,6 @@ public class TeacherProfile extends javax.swing.JFrame {
         jTabbedPane1.addTab("notice", noticePanel);
 
         jLabel12.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Result");
 
         javax.swing.GroupLayout resultPanelLayout = new javax.swing.GroupLayout(resultPanel);
@@ -756,6 +774,10 @@ public class TeacherProfile extends javax.swing.JFrame {
         });
         jPanel1.add(SideMenuShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 42, -1, -1));
 
+        MenuText.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        MenuText.setText("Menu");
+        jPanel1.add(MenuText, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 90, 60));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -980,6 +1002,7 @@ public class TeacherProfile extends javax.swing.JFrame {
     private javax.swing.JPanel HomeworkPanel;
     private javax.swing.JPanel HomeworkPanel1;
     private javax.swing.JPanel HomeworkPanel2;
+    private javax.swing.JLabel MenuText;
     private javax.swing.JTextArea N_ID;
     private javax.swing.JLabel Profile;
     private javax.swing.JLabel SideMenuShow;
