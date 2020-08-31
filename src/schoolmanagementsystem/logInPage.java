@@ -79,6 +79,7 @@ public class logInPage extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jTextPane1.setEditable(false);
         jTextPane1.setBackground(new java.awt.Color(255, 255, 255));
         jTextPane1.setFont(new java.awt.Font("Comic Sans MS", 1, 27)); // NOI18N
         jTextPane1.setForeground(new java.awt.Color(255, 255, 255));
@@ -86,6 +87,7 @@ public class logInPage extends javax.swing.JFrame {
         jTextPane1.setOpaque(false);
         jPanel1.add(jTextPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 140, 70, 40));
 
+        jTextPane2.setEditable(false);
         jTextPane2.setBackground(new java.awt.Color(255, 255, 255));
         jTextPane2.setFont(new java.awt.Font("Comic Sans MS", 1, 27)); // NOI18N
         jTextPane2.setForeground(new java.awt.Color(255, 255, 255));
