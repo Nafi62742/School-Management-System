@@ -1,19 +1,25 @@
-    /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/*
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 package schoolmanagementsystem;
 
 import java.awt.Dimension;
+import java.awt.HeadlessException;
 import java.awt.Toolkit;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.util.prefs.Preferences;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import org.apache.commons.codec.binary.Base64;
@@ -23,35 +29,49 @@ import org.apache.commons.codec.binary.Base64;
  * @author Administrator
  */
 public class logInPage extends javax.swing.JFrame {
-
+    
     public Preferences pref = Preferences.userRoot().node("Rememberme");
     
     
     
-    Connection conn = null;
-    ResultSet rs = null;
-    PreparedStatement pst = null;
-    Statement st;
-
+    public Connection conn = null;
+    private ResultSet rs = null;
+    private PreparedStatement pst = null;
+    private Statement st;
+    private String id;
+    
+    
     
     public logInPage() {
-        
         this.setUndecorated(true);
-        initComponents();
-        
-        rememberMark();
-        
-        /*String usr = null;
-        usr= pref.get("Id", usr);
-        usernameField.setText(usr);
-        
-        String pss = null;
-        pss= pref.get("Password", pss);
-        passwordField.setText(EncryptPass(pss));
-        */
         conn = JConnection.connectdb();
-    }
+        if(isUserLoggedIn()){
+            System.out.println(id);
+            if(id.contains("100.")){
+                new StudentProfile(id).setVisible(true);
+                dispose();
+            }else if(id.contains("400.")){
+                new TeacherProfile(id).setVisible(true);
+                dispose();
+            }
+        }else{
+            
+            initComponents();
+        }
+//        rememberMark();
 
+/*String usr = null;
+usr= pref.get("Id", usr);
+usernameField.setText(usr);
+
+String pss = null;
+pss= pref.get("Password", pss);
+passwordField.setText(EncryptPass(pss));
+*/
+
+
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -64,8 +84,8 @@ public class logInPage extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jTextPane1 = new javax.swing.JTextPane();
         jTextPane2 = new javax.swing.JTextPane();
-        checkRemeber = new javax.swing.JCheckBox();
-        usernameField = new javax.swing.JTextField();
+        rememberUserCheckbox = new javax.swing.JCheckBox();
+        idField = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         passwordField = new javax.swing.JPasswordField();
         jSeparator2 = new javax.swing.JSeparator();
@@ -95,40 +115,41 @@ public class logInPage extends javax.swing.JFrame {
         jTextPane2.setOpaque(false);
         jPanel1.add(jTextPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(878, 270, 140, 40));
 
-        checkRemeber.setBackground(new java.awt.Color(44, 27, 95));
-        checkRemeber.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
-        checkRemeber.setForeground(new java.awt.Color(250, 250, 250));
-        checkRemeber.setText("    Remember me");
-        checkRemeber.setContentAreaFilled(false);
-        checkRemeber.addActionListener(new java.awt.event.ActionListener() {
+        rememberUserCheckbox.setBackground(new java.awt.Color(44, 27, 95));
+        rememberUserCheckbox.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        rememberUserCheckbox.setForeground(new java.awt.Color(250, 250, 250));
+        rememberUserCheckbox.setText("    Remember me");
+        rememberUserCheckbox.setContentAreaFilled(false);
+        rememberUserCheckbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkRemeberActionPerformed(evt);
+                rememberUserCheckboxActionPerformed(evt);
             }
         });
-        jPanel1.add(checkRemeber, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 430, 200, 40));
+        jPanel1.add(rememberUserCheckbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 390, 200, 40));
 
-        usernameField.setBackground(new java.awt.Color(112, 144, 196));
-        usernameField.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        usernameField.setForeground(new java.awt.Color(255, 255, 255));
-        usernameField.setText("Enter ID");
-        usernameField.setBorder(null);
-        usernameField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        usernameField.setOpaque(false);
-        usernameField.addFocusListener(new java.awt.event.FocusAdapter() {
+        idField.setBackground(new java.awt.Color(112, 144, 196));
+        idField.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        idField.setForeground(new java.awt.Color(255, 255, 255));
+        idField.setText("Enter ID");
+        idField.setBorder(null);
+        idField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        idField.setOpaque(false);
+        idField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                usernameFieldFocusGained(evt);
+                idFieldFocusGained(evt);
             }
         });
-        usernameField.addActionListener(new java.awt.event.ActionListener() {
+        idField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usernameFieldActionPerformed(evt);
+                idFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(usernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 190, 360, 50));
+        jPanel1.add(idField, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 190, 360, 50));
 
         jSeparator1.setForeground(new java.awt.Color(153, 153, 153));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 240, 360, 10));
 
+        passwordField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         passwordField.setForeground(new java.awt.Color(255, 255, 255));
         passwordField.setText("Enter Password");
         passwordField.setBorder(null);
@@ -153,7 +174,7 @@ public class logInPage extends javax.swing.JFrame {
                 signinButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(signinButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 550, 140, 50));
+        jPanel1.add(signinButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 550, 140, 50));
 
         signupButton.setBorder(null);
         signupButton.setBorderPainted(false);
@@ -169,7 +190,6 @@ public class logInPage extends javax.swing.JFrame {
         close_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolmanagementsystem/image/close.png"))); // NOI18N
         close_btn.setBorder(null);
         close_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        close_btn.setOpaque(false);
         close_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 close_btnActionPerformed(evt);
@@ -195,28 +215,39 @@ public class logInPage extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private String DecryptPass(String passwordString) {
-
-        String strDecryptedText = new String();
-
+    
+//...................Start Custom Functions....................//
+    
+    private boolean isUserLoggedIn(){
+        final JPanel panel = new JPanel();
         try {
-
-            // Get bytes from string
+            
+            InetAddress myIP=InetAddress.getLocalHost();
+            String sql = "select id from login_info where ip_address=\'" + myIP.getHostAddress() + "\' and state=1";
+            try{
+                st = (Statement) conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+                rs = st.executeQuery(sql);
+                if (rs.next()) {
+                    this.id=rs.getString(1);
+                    return true;
+                }else{
+                    return false;
+                }
+            }catch(HeadlessException | SQLException e){
+                JOptionPane.showMessageDialog(panel, "Database error. Auto login failed.","Warning",JOptionPane.WARNING_MESSAGE);
+            }
+        } catch (UnknownHostException ex) {
+            JOptionPane.showMessageDialog(panel, "Sorry, Can't get your IP Address.","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+        return false;
+    }
+    private String DecryptPass(String passwordString) {
+        try {
             byte[] byteArray = Base64.decodeBase64(passwordString.getBytes());
-
-            // Print the decoded array
-            System.out.println(Arrays.toString(byteArray));
-
             String decodedString = new String(byteArray);
-            // Print the decoded string 
-//            System.out.println(passwordString + " = " + decodedString);
-
             return decodedString;
-
         } catch (Exception e) {
             System.out.println(e);
-
         }
         return null;
     }
@@ -231,6 +262,25 @@ public class logInPage extends javax.swing.JFrame {
         }
         return null;
     }
+    private boolean userValid(String id,String pass,String table){
+        final JPanel panel = new JPanel();
+        String sql = "select id from " + table + " where id=\'" + id + "\' and pass=\'" + pass + "\'";
+        try{
+            st = (Statement) conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            rs = st.executeQuery(sql);
+            if (rs.next()) {
+                return true;
+            }else{
+                JOptionPane.showMessageDialog(this, "User not valid", "Warning", JOptionPane.WARNING_MESSAGE);
+                return false;
+            }
+        }catch(HeadlessException | SQLException e){
+            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+        return false;
+    }
+    
+//...................End Custom Functions....................//
     public void savedIdPass(String Id ,String Pass,String Cell){
         if(Id == null || Pass == null|| Cell == null)
         {
@@ -249,18 +299,18 @@ public class logInPage extends javax.swing.JFrame {
             
             String originalPass = passwordField.getText();
             if (originalPass.length() >= 4 ) {
-            pass = EncryptPass(originalPass);
-            try {
-                pst = conn.prepareStatement(sql);
-                pst.setString(1, user);
-                pst.setString(2, pass);
-                pst.setString(3, cell);
-                pst.execute();
-                //clearTextField();
-                JOptionPane.showMessageDialog(null, "Inserted Successfully");
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(this, "Database error", "Warning", JOptionPane.WARNING_MESSAGE);
-            }
+                pass = EncryptPass(originalPass);
+                try {
+                    pst = conn.prepareStatement(sql);
+                    pst.setString(1, user);
+                    pst.setString(2, pass);
+                    pst.setString(3, cell);
+                    pst.execute();
+                    //clearTextField();
+                    JOptionPane.showMessageDialog(null, "Inserted Successfully");
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(this, "Database error", "Warning", JOptionPane.WARNING_MESSAGE);
+                }
             } else {
                 JOptionPane.showMessageDialog(this, "Please set password correctly", "Warning", JOptionPane.WARNING_MESSAGE);
             }
@@ -270,7 +320,7 @@ public class logInPage extends javax.swing.JFrame {
     public final void checked(boolean remeber){
         if(remeber == true){
             
-            savedIdPass(usernameField.getText(),passwordField.getText(),"true");
+            savedIdPass(idField.getText(),passwordField.getText(),"true");
         }
         else {
             savedIdPass("Enter Username","","false");
@@ -278,47 +328,47 @@ public class logInPage extends javax.swing.JFrame {
     }
     
     public void rememberMark(){
-                final JPanel panel = new JPanel();
-               String sel,dep;  
-               String sql = null;
-                String pass = EncryptPass(passwordField.getText());
-                String table = null;
-               try{                          
-                    Class.forName("com.mysql.jdbc.Driver"); 
-                    conn=(Connection) DriverManager.getConnection("jdbc:mysql://localhost/school_management_system","root","");
-                    pst=(PreparedStatement) conn.prepareStatement("SELECT * FROM remember_password WHERE 1");
-                    rs=pst.executeQuery(); 
-                    if(rs.next())              
-                    {                 
-                        sel=rs.getString("state");
-                                              
-                                       
-                        if(sel.equals("true"))                 
-                        {                     
-                        checkRemeber.setSelected(true);                     
-                        usernameField.setText(rs.getString("rem_uname"));                     
-                        passwordField.setText(DecryptPass(rs.getString("rem_pass")));                 
-                        }
-                        else{                 
-                        checkRemeber.setSelected(false);                     
-                        usernameField.setText("Enter Username");
-                        passwordField.setText(DecryptPass(rs.getString("rem_pass"))); 
-                        }
-                    }
-                }catch (Exception e) {
-                       JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
-                }                    
-    
+        final JPanel panel = new JPanel();
+        String sel,dep;
+        String sql = null;
+        String pass = EncryptPass(passwordField.getText());
+        String table = null;
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            conn=(Connection) DriverManager.getConnection("jdbc:mysql://localhost/school_management_system","root","");
+            pst=(PreparedStatement) conn.prepareStatement("SELECT * FROM remember_password WHERE 1");
+            rs=pst.executeQuery();
+            if(rs.next())
+            {
+                sel=rs.getString("state");
+                
+                
+                if(sel.equals("true"))
+                {
+                    rememberUserCheckbox.setSelected(true);
+                    idField.setText(rs.getString("rem_uname"));
+                    passwordField.setText(DecryptPass(rs.getString("rem_pass")));
+                }
+                else{
+                    rememberUserCheckbox.setSelected(false);
+                    idField.setText("Enter Username");
+                    passwordField.setText(DecryptPass(rs.getString("rem_pass")));
+                }
+            }
+        }catch (ClassNotFoundException | SQLException e) {
+            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+        
     }
-    private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed
-
+    private void idFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idFieldActionPerformed
+        
         // TODO add your handling code here:
-    }//GEN-LAST:event_usernameFieldActionPerformed
+    }//GEN-LAST:event_idFieldActionPerformed
 
-    private void usernameFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameFieldFocusGained
-        usernameField.setText("");
+    private void idFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_idFieldFocusGained
+        idField.setText("");
         // TODO add your handling code here:
-    }//GEN-LAST:event_usernameFieldFocusGained
+    }//GEN-LAST:event_idFieldFocusGained
 
     private void passwordFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFieldFocusGained
         passwordField.setText("");
@@ -327,66 +377,79 @@ public class logInPage extends javax.swing.JFrame {
 
     private void signupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupButtonActionPerformed
         popUp pU = new popUp();
-
+        
         pU.setVisible(true);
         pU.setResizable(false);
-
+        
         pU.setDefaultCloseOperation(pU.DO_NOTHING_ON_CLOSE);
-
+        
         logInPage lF = new logInPage();
         dispose();
     }//GEN-LAST:event_signupButtonActionPerformed
     
     private void signinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signinButtonActionPerformed
-         final JPanel panel = new JPanel();
-
+        final JPanel panel = new JPanel();
         
-        
-        
-        //normal login
-        String uname = usernameField.getText();
+        String id = idField.getText();
         String pass = EncryptPass(passwordField.getText());
-        String sql = null;
-       // String type = (String) typeComboBox.getSelectedItem();
         String table = null;
+        String sql =null;
         
-        String type = "Student";
-        
-        if (type.equals("Student")) {
-            table = "student_accounts";
-        } else {
-            table = "teacher_accounts";
-        }
-
-        try {
-        
-            sql = "select uname from " + table + " where uname=\'" + uname + "\' and pass=\'" + pass + "\'";
-            st = (Statement) conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            rs = st.executeQuery(sql);
-            if (rs.next()) {
-                String query = "update " + table + " set active=1 where uname='" + uname + "\'";
-                pst = conn.prepareStatement(query);
-                pst.execute();
-                if(table.equals("student_accounts")){
-                    StudentProfile SP = new StudentProfile();
-                    SP.setVisible(true);
-                    dispose();
-                }
-                else{
-                    TeacherProfile SP = new TeacherProfile();
-                    SP.setVisible(true);
-                    dispose();
-                }
-                
-            } else {
+        if(id.equals("")||pass.equals("")){
+            JOptionPane.showMessageDialog(panel, "Invalid Credentials","Warning",JOptionPane.WARNING_MESSAGE);
+        }else{
+            if (id.contains("100.")) {
+                table = "student_accounts";
+            } else if(id.contains("400.")){
+                table = "teacher_accounts";
+            }else{
                 JOptionPane.showMessageDialog(this, "User not valid", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
             }
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
+            if(rememberUserCheckbox.isSelected() == true){
+                try{
+                    if(userValid(id,pass,table)){
+                        InetAddress myIP=InetAddress.getLocalHost();
+                        //Check user once logged in or not
+                        String sql2="select id from login_info where id=\'" + id + "\' and ip_address=\'" + myIP.getHostAddress() + "\'";
+                        st = (Statement) conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+                        rs = st.executeQuery(sql2);
+                        if(rs.next()){
+                            PreparedStatement  preparedStatement = conn.prepareStatement("update login_info set state =?  where id = \'"+id+"\' and ip_address=\'"+myIP.getHostAddress()+"\'");
+                            preparedStatement.setInt(1, 1);
+                            int update_done = preparedStatement.executeUpdate();
+                        }else{
+                            sql = "INSERT INTO login_info(id,ip_address,state) VALUES(?,?,?)";
+                            pst = conn.prepareStatement(sql);
+                            pst.setString(1, id);
+                            pst.setString(2, myIP.getHostAddress());
+                            pst.setInt(3, 1);
+                            pst.execute();
+                        }
+                        if(id.contains("100.")){
+                            new StudentProfile(id).setVisible(true);
+                        }else if(id.contains("400.")){
+                            new TeacherProfile(id).setVisible(true);
+                        }
+                        dispose();
+                    }
+                }
+                catch(UnknownHostException e){
+                    JOptionPane.showMessageDialog(panel, "Sorry, Can't get your IP Address.","Warning",JOptionPane.WARNING_MESSAGE);
+                }catch(SQLException e){
+                    JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
+                }
+            }else{
+                if(userValid(id,pass,table)){
+                    if(id.contains("100.")){
+                        new StudentProfile(id).setVisible(true);
+                    }else if(id.contains("400.")){
+                        new TeacherProfile(id).setVisible(true);
+                    }
+                    dispose();
+                }
+            }
         }
-
-
     }//GEN-LAST:event_signinButtonActionPerformed
 
     private void close_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_close_btnActionPerformed
@@ -395,28 +458,29 @@ public class logInPage extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_close_btnActionPerformed
 
-    private void checkRemeberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkRemeberActionPerformed
-        String cell;
-        
-         //if checkbox is marked
-         
-        if(checkRemeber.isSelected() == true){
-             checked(true);    
-         }
-         else{
-             checked(false);
-         }
-    }//GEN-LAST:event_checkRemeberActionPerformed
+    private void rememberUserCheckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rememberUserCheckboxActionPerformed
+//        String cell;
 
+//if checkbox is marked
+
+//        if(checkRemeber.isSelected() == true){
+//             checked(true);
+//         }
+//         else{
+//             checked(false);
+//         }
+    }//GEN-LAST:event_rememberUserCheckboxActionPerformed
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+        */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -434,7 +498,7 @@ public class logInPage extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(logInPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -445,8 +509,8 @@ public class logInPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BackgroundLebel;
-    private javax.swing.JCheckBox checkRemeber;
     private javax.swing.JButton close_btn;
+    private javax.swing.JTextField idField;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
@@ -454,8 +518,8 @@ public class logInPage extends javax.swing.JFrame {
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTextPane jTextPane2;
     private javax.swing.JPasswordField passwordField;
+    private javax.swing.JCheckBox rememberUserCheckbox;
     private javax.swing.JButton signinButton;
     private javax.swing.JButton signupButton;
-    private javax.swing.JTextField usernameField;
     // End of variables declaration//GEN-END:variables
 }

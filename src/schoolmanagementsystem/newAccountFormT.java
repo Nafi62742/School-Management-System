@@ -209,7 +209,7 @@ public class newAccountFormT extends javax.swing.JFrame {
     private void clearTextField() {
         name.setText("");
         class_.setText("");
-        section.setText("");
+       
         ID.setText("");
         usernameField.setText("");
         passwordField.setText("");
@@ -226,7 +226,7 @@ public class newAccountFormT extends javax.swing.JFrame {
                 pst = conn.prepareStatement(sql);
                 pst.setString(1, name.getText());
                 pst.setString(2, class_.getText());
-                pst.setString(3, section.getText());
+                
                 pst.setString(4, ID.getText());
                 pst.setString(5, usernameField.getText());
                 pst.setString(6, pass);

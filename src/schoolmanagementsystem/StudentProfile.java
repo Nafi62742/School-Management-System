@@ -1,11 +1,21 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 package schoolmanagementsystem;
 
 import java.awt.Color;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 //import java.awt.Toolkit;
 import javax.swing.JPanel;
 import javax.swing.jOptionPane;
@@ -15,16 +25,22 @@ import javax.swing.jOptionPane;
  * @author Administrator
  */
 public class StudentProfile extends javax.swing.JFrame {
-
-    /**
-     * Creates new form StudentProfile
-     */
+    
+    Connection conn = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
+    Statement st;
+    public String id;
     public StudentProfile() {
         this.setUndecorated(true);
-       
         initComponents();
     }
-
+    public StudentProfile(String id) {
+        this.setUndecorated(true);
+        initComponents();
+        conn = JConnection.connectdb();
+        this.id=id;  
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -640,94 +656,94 @@ public class StudentProfile extends javax.swing.JFrame {
         // TODO add your handling code here:
         jTabbedPane1.setSelectedIndex(0);
         setColor(home_btn);
-       // resetColor(new JPanel[](homework_btn;result_btn;notices_btn;attendance_btn));
-       resetColor(homework_btn);
-       resetColor(result_btn);
-       resetColor(notices_btn);
-       resetColor(attendance_btn);
-       
-       ind_0.setOpaque(true);
-       ind_1.setOpaque(false);
-       ind_2.setOpaque(false);
-       ind_3.setOpaque(false);
-       ind_4.setOpaque(false);
-       
-       
+        // resetColor(new JPanel[](homework_btn;result_btn;notices_btn;attendance_btn));
+        resetColor(homework_btn);
+        resetColor(result_btn);
+        resetColor(notices_btn);
+        resetColor(attendance_btn);
+        
+        ind_0.setOpaque(true);
+        ind_1.setOpaque(false);
+        ind_2.setOpaque(false);
+        ind_3.setOpaque(false);
+        ind_4.setOpaque(false);
+        
+        
     }//GEN-LAST:event_home_btnMousePressed
 
     private void homework_btnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homework_btnMousePressed
         // TODO add your handling code here:
         jTabbedPane1.setSelectedIndex(1);
         setColor(homework_btn);
-       // resetColor(new JPanel[](homework_btn;result_btn;notices_btn;attendance_btn));
-       resetColor(home_btn);
-       resetColor(result_btn);
-       resetColor(notices_btn);
-       resetColor(attendance_btn);
-       
-       ind_0.setOpaque(false);
-       ind_1.setOpaque(true);
-       ind_2.setOpaque(false);
-       ind_3.setOpaque(false);
-       ind_4.setOpaque(false);
-       
-       
+        // resetColor(new JPanel[](homework_btn;result_btn;notices_btn;attendance_btn));
+        resetColor(home_btn);
+        resetColor(result_btn);
+        resetColor(notices_btn);
+        resetColor(attendance_btn);
+        
+        ind_0.setOpaque(false);
+        ind_1.setOpaque(true);
+        ind_2.setOpaque(false);
+        ind_3.setOpaque(false);
+        ind_4.setOpaque(false);
+        
+        
     }//GEN-LAST:event_homework_btnMousePressed
 
     private void result_btnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_result_btnMousePressed
         // TODO add your handling code here:
         jTabbedPane1.setSelectedIndex(4);
         setColor(result_btn);
-       // resetColor(new JPanel[](homework_btn;result_btn;notices_btn;attendance_btn));
-       resetColor(homework_btn);
-       resetColor(home_btn);
-       resetColor(notices_btn);
-       resetColor(attendance_btn);
-       
-       ind_0.setOpaque(false);
-       ind_1.setOpaque(false);
-       ind_2.setOpaque(true);
-       ind_3.setOpaque(false);
-       ind_4.setOpaque(false);
-      
+        // resetColor(new JPanel[](homework_btn;result_btn;notices_btn;attendance_btn));
+        resetColor(homework_btn);
+        resetColor(home_btn);
+        resetColor(notices_btn);
+        resetColor(attendance_btn);
+        
+        ind_0.setOpaque(false);
+        ind_1.setOpaque(false);
+        ind_2.setOpaque(true);
+        ind_3.setOpaque(false);
+        ind_4.setOpaque(false);
+        
     }//GEN-LAST:event_result_btnMousePressed
 
     private void notices_btnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_notices_btnMousePressed
         // TODO add your handling code here:
         jTabbedPane1.setSelectedIndex(3);
         setColor(notices_btn);
-       // resetColor(new JPanel[](homework_btn;result_btn;notices_btn;attendance_btn));
-       resetColor(homework_btn);
-       resetColor(result_btn);
-       resetColor(home_btn);
-       resetColor(attendance_btn);
-       
-       ind_0.setOpaque(false);
-       ind_1.setOpaque(false);
-       ind_2.setOpaque(false);
-       ind_3.setOpaque(true);
-       ind_4.setOpaque(false);
-       
-      
+        // resetColor(new JPanel[](homework_btn;result_btn;notices_btn;attendance_btn));
+        resetColor(homework_btn);
+        resetColor(result_btn);
+        resetColor(home_btn);
+        resetColor(attendance_btn);
+        
+        ind_0.setOpaque(false);
+        ind_1.setOpaque(false);
+        ind_2.setOpaque(false);
+        ind_3.setOpaque(true);
+        ind_4.setOpaque(false);
+        
+        
     }//GEN-LAST:event_notices_btnMousePressed
 
     private void attendance_btnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_attendance_btnMousePressed
         // TODO add your handling code here:
         jTabbedPane1.setSelectedIndex(2);
         setColor(attendance_btn);
-       // resetColor(new JPanel[](homework_btn;result_btn;notices_btn;attendance_btn));
-       resetColor(homework_btn);
-       resetColor(result_btn);
-       resetColor(notices_btn);
-       resetColor(home_btn);
-       
-       ind_0.setOpaque(false);
-       ind_1.setOpaque(false);
-       ind_2.setOpaque(false);
-       ind_3.setOpaque(false);
-       ind_4.setOpaque(true);
-       
-       
+        // resetColor(new JPanel[](homework_btn;result_btn;notices_btn;attendance_btn));
+        resetColor(homework_btn);
+        resetColor(result_btn);
+        resetColor(notices_btn);
+        resetColor(home_btn);
+        
+        ind_0.setOpaque(false);
+        ind_1.setOpaque(false);
+        ind_2.setOpaque(false);
+        ind_3.setOpaque(false);
+        ind_4.setOpaque(true);
+        
+        
     }//GEN-LAST:event_attendance_btnMousePressed
 
     private void close_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_close_btnActionPerformed
@@ -736,61 +752,67 @@ public class StudentProfile extends javax.swing.JFrame {
     }//GEN-LAST:event_close_btnActionPerformed
 
     private void logOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutActionPerformed
-        // TODO add your handling code here:
-        logInPage LP= new logInPage();
-       
-        LP.setVisible(true);
-        LP.setResizable(false);
-        
-        StudentProfile sP = new StudentProfile();
-        dispose();
-   
-        
+        final JPanel panel = new JPanel();
+        try {
+            InetAddress myIP=InetAddress.getLocalHost();
+            PreparedStatement  preparedStatement = conn.prepareStatement("update login_info set state =?  where id = \'"+id+"\' and ip_address=\'"+myIP.getHostAddress()+"\'");
+            preparedStatement.setInt(1, 0);
+            int update_done = preparedStatement.executeUpdate();
+            logInPage LP= new logInPage();
+            LP.setVisible(true);
+            LP.setResizable(false);
+            dispose();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
+            
+        } catch (UnknownHostException ex) {
+            JOptionPane.showMessageDialog(panel, "Sorry, Can't get your IP Address.","Warning",JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_logOutActionPerformed
     int x =242;
     private void sideMenuHideMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sideMenuHideMouseClicked
         if(x==242)
         {
-	sideMenu.setSize(242,720);
-	Thread th = new Thread(){
-		@Override
-		public void run(){
-			try{
-				for(int i = 242;i>=0;i--){
-					Thread.sleep(1);
-					sideMenu.setSize(i,720);
-				}
-			}catch(Exception e){
-				jOptionPane.showMessegeDialog(null,e);
-                        }  
+            sideMenu.setSize(242,720);
+            Thread th = new Thread(){
+                @Override
+                public void run(){
+                    try{
+                        for(int i = 242;i>=0;i--){
+                            Thread.sleep(1);
+                            sideMenu.setSize(i,720);
+                        }
+                    }catch(Exception e){
+                        jOptionPane.showMessegeDialog(null,e);
+                    }
                 }
-		};th.start();
-	x=0;
+            };th.start();
+            x=0;
         }
     }//GEN-LAST:event_sideMenuHideMouseClicked
 
     private void SideMenuShowMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SideMenuShowMouseClicked
         if(x == 0)
-            {
-                    sideMenu.show();
-                    jTabbedPane1.show();
-                    //jTabbedPane2.show();
-                    sideMenu.setSize(242,720);//[418, 720]
-                    Thread th = new Thread(){
-                            @Override
-                            public void run(){
-                                    try{
-                                            for(int i = 0; i <= x; i++){
-                                                    Thread.sleep(1);
-                                                    sideMenu.setSize(i,720);
-                                            }
-                                    }catch(Exception e){
-                                            jOptionPane.showMessegeDialog(null,e);
-                                }
-                            }
-                    };th.start();
-                    x=242;
-            }
+        {
+            sideMenu.show();
+            jTabbedPane1.show();
+            //jTabbedPane2.show();
+            sideMenu.setSize(242,720);//[418, 720]
+            Thread th = new Thread(){
+                @Override
+                public void run(){
+                    try{
+                        for(int i = 0; i <= x; i++){
+                            Thread.sleep(1);
+                            sideMenu.setSize(i,720);
+                        }
+                    }catch(Exception e){
+                        jOptionPane.showMessegeDialog(null,e);
+                    }
+                }
+            };th.start();
+            x=242;
+        }
     }//GEN-LAST:event_SideMenuShowMouseClicked
     
     /**
@@ -800,8 +822,8 @@ public class StudentProfile extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+        */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Windows".equals(info.getName())) {
@@ -819,7 +841,7 @@ public class StudentProfile extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(StudentProfile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -838,9 +860,9 @@ public class StudentProfile extends javax.swing.JFrame {
     private void resetColor(JPanel pane)
     {
         //for(int i=0;i<pane.length;i++)
-       // {
+        // {
         pane.setBackground(new Color(19,10,52));
-       // }
+        // }
     }
     
 
