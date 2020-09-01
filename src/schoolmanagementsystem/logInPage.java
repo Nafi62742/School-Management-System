@@ -29,24 +29,17 @@ import org.apache.commons.codec.binary.Base64;
  * @author Administrator
  */
 public class logInPage extends javax.swing.JFrame {
-    
     public Preferences pref = Preferences.userRoot().node("Rememberme");
-    
-    
-    
     public Connection conn = null;
     private ResultSet rs = null;
     private PreparedStatement pst = null;
     private Statement st;
     private String id;
-    
-    
-    
     public logInPage() {
         this.setUndecorated(true);
         conn = JConnection.connectdb();
         if(isUserLoggedIn()){
-            System.out.println(id);
+            
             if(id.contains("100.")){
                 new StudentProfile(id).setVisible(true);
                 dispose();
@@ -55,7 +48,6 @@ public class logInPage extends javax.swing.JFrame {
                 dispose();
             }
         }else{
-            
             initComponents();
         }
 //        rememberMark();
@@ -68,8 +60,6 @@ String pss = null;
 pss= pref.get("Password", pss);
 passwordField.setText(EncryptPass(pss));
 */
-
-
     }
     
     /**
