@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 31, 2020 at 10:31 PM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.3.11
+-- Generation Time: Sep 01, 2020 at 03:55 AM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.4.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -52,7 +51,19 @@ CREATE TABLE `login_info` (
 --
 
 INSERT INTO `login_info` (`id`, `ip_address`, `state`) VALUES
-('100.12', '192.168.0.107', 0);
+('100.12', '192.168.0.107', 0),
+('100.17', '192.168.0.105', 0),
+('400.420', '192.168.0.105', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notice_table`
+--
+
+CREATE TABLE `notice_table` (
+  `notice` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -73,7 +84,8 @@ CREATE TABLE `student_accounts` (
 --
 
 INSERT INTO `student_accounts` (`name`, `class`, `sec`, `id`, `pass`) VALUES
-('Fahim', '10', 'a', '100.12', 'MTIzNA==');
+('Fahim', '10', 'a', '100.12', 'MTIzNA=='),
+('Nafi', '5', 'A', '100.17', 'TmFmaTAwNw==');
 
 -- --------------------------------------------------------
 
@@ -86,18 +98,18 @@ CREATE TABLE `teacher_accounts` (
   `class` text NOT NULL,
   `sec` text NOT NULL,
   `id` text NOT NULL,
-  `uname` text NOT NULL,
-  `pass` text NOT NULL,
-  `active` int(11) NOT NULL
+  `pass` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `teacher_accounts`
 --
 
-INSERT INTO `teacher_accounts` (`name`, `class`, `sec`, `id`, `uname`, `pass`, `active`) VALUES
-('Karim', 'Math', 'lecturer', '420.19', 'Karim', 'S2FyaW0=', 1),
-('asdfg', 'asdas', 'asdasa', 'asdas', 'asdfg', 'YXNkZmc=', 1);
+INSERT INTO `teacher_accounts` (`name`, `class`, `sec`, `id`, `pass`) VALUES
+('Karim', 'Math', 'lecturer', '420.19', 'S2FyaW0='),
+('asdfg', 'asdas', 'asdasa', 'asdas', 'YXNkZmc='),
+('Md Karim', 'Math', 'lecturer', '100.420', 'a2FyaW0='),
+('Md Karim', 'Math', 'lecturer', '400.420', 'a2FyaW0=');
 
 --
 -- Indexes for dumped tables

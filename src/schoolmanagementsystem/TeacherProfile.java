@@ -5,6 +5,13 @@
  */
 package schoolmanagementsystem;
 
+import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.jOptionPane;
 
@@ -17,13 +24,22 @@ public class TeacherProfile extends javax.swing.JFrame {
     /**
      * Creates new form TeacherProfile
      */
+    Connection conn = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
+    Statement st;
+    public String id;
     public TeacherProfile() {
         initComponents();
         hideSideMenu();
     }
     public TeacherProfile(String id) {
+        this.setUndecorated(true);
         initComponents();
         hideSideMenu();
+        conn = JConnection.connectdb();
+        this.id=id;
+        profileShow(); 
     }
     
     int x =242;
@@ -47,6 +63,36 @@ public class TeacherProfile extends javax.swing.JFrame {
 	x=0;
         }
     }
+    public void profileShow(){
+        final JPanel panel = new JPanel();
+            String student_id ="400.420";
+            NameFDB.setText("Name");
+            try{
+                
+                String sql = "SELECT name, class, sec, id, pass FROM teacher_accounts WHERE id='" + student_id + "' ";
+                
+                st = (Statement) conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+                rs = st.executeQuery(sql);
+                if (rs.next()) {
+                    String StudentName = rs.getString("name");
+                    String ID = rs.getString("id");
+                    String Section = rs.getString("sec");
+                    NameFDB.setText(StudentName);
+                    IDFDB.setText(ID);
+                    DesignationFDB.setText(Section);
+                    
+                }else{
+                    JOptionPane.showMessageDialog(null, "Sorry,No data found for this ID","Student ID",JOptionPane.ERROR_MESSAGE);
+                     JOptionPane.showMessageDialog(null, "Enter valid  ID","Student ID",JOptionPane.INFORMATION_MESSAGE);
+                }
+            
+                
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(panel, "SQL Syntax WRONG","Database",JOptionPane.ERROR_MESSAGE);
+            }
+            
+            
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -61,7 +107,12 @@ public class TeacherProfile extends javax.swing.JFrame {
         close_btn = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         HomePanel = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
+        NameText2 = new javax.swing.JLabel();
+        DesignationFDB = new javax.swing.JLabel();
+        NameFDB = new javax.swing.JLabel();
+        DesignationText = new javax.swing.JLabel();
+        IDTest1 = new javax.swing.JLabel();
+        IDFDB = new javax.swing.JLabel();
         HomeworkPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -148,25 +199,78 @@ public class TeacherProfile extends javax.swing.JFrame {
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 32));
 
-        jLabel9.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Teacher Profile");
+        HomePanel.setBackground(new java.awt.Color(65, 59, 94));
+
+        NameText2.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        NameText2.setForeground(new java.awt.Color(255, 255, 255));
+        NameText2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        NameText2.setText("Name");
+
+        DesignationFDB.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        DesignationFDB.setForeground(new java.awt.Color(153, 255, 255));
+        DesignationFDB.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        DesignationFDB.setText("Designation show");
+
+        NameFDB.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        NameFDB.setForeground(new java.awt.Color(51, 255, 255));
+        NameFDB.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        NameFDB.setText("Name Show");
+
+        DesignationText.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        DesignationText.setForeground(new java.awt.Color(255, 255, 255));
+        DesignationText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        DesignationText.setText("Designation");
+
+        IDTest1.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        IDTest1.setForeground(new java.awt.Color(255, 255, 255));
+        IDTest1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        IDTest1.setText("ID");
+
+        IDFDB.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        IDFDB.setForeground(new java.awt.Color(153, 255, 255));
+        IDFDB.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        IDFDB.setText("ID show");
 
         javax.swing.GroupLayout HomePanelLayout = new javax.swing.GroupLayout(HomePanel);
         HomePanel.setLayout(HomePanelLayout);
         HomePanelLayout.setHorizontalGroup(
             HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HomePanelLayout.createSequentialGroup()
-                .addGap(223, 223, 223)
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(HomePanelLayout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(DesignationText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(DesignationFDB, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(HomePanelLayout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(HomePanelLayout.createSequentialGroup()
+                                .addComponent(IDTest1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(IDFDB, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(HomePanelLayout.createSequentialGroup()
+                                .addComponent(NameText2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
+                                .addComponent(NameFDB, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(621, Short.MAX_VALUE))
         );
         HomePanelLayout.setVerticalGroup(
             HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HomePanelLayout.createSequentialGroup()
-                .addGap(239, 239, 239)
-                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(428, 428, 428))
+                .addGap(182, 182, 182)
+                .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(NameFDB, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NameText2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(64, 64, 64)
+                .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(IDTest1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(IDFDB, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(DesignationFDB, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DesignationText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(170, 170, 170))
         );
 
         jTabbedPane1.addTab("home", HomePanel);
@@ -997,13 +1101,19 @@ public class TeacherProfile extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AttendencePanel;
+    private javax.swing.JLabel DesignationFDB;
+    private javax.swing.JLabel DesignationText;
     private javax.swing.JPanel HomePanel;
     private javax.swing.JLabel Homework;
     private javax.swing.JPanel HomeworkPanel;
     private javax.swing.JPanel HomeworkPanel1;
     private javax.swing.JPanel HomeworkPanel2;
+    private javax.swing.JLabel IDFDB;
+    private javax.swing.JLabel IDTest1;
     private javax.swing.JLabel MenuText;
     private javax.swing.JTextArea N_ID;
+    private javax.swing.JLabel NameFDB;
+    private javax.swing.JLabel NameText2;
     private javax.swing.JLabel Profile;
     private javax.swing.JLabel SideMenuShow;
     private javax.swing.JPanel attendance_btn;
@@ -1033,7 +1143,6 @@ public class TeacherProfile extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;

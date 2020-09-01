@@ -6,6 +6,7 @@
 package schoolmanagementsystem;
 
 import java.awt.Color;
+import java.awt.HeadlessException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.sql.Connection;
@@ -42,6 +43,7 @@ public class StudentProfile extends javax.swing.JFrame {
         hideSideMenu();
         conn = JConnection.connectdb();
         this.id=id;  
+        profileShow();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -57,7 +59,12 @@ public class StudentProfile extends javax.swing.JFrame {
         close_btn = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         HomePanel = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
+        NameFDB = new javax.swing.JLabel();
+        SectionText = new javax.swing.JLabel();
+        SectionFDB = new javax.swing.JLabel();
+        NameText2 = new javax.swing.JLabel();
+        IDTest1 = new javax.swing.JLabel();
+        IDFDB = new javax.swing.JLabel();
         HomeworkPanel = new javax.swing.JPanel();
         HomeworkPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -132,25 +139,81 @@ public class StudentProfile extends javax.swing.JFrame {
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 32));
 
-        jLabel9.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Home");
+        HomePanel.setBackground(new java.awt.Color(65, 59, 94));
+
+        NameFDB.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        NameFDB.setForeground(new java.awt.Color(51, 255, 255));
+        NameFDB.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        NameFDB.setText("Name Show");
+
+        SectionText.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        SectionText.setForeground(new java.awt.Color(255, 255, 255));
+        SectionText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        SectionText.setText("Section");
+
+        SectionFDB.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        SectionFDB.setForeground(new java.awt.Color(153, 255, 255));
+        SectionFDB.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        SectionFDB.setText("Section show");
+
+        NameText2.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        NameText2.setForeground(new java.awt.Color(255, 255, 255));
+        NameText2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        NameText2.setText("Name");
+
+        IDTest1.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        IDTest1.setForeground(new java.awt.Color(255, 255, 255));
+        IDTest1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        IDTest1.setText("ID");
+
+        IDFDB.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        IDFDB.setForeground(new java.awt.Color(153, 255, 255));
+        IDFDB.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        IDFDB.setText("ID show");
 
         javax.swing.GroupLayout HomePanelLayout = new javax.swing.GroupLayout(HomePanel);
         HomePanel.setLayout(HomePanelLayout);
         HomePanelLayout.setHorizontalGroup(
             HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HomePanelLayout.createSequentialGroup()
-                .addGap(223, 223, 223)
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(470, Short.MAX_VALUE))
+                .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(HomePanelLayout.createSequentialGroup()
+                        .addGap(92, 92, 92)
+                        .addComponent(NameText2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(HomePanelLayout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(IDTest1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(HomePanelLayout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addComponent(IDFDB, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(HomePanelLayout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(NameFDB, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(559, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(SectionText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addComponent(SectionFDB, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(574, 574, 574))
         );
         HomePanelLayout.setVerticalGroup(
             HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(HomePanelLayout.createSequentialGroup()
-                .addGap(239, 239, 239)
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(272, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomePanelLayout.createSequentialGroup()
+                .addContainerGap(196, Short.MAX_VALUE)
+                .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(NameText2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NameFDB, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(IDTest1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(IDFDB, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SectionText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SectionFDB, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(237, 237, 237))
         );
 
         jTabbedPane1.addTab("home", HomePanel);
@@ -676,6 +739,37 @@ public class StudentProfile extends javax.swing.JFrame {
         }
     }
 
+    public void profileShow(){
+        final JPanel panel = new JPanel();
+            String student_id ="100.17";
+            try{
+                
+                String sql = "SELECT name, class, sec, id, pass FROM student_accounts WHERE id='" + student_id + "' ";
+                try{
+                st = (Statement) conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+                rs = st.executeQuery(sql);
+                if (rs.next()) {
+                    String StudentName = rs.getString("name");
+                    String ID = rs.getString("id");
+                    String Section = rs.getString("sec");
+                    NameFDB.setText(StudentName);
+                    IDFDB.setText(ID);
+                    SectionFDB.setText(Section);
+                    
+                }else{
+                    JOptionPane.showMessageDialog(null, "Sorry,No data found for this ID","Student ID",JOptionPane.ERROR_MESSAGE);
+                     JOptionPane.showMessageDialog(null, "Enter valid  ID","Student ID",JOptionPane.INFORMATION_MESSAGE);
+                }
+            
+                }catch(HeadlessException | SQLException e){
+                JOptionPane.showMessageDialog(panel, "Database error. Auto login failed.","Warning",JOptionPane.WARNING_MESSAGE);
+            }
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(panel, "SQL Syntax WRONG","Database",JOptionPane.ERROR_MESSAGE);
+            }
+            
+            
+    }
     private void home_btnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_home_btnMousePressed
         // TODO add your handling code here:
         jTabbedPane1.setSelectedIndex(0);
@@ -898,8 +992,14 @@ public class StudentProfile extends javax.swing.JFrame {
     private javax.swing.JPanel HomeworkPanel;
     private javax.swing.JPanel HomeworkPanel1;
     private javax.swing.JPanel HomeworkPanel2;
+    private javax.swing.JLabel IDFDB;
+    private javax.swing.JLabel IDTest1;
     private javax.swing.JLabel MenuText;
     private javax.swing.JTextArea N_ID;
+    private javax.swing.JLabel NameFDB;
+    private javax.swing.JLabel NameText2;
+    private javax.swing.JLabel SectionFDB;
+    private javax.swing.JLabel SectionText;
     private javax.swing.JLabel SideMenuShow;
     private javax.swing.JPanel attendance_btn;
     private javax.swing.JButton close_btn;
@@ -919,7 +1019,6 @@ public class StudentProfile extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane2;

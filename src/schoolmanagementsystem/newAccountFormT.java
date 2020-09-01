@@ -38,9 +38,9 @@ public class newAccountFormT extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         name = new javax.swing.JTextField();
         class_ = new javax.swing.JTextField();
-        ID = new javax.swing.JTextField();
+        designation = new javax.swing.JTextField();
         jTextPane1 = new javax.swing.JTextPane();
-        usernameField = new javax.swing.JTextField();
+        idField = new javax.swing.JTextField();
         passwordField = new javax.swing.JPasswordField();
         passwordFieldConfirm = new javax.swing.JPasswordField();
         jTextPane2 = new javax.swing.JTextPane();
@@ -89,18 +89,23 @@ public class newAccountFormT extends javax.swing.JFrame {
         });
         jPanel1.add(class_, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 430, 30));
 
-        ID.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
-        ID.setBorder(null);
-        ID.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        ID.setOpaque(false);
-        jPanel1.add(ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 440, 30));
+        designation.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        designation.setBorder(null);
+        designation.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        designation.setOpaque(false);
+        jPanel1.add(designation, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 440, 30));
         jPanel1.add(jTextPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        usernameField.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
-        usernameField.setBorder(null);
-        usernameField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        usernameField.setOpaque(false);
-        jPanel1.add(usernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 440, 400, 30));
+        idField.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        idField.setBorder(null);
+        idField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        idField.setOpaque(false);
+        idField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idFieldActionPerformed(evt);
+            }
+        });
+        jPanel1.add(idField, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 440, 400, 30));
 
         passwordField.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         passwordField.setBorder(null);
@@ -209,14 +214,14 @@ public class newAccountFormT extends javax.swing.JFrame {
     private void clearTextField() {
         name.setText("");
         class_.setText("");
-       
-        ID.setText("");
-        usernameField.setText("");
+        designation.setText("");
+        idField.setText("");
         passwordField.setText("");
         passwordFieldConfirm.setText("");
     }
+    
     private void signupButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupButton1ActionPerformed
-        String sql = "INSERT INTO teacher_accounts(name,class,sec,id,uname,pass,active) VALUES(?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO teacher_accounts(name,class,sec,id,pass) VALUES(?,?,?,?,?)";
         String pass = null;
 
         String originalPass = passwordField.getText();
@@ -226,11 +231,11 @@ public class newAccountFormT extends javax.swing.JFrame {
                 pst = conn.prepareStatement(sql);
                 pst.setString(1, name.getText());
                 pst.setString(2, class_.getText());
+                pst.setString(3, designation.getText());
+                pst.setString(4, "400."+idField.getText());
+
+                pst.setString(5, pass);
                 
-                pst.setString(4, ID.getText());
-                pst.setString(5, usernameField.getText());
-                pst.setString(6, pass);
-                pst.setInt(7,0);
                 pst.execute();
                 clearTextField();
                 JOptionPane.showMessageDialog(null, "Inserted Successfully");
@@ -249,6 +254,10 @@ public class newAccountFormT extends javax.swing.JFrame {
     private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nameActionPerformed
+
+    private void idFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -287,9 +296,10 @@ public class newAccountFormT extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField ID;
     private javax.swing.JButton back_btn;
     private javax.swing.JTextField class_;
+    private javax.swing.JTextField designation;
+    private javax.swing.JTextField idField;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
@@ -305,6 +315,5 @@ public class newAccountFormT extends javax.swing.JFrame {
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JPasswordField passwordFieldConfirm;
     private javax.swing.JButton signupButton1;
-    private javax.swing.JTextField usernameField;
     // End of variables declaration//GEN-END:variables
 }

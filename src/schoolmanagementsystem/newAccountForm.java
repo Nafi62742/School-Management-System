@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 import org.apache.commons.codec.binary.Base64;
 
@@ -19,11 +20,10 @@ public class newAccountForm extends javax.swing.JFrame {
     Connection conn = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
-
+    Statement st;
     public newAccountForm() {
         this.setUndecorated(true);
         initComponents();
-
         conn = JConnection.connectdb();
 
     }
