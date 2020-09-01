@@ -741,7 +741,7 @@ public class StudentProfile extends javax.swing.JFrame {
 
     public void profileShow(){
         final JPanel panel = new JPanel();
-            String student_id ="100.17";
+            String student_id =this.id;
             try{
                 
                 String sql = "SELECT name, class, sec, id, pass FROM student_accounts WHERE id='" + student_id + "' ";
