@@ -1,11 +1,14 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 package schoolmanagementsystem;
 
+<<<<<<< Updated upstream
 import java.awt.HeadlessException;
+=======
+>>>>>>> Stashed changes
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.sql.Connection;
@@ -16,13 +19,14 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.jOptionPane;
+import schoolmanagementsystem.Database.TeacherDatabase;
 
 /**
  *
  * @author Nafi
  */
 public class TeacherProfile extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form TeacherProfile
      */
@@ -30,7 +34,8 @@ public class TeacherProfile extends javax.swing.JFrame {
     PreparedStatement pst = null;
     ResultSet rs = null;
     Statement st;
-    public String id;
+    TeacherDatabase teacherDb;
+    private String id;
     public TeacherProfile() {
         initComponents();
         hideSideMenu();
@@ -38,35 +43,45 @@ public class TeacherProfile extends javax.swing.JFrame {
     public TeacherProfile(String id) {
         this.setUndecorated(true);
         initComponents();
-        hideSideMenu();
-        conn = JConnection.connectdb();
-        this.id=id;
-        profileShow(); 
+        setId(id);
+        teacherDb=new TeacherDatabase(getId());
+        
+//        hideSideMenu();
+//        profileShow();
+    }
+    
+    public void setId(String id) {
+        this.id = id;
+    }
+    
+    public String getId() {
+        return id;
     }
     
     int x =242;
     public void hideSideMenu(){
         if(x==242)
         {
-	sideMenu.setSize(242,720);
-	Thread th = new Thread(){
-		@Override
-		public void run(){
-			try{
-				for(int i = 242;i>=0;i=i-11){
-					Thread.sleep(1);
-					sideMenu.setSize(i,720);
-				}
-			}catch(Exception e){
-				jOptionPane.showMessegeDialog(null,e);
-                        }  
+            sideMenu.setSize(242,720);
+            Thread th = new Thread(){
+                @Override
+                public void run(){
+                    try{
+                        for(int i = 242;i>=0;i=i-11){
+                            Thread.sleep(1);
+                            sideMenu.setSize(i,720);
+                        }
+                    }catch(Exception e){
+                        jOptionPane.showMessegeDialog(null,e);
+                    }
                 }
-		};th.start();
-	x=0;
+            };th.start();
+            x=0;
         }
     }
     public void profileShow(){
         final JPanel panel = new JPanel();
+<<<<<<< Updated upstream
             String student_id =this.id;
             Name.setText("Name");
             try{
@@ -87,13 +102,31 @@ public class TeacherProfile extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Sorry,No data found for this ID","Student ID",JOptionPane.ERROR_MESSAGE);
                      JOptionPane.showMessageDialog(null, "Enter valid  ID","Student ID",JOptionPane.INFORMATION_MESSAGE);
                 }
+=======
+        String student_id =this.id;
+        NameFDB.setText("Name");
+        try{
+>>>>>>> Stashed changes
             
+            String sql = "SELECT name, class, sec, id, pass FROM teacher_accounts WHERE id='" + student_id + "' ";
+            
+            st = (Statement) conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            rs = st.executeQuery(sql);
+            if (rs.next()) {
+                String StudentName = rs.getString("name");
+                String ID = rs.getString("id");
+                String Section = rs.getString("sec");
+                NameFDB.setText(StudentName);
+                IDFDB.setText(ID);
+                DesignationFDB.setText(Section);
                 
-            }catch(Exception e){
-                JOptionPane.showMessageDialog(panel, "SQL Syntax WRONG","Database",JOptionPane.ERROR_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(null, "Sorry,No data found for this ID","Student ID",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Enter valid  ID","Student ID",JOptionPane.INFORMATION_MESSAGE);
             }
-            
-            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(panel, "SQL Syntax WRONG","Database",JOptionPane.ERROR_MESSAGE);
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -116,7 +149,6 @@ public class TeacherProfile extends javax.swing.JFrame {
         IDTest1 = new javax.swing.JLabel();
         ID = new javax.swing.JLabel();
         HomeworkPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
@@ -127,25 +159,26 @@ public class TeacherProfile extends javax.swing.JFrame {
         jComboBox2 = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jSeparator3 = new javax.swing.JSeparator();
-        jSeparator4 = new javax.swing.JSeparator();
+        homeworkTextArea = new javax.swing.JTextArea();
+        jLabel9 = new javax.swing.JLabel();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        jLabel11 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        homeworkPostButton = new javax.swing.JButton();
         AttendencePanel = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         noticePanel = new javax.swing.JPanel();
         HomeworkPanel2 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        studentClassComboBox = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        jSeparator5 = new javax.swing.JSeparator();
+        noticeTextArea = new javax.swing.JTextArea();
         jSeparator6 = new javax.swing.JSeparator();
-        jLabel17 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        N_ID = new javax.swing.JTextArea();
-        jTextField2 = new javax.swing.JTextField();
+        noticePostButton = new javax.swing.JButton();
         resultPanel = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         sideMenu = new javax.swing.JPanel();
@@ -170,6 +203,7 @@ public class TeacherProfile extends javax.swing.JFrame {
         MenuText = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -188,9 +222,10 @@ public class TeacherProfile extends javax.swing.JFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap(654, Short.MAX_VALUE)
                 .addComponent(close_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1250, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,7 +234,7 @@ public class TeacherProfile extends javax.swing.JFrame {
                 .addGap(0, 2, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 32));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 0, 690, 32));
 
         HomePanel.setBackground(new java.awt.Color(65, 59, 94));
 
@@ -267,8 +302,13 @@ public class TeacherProfile extends javax.swing.JFrame {
                 .addGap(64, 64, 64)
                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(IDTest1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< Updated upstream
                     .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+=======
+                    .addComponent(IDFDB, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+>>>>>>> Stashed changes
                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Designation, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DesignationText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -278,10 +318,6 @@ public class TeacherProfile extends javax.swing.JFrame {
         jTabbedPane1.addTab("home", HomePanel);
 
         HomeworkPanel.setBackground(new java.awt.Color(65, 59, 94));
-
-        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("HomeWork");
 
         jLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -321,12 +357,12 @@ public class TeacherProfile extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Select Class");
+        jLabel8.setText("Total Marks");
 
         jComboBox2.setBackground(new java.awt.Color(65, 59, 94));
         jComboBox2.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         jComboBox2.setForeground(new java.awt.Color(255, 255, 255));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Class 1", "Class 2", "Class 3", "Class 4", "Class 5", "Class 6", "Class 7", "Class 8", "Class 9", "Class 10", "I" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
@@ -341,80 +377,153 @@ public class TeacherProfile extends javax.swing.JFrame {
         jScrollPane1.setBackground(new java.awt.Color(18, 30, 49));
         jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        jTextArea1.setRows(5);
-        jTextArea1.setCaretColor(new java.awt.Color(18, 30, 49));
-        jScrollPane1.setViewportView(jTextArea1);
+        homeworkTextArea.setBackground(new java.awt.Color(93, 131, 245));
+        homeworkTextArea.setColumns(20);
+        homeworkTextArea.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        homeworkTextArea.setForeground(new java.awt.Color(255, 255, 255));
+        homeworkTextArea.setRows(5);
+        homeworkTextArea.setCaretColor(new java.awt.Color(18, 30, 49));
+        jScrollPane1.setViewportView(homeworkTextArea);
 
-        jSeparator4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Select Section");
+
+        jComboBox4.setBackground(new java.awt.Color(65, 59, 94));
+        jComboBox4.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        jComboBox4.setForeground(new java.awt.Color(255, 255, 255));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "a", "b", "c" }));
+        jComboBox4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox4ActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Select Class");
+
+        jTextField4.setBackground(new java.awt.Color(65, 59, 94));
+        jTextField4.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jTextField4.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
+
+        jLabel18.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setText("Due Date");
+
+        jDateChooser1.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout HomeworkPanel1Layout = new javax.swing.GroupLayout(HomeworkPanel1);
         HomeworkPanel1.setLayout(HomeworkPanel1Layout);
         HomeworkPanel1Layout.setHorizontalGroup(
             HomeworkPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HomeworkPanel1Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(17, 17, 17)
                 .addGroup(HomeworkPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 961, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(HomeworkPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(HomeworkPanel1Layout.createSequentialGroup()
+                        .addGroup(HomeworkPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(HomeworkPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18))
+                            .addGroup(HomeworkPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(8, 8, 8)))
                         .addGroup(HomeworkPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(51, 51, 51)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 668, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(45, Short.MAX_VALUE))
+                            .addComponent(jComboBox2, 0, 168, Short.MAX_VALUE)
+                            .addComponent(jTextField4))
+                        .addGap(84, 84, 84)
+                        .addGroup(HomeworkPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                            .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(HomeworkPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jComboBox4, 0, 168, Short.MAX_VALUE)
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(318, 318, 318))
+                    .addGroup(HomeworkPanel1Layout.createSequentialGroup()
+                        .addGroup(HomeworkPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 961, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         HomeworkPanel1Layout.setVerticalGroup(
             HomeworkPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HomeworkPanel1Layout.createSequentialGroup()
-                .addGap(51, 51, 51)
+                .addGap(20, 20, 20)
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addGap(37, 37, 37)
                 .addGroup(HomeworkPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addGroup(HomeworkPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(HomeworkPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(HomeworkPanel1Layout.createSequentialGroup()
+                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(5, 5, 5)))
+                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48))
         );
+
+        homeworkPostButton.setBackground(new java.awt.Color(51, 0, 255));
+        homeworkPostButton.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
+        homeworkPostButton.setForeground(new java.awt.Color(255, 255, 255));
+        homeworkPostButton.setText("Post");
+        homeworkPostButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        homeworkPostButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeworkPostButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout HomeworkPanelLayout = new javax.swing.GroupLayout(HomeworkPanel);
         HomeworkPanel.setLayout(HomeworkPanelLayout);
         HomeworkPanelLayout.setHorizontalGroup(
             HomeworkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HomeworkPanelLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(HomeworkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 981, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(HomeworkPanelLayout.createSequentialGroup()
-                        .addGroup(HomeworkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(51, 51, 51)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(HomeworkPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1035, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 5, Short.MAX_VALUE))
             .addGroup(HomeworkPanelLayout.createSequentialGroup()
-                .addComponent(HomeworkPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(HomeworkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(HomeworkPanelLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(HomeworkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 981, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(HomeworkPanelLayout.createSequentialGroup()
+                                .addGroup(HomeworkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(51, 51, 51)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(HomeworkPanelLayout.createSequentialGroup()
+                        .addGap(377, 377, 377)
+                        .addComponent(homeworkPostButton, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         HomeworkPanelLayout.setVerticalGroup(
             HomeworkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HomeworkPanelLayout.createSequentialGroup()
-                .addComponent(HomeworkPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(HomeworkPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addGap(63, 63, 63)
+                .addComponent(homeworkPostButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53)
                 .addGroup(HomeworkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -443,7 +552,7 @@ public class TeacherProfile extends javax.swing.JFrame {
             AttendencePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AttendencePanelLayout.createSequentialGroup()
                 .addGap(247, 247, 247)
-                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
                 .addGap(386, 386, 386))
         );
 
@@ -459,13 +568,13 @@ public class TeacherProfile extends javax.swing.JFrame {
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Select Class");
 
-        jComboBox3.setBackground(new java.awt.Color(65, 59, 94));
-        jComboBox3.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
-        jComboBox3.setForeground(new java.awt.Color(255, 255, 255));
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Class 1", "Class 2", "Class 3", "Class 4", "Class 5", "Class 6", "Class 7", "Class 8", "Class 9", "Class 10", "I" }));
-        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+        studentClassComboBox.setBackground(new java.awt.Color(65, 59, 94));
+        studentClassComboBox.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        studentClassComboBox.setForeground(new java.awt.Color(255, 255, 255));
+        studentClassComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        studentClassComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox3ActionPerformed(evt);
+                studentClassComboBoxActionPerformed(evt);
             }
         });
 
@@ -477,80 +586,64 @@ public class TeacherProfile extends javax.swing.JFrame {
         jScrollPane2.setBackground(new java.awt.Color(18, 30, 49));
         jScrollPane2.setForeground(new java.awt.Color(255, 255, 255));
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        jTextArea2.setRows(5);
-        jTextArea2.setCaretColor(new java.awt.Color(18, 30, 49));
-        jScrollPane2.setViewportView(jTextArea2);
+        noticeTextArea.setColumns(20);
+        noticeTextArea.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        noticeTextArea.setRows(5);
+        noticeTextArea.setCaretColor(new java.awt.Color(18, 30, 49));
+        jScrollPane2.setViewportView(noticeTextArea);
 
         jSeparator6.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
-        jLabel17.setBackground(new java.awt.Color(65, 59, 94));
-        jLabel17.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel17.setText("Enter Message To ID :");
-
-        jScrollPane3.setBackground(new java.awt.Color(18, 30, 49));
-        jScrollPane3.setForeground(new java.awt.Color(255, 255, 255));
-
-        N_ID.setColumns(20);
-        N_ID.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        N_ID.setRows(5);
-        N_ID.setCaretColor(new java.awt.Color(18, 30, 49));
-        jScrollPane3.setViewportView(N_ID);
-
-        jTextField2.setBackground(new java.awt.Color(65, 59, 94));
-        jTextField2.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        noticePostButton.setBackground(new java.awt.Color(51, 0, 255));
+        noticePostButton.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
+        noticePostButton.setForeground(new java.awt.Color(255, 255, 255));
+        noticePostButton.setText("Post");
+        noticePostButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        noticePostButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                noticePostButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout HomeworkPanel2Layout = new javax.swing.GroupLayout(HomeworkPanel2);
         HomeworkPanel2.setLayout(HomeworkPanel2Layout);
         HomeworkPanel2Layout.setHorizontalGroup(
             HomeworkPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomeworkPanel2Layout.createSequentialGroup()
+                .addContainerGap(367, Short.MAX_VALUE)
+                .addComponent(noticePostButton, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(354, 354, 354))
             .addGroup(HomeworkPanel2Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(HomeworkPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 953, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 953, Short.MAX_VALUE)
                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(HomeworkPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51)
-                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 668, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(HomeworkPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel17)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(53, Short.MAX_VALUE))
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(studentClassComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator6))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         HomeworkPanel2Layout.setVerticalGroup(
             HomeworkPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HomeworkPanel2Layout.createSequentialGroup()
-                .addGap(51, 51, 51)
+                .addGap(40, 40, 40)
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(HomeworkPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addGroup(HomeworkPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(studentClassComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(HomeworkPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
+                .addComponent(noticePostButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout noticePanelLayout = new javax.swing.GroupLayout(noticePanel);
@@ -559,7 +652,7 @@ public class TeacherProfile extends javax.swing.JFrame {
             noticePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, noticePanelLayout.createSequentialGroup()
                 .addComponent(HomeworkPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 5, Short.MAX_VALUE))
         );
         noticePanelLayout.setVerticalGroup(
             noticePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -592,7 +685,7 @@ public class TeacherProfile extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("result", resultPanel);
 
-        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, 1040, 710));
+        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 1040, 720));
 
         sideMenu.setBackground(new java.awt.Color(19, 10, 52));
 
@@ -896,6 +989,7 @@ public class TeacherProfile extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void close_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_close_btnActionPerformed
@@ -912,7 +1006,7 @@ public class TeacherProfile extends javax.swing.JFrame {
         resetColor(result_btn);
         resetColor(notices_btn);
         resetColor(attendance_btn);
-
+        
         ind_0.setOpaque(true);
         ind_1.setOpaque(false);
         ind_2.setOpaque(false);
@@ -925,12 +1019,11 @@ public class TeacherProfile extends javax.swing.JFrame {
         // TODO add your handling code here:
         jTabbedPane1.setSelectedIndex(1);
         setColor(homework_btn);
-        // resetColor(new JPanel[](homework_btn;result_btn;notices_btn;attendance_btn));
         resetColor(home_btn);
         resetColor(result_btn);
         resetColor(notices_btn);
         resetColor(attendance_btn);
-
+        
         ind_0.setOpaque(false);
         ind_1.setOpaque(true);
         ind_2.setOpaque(false);
@@ -948,7 +1041,7 @@ public class TeacherProfile extends javax.swing.JFrame {
         resetColor(home_btn);
         resetColor(notices_btn);
         resetColor(attendance_btn);
-
+        
         ind_0.setOpaque(false);
         ind_1.setOpaque(false);
         ind_2.setOpaque(true);
@@ -966,7 +1059,7 @@ public class TeacherProfile extends javax.swing.JFrame {
         resetColor(result_btn);
         resetColor(notices_btn);
         resetColor(home_btn);
-
+        
         ind_0.setOpaque(false);
         ind_1.setOpaque(false);
         ind_2.setOpaque(false);
@@ -976,6 +1069,7 @@ public class TeacherProfile extends javax.swing.JFrame {
     }//GEN-LAST:event_attendance_btnMousePressed
 
     private void logOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutActionPerformed
+<<<<<<< Updated upstream
         // TODO add your handling code here:
         final JPanel panel = new JPanel();
         try {
@@ -994,6 +1088,13 @@ public class TeacherProfile extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(panel, "Sorry, Can't get your IP Address.","Warning",JOptionPane.WARNING_MESSAGE);
         }
 
+=======
+        teacherDb.logout();
+        logInPage LP= new logInPage();
+        LP.setVisible(true);
+        LP.setResizable(false);
+        dispose();
+>>>>>>> Stashed changes
     }//GEN-LAST:event_logOutActionPerformed
 
     private void notices_btnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_notices_btnMousePressed
@@ -1005,7 +1106,7 @@ public class TeacherProfile extends javax.swing.JFrame {
         resetColor(result_btn);
         resetColor(home_btn);
         resetColor(attendance_btn);
-
+        
         ind_0.setOpaque(false);
         ind_1.setOpaque(false);
         ind_2.setOpaque(false);
@@ -1059,22 +1160,41 @@ public class TeacherProfile extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_SideMenuShowMouseClicked
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void studentClassComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentClassComboBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_studentClassComboBoxActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox4ActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
-    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox3ActionPerformed
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void homeworkPostButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeworkPostButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_homeworkPostButtonActionPerformed
+
+    private void noticePostButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noticePostButtonActionPerformed
+        String studentClass = (String) studentClassComboBox.getSelectedItem();
+        String notice=noticeTextArea.getText();
+        teacherDb.postNotice(studentClass, notice);
+        noticeTextArea.setText("");
+    }//GEN-LAST:event_noticePostButtonActionPerformed
+    
     /**
      * @param args the command line arguments
      */
@@ -1082,8 +1202,8 @@ public class TeacherProfile extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+        */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -1101,7 +1221,7 @@ public class TeacherProfile extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(TeacherProfile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -1122,14 +1242,20 @@ public class TeacherProfile extends javax.swing.JFrame {
     private javax.swing.JLabel ID;
     private javax.swing.JLabel IDTest1;
     private javax.swing.JLabel MenuText;
+<<<<<<< Updated upstream
     private javax.swing.JTextArea N_ID;
     private javax.swing.JLabel Name;
+=======
+    private javax.swing.JLabel NameFDB;
+>>>>>>> Stashed changes
     private javax.swing.JLabel NameText2;
     private javax.swing.JLabel Profile;
     private javax.swing.JLabel SideMenuShow;
     private javax.swing.JPanel attendance_btn;
     private javax.swing.JButton close_btn;
     private javax.swing.JPanel home_btn;
+    private javax.swing.JButton homeworkPostButton;
+    private javax.swing.JTextArea homeworkTextArea;
     private javax.swing.JPanel homework_btn;
     private javax.swing.JPanel ind_0;
     private javax.swing.JPanel ind_1;
@@ -1138,15 +1264,16 @@ public class TeacherProfile extends javax.swing.JFrame {
     private javax.swing.JPanel ind_4;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JComboBox<String> jComboBox4;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1154,33 +1281,31 @@ public class TeacherProfile extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField4;
     private javax.swing.JButton logOut;
     private javax.swing.JPanel noticePanel;
+    private javax.swing.JButton noticePostButton;
+    private javax.swing.JTextArea noticeTextArea;
     private javax.swing.JPanel notices_btn;
     private javax.swing.JPanel resultPanel;
     private javax.swing.JPanel result_btn;
     private javax.swing.JPanel sideMenu;
     private javax.swing.JLabel sideMenuHide;
+    private javax.swing.JComboBox<String> studentClassComboBox;
     // End of variables declaration//GEN-END:variables
-
+    
     private void resetColor(JPanel homework_btn) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
     private void setColor(JPanel home_btn) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

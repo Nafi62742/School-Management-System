@@ -5,9 +5,9 @@
 */
 package schoolmanagementsystem;
 
-import java.awt.Dimension;
+
 import java.awt.HeadlessException;
-import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.sql.Connection;
@@ -17,9 +17,6 @@ import java.util.prefs.Preferences;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Arrays;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import org.apache.commons.codec.binary.Base64;
@@ -120,7 +117,7 @@ passwordField.setText(EncryptPass(pss));
         idField.setBackground(new java.awt.Color(112, 144, 196));
         idField.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         idField.setForeground(new java.awt.Color(255, 255, 255));
-        idField.setText("Enter ID");
+        idField.setText("Enter Your ID");
         idField.setBorder(null);
         idField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         idField.setOpaque(false);
@@ -141,7 +138,7 @@ passwordField.setText(EncryptPass(pss));
 
         passwordField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         passwordField.setForeground(new java.awt.Color(255, 255, 255));
-        passwordField.setText("Enter Password");
+        passwordField.setText("Enter Pass");
         passwordField.setBorder(null);
         passwordField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         passwordField.setOpaque(false);
@@ -150,7 +147,17 @@ passwordField.setText(EncryptPass(pss));
                 passwordFieldFocusGained(evt);
             }
         });
-        jPanel1.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 320, 360, 40));
+        passwordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordFieldActionPerformed(evt);
+            }
+        });
+        passwordField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                passwordFieldKeyPressed(evt);
+            }
+        });
+        jPanel1.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 320, 360, 40));
 
         jSeparator2.setForeground(new java.awt.Color(153, 153, 153));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 360, 360, 10));
@@ -185,7 +192,7 @@ passwordField.setText(EncryptPass(pss));
                 close_btnActionPerformed(evt);
             }
         });
-        jPanel1.add(close_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 30, 30));
+        jPanel1.add(close_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 10, 30, 30));
 
         BackgroundLebel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolmanagementsystem/image/Webp.net-resizeimage.PNG"))); // NOI18N
         jPanel1.add(BackgroundLebel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -262,12 +269,18 @@ passwordField.setText(EncryptPass(pss));
                 return true;
             }else{
                 JOptionPane.showMessageDialog(this, "User not valid", "Warning", JOptionPane.WARNING_MESSAGE);
+                clearTextField();
                 return false;
             }
         }catch(HeadlessException | SQLException e){
             JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
         }
         return false;
+    }
+    
+    private void clearTextField(){
+        idField.setText("");
+        passwordField.setText("");
     }
     
 //...................End Custom Functions....................//
@@ -350,6 +363,7 @@ passwordField.setText(EncryptPass(pss));
         }
         
     }
+    
     private void idFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idFieldActionPerformed
         
         // TODO add your handling code here:
@@ -357,12 +371,10 @@ passwordField.setText(EncryptPass(pss));
 
     private void idFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_idFieldFocusGained
         idField.setText("");
-        // TODO add your handling code here:
     }//GEN-LAST:event_idFieldFocusGained
 
     private void passwordFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFieldFocusGained
         passwordField.setText("");
-        // TODO add your handling code here:
     }//GEN-LAST:event_passwordFieldFocusGained
 
     private void signupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupButtonActionPerformed
@@ -394,6 +406,7 @@ passwordField.setText(EncryptPass(pss));
                 table = "teacher_accounts";
             }else{
                 JOptionPane.showMessageDialog(this, "User not valid", "Warning", JOptionPane.WARNING_MESSAGE);
+                clearTextField();
                 return;
             }
             if(rememberUserCheckbox.isSelected() == true){
@@ -440,6 +453,7 @@ passwordField.setText(EncryptPass(pss));
                 }
             }
         }
+        
     }//GEN-LAST:event_signinButtonActionPerformed
 
     private void close_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_close_btnActionPerformed
@@ -460,6 +474,45 @@ passwordField.setText(EncryptPass(pss));
 //             checked(false);
 //         }
     }//GEN-LAST:event_rememberUserCheckboxActionPerformed
+
+    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordFieldActionPerformed
+
+    private void passwordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordFieldKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            final JPanel panel = new JPanel();
+            
+            String id = idField.getText();
+            String pass = EncryptPass(passwordField.getText());
+            String table = null;
+            String sql =null;
+            
+            if(id.equals("")||pass.equals("")){
+                JOptionPane.showMessageDialog(panel, "Invalid Credentials","Warning",JOptionPane.WARNING_MESSAGE);
+            }else{
+                if (id.contains("100.")) {
+                    table = "student_accounts";
+                } else if(id.contains("400.")){
+                    table = "teacher_accounts";
+                }else{
+                    JOptionPane.showMessageDialog(this, "User not valid", "Warning", JOptionPane.WARNING_MESSAGE);
+                    clearTextField();
+                    return;
+                }
+                if(userValid(id,pass,table)){
+                    if(id.contains("100.")){
+                        new StudentProfile(id).setVisible(true);
+                    }else if(id.contains("400.")){
+                        new TeacherProfile(id).setVisible(true);
+                    }
+                    dispose();
+                }
+                
+            }
+            
+        }
+    }//GEN-LAST:event_passwordFieldKeyPressed
     
     /**
      * @param args the command line arguments

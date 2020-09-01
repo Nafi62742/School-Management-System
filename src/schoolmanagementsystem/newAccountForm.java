@@ -1,33 +1,28 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 package schoolmanagementsystem;
 
 import java.awt.HeadlessException;
-import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import javax.swing.JOptionPane;
 import org.apache.commons.codec.binary.Base64;
 
 public class newAccountForm extends javax.swing.JFrame {
-
+    
     Connection conn = null;
     PreparedStatement pst = null;
-    ResultSet rs = null;
-    Statement st;
+    
     public newAccountForm() {
         this.setUndecorated(true);
         initComponents();
         conn = JConnection.connectdb();
-
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -186,28 +181,8 @@ public class newAccountForm extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void close_bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_close_bActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_close_bActionPerformed
-
-    private void studentClassFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentClassFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_studentClassFieldActionPerformed
-
-    private void back_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_btnActionPerformed
-        // TODO add your handling code here:
-        popUp pU = new popUp();
-
-        pU.setVisible(true);
-        pU.setResizable(false);
-
-        pU.setDefaultCloseOperation(pU.DO_NOTHING_ON_CLOSE);
-
-        newAccountForm nF = new newAccountForm();
-        dispose();
-    }//GEN-LAST:event_back_btnActionPerformed
-
+//.......................Start Custom Functions....................//
+    
     private String EncryptPass(String passwordString) {
         try {
             String originalInput = passwordString;
@@ -219,7 +194,7 @@ public class newAccountForm extends javax.swing.JFrame {
         }
         return null;
     }
-
+    
     private void clearTextField() {
         nameField.setText("");
         studentClassField.setText("");
@@ -228,14 +203,32 @@ public class newAccountForm extends javax.swing.JFrame {
         passwordField.setText("");
         confirmPasswordField.setText("");
     }
+    
+    
+    
+//.......................End Custom Functions....................//   
+    private void close_bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_close_bActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_close_bActionPerformed
+
+    private void studentClassFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentClassFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_studentClassFieldActionPerformed
+
+    private void back_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_btnActionPerformed
+        dispose();
+        new logInPage().setVisible(true);
+    }//GEN-LAST:event_back_btnActionPerformed
+    
+    
     private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nameFieldActionPerformed
 
     private void signupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupButtonActionPerformed
-      String sql = "INSERT INTO student_accounts(name,class,sec,id,pass) VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO student_accounts(name,class,sec,id,pass) VALUES(?,?,?,?,?)";
         String pass = null;
-
+        
         String originalPass = passwordField.getText();
         if (originalPass.length() >= 4 && originalPass.equals(confirmPasswordField.getText())) {
             pass = EncryptPass(originalPass);
@@ -249,6 +242,8 @@ public class newAccountForm extends javax.swing.JFrame {
                 pst.execute();
                 clearTextField();
                 JOptionPane.showMessageDialog(null, "Inserted Successfully");
+                dispose();
+                new logInPage().setVisible(true);
             } catch (HeadlessException | SQLException e) {
                 JOptionPane.showMessageDialog(this, "Database error", "Warning", JOptionPane.WARNING_MESSAGE);
             }
@@ -260,7 +255,7 @@ public class newAccountForm extends javax.swing.JFrame {
     private void confirmPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmPasswordFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_confirmPasswordFieldActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
@@ -268,8 +263,8 @@ public class newAccountForm extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+        */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -287,7 +282,7 @@ public class newAccountForm extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(newAccountForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -317,7 +312,7 @@ public class newAccountForm extends javax.swing.JFrame {
     private javax.swing.JButton signupButton;
     private javax.swing.JTextField studentClassField;
     // End of variables declaration//GEN-END:variables
-
+    
     private int len(String originalPass) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
