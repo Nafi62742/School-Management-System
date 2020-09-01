@@ -797,14 +797,10 @@ public class StudentProfile extends javax.swing.JFrame {
     
     public void profileShow(){
         final JPanel panel = new JPanel();
-<<<<<<< Updated upstream
-            String student_id =this.id;
-=======
         String student_id =this.id;
         try{
             
             String sql = "SELECT name, class, sec, id, pass FROM student_accounts WHERE id='" + student_id + "' ";
->>>>>>> Stashed changes
             try{
                 st = (Statement) conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
                 rs = st.executeQuery(sql);

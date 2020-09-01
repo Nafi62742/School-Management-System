@@ -123,7 +123,7 @@
                                   <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
                                   <Component id="DesignationText" min="-2" pref="157" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                                  <Component id="Designation" min="-2" pref="157" max="-2" attributes="0"/>
+                                  <Component id="DesignationFDB" min="-2" pref="157" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
@@ -131,12 +131,12 @@
                                       <Group type="102" attributes="0">
                                           <Component id="IDTest1" min="-2" pref="157" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="ID" min="-2" pref="157" max="-2" attributes="0"/>
+                                          <Component id="IDFDB" min="-2" pref="157" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
                                           <Component id="NameText2" min="-2" pref="157" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                          <Component id="Name" min="-2" pref="157" max="-2" attributes="0"/>
+                                          <Component id="NameFDB" min="-2" pref="157" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -150,17 +150,17 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="Name" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
+                              <Component id="NameFDB" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
                               <Component id="NameText2" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="IDTest1" min="-2" pref="68" max="-2" attributes="0"/>
-                              <Component id="ID" min="-2" pref="59" max="-2" attributes="0"/>
+                              <Component id="IDFDB" min="-2" pref="59" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="67" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="Designation" alignment="3" min="-2" pref="59" max="-2" attributes="0"/>
+                              <Component id="DesignationFDB" alignment="3" min="-2" pref="59" max="-2" attributes="0"/>
                               <Component id="DesignationText" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
@@ -181,7 +181,7 @@
                     <Property name="text" type="java.lang.String" value="Name"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="Designation">
+                <Component class="javax.swing.JLabel" name="DesignationFDB">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Comic Sans MS" size="24" style="1"/>
@@ -193,7 +193,7 @@
                     <Property name="text" type="java.lang.String" value="Designation show"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="Name">
+                <Component class="javax.swing.JLabel" name="NameFDB">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Comic Sans MS" size="24" style="1"/>
@@ -229,7 +229,7 @@
                     <Property name="text" type="java.lang.String" value="ID"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="ID">
+                <Component class="javax.swing.JLabel" name="IDFDB">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Comic Sans MS" size="24" style="1"/>
