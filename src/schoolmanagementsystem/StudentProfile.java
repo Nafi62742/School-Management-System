@@ -84,6 +84,9 @@ public class StudentProfile extends javax.swing.JFrame {
         ind_3 = new javax.swing.JPanel();
         noticeLebel = new javax.swing.JLabel();
         sideMenuHide = new javax.swing.JLabel();
+        messege_btn = new javax.swing.JPanel();
+        ind_5 = new javax.swing.JPanel();
+        messegeLebel = new javax.swing.JLabel();
         LeftCeditPanel = new javax.swing.JPanel();
         MenuText = new javax.swing.JLabel();
         SideMenuShow = new javax.swing.JLabel();
@@ -113,6 +116,8 @@ public class StudentProfile extends javax.swing.JFrame {
         noticeBoardTable = new javax.swing.JTable();
         resultPanel = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
+        MessegePanel = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -135,7 +140,7 @@ public class StudentProfile extends javax.swing.JFrame {
         TopBarLayout.setHorizontalGroup(
             TopBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopBarLayout.createSequentialGroup()
-                .addGap(0, 670, Short.MAX_VALUE)
+                .addGap(0, 540, Short.MAX_VALUE)
                 .addComponent(close_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         TopBarLayout.setVerticalGroup(
@@ -145,7 +150,7 @@ public class StudentProfile extends javax.swing.JFrame {
                 .addComponent(close_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.add(TopBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, 700, 30));
+        jPanel1.add(TopBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 0, 570, 30));
 
         sideMenu.setBackground(new java.awt.Color(19, 10, 52));
 
@@ -277,12 +282,12 @@ public class StudentProfile extends javax.swing.JFrame {
                 .addComponent(ind_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addComponent(ResultLebel, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 117, Short.MAX_VALUE))
         );
         result_btnLayout.setVerticalGroup(
             result_btnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ind_2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(ResultLebel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+            .addComponent(ind_2, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
+            .addComponent(ResultLebel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
         );
 
         attendance_btn.setBackground(new java.awt.Color(19, 10, 52));
@@ -397,6 +402,50 @@ public class StudentProfile extends javax.swing.JFrame {
             }
         });
 
+        messege_btn.setBackground(new java.awt.Color(19, 10, 52));
+        messege_btn.setForeground(new java.awt.Color(255, 255, 255));
+        messege_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        messege_btn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                messege_btnMousePressed(evt);
+            }
+        });
+
+        ind_5.setBackground(new java.awt.Color(255, 255, 255));
+        ind_5.setOpaque(false);
+        ind_5.setPreferredSize(new java.awt.Dimension(5, 60));
+
+        javax.swing.GroupLayout ind_5Layout = new javax.swing.GroupLayout(ind_5);
+        ind_5.setLayout(ind_5Layout);
+        ind_5Layout.setHorizontalGroup(
+            ind_5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
+        );
+        ind_5Layout.setVerticalGroup(
+            ind_5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        messegeLebel.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        messegeLebel.setForeground(new java.awt.Color(255, 255, 255));
+        messegeLebel.setText("Messege");
+
+        javax.swing.GroupLayout messege_btnLayout = new javax.swing.GroupLayout(messege_btn);
+        messege_btn.setLayout(messege_btnLayout);
+        messege_btnLayout.setHorizontalGroup(
+            messege_btnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(messege_btnLayout.createSequentialGroup()
+                .addComponent(ind_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(messegeLebel, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        messege_btnLayout.setVerticalGroup(
+            messege_btnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ind_5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(messegeLebel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout sideMenuLayout = new javax.swing.GroupLayout(sideMenu);
         sideMenu.setLayout(sideMenuLayout);
         sideMenuLayout.setHorizontalGroup(
@@ -413,22 +462,25 @@ public class StudentProfile extends javax.swing.JFrame {
                 .addComponent(sideMenuHide)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addComponent(result_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(messege_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         sideMenuLayout.setVerticalGroup(
             sideMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sideMenuLayout.createSequentialGroup()
                 .addComponent(sideMenuHide)
-                .addGap(59, 59, 59)
+                .addGap(40, 40, 40)
                 .addComponent(home_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(homework_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(attendance_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(notices_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(result_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(messege_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
                 .addComponent(logOut, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37))
         );
@@ -790,6 +842,28 @@ public class StudentProfile extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("result", resultPanel);
 
+        jLabel13.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        jLabel13.setText("Messege");
+
+        javax.swing.GroupLayout MessegePanelLayout = new javax.swing.GroupLayout(MessegePanel);
+        MessegePanel.setLayout(MessegePanelLayout);
+        MessegePanelLayout.setHorizontalGroup(
+            MessegePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MessegePanelLayout.createSequentialGroup()
+                .addGap(290, 290, 290)
+                .addComponent(jLabel13)
+                .addContainerGap(651, Short.MAX_VALUE))
+        );
+        MessegePanelLayout.setVerticalGroup(
+            MessegePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MessegePanelLayout.createSequentialGroup()
+                .addGap(291, 291, 291)
+                .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(368, 368, 368))
+        );
+
+        jTabbedPane1.addTab("Messege", MessegePanel);
+
         jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 1040, 720));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -868,12 +942,14 @@ public class StudentProfile extends javax.swing.JFrame {
         resetColor(result_btn);
         resetColor(notices_btn);
         resetColor(attendance_btn);
+        resetColor(messege_btn);
         
         ind_0.setOpaque(true);
         ind_1.setOpaque(false);
         ind_2.setOpaque(false);
         ind_3.setOpaque(false);
         ind_4.setOpaque(false);
+                 ind_5.setOpaque(false);
     }//GEN-LAST:event_home_btnMousePressed
 
     private void homework_btnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homework_btnMousePressed
@@ -884,12 +960,14 @@ public class StudentProfile extends javax.swing.JFrame {
         resetColor(result_btn);
         resetColor(notices_btn);
         resetColor(attendance_btn);
+        resetColor(messege_btn);
         
         ind_0.setOpaque(false);
         ind_1.setOpaque(true);
         ind_2.setOpaque(false);
         ind_3.setOpaque(false);
         ind_4.setOpaque(false);
+                 ind_5.setOpaque(false);
     }//GEN-LAST:event_homework_btnMousePressed
 
     private void result_btnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_result_btnMousePressed
@@ -901,12 +979,14 @@ public class StudentProfile extends javax.swing.JFrame {
         resetColor(home_btn);
         resetColor(notices_btn);
         resetColor(attendance_btn);
+        resetColor(messege_btn);
         
         ind_0.setOpaque(false);
         ind_1.setOpaque(false);
         ind_2.setOpaque(true);
         ind_3.setOpaque(false);
         ind_4.setOpaque(false);
+                 ind_5.setOpaque(false);
         
     }//GEN-LAST:event_result_btnMousePressed
 
@@ -919,12 +999,14 @@ public class StudentProfile extends javax.swing.JFrame {
         resetColor(result_btn);
         resetColor(home_btn);
         resetColor(attendance_btn);
+        resetColor(messege_btn);
         
         ind_0.setOpaque(false);
         ind_1.setOpaque(false);
         ind_2.setOpaque(false);
         ind_3.setOpaque(true);
         ind_4.setOpaque(false);
+                 ind_5.setOpaque(false);
         
         
     }//GEN-LAST:event_notices_btnMousePressed
@@ -937,6 +1019,7 @@ public class StudentProfile extends javax.swing.JFrame {
         resetColor(homework_btn);
         resetColor(result_btn);
         resetColor(notices_btn);
+        resetColor(messege_btn);
         
         
         ind_0.setOpaque(false);
@@ -944,6 +1027,7 @@ public class StudentProfile extends javax.swing.JFrame {
         ind_2.setOpaque(true);
         ind_3.setOpaque(false);
         ind_4.setOpaque(false);
+       ind_5.setOpaque(false);
         
         
     }//GEN-LAST:event_attendance_btnMousePressed
@@ -1012,6 +1096,7 @@ public class StudentProfile extends javax.swing.JFrame {
         resetColor(homework_btn);
         resetColor(result_btn);
         resetColor(notices_btn);
+        resetColor(messege_btn);
         
         
         ind_0.setOpaque(false);
@@ -1019,7 +1104,25 @@ public class StudentProfile extends javax.swing.JFrame {
         ind_2.setOpaque(true);
         ind_3.setOpaque(false);
         ind_4.setOpaque(false);
+        ind_5.setOpaque(false);
     }//GEN-LAST:event_AttendenceLebelMouseClicked
+
+    private void messege_btnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_messege_btnMousePressed
+       jTabbedPane1.setSelectedIndex(5);
+        setColor(messege_btn);
+        resetColor(home_btn);
+        resetColor(homework_btn);
+        resetColor(result_btn);
+        resetColor(notices_btn);
+        resetColor(attendance_btn);
+        
+        ind_0.setOpaque(false);
+        ind_1.setOpaque(false);
+        ind_2.setOpaque(false);
+        ind_3.setOpaque(false);
+        ind_4.setOpaque(false);
+        ind_5.setOpaque(true);
+    }//GEN-LAST:event_messege_btnMousePressed
     
     /**
      * @param args the command line arguments
@@ -1084,6 +1187,7 @@ public class StudentProfile extends javax.swing.JFrame {
     private javax.swing.JLabel IDTest1;
     private javax.swing.JPanel LeftCeditPanel;
     private javax.swing.JLabel MenuText;
+    private javax.swing.JPanel MessegePanel;
     private javax.swing.JLabel NameFDB;
     private javax.swing.JLabel NameText2;
     private javax.swing.JLabel ResultLebel;
@@ -1102,14 +1206,18 @@ public class StudentProfile extends javax.swing.JFrame {
     private javax.swing.JPanel ind_2;
     private javax.swing.JPanel ind_3;
     private javax.swing.JPanel ind_4;
+    private javax.swing.JPanel ind_5;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton logOut;
+    private javax.swing.JLabel messegeLebel;
+    private javax.swing.JPanel messege_btn;
     private javax.swing.JPanel myNoticePanel;
     private javax.swing.JTable noticeBoardTable;
     private javax.swing.JLabel noticeLebel;
