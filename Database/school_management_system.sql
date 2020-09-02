@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 01, 2020 at 07:48 PM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.3.11
+-- Generation Time: Sep 02, 2020 at 03:12 AM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.4.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -55,7 +54,9 @@ CREATE TABLE `login_info` (
 
 INSERT INTO `login_info` (`id`, `ip_address`, `state`) VALUES
 ('400.12', '192.168.0.107', 0),
-('100.12', '192.168.0.107', 0);
+('100.12', '192.168.0.107', 0),
+('100.17', '10.235.17.2', 0),
+('400.32', '10.235.17.2', 0);
 
 -- --------------------------------------------------------
 
@@ -77,7 +78,8 @@ CREATE TABLE `notice_board` (
 --
 
 INSERT INTO `notice_board` (`date`, `time`, `teacher_name`, `class`, `subject`, `notice`) VALUES
-('01.09.2020', '11:41 PM', 'Fahim', '10', 'Math', 'kalke cls off..karor asha lagbe na');
+('01.09.2020', '11:41 PM', 'Fahim', '10', 'Math', 'kalke cls off..karor asha lagbe na'),
+('02.09.2020', '07:10 AM', 'Md. Karim', '10', 'Math', 'There will be a quiz next week Wednesday');
 
 -- --------------------------------------------------------
 
@@ -98,7 +100,8 @@ CREATE TABLE `student_accounts` (
 --
 
 INSERT INTO `student_accounts` (`name`, `class`, `sec`, `id`, `pass`) VALUES
-('Fahim', '10', 'a', '100.12', 'MTIzNA==');
+('Fahim', '10', 'a', '100.12', 'MTIzNA=='),
+('Nafi Ahmed', '10', 'A', '100.17', 'TmFmaTAwNw==');
 
 -- --------------------------------------------------------
 
@@ -132,7 +135,8 @@ CREATE TABLE `teacher_accounts` (
 --
 
 INSERT INTO `teacher_accounts` (`name`, `subject`, `designation`, `id`, `pass`) VALUES
-('Fahim', 'Math', 'Senior Teacher', '400.12', 'MTIzNA==');
+('Fahim', 'Math', 'Senior Teacher', '400.12', 'MTIzNA=='),
+('Md. Karim', 'Math', 'Professor', '400.32', 'a2FyaW0=');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
