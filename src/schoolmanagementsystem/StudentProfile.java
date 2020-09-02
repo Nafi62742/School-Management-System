@@ -98,14 +98,14 @@ public class StudentProfile extends javax.swing.JFrame {
         Homework = new javax.swing.JLabel();
         result_btn = new javax.swing.JPanel();
         ind_2 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        ResultLebel = new javax.swing.JLabel();
         attendance_btn = new javax.swing.JPanel();
         ind_4 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        AttendenceLebel = new javax.swing.JLabel();
         logOut = new javax.swing.JButton();
         notices_btn = new javax.swing.JPanel();
         ind_3 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
+        noticeLebel = new javax.swing.JLabel();
         sideMenuHide = new javax.swing.JLabel();
         MenuText = new javax.swing.JLabel();
         SideMenuShow = new javax.swing.JLabel();
@@ -258,7 +258,7 @@ public class StudentProfile extends javax.swing.JFrame {
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(489, 489, 489)))
                     .addComponent(homeworkLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 687, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(342, Short.MAX_VALUE))
+                .addContainerGap(348, Short.MAX_VALUE))
         );
         HomeworkPanel1Layout.setVerticalGroup(
             HomeworkPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -281,17 +281,16 @@ public class StudentProfile extends javax.swing.JFrame {
             .addGap(0, 1047, Short.MAX_VALUE)
             .addGroup(HomeworkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(HomeworkPanelLayout.createSequentialGroup()
-                    .addContainerGap()
                     .addComponent(HomeworkPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGap(0, 6, Short.MAX_VALUE)))
         );
         HomeworkPanelLayout.setVerticalGroup(
             HomeworkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 687, Short.MAX_VALUE)
+            .addGap(0, 694, Short.MAX_VALUE)
             .addGroup(HomeworkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(HomeworkPanelLayout.createSequentialGroup()
                     .addComponent(HomeworkPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 9, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("homework", HomeworkPanel);
@@ -557,9 +556,9 @@ public class StudentProfile extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jLabel5.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Result");
+        ResultLebel.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        ResultLebel.setForeground(new java.awt.Color(255, 255, 255));
+        ResultLebel.setText("Result");
 
         javax.swing.GroupLayout result_btnLayout = new javax.swing.GroupLayout(result_btn);
         result_btn.setLayout(result_btnLayout);
@@ -568,13 +567,13 @@ public class StudentProfile extends javax.swing.JFrame {
             .addGroup(result_btnLayout.createSequentialGroup()
                 .addComponent(ind_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
-                .addComponent(jLabel5)
+                .addComponent(ResultLebel)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         result_btnLayout.setVerticalGroup(
             result_btnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(ind_2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+            .addComponent(ResultLebel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
         attendance_btn.setBackground(new java.awt.Color(19, 10, 52));
@@ -600,12 +599,12 @@ public class StudentProfile extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jLabel3.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Attendance");
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        AttendenceLebel.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        AttendenceLebel.setForeground(new java.awt.Color(255, 255, 255));
+        AttendenceLebel.setText("Attendance");
+        AttendenceLebel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
+                AttendenceLebelMouseClicked(evt);
             }
         });
 
@@ -616,12 +615,12 @@ public class StudentProfile extends javax.swing.JFrame {
             .addGroup(attendance_btnLayout.createSequentialGroup()
                 .addComponent(ind_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
-                .addComponent(jLabel3)
+                .addComponent(AttendenceLebel)
                 .addGap(0, 68, Short.MAX_VALUE))
         );
         attendance_btnLayout.setVerticalGroup(
             attendance_btnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+            .addComponent(AttendenceLebel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
             .addComponent(ind_4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -662,9 +661,9 @@ public class StudentProfile extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jLabel6.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Notices");
+        noticeLebel.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        noticeLebel.setForeground(new java.awt.Color(255, 255, 255));
+        noticeLebel.setText("Notices");
 
         javax.swing.GroupLayout notices_btnLayout = new javax.swing.GroupLayout(notices_btn);
         notices_btn.setLayout(notices_btnLayout);
@@ -673,13 +672,13 @@ public class StudentProfile extends javax.swing.JFrame {
             .addGroup(notices_btnLayout.createSequentialGroup()
                 .addComponent(ind_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
-                .addComponent(jLabel6)
+                .addComponent(noticeLebel)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         notices_btnLayout.setVerticalGroup(
             notices_btnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(ind_3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+            .addComponent(noticeLebel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
         sideMenuHide.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/menu.jpg"))); // NOI18N
@@ -974,9 +973,21 @@ public class StudentProfile extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_SideMenuShowMouseClicked
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel3MouseClicked
+    private void AttendenceLebelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AttendenceLebelMouseClicked
+        jTabbedPane1.setSelectedIndex(2);
+        setColor(attendance_btn);
+        resetColor(home_btn);
+        resetColor(homework_btn);
+        resetColor(result_btn);
+        resetColor(notices_btn);
+        
+        
+        ind_0.setOpaque(false);
+        ind_1.setOpaque(false);
+        ind_2.setOpaque(true);
+        ind_3.setOpaque(false);
+        ind_4.setOpaque(false);
+    }//GEN-LAST:event_AttendenceLebelMouseClicked
     
     /**
      * @param args the command line arguments
@@ -1027,6 +1038,7 @@ public class StudentProfile extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel AttendenceLebel;
     private javax.swing.JPanel AttendencePanel;
     private javax.swing.JLabel Home1;
     private javax.swing.JPanel HomePanel;
@@ -1039,6 +1051,7 @@ public class StudentProfile extends javax.swing.JFrame {
     private javax.swing.JLabel MenuText;
     private javax.swing.JLabel NameFDB;
     private javax.swing.JLabel NameText2;
+    private javax.swing.JLabel ResultLebel;
     private javax.swing.JLabel SectionFDB;
     private javax.swing.JLabel SectionText;
     private javax.swing.JLabel SideMenuShow;
@@ -1057,9 +1070,6 @@ public class StudentProfile extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
@@ -1067,6 +1077,7 @@ public class StudentProfile extends javax.swing.JFrame {
     private javax.swing.JButton logOut;
     private javax.swing.JPanel myNoticePanel;
     private javax.swing.JTable noticeBoardTable;
+    private javax.swing.JLabel noticeLebel;
     private javax.swing.JPanel noticePanel;
     private javax.swing.JPanel notices_btn;
     private javax.swing.JPanel resultPanel;
