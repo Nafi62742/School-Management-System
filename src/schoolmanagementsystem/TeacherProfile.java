@@ -12,6 +12,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.jOptionPane;
@@ -41,8 +43,8 @@ public class TeacherProfile extends javax.swing.JFrame {
         initComponents();
         setId(id);
         teacherDb=new TeacherDatabase(getId());
-       hideSideMenu();
-       profileShow();
+        hideSideMenu();
+        profileShow();
     }
     
     public void setId(String id) {
@@ -75,14 +77,13 @@ public class TeacherProfile extends javax.swing.JFrame {
         }
     }
     public void profileShow(){
-
-                String TeacherName = teacherDb.getTeacherName();
-                String teacherID =  teacherDb.getId();
-                String designation = teacherDb.getDesignation();
-                Name.setText(TeacherName);
-                ID.setText(teacherID);
-                Designation.setText(designation);
-                Subject.setText(teacherDb.getSubject());
+        String TeacherName = teacherDb.getTeacherName();
+        String teacherID =  teacherDb.getId();
+        String designation = teacherDb.getDesignation();
+        Name.setText(TeacherName);
+        ID.setText(teacherID);
+        Designation.setText(designation);
+        Subject.setText(teacherDb.getTeacherSubject());
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -138,16 +139,16 @@ public class TeacherProfile extends javax.swing.JFrame {
         HomeworkPanel1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        selectClass = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         homeworkTextArea = new javax.swing.JTextArea();
         jLabel9 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        selectSection = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        totalMarks = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        dateChooser = new com.toedter.calendar.JDateChooser();
         homeworkPostButton = new javax.swing.JButton();
         AttendencePanel = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
@@ -187,7 +188,7 @@ public class TeacherProfile extends javax.swing.JFrame {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(654, Short.MAX_VALUE)
+                .addContainerGap(604, Short.MAX_VALUE)
                 .addComponent(close_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -198,7 +199,7 @@ public class TeacherProfile extends javax.swing.JFrame {
                 .addGap(0, 2, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 0, 690, 32));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, 640, 32));
 
         sideMenu.setBackground(new java.awt.Color(19, 10, 52));
 
@@ -423,7 +424,7 @@ public class TeacherProfile extends javax.swing.JFrame {
                 .addComponent(ind_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addComponent(jLabel6)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 92, Short.MAX_VALUE))
         );
         notices_btnLayout.setVerticalGroup(
             notices_btnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -620,43 +621,40 @@ public class TeacherProfile extends javax.swing.JFrame {
         HomePanelLayout.setHorizontalGroup(
             HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HomePanelLayout.createSequentialGroup()
+                .addGap(68, 68, 68)
                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(HomePanelLayout.createSequentialGroup()
-                        .addGap(61, 61, 61)
                         .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(HomePanelLayout.createSequentialGroup()
-                                .addComponent(IDText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(HomePanelLayout.createSequentialGroup()
-                                .addComponent(NameText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26)
-                                .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(HomePanelLayout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(HomePanelLayout.createSequentialGroup()
-                                .addComponent(SubjectText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Subject, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(HomePanelLayout.createSequentialGroup()
-                                .addComponent(DesignationText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(Designation, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(621, Short.MAX_VALUE))
+                                .addGap(12, 12, 12)
+                                .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(DesignationText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(SubjectText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(IDText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomePanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(NameText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
+                .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Designation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Subject, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(438, Short.MAX_VALUE))
         );
         HomePanelLayout.setVerticalGroup(
             HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HomePanelLayout.createSequentialGroup()
-                .addGap(182, 182, 182)
+                .addGap(100, 100, 100)
                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NameText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(NameText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(IDText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                    .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(IDText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SubjectText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Subject, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -664,7 +662,7 @@ public class TeacherProfile extends javax.swing.JFrame {
                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Designation, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DesignationText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(170, 170, 170))
+                .addContainerGap(273, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("home", HomePanel);
@@ -711,13 +709,13 @@ public class TeacherProfile extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Total Marks");
 
-        jComboBox2.setBackground(new java.awt.Color(65, 59, 94));
-        jComboBox2.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
-        jComboBox2.setForeground(new java.awt.Color(255, 255, 255));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        selectClass.setBackground(new java.awt.Color(65, 59, 94));
+        selectClass.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        selectClass.setForeground(new java.awt.Color(255, 255, 255));
+        selectClass.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        selectClass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                selectClassActionPerformed(evt);
             }
         });
 
@@ -741,13 +739,13 @@ public class TeacherProfile extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Select Section");
 
-        jComboBox4.setBackground(new java.awt.Color(65, 59, 94));
-        jComboBox4.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
-        jComboBox4.setForeground(new java.awt.Color(255, 255, 255));
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "a", "b", "c" }));
-        jComboBox4.addActionListener(new java.awt.event.ActionListener() {
+        selectSection.setBackground(new java.awt.Color(65, 59, 94));
+        selectSection.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        selectSection.setForeground(new java.awt.Color(255, 255, 255));
+        selectSection.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "a", "b", "c" }));
+        selectSection.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox4ActionPerformed(evt);
+                selectSectionActionPerformed(evt);
             }
         });
 
@@ -755,13 +753,13 @@ public class TeacherProfile extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Select Class");
 
-        jTextField4.setBackground(new java.awt.Color(65, 59, 94));
-        jTextField4.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        totalMarks.setBackground(new java.awt.Color(65, 59, 94));
+        totalMarks.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        totalMarks.setForeground(new java.awt.Color(255, 255, 255));
+        totalMarks.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        totalMarks.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                totalMarksActionPerformed(evt);
             }
         });
 
@@ -769,7 +767,7 @@ public class TeacherProfile extends javax.swing.JFrame {
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Due Date");
 
-        jDateChooser1.setForeground(new java.awt.Color(255, 255, 255));
+        dateChooser.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout HomeworkPanel1Layout = new javax.swing.GroupLayout(HomeworkPanel1);
         HomeworkPanel1.setLayout(HomeworkPanel1Layout);
@@ -790,16 +788,16 @@ public class TeacherProfile extends javax.swing.JFrame {
                                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(8, 8, 8)))
                         .addGroup(HomeworkPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBox2, 0, 168, Short.MAX_VALUE)
-                            .addComponent(jTextField4))
+                            .addComponent(selectClass, 0, 168, Short.MAX_VALUE)
+                            .addComponent(totalMarks))
                         .addGap(84, 84, 84)
                         .addGroup(HomeworkPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
                             .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(HomeworkPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBox4, 0, 168, Short.MAX_VALUE)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(selectSection, 0, 168, Short.MAX_VALUE)
+                            .addComponent(dateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(318, 318, 318))
                     .addGroup(HomeworkPanel1Layout.createSequentialGroup()
                         .addGroup(HomeworkPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -814,19 +812,19 @@ public class TeacherProfile extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addGap(37, 37, 37)
                 .addGroup(HomeworkPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(selectClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(selectSection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(HomeworkPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(HomeworkPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(HomeworkPanel1Layout.createSequentialGroup()
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(totalMarks, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(5, 5, 5)))
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -865,7 +863,7 @@ public class TeacherProfile extends javax.swing.JFrame {
                                 .addGap(51, 51, 51)
                                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(HomeworkPanelLayout.createSequentialGroup()
-                        .addGap(377, 377, 377)
+                        .addGap(332, 332, 332)
                         .addComponent(homeworkPostButton, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1203,17 +1201,17 @@ public class TeacherProfile extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_studentClassComboBoxActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void totalMarksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalMarksActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_totalMarksActionPerformed
 
-    private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
+    private void selectSectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectSectionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox4ActionPerformed
+    }//GEN-LAST:event_selectSectionActionPerformed
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+    private void selectClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectClassActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    }//GEN-LAST:event_selectClassActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
@@ -1224,7 +1222,15 @@ public class TeacherProfile extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void homeworkPostButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeworkPostButtonActionPerformed
-        // TODO add your handling code here:
+        String studentClass=(String) selectClass.getSelectedItem();
+        String section=(String) selectSection.getSelectedItem();
+        int total_marks=Integer.parseInt(totalMarks.getText());
+        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        String dueDateString=dateFormat.format(dateChooser.getDate());
+        String homework=homeworkTextArea.getText();
+        teacherDb.postHomework(studentClass,section,total_marks,dueDateString,homework);
+        totalMarks.setText("");
+        homeworkTextArea.setText("");
     }//GEN-LAST:event_homeworkPostButtonActionPerformed
 
     private void noticePostButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noticePostButtonActionPerformed
@@ -1266,7 +1272,7 @@ public class TeacherProfile extends javax.swing.JFrame {
         resetColor(result_btn);
         resetColor(notices_btn);
         resetColor(attendance_btn);
-
+        
         ind_0.setOpaque(false);
         ind_1.setOpaque(false);
         ind_2.setOpaque(false);
@@ -1332,6 +1338,7 @@ public class TeacherProfile extends javax.swing.JFrame {
     private javax.swing.JLabel SubjectText;
     private javax.swing.JPanel attendance_btn;
     private javax.swing.JButton close_btn;
+    private com.toedter.calendar.JDateChooser dateChooser;
     private javax.swing.JPanel home_btn;
     private javax.swing.JButton homeworkPostButton;
     private javax.swing.JTextArea homeworkTextArea;
@@ -1343,9 +1350,6 @@ public class TeacherProfile extends javax.swing.JFrame {
     private javax.swing.JPanel ind_4;
     private javax.swing.JPanel ind_5;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -1370,7 +1374,6 @@ public class TeacherProfile extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JButton logOut;
     private javax.swing.JLabel messegeLebel;
     private javax.swing.JPanel messege_btn;
@@ -1380,9 +1383,12 @@ public class TeacherProfile extends javax.swing.JFrame {
     private javax.swing.JPanel notices_btn;
     private javax.swing.JPanel resultPanel;
     private javax.swing.JPanel result_btn;
+    private javax.swing.JComboBox<String> selectClass;
+    private javax.swing.JComboBox<String> selectSection;
     private javax.swing.JPanel sideMenu;
     private javax.swing.JLabel sideMenuHide;
     private javax.swing.JComboBox<String> studentClassComboBox;
+    private javax.swing.JTextField totalMarks;
     // End of variables declaration//GEN-END:variables
     
     private void resetColor(JPanel homework_btn) {

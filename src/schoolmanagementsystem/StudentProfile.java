@@ -6,19 +6,15 @@
 package schoolmanagementsystem;
 
 import java.awt.Color;
-import java.awt.HeadlessException;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.jOptionPane;
 import javax.swing.table.DefaultTableModel;
+import schoolmanagementsystem.Database.Homework;
 import schoolmanagementsystem.Database.Notice;
 import schoolmanagementsystem.Database.StudentDatabase;
 
@@ -34,6 +30,9 @@ public class StudentProfile extends javax.swing.JFrame {
     ResultSet rs = null;
     Statement st;
     StudentDatabase stdb;
+    List<Homework> homeworkList;
+    int totalHomeworks=0;
+    int toggleHomework=0;
     public String id;
     
     //Constructor
@@ -46,11 +45,10 @@ public class StudentProfile extends javax.swing.JFrame {
     public StudentProfile(String id) {
         this.setUndecorated(true);
         initComponents();
-        homeworkLabel.setText("<html>kj k kj kj k khkknkj uigbiubhiu uig</html>");
-        //        hideSideMenu();
         this.id=id;
         stdb=new StudentDatabase(this.id);
         showNoticeBoard();
+        getHomeworks();
         hideSideMenu();
         profileShow();
     }
@@ -102,10 +100,15 @@ public class StudentProfile extends javax.swing.JFrame {
         Class = new javax.swing.JLabel();
         HomeworkPanel = new javax.swing.JPanel();
         HomeworkPanel1 = new javax.swing.JPanel();
-        dueDate = new javax.swing.JLabel();
+        dueDateLabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        totalMarks = new javax.swing.JLabel();
+        subjectLabel = new javax.swing.JLabel();
         homeworkLabel = new javax.swing.JLabel();
+        totalMarksLabel = new javax.swing.JLabel();
+        postDateLabel = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        previousHomeworkButton = new javax.swing.JButton();
+        nextHomeworkButton = new javax.swing.JButton();
         AttendencePanel = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         noticePanel = new javax.swing.JPanel();
@@ -631,53 +634,102 @@ public class StudentProfile extends javax.swing.JFrame {
 
         HomeworkPanel1.setBackground(new java.awt.Color(65, 59, 94));
 
-        dueDate.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        dueDate.setForeground(new java.awt.Color(255, 255, 255));
-        dueDate.setText("Due Aug 5");
+        dueDateLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        dueDateLabel.setForeground(new java.awt.Color(255, 255, 255));
+        dueDateLabel.setText("Due Date :");
 
         jLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("HomeWork");
 
-        totalMarks.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        totalMarks.setForeground(new java.awt.Color(255, 255, 255));
-        totalMarks.setText("Total Marks 10");
+        subjectLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        subjectLabel.setForeground(new java.awt.Color(255, 255, 255));
+        subjectLabel.setText("Subject : Math");
 
         homeworkLabel.setBackground(new java.awt.Color(0, 0, 0));
         homeworkLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         homeworkLabel.setForeground(new java.awt.Color(255, 255, 255));
         homeworkLabel.setText("Homework");
 
+        totalMarksLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        totalMarksLabel.setForeground(new java.awt.Color(255, 255, 255));
+        totalMarksLabel.setText("Total Marks : 10");
+
+        postDateLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        postDateLabel.setForeground(new java.awt.Color(255, 255, 255));
+        postDateLabel.setText("Post Date : ");
+
+        jPanel2.setBackground(new java.awt.Color(65, 59, 94));
+        jPanel2.setMinimumSize(new java.awt.Dimension(231, 100));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        previousHomeworkButton.setBackground(new java.awt.Color(102, 102, 255));
+        previousHomeworkButton.setFont(new java.awt.Font("Century Schoolbook", 1, 48)); // NOI18N
+        previousHomeworkButton.setForeground(new java.awt.Color(255, 255, 255));
+        previousHomeworkButton.setText("<");
+        previousHomeworkButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        previousHomeworkButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                previousHomeworkButtonActionPerformed(evt);
+            }
+        });
+        jPanel2.add(previousHomeworkButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 66, 39));
+
+        nextHomeworkButton.setBackground(new java.awt.Color(102, 102, 255));
+        nextHomeworkButton.setFont(new java.awt.Font("Century Schoolbook", 1, 48)); // NOI18N
+        nextHomeworkButton.setForeground(new java.awt.Color(255, 255, 255));
+        nextHomeworkButton.setText(">");
+        nextHomeworkButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        nextHomeworkButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextHomeworkButtonActionPerformed(evt);
+            }
+        });
+        jPanel2.add(nextHomeworkButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 66, 39));
+
         javax.swing.GroupLayout HomeworkPanel1Layout = new javax.swing.GroupLayout(HomeworkPanel1);
         HomeworkPanel1.setLayout(HomeworkPanel1Layout);
         HomeworkPanel1Layout.setHorizontalGroup(
             HomeworkPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HomeworkPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(HomeworkPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(HomeworkPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(HomeworkPanel1Layout.createSequentialGroup()
-                            .addComponent(totalMarks, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(334, 334, 334)
-                            .addComponent(dueDate, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(HomeworkPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(489, 489, 489)))
-                    .addComponent(homeworkLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 687, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(348, Short.MAX_VALUE))
+                    .addGroup(HomeworkPanel1Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(HomeworkPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(homeworkLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 652, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(HomeworkPanel1Layout.createSequentialGroup()
+                                .addGroup(HomeworkPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(HomeworkPanel1Layout.createSequentialGroup()
+                                        .addComponent(subjectLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(50, 50, 50)
+                                        .addComponent(totalMarksLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(31, 31, 31)
+                                .addGroup(HomeworkPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(dueDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(postDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(HomeworkPanel1Layout.createSequentialGroup()
+                        .addGap(211, 211, 211)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(349, Short.MAX_VALUE))
         );
         HomeworkPanel1Layout.setVerticalGroup(
             HomeworkPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HomeworkPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(22, 22, 22)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
+                .addComponent(postDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
                 .addGroup(HomeworkPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(totalMarks, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dueDate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(subjectLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dueDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(totalMarksLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(homeworkLabel)
-                .addContainerGap(543, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(440, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout HomeworkPanelLayout = new javax.swing.GroupLayout(HomeworkPanel);
@@ -692,11 +744,11 @@ public class StudentProfile extends javax.swing.JFrame {
         );
         HomeworkPanelLayout.setVerticalGroup(
             HomeworkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 694, Short.MAX_VALUE)
+            .addGap(0, 715, Short.MAX_VALUE)
             .addGroup(HomeworkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(HomeworkPanelLayout.createSequentialGroup()
                     .addComponent(HomeworkPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 9, Short.MAX_VALUE)))
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("homework", HomeworkPanel);
@@ -882,6 +934,67 @@ public class StudentProfile extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     //......................Start Custom Functions...................//
+    public void getHomeworks(){
+        homeworkList=stdb.getHomework();
+        totalHomeworks=homeworkList.size();
+        showHomework();
+    }
+    public void showHomework(){
+        if(totalHomeworks>=1){
+            nextHomeworkButton.setVisible(true);
+            subjectLabel.setText("Subject : "+homeworkList.get(0).getSubject());
+            totalMarksLabel.setText("Total Marks : "+homeworkList.get(0).getTotalMarks());
+            postDateLabel.setText("Post Date : "+homeworkList.get(0).getPostDate());
+            dueDateLabel.setText("Due Date : "+homeworkList.get(0).getDueDateString());
+            homeworkLabel.setText("<html>"+homeworkList.get(0).getHomeworkText()+"</html>");
+        }else{
+            nextHomeworkButton.setVisible(false);
+            previousHomeworkButton.setVisible(false);
+            subjectLabel.setText("");
+            totalMarksLabel.setText("");
+            postDateLabel.setText("");
+            dueDateLabel.setText("");
+            homeworkLabel.setText("Hey, You have no homework to do. Enjoy your free time. Thank you.");
+            
+        }
+    }
+    public void nextHomework(){
+        toggleHomework++;
+        toggleHomework%=totalHomeworks;
+        if(toggleHomework==0){
+            previousHomeworkButton.setVisible(false);
+            showHomework();
+        }
+        else if(totalHomeworks>=1&&toggleHomework<totalHomeworks){
+            previousHomeworkButton.setVisible(true);
+            subjectLabel.setText("Subject : "+homeworkList.get(toggleHomework).getSubject());
+            totalMarksLabel.setText("Total Marks : "+homeworkList.get(toggleHomework).getTotalMarks());
+            postDateLabel.setText("Post Date : "+homeworkList.get(toggleHomework).getPostDate());
+            dueDateLabel.setText("Due Date : "+homeworkList.get(toggleHomework).getDueDateString());
+            homeworkLabel.setText("<html>"+homeworkList.get(toggleHomework).getHomeworkText()+"</html>");
+        }
+    }
+    public void previousHomework(){
+        toggleHomework--;
+        if(toggleHomework<0){
+            toggleHomework=0;
+            previousHomeworkButton.setVisible(false);
+            showHomework();
+        }
+        else if(toggleHomework==0){
+            previousHomeworkButton.setVisible(false);
+            showHomework();
+        }
+        else if(totalHomeworks>=1&&toggleHomework>=0){
+            subjectLabel.setText("Subject : "+homeworkList.get(toggleHomework).getSubject());
+            totalMarksLabel.setText("Total Marks : "+homeworkList.get(toggleHomework).getTotalMarks());
+            postDateLabel.setText("Post Date : "+homeworkList.get(toggleHomework).getPostDate());
+            dueDateLabel.setText("Due Date : "+homeworkList.get(toggleHomework).getDueDateString());
+            homeworkLabel.setText("<html>"+homeworkList.get(toggleHomework).getHomeworkText()+"</html>");
+        }
+    }
+    
+    
     public void showNoticeBoard(){
         
         DefaultTableModel dtm = (DefaultTableModel) noticeBoardTable.getModel();
@@ -949,7 +1062,7 @@ public class StudentProfile extends javax.swing.JFrame {
         ind_2.setOpaque(false);
         ind_3.setOpaque(false);
         ind_4.setOpaque(false);
-                 ind_5.setOpaque(false);
+        ind_5.setOpaque(false);
     }//GEN-LAST:event_home_btnMousePressed
 
     private void homework_btnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homework_btnMousePressed
@@ -967,7 +1080,7 @@ public class StudentProfile extends javax.swing.JFrame {
         ind_2.setOpaque(false);
         ind_3.setOpaque(false);
         ind_4.setOpaque(false);
-                 ind_5.setOpaque(false);
+        ind_5.setOpaque(false);
     }//GEN-LAST:event_homework_btnMousePressed
 
     private void result_btnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_result_btnMousePressed
@@ -986,7 +1099,7 @@ public class StudentProfile extends javax.swing.JFrame {
         ind_2.setOpaque(true);
         ind_3.setOpaque(false);
         ind_4.setOpaque(false);
-                 ind_5.setOpaque(false);
+        ind_5.setOpaque(false);
         
     }//GEN-LAST:event_result_btnMousePressed
 
@@ -1006,7 +1119,7 @@ public class StudentProfile extends javax.swing.JFrame {
         ind_2.setOpaque(false);
         ind_3.setOpaque(true);
         ind_4.setOpaque(false);
-                 ind_5.setOpaque(false);
+        ind_5.setOpaque(false);
         
         
     }//GEN-LAST:event_notices_btnMousePressed
@@ -1027,7 +1140,7 @@ public class StudentProfile extends javax.swing.JFrame {
         ind_2.setOpaque(true);
         ind_3.setOpaque(false);
         ind_4.setOpaque(false);
-       ind_5.setOpaque(false);
+        ind_5.setOpaque(false);
         
         
     }//GEN-LAST:event_attendance_btnMousePressed
@@ -1108,7 +1221,7 @@ public class StudentProfile extends javax.swing.JFrame {
     }//GEN-LAST:event_AttendenceLebelMouseClicked
 
     private void messege_btnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_messege_btnMousePressed
-       jTabbedPane1.setSelectedIndex(5);
+        jTabbedPane1.setSelectedIndex(5);
         setColor(messege_btn);
         resetColor(home_btn);
         resetColor(homework_btn);
@@ -1123,6 +1236,14 @@ public class StudentProfile extends javax.swing.JFrame {
         ind_4.setOpaque(false);
         ind_5.setOpaque(true);
     }//GEN-LAST:event_messege_btnMousePressed
+
+    private void previousHomeworkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previousHomeworkButtonActionPerformed
+        previousHomework();
+    }//GEN-LAST:event_previousHomeworkButtonActionPerformed
+
+    private void nextHomeworkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextHomeworkButtonActionPerformed
+        nextHomework();
+    }//GEN-LAST:event_nextHomeworkButtonActionPerformed
     
     /**
      * @param args the command line arguments
@@ -1197,7 +1318,7 @@ public class StudentProfile extends javax.swing.JFrame {
     private javax.swing.JPanel TopBar;
     private javax.swing.JPanel attendance_btn;
     private javax.swing.JButton close_btn;
-    private javax.swing.JLabel dueDate;
+    private javax.swing.JLabel dueDateLabel;
     private javax.swing.JPanel home_btn;
     private javax.swing.JLabel homeworkLabel;
     private javax.swing.JPanel homework_btn;
@@ -1213,20 +1334,25 @@ public class StudentProfile extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton logOut;
     private javax.swing.JLabel messegeLebel;
     private javax.swing.JPanel messege_btn;
     private javax.swing.JPanel myNoticePanel;
+    private javax.swing.JButton nextHomeworkButton;
     private javax.swing.JTable noticeBoardTable;
     private javax.swing.JLabel noticeLebel;
     private javax.swing.JPanel noticePanel;
     private javax.swing.JPanel notices_btn;
+    private javax.swing.JLabel postDateLabel;
+    private javax.swing.JButton previousHomeworkButton;
     private javax.swing.JPanel resultPanel;
     private javax.swing.JPanel result_btn;
     private javax.swing.JPanel sideMenu;
     private javax.swing.JLabel sideMenuHide;
-    private javax.swing.JLabel totalMarks;
+    private javax.swing.JLabel subjectLabel;
+    private javax.swing.JLabel totalMarksLabel;
     // End of variables declaration//GEN-END:variables
 }

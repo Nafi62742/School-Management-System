@@ -4,10 +4,6 @@
 * and open the template in the editor.
 */
 package schoolmanagementsystem.Database;
-
-import java.sql.Date;
-import java.sql.Time;
-
 /**
  *
  * @author fahim

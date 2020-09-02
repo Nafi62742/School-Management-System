@@ -61,7 +61,23 @@ public class StudentDatabase {
             }
             return list;
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, "Can't get notice from database.");
+        }
+        return null;
+    }
+    public List<Homework> getHomework(){
+        String sql = "select * from homework where class=\'"+getStudentClass()+ "\' and sec=\'"+getSection()+"\'";
+        List<Homework> list = new ArrayList<Homework>();
+        try {
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                Homework homeworkClass=new Homework(rs.getString("subject"),rs.getInt("total_marks"),rs.getString("post_date"),rs.getString("due_date"),rs.getString("homework_text"));
+                list.add(homeworkClass);
+            }
+            return list;
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Can't get homeworks from database.");
         }
         return null;
     }

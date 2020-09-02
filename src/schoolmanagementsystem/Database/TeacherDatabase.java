@@ -26,7 +26,7 @@ import schoolmanagementsystem.JConnection;
  */
 public class TeacherDatabase {
     private String teacherName;
-    private String subject;
+    private String teacherSubject;
     private String designation;
     private String id;
     final JPanel panel = new JPanel();
@@ -52,12 +52,34 @@ public class TeacherDatabase {
             rs = pst.executeQuery();
             if (rs.next()) {
                 setTeacherName(rs.getString("name"));
-                setSubject(rs.getString("subject"));
+                setTeacherSubject(rs.getString("subject"));
                 setDesignation(rs.getString("designation"));
             }
         }catch(HeadlessException | SQLException e){
             JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
         }
+    }
+    public void postHomework(String studentClass,String section,int totalMarks,String dueDate,String homeworkText){
+        Date datetime = new Date();
+        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        String postDateString=dateFormat.format(datetime);
+        String sql = "INSERT INTO homework(class, sec,teacher_name, subject, total_marks,post_date, due_date,homework_text) VALUES(?,?,?,?,?,?,?,?)";
+        try {
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, studentClass);
+            pst.setString(2, section);
+            pst.setString(3, getTeacherName());
+            pst.setString(4, getTeacherSubject());
+            pst.setInt(5, totalMarks);
+            pst.setString(6,postDateString);
+            pst.setString(7, dueDate);
+            pst.setString(8,homeworkText);
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Homework have been posted Successfully");
+        } catch (HeadlessException | SQLException e) {
+            JOptionPane.showMessageDialog(panel, e,"Warning",JOptionPane.WARNING_MESSAGE);
+        }
+        
     }
     public void postNotice(String studentClass,String notice){
         Date datetime = new Date();
@@ -73,11 +95,11 @@ public class TeacherDatabase {
             pst.setString(2, timeString);
             pst.setString(3, getTeacherName());
             pst.setString(4, studentClass);
-            pst.setString(5, getSubject());
+            pst.setString(5, getTeacherSubject());
             pst.setString(6,notice);
             pst.execute();
             
-            JOptionPane.showMessageDialog(null, "Inserted Successfully");
+            JOptionPane.showMessageDialog(null, "Notice have been posted Successfully");
         } catch (HeadlessException | SQLException e) {
             JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
         }
@@ -100,9 +122,7 @@ public class TeacherDatabase {
         this.teacherName = teacherName;
     }
     
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
+    
     
     public void setDesignation(String designation) {
         this.designation = designation;
@@ -112,9 +132,14 @@ public class TeacherDatabase {
         return teacherName;
     }
     
-    public String getSubject() {
-        return subject;
+    public String getTeacherSubject() {
+        return teacherSubject;
     }
+    
+    public void setTeacherSubject(String teacherSubject) {
+        this.teacherSubject = teacherSubject;
+    }
+    
     
     public String getDesignation() {
         return designation;
