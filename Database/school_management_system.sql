@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 02, 2020 at 03:12 AM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.4.8
+-- Generation Time: Sep 03, 2020 at 06:04 AM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -30,11 +31,21 @@ SET time_zone = "+00:00";
 CREATE TABLE `homework` (
   `class` varchar(20) NOT NULL,
   `sec` varchar(20) NOT NULL,
+  `teacher_name` varchar(20) NOT NULL,
   `subject` varchar(30) NOT NULL,
-  `total_marks` float NOT NULL,
-  `due_date` date NOT NULL,
+  `total_marks` int(11) NOT NULL,
+  `post_date` varchar(20) NOT NULL,
+  `due_date` varchar(20) NOT NULL,
   `homework_text` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `homework`
+--
+
+INSERT INTO `homework` (`class`, `sec`, `teacher_name`, `subject`, `total_marks`, `post_date`, `due_date`, `homework_text`) VALUES
+('10', 'a', 'Fahim', 'Physics', 78, '02.09.2020', '10.09.2020', ';llmlmlonilbuybubnnoiniubyibib'),
+('10', 'a', 'Fahim', 'Math', 67, '02.09.2020', '18.09.2020', 'onlnlnilbyu 7yfuiyvu6t 7tf6tvyf56tf 7tfytvbygf65fty 7tf7bg7f65');
 
 -- --------------------------------------------------------
 
@@ -54,9 +65,9 @@ CREATE TABLE `login_info` (
 
 INSERT INTO `login_info` (`id`, `ip_address`, `state`) VALUES
 ('400.12', '192.168.0.107', 0),
-('100.12', '192.168.0.107', 0),
-('100.17', '10.235.17.2', 0),
-('400.32', '10.235.17.2', 0);
+('100.12', '192.168.0.107', 1),
+('100.11', '192.168.0.107', 0),
+('400.13', '192.168.0.107', 0);
 
 -- --------------------------------------------------------
 
@@ -79,7 +90,7 @@ CREATE TABLE `notice_board` (
 
 INSERT INTO `notice_board` (`date`, `time`, `teacher_name`, `class`, `subject`, `notice`) VALUES
 ('01.09.2020', '11:41 PM', 'Fahim', '10', 'Math', 'kalke cls off..karor asha lagbe na'),
-('02.09.2020', '07:10 AM', 'Md. Karim', '10', 'Math', 'There will be a quiz next week Wednesday');
+('02.09.2020', '12:04 AM', 'Fahim', '10', 'Math', 'eto pora lekha kore ki hobe!?');
 
 -- --------------------------------------------------------
 
@@ -101,7 +112,7 @@ CREATE TABLE `student_accounts` (
 
 INSERT INTO `student_accounts` (`name`, `class`, `sec`, `id`, `pass`) VALUES
 ('Fahim', '10', 'a', '100.12', 'MTIzNA=='),
-('Nafi Ahmed', '10', 'A', '100.17', 'TmFmaTAwNw==');
+('Pranto', '8', 'b', '100.11', 'MTIzNA==');
 
 -- --------------------------------------------------------
 
@@ -136,7 +147,7 @@ CREATE TABLE `teacher_accounts` (
 
 INSERT INTO `teacher_accounts` (`name`, `subject`, `designation`, `id`, `pass`) VALUES
 ('Fahim', 'Math', 'Senior Teacher', '400.12', 'MTIzNA=='),
-('Md. Karim', 'Math', 'Professor', '400.32', 'a2FyaW0=');
+('Fahim', 'Physics', 'Senior Teacher', '400.13', 'MTIzNA==');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
