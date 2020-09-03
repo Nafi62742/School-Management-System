@@ -743,8 +743,8 @@
                                           <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="Section" min="-2" pref="157" max="-2" attributes="0"/>
-                                              <Component id="NameFDB" min="-2" pref="157" max="-2" attributes="0"/>
                                               <Component id="Class" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
+                                              <Component id="NameFDB" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -761,17 +761,17 @@
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="Edit2" min="-2" pref="68" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="Edit" min="-2" pref="68" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                          <Component id="Edit2" pref="60" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                          <Component id="Edit" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="NameText2" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
                               <Component id="NameFDB" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
@@ -893,7 +893,7 @@
                     <Property name="text" type="java.lang.String" value="Class show"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="Edit2">
+                <Component class="javax.swing.JLabel" name="Edit">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Comic Sans MS" size="24" style="1"/>
@@ -904,7 +904,7 @@
                     <Property name="text" type="java.lang.String" value="Edit"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Edit2MouseClicked"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="EditMouseClicked"/>
                   </Events>
                 </Component>
               </SubComponents>
