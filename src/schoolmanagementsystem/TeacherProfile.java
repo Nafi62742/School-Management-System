@@ -5,6 +5,7 @@
 */
 package schoolmanagementsystem;
 
+import java.awt.Color;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.sql.Connection;
@@ -131,6 +132,7 @@ public class TeacherProfile extends javax.swing.JFrame {
         ID = new javax.swing.JLabel();
         SubjectText = new javax.swing.JLabel();
         Subject = new javax.swing.JLabel();
+        Edit = new javax.swing.JLabel();
         HomeworkPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -616,6 +618,15 @@ public class TeacherProfile extends javax.swing.JFrame {
         Subject.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Subject.setText("Subject show");
 
+        Edit.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        Edit.setForeground(new java.awt.Color(255, 255, 255));
+        Edit.setText("Edit");
+        Edit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EditMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout HomePanelLayout = new javax.swing.GroupLayout(HomePanel);
         HomePanel.setLayout(HomePanelLayout);
         HomePanelLayout.setHorizontalGroup(
@@ -633,7 +644,6 @@ public class TeacherProfile extends javax.swing.JFrame {
                             .addComponent(IDText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(30, 30, 30))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomePanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(NameText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)))
                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -641,12 +651,18 @@ public class TeacherProfile extends javax.swing.JFrame {
                     .addComponent(Subject, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(438, Short.MAX_VALUE))
+                .addContainerGap(436, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomePanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
         );
         HomePanelLayout.setVerticalGroup(
             HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HomePanelLayout.createSequentialGroup()
-                .addGap(100, 100, 100)
+                .addGap(24, 24, 24)
+                .addComponent(Edit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(42, 42, 42)
                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(NameText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -662,7 +678,7 @@ public class TeacherProfile extends javax.swing.JFrame {
                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Designation, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DesignationText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(273, Short.MAX_VALUE))
+                .addContainerGap(280, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("home", HomePanel);
@@ -1083,17 +1099,18 @@ public class TeacherProfile extends javax.swing.JFrame {
         // TODO add your handling code here:
         jTabbedPane1.setSelectedIndex(0);
         setColor(home_btn);
-        // resetColor(new JPanel[](homework_btn;result_btn;notices_btn;attendance_btn));
         resetColor(homework_btn);
         resetColor(result_btn);
         resetColor(notices_btn);
         resetColor(attendance_btn);
+        resetColor(messege_btn);
         
         ind_0.setOpaque(true);
         ind_1.setOpaque(false);
         ind_2.setOpaque(false);
         ind_3.setOpaque(false);
         ind_4.setOpaque(false);
+        ind_5.setOpaque(false);
 
     }//GEN-LAST:event_home_btnMousePressed
 
@@ -1105,12 +1122,14 @@ public class TeacherProfile extends javax.swing.JFrame {
         resetColor(result_btn);
         resetColor(notices_btn);
         resetColor(attendance_btn);
+        resetColor(messege_btn);
         
         ind_0.setOpaque(false);
         ind_1.setOpaque(true);
         ind_2.setOpaque(false);
         ind_3.setOpaque(false);
         ind_4.setOpaque(false);
+        ind_5.setOpaque(false);
 
     }//GEN-LAST:event_homework_btnMousePressed
 
@@ -1123,12 +1142,15 @@ public class TeacherProfile extends javax.swing.JFrame {
         resetColor(home_btn);
         resetColor(notices_btn);
         resetColor(attendance_btn);
+        resetColor(messege_btn);
         
         ind_0.setOpaque(false);
         ind_1.setOpaque(false);
         ind_2.setOpaque(true);
         ind_3.setOpaque(false);
         ind_4.setOpaque(false);
+        ind_5.setOpaque(false);
+
 
     }//GEN-LAST:event_result_btnMousePressed
 
@@ -1136,17 +1158,19 @@ public class TeacherProfile extends javax.swing.JFrame {
         // TODO add your handling code here:
         jTabbedPane1.setSelectedIndex(2);
         setColor(attendance_btn);
-        // resetColor(new JPanel[](homework_btn;result_btn;notices_btn;attendance_btn));
+        resetColor(home_btn);
         resetColor(homework_btn);
         resetColor(result_btn);
         resetColor(notices_btn);
-        resetColor(home_btn);
+        resetColor(messege_btn);
+        
         
         ind_0.setOpaque(false);
         ind_1.setOpaque(false);
-        ind_2.setOpaque(false);
+        ind_2.setOpaque(true);
         ind_3.setOpaque(false);
-        ind_4.setOpaque(true);
+        ind_4.setOpaque(false);
+       ind_5.setOpaque(false);
 
     }//GEN-LAST:event_attendance_btnMousePressed
 
@@ -1167,12 +1191,14 @@ public class TeacherProfile extends javax.swing.JFrame {
         resetColor(result_btn);
         resetColor(home_btn);
         resetColor(attendance_btn);
+        resetColor(messege_btn);
         
         ind_0.setOpaque(false);
         ind_1.setOpaque(false);
         ind_2.setOpaque(false);
         ind_3.setOpaque(true);
         ind_4.setOpaque(false);
+        ind_5.setOpaque(false);
 
     }//GEN-LAST:event_notices_btnMousePressed
 
@@ -1280,6 +1306,18 @@ public class TeacherProfile extends javax.swing.JFrame {
         ind_4.setOpaque(false);
         ind_5.setOpaque(true);
     }//GEN-LAST:event_messege_btnMousePressed
+
+    private void EditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EditMouseClicked
+        UpdateAccountTeacher updateAccountTeacher = new UpdateAccountTeacher(this.id);
+        updateAccountTeacher.setVisible(true);
+
+        updateAccountTeacher.setResizable(false);
+
+        updateAccountTeacher.setDefaultCloseOperation(updateAccountTeacher.DO_NOTHING_ON_CLOSE);
+
+        //popUp pU = new popUp();
+        dispose();
+    }//GEN-LAST:event_EditMouseClicked
     
     /**
      * @param args the command line arguments
@@ -1320,6 +1358,7 @@ public class TeacherProfile extends javax.swing.JFrame {
     private javax.swing.JPanel AttendencePanel;
     private javax.swing.JLabel Designation;
     private javax.swing.JLabel DesignationText;
+    private javax.swing.JLabel Edit;
     private javax.swing.JPanel HomePanel;
     private javax.swing.JLabel Homework;
     private javax.swing.JPanel HomeworkPanel;
@@ -1391,11 +1430,14 @@ public class TeacherProfile extends javax.swing.JFrame {
     private javax.swing.JTextField totalMarks;
     // End of variables declaration//GEN-END:variables
     
-    private void resetColor(JPanel homework_btn) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void setColor(JPanel pane)
+    {
+        pane.setBackground(new Color(65,59,94));
     }
     
-    private void setColor(JPanel home_btn) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    private void resetColor(JPanel pane)
+    {
+        pane.setBackground(new Color(19,10,52));
     }
 }

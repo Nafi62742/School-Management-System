@@ -98,6 +98,7 @@ public class StudentProfile extends javax.swing.JFrame {
         IDFDB = new javax.swing.JLabel();
         ClassText = new javax.swing.JLabel();
         Class = new javax.swing.JLabel();
+        Edit = new javax.swing.JLabel();
         HomeworkPanel = new javax.swing.JPanel();
         HomeworkPanel1 = new javax.swing.JPanel();
         dueDateLabel = new javax.swing.JLabel();
@@ -577,6 +578,15 @@ public class StudentProfile extends javax.swing.JFrame {
         Class.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Class.setText("Class show");
 
+        Edit.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        Edit.setForeground(new java.awt.Color(255, 255, 255));
+        Edit.setText("Edit");
+        Edit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EditMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout HomePanelLayout = new javax.swing.GroupLayout(HomePanel);
         HomePanel.setLayout(HomePanelLayout);
         HomePanelLayout.setHorizontalGroup(
@@ -599,19 +609,25 @@ public class StudentProfile extends javax.swing.JFrame {
                                 .addGap(58, 58, 58)
                                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Section, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(NameFDB, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Class, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(Class, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(NameFDB, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(HomePanelLayout.createSequentialGroup()
                         .addGap(102, 102, 102)
                         .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ClassText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(SectionText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(559, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomePanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(83, 83, 83))
         );
         HomePanelLayout.setVerticalGroup(
             HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomePanelLayout.createSequentialGroup()
-                .addContainerGap(211, Short.MAX_VALUE)
+                .addGap(82, 82, 82)
+                .addComponent(Edit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(95, 95, 95)
                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(NameText2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(NameFDB, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1244,6 +1260,18 @@ public class StudentProfile extends javax.swing.JFrame {
     private void nextHomeworkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextHomeworkButtonActionPerformed
         nextHomework();
     }//GEN-LAST:event_nextHomeworkButtonActionPerformed
+
+    private void EditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EditMouseClicked
+        UpdateAccountStudent updateAccountStudent = new UpdateAccountStudent(this.id);
+        updateAccountStudent.setVisible(true);
+
+        updateAccountStudent.setResizable(false);
+
+        updateAccountStudent.setDefaultCloseOperation(updateAccountStudent.DO_NOTHING_ON_CLOSE);
+
+        //popUp pU = new popUp();
+        dispose();
+    }//GEN-LAST:event_EditMouseClicked
     
     /**
      * @param args the command line arguments
@@ -1298,6 +1326,7 @@ public class StudentProfile extends javax.swing.JFrame {
     private javax.swing.JPanel AttendencePanel;
     private javax.swing.JLabel Class;
     private javax.swing.JLabel ClassText;
+    private javax.swing.JLabel Edit;
     private javax.swing.JLabel Home1;
     private javax.swing.JPanel HomePanel;
     private javax.swing.JLabel Homework;
