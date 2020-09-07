@@ -24,8 +24,7 @@ import schoolmanagementsystem.logInPage;
  *
  * @author fahim
  */
-public class StudentDatabase {
-    private String id;
+public class StudentDatabase extends Accounts{
     private String studentName;
     private String studentClass;
     private String studentPhoneNo;
@@ -96,23 +95,9 @@ public class StudentDatabase {
                 setStudentPhoneNo(rs.getString("phoneNo"));
                 setStudentEmail(rs.getString("email"));
                 setPassFromDB(rs.getString("pass"));
-                
             }
         }catch(HeadlessException | SQLException e){
             JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
-        }
-    }
-    public void logout(){
-        try {
-            InetAddress myIP=InetAddress.getLocalHost();
-            PreparedStatement  preparedStatement = conn.prepareStatement("update login_info set state =?  where id = \'"+getId()+"\' and ip_address=\'"+myIP.getHostAddress()+"\'");
-            preparedStatement.setInt(1, 0);
-            int update_done = preparedStatement.executeUpdate();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
-            
-        } catch (UnknownHostException ex) {
-            JOptionPane.showMessageDialog(panel, "Sorry, Can't get your IP Address.","Warning",JOptionPane.WARNING_MESSAGE);
         }
     }
     public String getId() {

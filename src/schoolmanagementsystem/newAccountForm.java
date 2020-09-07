@@ -5,22 +5,26 @@
 */
 package schoolmanagementsystem;
 
-import java.awt.HeadlessException;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import javax.swing.JOptionPane;
-import org.apache.commons.codec.binary.Base64;
+import schoolmanagementsystem.Database.Accounts;
 
 public class newAccountForm extends javax.swing.JFrame {
     
     Connection conn = null;
     PreparedStatement pst = null;
-    
+    Accounts account;
     public newAccountForm() {
         this.setUndecorated(true);
         initComponents();
+    }
+    public newAccountForm(Accounts account) {
+        this.setUndecorated(true);
+        initComponents();
         conn = JConnection.connectdb();
+        this.account=account;
     }
     
     /**
@@ -183,18 +187,6 @@ public class newAccountForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 //.......................Start Custom Functions....................//
     
-    private String EncryptPass(String passwordString) {
-        try {
-            String originalInput = passwordString;
-            Base64 base64 = new Base64();
-            String encodedString = new String(base64.encode(originalInput.getBytes()));
-            return encodedString;
-        } catch (Exception e) {
-            System.out.println("Password encryption failed");
-        }
-        return null;
-    }
-    
     private void clearTextField() {
         nameField.setText("");
         studentClassField.setText("");
@@ -203,9 +195,9 @@ public class newAccountForm extends javax.swing.JFrame {
         passwordField.setText("");
         confirmPasswordField.setText("");
     }
-    
-    
-    
+    private void clearIdField() {
+        idField.setText("");
+    }
 //.......................End Custom Functions....................//   
     private void close_bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_close_bActionPerformed
         System.exit(0);
@@ -226,26 +218,20 @@ public class newAccountForm extends javax.swing.JFrame {
     }//GEN-LAST:event_nameFieldActionPerformed
 
     private void signupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupButtonActionPerformed
-        String sql = "INSERT INTO student_accounts(name,class,sec,id,pass) VALUES(?,?,?,?,?)";
-        String pass = null;
-        
         String originalPass = passwordField.getText();
         if (originalPass.length() >= 4 && originalPass.equals(confirmPasswordField.getText())) {
-            pass = EncryptPass(originalPass);
-            try {
-                pst = conn.prepareStatement(sql);
-                pst.setString(1, nameField.getText());
-                pst.setString(2, studentClassField.getText());
-                pst.setString(3, sectionField.getText());
-                pst.setString(4, "100."+idField.getText());
-                pst.setString(5, pass);
-                pst.execute();
-                clearTextField();
-                JOptionPane.showMessageDialog(null, "Inserted Successfully");
-                dispose();
-                new logInPage().setVisible(true);
-            } catch (HeadlessException | SQLException e) {
-                JOptionPane.showMessageDialog(this, "Database error", "Warning", JOptionPane.WARNING_MESSAGE);
+            int response=account.createStudentAccount(nameField.getText(),studentClassField.getText(),sectionField.getText(),"100."+idField.getText(),originalPass);
+            switch (response) {
+                case 2:
+                    clearIdField();
+                    break;
+                case 1:
+                    new logInPage().setVisible(true);
+                    dispose();
+                    break;
+                default:
+                    clearTextField();
+                    break;
             }
         } else {
             JOptionPane.showMessageDialog(this, "Please set password correctly", "Warning", JOptionPane.WARNING_MESSAGE);

@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 07, 2020 at 04:01 PM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.4.8
+-- Generation Time: Sep 07, 2020 at 09:21 PM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -63,12 +64,8 @@ CREATE TABLE `login_info` (
 --
 
 INSERT INTO `login_info` (`id`, `ip_address`, `state`) VALUES
-('400.12', '192.168.0.107', 0),
-('100.12', '192.168.0.107', 1),
-('100.11', '192.168.0.107', 0),
-('400.13', '192.168.0.107', 0),
-('100.17', '192.168.0.105', 0),
-('400.32', '192.168.0.105', 1);
+('100.12', '192.168.43.18', 0),
+('100.12', '192.168.0.108', 0);
 
 -- --------------------------------------------------------
 
@@ -116,7 +113,10 @@ CREATE TABLE `student_accounts` (
 INSERT INTO `student_accounts` (`name`, `class`, `sec`, `id`, `phoneNo`, `email`, `pass`) VALUES
 ('Fahim', '10', 'a', '100.12', NULL, NULL, 'MTIzNA=='),
 ('Pranto', '8', 'b', '100.11', NULL, NULL, 'MTIzNA=='),
-('Nafi Ahmed', '10', 'A', '100.17', '01760887297', 'nafiahmed318@gmail.com', 'TmFmaTAwNw==');
+('Nafi Ahmed', '10', 'A', '100.17', '01760887297', 'nafiahmed318@gmail.com', 'TmFmaTAwNw=='),
+('test1', '10', 'a', '100.15', NULL, NULL, 'MTIzNA=='),
+('test2', '10', 'a', '100.14', NULL, NULL, 'MTIzNA=='),
+('test3', '10', 'a', '100.16', NULL, NULL, 'MTIzNA==');
 
 -- --------------------------------------------------------
 
@@ -154,7 +154,25 @@ CREATE TABLE `teacher_accounts` (
 INSERT INTO `teacher_accounts` (`name`, `subject`, `designation`, `id`, `phoneNo`, `email`, `pass`) VALUES
 ('Fahim', 'Math', 'Senior Teacher', '400.12', NULL, NULL, 'MTIzNA=='),
 ('Fahim', 'Physics', 'Senior Teacher', '400.13', NULL, NULL, 'MTIzNA=='),
-('Dr Sharker Md. Numan', 'Medicine', 'Doctor', '400.32', '01760887297', 'nafiahmed318@gmail.com', 'bnVtYW4=');
+('Dr Sharker Md. Numan', 'Medicine', 'Doctor', '400.32', '01760887297', 'nafiahmed318@gmail.com', 'bnVtYW4='),
+('test1', 'math', 'teacher', '400.14', NULL, NULL, 'MTIzNA=='),
+('test2', 'kkkj', 'jnonno', '400.15', NULL, NULL, 'MTIzNA==');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `student_accounts`
+--
+ALTER TABLE `student_accounts`
+  ADD UNIQUE KEY `id` (`id`) USING HASH;
+
+--
+-- Indexes for table `teacher_accounts`
+--
+ALTER TABLE `teacher_accounts`
+  ADD UNIQUE KEY `id` (`id`) USING HASH;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

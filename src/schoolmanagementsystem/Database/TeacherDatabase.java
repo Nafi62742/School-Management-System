@@ -24,11 +24,10 @@ import schoolmanagementsystem.JConnection;
  *
  * @author fahim
  */
-public class TeacherDatabase {
+public class TeacherDatabase extends Accounts{
     private String teacherName;
     private String teacherSubject;
     private String designation;
-    private String id;
     private String teacherPhoneNo;
     private String teacherEmail;
     private String passFromTDB;
@@ -109,21 +108,7 @@ public class TeacherDatabase {
         } catch (HeadlessException | SQLException e) {
             JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
         }
-    }
-    public void logout(){
-        try {
-            InetAddress myIP=InetAddress.getLocalHost();
-            PreparedStatement  preparedStatement = conn.prepareStatement("update login_info set state =?  where id = \'"+getId()+"\' and ip_address=\'"+myIP.getHostAddress()+"\'");
-            preparedStatement.setInt(1, 0);
-            int update_done = preparedStatement.executeUpdate();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
-            
-        } catch (UnknownHostException ex) {
-            JOptionPane.showMessageDialog(panel, "Sorry, Can't get your IP Address.","Warning",JOptionPane.WARNING_MESSAGE);
-        }
-    }
-    
+    } 
     public void setTeacherName(String teacherName) {
         this.teacherName = teacherName;
     }
@@ -173,14 +158,5 @@ public class TeacherDatabase {
     
     public String getDesignation() {
         return designation;
-    }
-    
-    public String getId() {
-        return id;
-    }
-    
-    
-    
-    
-    
+    }  
 }

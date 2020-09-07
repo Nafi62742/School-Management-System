@@ -1,62 +1,26 @@
-/*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
-*/
 package schoolmanagementsystem;
-
-
-import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.util.prefs.Preferences;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import org.apache.commons.codec.binary.Base64;
+import schoolmanagementsystem.Database.Accounts;
 
-/**
- *
- * @author Administrator
- */
+
 public class logInPage extends javax.swing.JFrame {
-    public Preferences pref = Preferences.userRoot().node("Rememberme");
-    public Connection conn = null;
-    private ResultSet rs = null;
-    private PreparedStatement pst = null;
-    private Statement st;
-    private String id;
+    Accounts account;
     public logInPage() {
         this.setUndecorated(true);
-        conn = JConnection.connectdb();
-        if(isUserLoggedIn()){
-            
-            if(id.contains("100.")){
-                new StudentProfile(id).setVisible(true);
-                dispose();
-            }else if(id.contains("400.")){
-                new TeacherProfile(id).setVisible(true);
-                dispose();
-            }
-        }else{
+        account=new Accounts();
+        
+        String userId=account.isUserLoggedIn();
+        if(userId==null){
             initComponents();
+        }else{
+            if(userId.contains("100.")){
+            new StudentProfile(userId).setVisible(true);
+            dispose();
+        }else if(userId.contains("400.")){
+            new TeacherProfile(userId).setVisible(true);
+            dispose();
         }
-//        rememberMark();
-
-/*String usr = null;
-usr= pref.get("Id", usr);
-usernameField.setText(usr);
-
-String pss = null;
-pss= pref.get("Password", pss);
-passwordField.setText(EncryptPass(pss));
-*/
+        }
     }
     
     /**
@@ -214,160 +178,16 @@ passwordField.setText(EncryptPass(pss));
     }// </editor-fold>//GEN-END:initComponents
     
 //...................Start Custom Functions....................//
-    
-    private boolean isUserLoggedIn(){
-        final JPanel panel = new JPanel();
-        try {
-            
-            InetAddress myIP=InetAddress.getLocalHost();
-            String sql = "select id from login_info where ip_address=\'" + myIP.getHostAddress() + "\' and state=1";
-            try{
-                st = (Statement) conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-                rs = st.executeQuery(sql);
-                if (rs.next()) {
-                    this.id=rs.getString(1);
-                    return true;
-                }else{
-                    return false;
-                }
-            }catch(HeadlessException | SQLException e){
-                JOptionPane.showMessageDialog(panel, "Database error. Auto login failed.","Warning",JOptionPane.WARNING_MESSAGE);
-            }
-        } catch (UnknownHostException ex) {
-            JOptionPane.showMessageDialog(panel, "Sorry, Can't get your IP Address.","Warning",JOptionPane.WARNING_MESSAGE);
-        }
-        return false;
-    }
-    private String DecryptPass(String passwordString) {
-        try {
-            byte[] byteArray = Base64.decodeBase64(passwordString.getBytes());
-            String decodedString = new String(byteArray);
-            return decodedString;
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return null;
-    }
-    private String EncryptPass(String passwordString) {
-        try {
-            String originalInput = passwordString;
-            Base64 base64 = new Base64();
-            String encodedString = new String(base64.encode(originalInput.getBytes()));
-            return encodedString;
-        } catch (Exception e) {
-            System.out.println("Password encryption failed");
-        }
-        return null;
-    }
-    private boolean userValid(String id,String pass,String table){
-        final JPanel panel = new JPanel();
-        String sql = "select id from " + table + " where id=\'" + id + "\' and pass=\'" + pass + "\'";
-        try{
-            st = (Statement) conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            rs = st.executeQuery(sql);
-            if (rs.next()) {
-                return true;
-            }else{
-                JOptionPane.showMessageDialog(this, "User not valid", "Warning", JOptionPane.WARNING_MESSAGE);
-                clearTextField();
-                return false;
-            }
-        }catch(HeadlessException | SQLException e){
-            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
-        }
-        return false;
-    }
-    
+
     private void clearTextField(){
         idField.setText("");
         passwordField.setText("");
     }
     
 //...................End Custom Functions....................//
-    public void savedIdPass(String Id ,String Pass,String Cell){
-        if(Id == null || Pass == null|| Cell == null)
-        {
-            System.out.println("ID pass is not given");
-        }
-        else{
-            String user = Id;
-            
-            String pass = Pass;
-            String cell =Cell;
-            
-            System.out.println("Data inserted");
-            
-            String sql = " UPDATE remember_password SET rem_uname=?,rem_pass=?,state=? WHERE 1";
-            String rem_pass = null;
-            
-            String originalPass = passwordField.getText();
-            if (originalPass.length() >= 4 ) {
-                pass = EncryptPass(originalPass);
-                try {
-                    pst = conn.prepareStatement(sql);
-                    pst.setString(1, user);
-                    pst.setString(2, pass);
-                    pst.setString(3, cell);
-                    pst.execute();
-                    //clearTextField();
-                    JOptionPane.showMessageDialog(null, "Inserted Successfully");
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(this, "Database error", "Warning", JOptionPane.WARNING_MESSAGE);
-                }
-            } else {
-                JOptionPane.showMessageDialog(this, "Please set password correctly", "Warning", JOptionPane.WARNING_MESSAGE);
-            }
-            
-        }
-    }
-
-    public final void checked(boolean remeber){
-        if(remeber == true){
-            
-            savedIdPass(idField.getText(),passwordField.getText(),"true");
-        }
-        else {
-            savedIdPass("Enter Username","","false");
-        }
-    }
     
-      public void rememberMark(){
-        final JPanel panel = new JPanel();
-        String sel,dep;
-        String sql = null;
-        String pass = EncryptPass(passwordField.getText());
-        String table = null;
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-            conn=(Connection) DriverManager.getConnection("jdbc:mysql://localhost/school_management_system","root","");
-            pst=(PreparedStatement) conn.prepareStatement("SELECT * FROM remember_password WHERE 1");
-            rs=pst.executeQuery();
-            if(rs.next())
-            {
-                sel=rs.getString("state");
-                
-                
-                if(sel.equals("true"))
-                {
-                    rememberUserCheckbox.setSelected(true);
-                    idField.setText(rs.getString("rem_uname"));
-                    passwordField.setText(DecryptPass(rs.getString("rem_pass")));
-                }
-                else{
-                    rememberUserCheckbox.setSelected(false);
-                    idField.setText("Enter Username");
-                    passwordField.setText(DecryptPass(rs.getString("rem_pass")));
-                }
-            }
-        }catch (ClassNotFoundException | SQLException e) {
-            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
-        }
-        
-    }
-  
     
     private void idFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idFieldActionPerformed
-        
         // TODO add your handling code here:
     }//GEN-LAST:event_idFieldActionPerformed
 
@@ -380,7 +200,7 @@ passwordField.setText(EncryptPass(pss));
     }//GEN-LAST:event_passwordFieldFocusGained
 
     private void signupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupButtonActionPerformed
-        popUp pU = new popUp();
+        popUp pU = new popUp(account);
         
         pU.setVisible(true);
         pU.setResizable(false);
@@ -392,88 +212,20 @@ passwordField.setText(EncryptPass(pss));
     }//GEN-LAST:event_signupButtonActionPerformed
     
     private void signinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signinButtonActionPerformed
-        final JPanel panel = new JPanel();
-        
-        String id = idField.getText();
-        String pass = EncryptPass(passwordField.getText());
-        String table = null;
-        String sql =null;
-        
-        if(id.equals("")||pass.equals("")){
-            JOptionPane.showMessageDialog(panel, "Invalid Credentials","Warning",JOptionPane.WARNING_MESSAGE);
+        boolean userValid=account.accountLogin(idField.getText(),passwordField.getText(),rememberUserCheckbox.isSelected());
+        if(userValid==true){
+            dispose();
         }else{
-            if (id.contains("100.")) {
-                table = "student_accounts";
-            } else if(id.contains("400.")){
-                table = "teacher_accounts";
-            }else{
-                JOptionPane.showMessageDialog(this, "User not valid", "Warning", JOptionPane.WARNING_MESSAGE);
-                clearTextField();
-                return;
-            }
-            if(rememberUserCheckbox.isSelected() == true){
-                try{
-                    if(userValid(id,pass,table)){
-                        InetAddress myIP=InetAddress.getLocalHost();
-                        //Check user once logged in or not
-                        String sql2="select id from login_info where id=\'" + id + "\' and ip_address=\'" + myIP.getHostAddress() + "\'";
-                        st = (Statement) conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-                        rs = st.executeQuery(sql2);
-                        if(rs.next()){
-                            PreparedStatement  preparedStatement = conn.prepareStatement("update login_info set state =?  where id = \'"+id+"\' and ip_address=\'"+myIP.getHostAddress()+"\'");
-                            preparedStatement.setInt(1, 1);
-                            int update_done = preparedStatement.executeUpdate();
-                        }else{
-                            sql = "INSERT INTO login_info(id,ip_address,state) VALUES(?,?,?)";
-                            pst = conn.prepareStatement(sql);
-                            pst.setString(1, id);
-                            pst.setString(2, myIP.getHostAddress());
-                            pst.setInt(3, 1);
-                            pst.execute();
-                        }
-                        if(id.contains("100.")){
-                            new StudentProfile(id).setVisible(true);
-                        }else if(id.contains("400.")){
-                            new TeacherProfile(id).setVisible(true);
-                        }
-                        dispose();
-                    }
-                }
-                catch(UnknownHostException e){
-                    JOptionPane.showMessageDialog(panel, "Sorry, Can't get your IP Address.","Warning",JOptionPane.WARNING_MESSAGE);
-                }catch(SQLException e){
-                    JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
-                }
-            }else{
-                if(userValid(id,pass,table)){
-                    if(id.contains("100.")){
-                        new StudentProfile(id).setVisible(true);
-                    }else if(id.contains("400.")){
-                        new TeacherProfile(id).setVisible(true);
-                    }
-                    dispose();
-                }
-            }
-        }
-        
+            clearTextField();
+        }     
     }//GEN-LAST:event_signinButtonActionPerformed
 
     private void close_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_close_btnActionPerformed
-        
         System.exit(0);
     }//GEN-LAST:event_close_btnActionPerformed
 
     private void rememberUserCheckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rememberUserCheckboxActionPerformed
-                //        String cell;
-
-//if checkbox is marked
-
-//        if(checkRemeber.isSelected() == true){
-//             checked(true);
-//         }
-//         else{
-//             checked(false);
-//         }
+        
     }//GEN-LAST:event_rememberUserCheckboxActionPerformed
 
     private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
@@ -482,36 +234,12 @@ passwordField.setText(EncryptPass(pss));
 
     private void passwordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordFieldKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            final JPanel panel = new JPanel();
-            
-            String id = idField.getText();
-            String pass = EncryptPass(passwordField.getText());
-            String table = null;
-            String sql =null;
-            
-            if(id.equals("")||pass.equals("")){
-                JOptionPane.showMessageDialog(panel, "Invalid Credentials","Warning",JOptionPane.WARNING_MESSAGE);
+            boolean userValid=account.accountLogin(idField.getText(), passwordField.getText(), false);
+            if(userValid==true){
+                dispose();
             }else{
-                if (id.contains("100.")) {
-                    table = "student_accounts";
-                } else if(id.contains("400.")){
-                    table = "teacher_accounts";
-                }else{
-                    JOptionPane.showMessageDialog(this, "User not valid", "Warning", JOptionPane.WARNING_MESSAGE);
-                    clearTextField();
-                    return;
-                }
-                if(userValid(id,pass,table)){
-                    if(id.contains("100.")){
-                        new StudentProfile(id).setVisible(true);
-                    }else if(id.contains("400.")){
-                        new TeacherProfile(id).setVisible(true);
-                    }
-                    dispose();
-                }
-                
+                clearTextField();
             }
-            
         }
     }//GEN-LAST:event_passwordFieldKeyPressed
     

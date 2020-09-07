@@ -5,18 +5,23 @@
  */
 package schoolmanagementsystem;
 
+import schoolmanagementsystem.Database.Accounts;
+
 /**
  *
  * @author Administrator
  */
 public class popUp extends javax.swing.JFrame {
 
-    /**
-     * Creates new form popUp
-     */
+    Accounts account;
     public popUp() {
         this.setUndecorated(true);
         initComponents();
+    }
+    public popUp(Accounts account) {
+        this.setUndecorated(true);
+        initComponents();
+        this.account=account;
     }
 
     /**
@@ -154,13 +159,12 @@ public class popUp extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void closeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeActionPerformed
-        // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_closeActionPerformed
 
     private void studentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentActionPerformed
         // TODO add your handling code here:
-        newAccountForm nF = new newAccountForm();
+        newAccountForm nF = new newAccountForm(account);
 
         nF.setVisible(true);
         nF.setResizable(false);
@@ -173,7 +177,7 @@ public class popUp extends javax.swing.JFrame {
 
     private void teacherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teacherActionPerformed
         // TODO add your handling code here:
-        newAccountFormT nFT = new newAccountFormT();
+        newAccountFormT nFT = new newAccountFormT(account);
 
         nFT.setVisible(true);
         nFT.setResizable(false);

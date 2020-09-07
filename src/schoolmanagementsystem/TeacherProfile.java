@@ -6,16 +6,12 @@
 package schoolmanagementsystem;
 
 import java.awt.Color;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.jOptionPane;
 import schoolmanagementsystem.Database.TeacherDatabase;
@@ -42,20 +38,11 @@ public class TeacherProfile extends javax.swing.JFrame {
     public TeacherProfile(String id) {
         this.setUndecorated(true);
         initComponents();
-        setId(id);
-        teacherDb=new TeacherDatabase(getId());
+        teacherDb=new TeacherDatabase(id);
         hideSideMenu();
         profileShow();
     }
-    
-    public void setId(String id) {
-        this.id = id;
-    }
-    
-    public String getId() {
-        return id;
-    }
-    
+
     int x =242;
     public void hideSideMenu(){
         if(x==242)
