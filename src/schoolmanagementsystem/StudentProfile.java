@@ -622,7 +622,7 @@ public class StudentProfile extends javax.swing.JFrame {
                         .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(IDTest1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(NameText2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 638, Short.MAX_VALUE)
                         .addComponent(Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(83, 83, 83))
                     .addGroup(HomePanelLayout.createSequentialGroup()
@@ -640,7 +640,7 @@ public class StudentProfile extends javax.swing.JFrame {
                             .addComponent(Section, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(phoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(380, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         HomePanelLayout.setVerticalGroup(
             HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1090,13 +1090,13 @@ public class StudentProfile extends javax.swing.JFrame {
         ID.setText(student_id);
         Section.setText(stdb.getSection());
         Class.setText(stdb.getStudentClass());
-        if(StudentPhnNo.equals("")){
+        if(StudentPhnNo == null){
             phoneNo.setText("Phone not given yet");
         }
         else{
             phoneNo.setText(StudentPhnNo);
         }
-         if(Studentemail.equals("")){
+         if(Studentemail == null){
             phoneNo.setText("Email not given yet");
         }
         else{

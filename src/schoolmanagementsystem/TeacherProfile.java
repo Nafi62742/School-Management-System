@@ -88,13 +88,13 @@ public class TeacherProfile extends javax.swing.JFrame {
         ID.setText(teacherID);
         Designation.setText(designation);
         Subject.setText(teacherDb.getTeacherSubject());
-        if(teacherPhnNo.equals("")){
+        if(teacherPhnNo== null){
             phoneNo.setText("Phone not given yet");
         }
         else{
             phoneNo.setText(teacherPhnNo);
         }
-         if(teacheremail.equals("")){
+         if(teacheremail== null){
             phoneNo.setText("Email not given yet");
         }
         else{
