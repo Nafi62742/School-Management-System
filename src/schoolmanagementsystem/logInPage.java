@@ -321,7 +321,49 @@ passwordField.setText(EncryptPass(pss));
         }
     }
 
+    public final void checked(boolean remeber){
+        if(remeber == true){
+            
+            savedIdPass(idField.getText(),passwordField.getText(),"true");
+        }
+        else {
+            savedIdPass("Enter Username","","false");
+        }
+    }
     
+      public void rememberMark(){
+        final JPanel panel = new JPanel();
+        String sel,dep;
+        String sql = null;
+        String pass = EncryptPass(passwordField.getText());
+        String table = null;
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            conn=(Connection) DriverManager.getConnection("jdbc:mysql://localhost/school_management_system","root","");
+            pst=(PreparedStatement) conn.prepareStatement("SELECT * FROM remember_password WHERE 1");
+            rs=pst.executeQuery();
+            if(rs.next())
+            {
+                sel=rs.getString("state");
+                
+                
+                if(sel.equals("true"))
+                {
+                    rememberUserCheckbox.setSelected(true);
+                    idField.setText(rs.getString("rem_uname"));
+                    passwordField.setText(DecryptPass(rs.getString("rem_pass")));
+                }
+                else{
+                    rememberUserCheckbox.setSelected(false);
+                    idField.setText("Enter Username");
+                    passwordField.setText(DecryptPass(rs.getString("rem_pass")));
+                }
+            }
+        }catch (ClassNotFoundException | SQLException e) {
+            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+        
+    }
   
     
     private void idFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idFieldActionPerformed
@@ -422,7 +464,16 @@ passwordField.setText(EncryptPass(pss));
     }//GEN-LAST:event_close_btnActionPerformed
 
     private void rememberUserCheckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rememberUserCheckboxActionPerformed
+                //        String cell;
 
+//if checkbox is marked
+
+//        if(checkRemeber.isSelected() == true){
+//             checked(true);
+//         }
+//         else{
+//             checked(false);
+//         }
     }//GEN-LAST:event_rememberUserCheckboxActionPerformed
 
     private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
