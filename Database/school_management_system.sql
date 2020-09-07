@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 03, 2020 at 06:04 AM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.3.11
+-- Generation Time: Sep 07, 2020 at 04:01 PM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.4.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -67,7 +66,9 @@ INSERT INTO `login_info` (`id`, `ip_address`, `state`) VALUES
 ('400.12', '192.168.0.107', 0),
 ('100.12', '192.168.0.107', 1),
 ('100.11', '192.168.0.107', 0),
-('400.13', '192.168.0.107', 0);
+('400.13', '192.168.0.107', 0),
+('100.17', '192.168.0.105', 0),
+('400.32', '192.168.0.105', 1);
 
 -- --------------------------------------------------------
 
@@ -103,6 +104,8 @@ CREATE TABLE `student_accounts` (
   `class` text NOT NULL,
   `sec` text NOT NULL,
   `id` text NOT NULL,
+  `phoneNo` text DEFAULT NULL,
+  `email` text DEFAULT NULL,
   `pass` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -110,9 +113,10 @@ CREATE TABLE `student_accounts` (
 -- Dumping data for table `student_accounts`
 --
 
-INSERT INTO `student_accounts` (`name`, `class`, `sec`, `id`, `pass`) VALUES
-('Fahim', '10', 'a', '100.12', 'MTIzNA=='),
-('Pranto', '8', 'b', '100.11', 'MTIzNA==');
+INSERT INTO `student_accounts` (`name`, `class`, `sec`, `id`, `phoneNo`, `email`, `pass`) VALUES
+('Fahim', '10', 'a', '100.12', NULL, NULL, 'MTIzNA=='),
+('Pranto', '8', 'b', '100.11', NULL, NULL, 'MTIzNA=='),
+('Nafi Ahmed', '10', 'A', '100.17', '01760887297', 'nafiahmed318@gmail.com', 'TmFmaTAwNw==');
 
 -- --------------------------------------------------------
 
@@ -138,6 +142,8 @@ CREATE TABLE `teacher_accounts` (
   `subject` varchar(20) NOT NULL,
   `designation` text NOT NULL,
   `id` text NOT NULL,
+  `phoneNo` text DEFAULT NULL,
+  `email` text DEFAULT NULL,
   `pass` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -145,9 +151,10 @@ CREATE TABLE `teacher_accounts` (
 -- Dumping data for table `teacher_accounts`
 --
 
-INSERT INTO `teacher_accounts` (`name`, `subject`, `designation`, `id`, `pass`) VALUES
-('Fahim', 'Math', 'Senior Teacher', '400.12', 'MTIzNA=='),
-('Fahim', 'Physics', 'Senior Teacher', '400.13', 'MTIzNA==');
+INSERT INTO `teacher_accounts` (`name`, `subject`, `designation`, `id`, `phoneNo`, `email`, `pass`) VALUES
+('Fahim', 'Math', 'Senior Teacher', '400.12', NULL, NULL, 'MTIzNA=='),
+('Fahim', 'Physics', 'Senior Teacher', '400.13', NULL, NULL, 'MTIzNA=='),
+('Dr Sharker Md. Numan', 'Medicine', 'Doctor', '400.32', '01760887297', 'nafiahmed318@gmail.com', 'bnVtYW4=');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

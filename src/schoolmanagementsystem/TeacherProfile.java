@@ -81,10 +81,25 @@ public class TeacherProfile extends javax.swing.JFrame {
         String TeacherName = teacherDb.getTeacherName();
         String teacherID =  teacherDb.getId();
         String designation = teacherDb.getDesignation();
+        
+        String teacherPhnNo = teacherDb.getTeacherPhoneNo();
+        String teacheremail = teacherDb.getTeacherEmail();
         Name.setText(TeacherName);
         ID.setText(teacherID);
         Designation.setText(designation);
         Subject.setText(teacherDb.getTeacherSubject());
+        if(teacherPhnNo.equals("")){
+            phoneNo.setText("Phone not given yet");
+        }
+        else{
+            phoneNo.setText(teacherPhnNo);
+        }
+         if(teacheremail.equals("")){
+            phoneNo.setText("Email not given yet");
+        }
+        else{
+            Email.setText(teacheremail);
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -133,6 +148,10 @@ public class TeacherProfile extends javax.swing.JFrame {
         SubjectText = new javax.swing.JLabel();
         Subject = new javax.swing.JLabel();
         Edit = new javax.swing.JLabel();
+        Email = new javax.swing.JLabel();
+        EmailText = new javax.swing.JLabel();
+        phoneNo = new javax.swing.JLabel();
+        PhoneText = new javax.swing.JLabel();
         HomeworkPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -580,42 +599,42 @@ public class TeacherProfile extends javax.swing.JFrame {
 
         NameText.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         NameText.setForeground(new java.awt.Color(255, 255, 255));
-        NameText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        NameText.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         NameText.setText("Name:");
 
         Designation.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         Designation.setForeground(new java.awt.Color(153, 255, 255));
-        Designation.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Designation.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Designation.setText("Designation show");
 
         Name.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         Name.setForeground(new java.awt.Color(51, 255, 255));
-        Name.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Name.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Name.setText("Name Show");
 
         DesignationText.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         DesignationText.setForeground(new java.awt.Color(255, 255, 255));
-        DesignationText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        DesignationText.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         DesignationText.setText("Designation:");
 
         IDText.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         IDText.setForeground(new java.awt.Color(255, 255, 255));
-        IDText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        IDText.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         IDText.setText("ID:");
 
         ID.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         ID.setForeground(new java.awt.Color(153, 255, 255));
-        ID.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ID.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ID.setText("ID show");
 
         SubjectText.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         SubjectText.setForeground(new java.awt.Color(255, 255, 255));
-        SubjectText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        SubjectText.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         SubjectText.setText("Subject:");
 
         Subject.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         Subject.setForeground(new java.awt.Color(153, 255, 255));
-        Subject.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Subject.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Subject.setText("Subject show");
 
         Edit.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
@@ -627,58 +646,87 @@ public class TeacherProfile extends javax.swing.JFrame {
             }
         });
 
+        Email.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        Email.setForeground(new java.awt.Color(153, 255, 255));
+        Email.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Email.setText("Email not given yet");
+
+        EmailText.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        EmailText.setForeground(new java.awt.Color(255, 255, 255));
+        EmailText.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        EmailText.setText("Email:");
+
+        phoneNo.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        phoneNo.setForeground(new java.awt.Color(153, 255, 255));
+        phoneNo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        phoneNo.setText("Phone number not given yet");
+
+        PhoneText.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        PhoneText.setForeground(new java.awt.Color(255, 255, 255));
+        PhoneText.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        PhoneText.setText("Phone No:");
+
         javax.swing.GroupLayout HomePanelLayout = new javax.swing.GroupLayout(HomePanel);
         HomePanel.setLayout(HomePanelLayout);
         HomePanelLayout.setHorizontalGroup(
             HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(HomePanelLayout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(HomePanelLayout.createSequentialGroup()
-                        .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(HomePanelLayout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(DesignationText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(SubjectText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(IDText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomePanelLayout.createSequentialGroup()
-                        .addComponent(NameText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
-                .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Designation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Subject, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(438, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomePanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(484, 484, 484))
+                .addGap(96, 96, 96))
+            .addGroup(HomePanelLayout.createSequentialGroup()
+                .addGap(118, 118, 118)
+                .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(IDText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NameText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SubjectText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DesignationText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PhoneText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EmailText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(94, 94, 94)
+                .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(phoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Designation, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Subject, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(318, Short.MAX_VALUE))
         );
         HomePanelLayout.setVerticalGroup(
             HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HomePanelLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addGap(49, 49, 49)
                 .addComponent(Edit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addGap(17, 17, 17)
                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NameText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NameText, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 19, Short.MAX_VALUE)
                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(IDText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(IDText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SubjectText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Subject, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(HomePanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addComponent(Designation, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21)
+                        .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(phoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PhoneText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18))
+                    .addGroup(HomePanelLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(DesignationText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Designation, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DesignationText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(273, Short.MAX_VALUE))
+                    .addComponent(EmailText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("home", HomePanel);
@@ -1359,6 +1407,8 @@ public class TeacherProfile extends javax.swing.JFrame {
     private javax.swing.JLabel Designation;
     private javax.swing.JLabel DesignationText;
     private javax.swing.JLabel Edit;
+    private javax.swing.JLabel Email;
+    private javax.swing.JLabel EmailText;
     private javax.swing.JPanel HomePanel;
     private javax.swing.JLabel Homework;
     private javax.swing.JPanel HomeworkPanel;
@@ -1371,6 +1421,7 @@ public class TeacherProfile extends javax.swing.JFrame {
     private javax.swing.JPanel MessegePanel;
     private javax.swing.JLabel Name;
     private javax.swing.JLabel NameText;
+    private javax.swing.JLabel PhoneText;
     private javax.swing.JLabel Profile;
     private javax.swing.JLabel SideMenuShow1;
     private javax.swing.JLabel Subject;
@@ -1420,6 +1471,7 @@ public class TeacherProfile extends javax.swing.JFrame {
     private javax.swing.JButton noticePostButton;
     private javax.swing.JTextArea noticeTextArea;
     private javax.swing.JPanel notices_btn;
+    private javax.swing.JLabel phoneNo;
     private javax.swing.JPanel resultPanel;
     private javax.swing.JPanel result_btn;
     private javax.swing.JComboBox<String> selectClass;

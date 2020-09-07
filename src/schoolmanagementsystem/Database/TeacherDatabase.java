@@ -29,6 +29,9 @@ public class TeacherDatabase {
     private String teacherSubject;
     private String designation;
     private String id;
+    private String teacherPhoneNo;
+    private String teacherEmail;
+    private String passFromTDB;
     final JPanel panel = new JPanel();
     Connection conn = null;
     PreparedStatement pst = null;
@@ -54,6 +57,9 @@ public class TeacherDatabase {
                 setTeacherName(rs.getString("name"));
                 setTeacherSubject(rs.getString("subject"));
                 setDesignation(rs.getString("designation"));
+                setTeacherPhoneNo(rs.getString("phoneNo"));
+                setTeacherEmail(rs.getString("email"));
+                setPassFromTDB(rs.getString("pass"));
             }
         }catch(HeadlessException | SQLException e){
             JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
@@ -134,6 +140,30 @@ public class TeacherDatabase {
     
     public String getTeacherSubject() {
         return teacherSubject;
+    }
+
+    public String getTeacherPhoneNo() {
+        return teacherPhoneNo;
+    }
+
+    public void setTeacherPhoneNo(String teacherPhoneNo) {
+        this.teacherPhoneNo = teacherPhoneNo;
+    }
+
+    public String getTeacherEmail() {
+        return teacherEmail;
+    }
+
+    public void setTeacherEmail(String teacherEmail) {
+        this.teacherEmail = teacherEmail;
+    }
+
+    public String getPassFromTDB() {
+        return passFromTDB;
+    }
+
+    public void setPassFromTDB(String passFromTDB) {
+        this.passFromTDB = passFromTDB;
     }
     
     public void setTeacherSubject(String teacherSubject) {

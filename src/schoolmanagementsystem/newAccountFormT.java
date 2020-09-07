@@ -218,7 +218,7 @@ public class newAccountFormT extends javax.swing.JFrame {
         String name=nameField.getText();
         
         String originalPass = passwordField.getText();
-        if(name.length()>15){
+        if(name.length()>30){
             JOptionPane.showMessageDialog(this, "Name should be shorter.", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }

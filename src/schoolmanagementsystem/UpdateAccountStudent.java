@@ -8,7 +8,9 @@ package schoolmanagementsystem;
 import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 import org.apache.commons.codec.binary.Base64;
 import schoolmanagementsystem.Database.StudentDatabase;
@@ -19,6 +21,7 @@ public class UpdateAccountStudent extends javax.swing.JFrame {
     PreparedStatement pst = null;
     private String id;
     StudentDatabase stdb;
+    private ResultSet rs = null;
 
     public UpdateAccountStudent() {
         this.setUndecorated(true);
@@ -50,23 +53,25 @@ public class UpdateAccountStudent extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         close_b = new javax.swing.JButton();
+        NumberText = new javax.swing.JLabel();
         UpdateLogo = new javax.swing.JLabel();
-        jTextPane2 = new javax.swing.JTextPane();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
+        EmailField = new javax.swing.JTextField();
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
-        idField = new javax.swing.JTextField();
         studentClassField = new javax.swing.JTextField();
+        EmailText = new javax.swing.JLabel();
         sectionField = new javax.swing.JTextField();
         nameField = new javax.swing.JTextField();
         confirmPasswordField = new javax.swing.JPasswordField();
-        passwordField = new javax.swing.JPasswordField();
+        NumberField = new javax.swing.JTextField();
         back_btn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         updateButton = new javax.swing.JButton();
+        idField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,6 +86,14 @@ public class UpdateAccountStudent extends javax.swing.JFrame {
         });
         jPanel2.add(close_b, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 30, 30));
 
+        NumberText.setBackground(new java.awt.Color(255, 255, 255));
+        NumberText.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        NumberText.setForeground(new java.awt.Color(0, 0, 0));
+        NumberText.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        NumberText.setText("Phone number");
+        NumberText.setOpaque(true);
+        jPanel2.add(NumberText, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, 190, 30));
+
         UpdateLogo.setBackground(new java.awt.Color(255, 255, 255));
         UpdateLogo.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         UpdateLogo.setForeground(new java.awt.Color(0, 0, 153));
@@ -88,31 +101,23 @@ public class UpdateAccountStudent extends javax.swing.JFrame {
         UpdateLogo.setText("Update");
         UpdateLogo.setOpaque(true);
         jPanel2.add(UpdateLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 670, 180, 80));
-
-        jTextPane2.setEditable(false);
-        jTextPane2.setBackground(new java.awt.Color(255, 255, 255));
-        jTextPane2.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
-        jTextPane2.setForeground(new java.awt.Color(0, 0, 0));
-        jTextPane2.setText("100.");
-        jTextPane2.setOpaque(false);
-        jPanel2.add(jTextPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, 50, 30));
         jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 560, 430, 20));
         jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, 430, 10));
         jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 430, 10));
         jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 430, 10));
-        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 660, 430, 20));
-        jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 420, 10));
 
-        idField.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
-        idField.setBorder(null);
-        idField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        idField.setOpaque(false);
-        idField.addActionListener(new java.awt.event.ActionListener() {
+        EmailField.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        EmailField.setBorder(null);
+        EmailField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        EmailField.setOpaque(false);
+        EmailField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idFieldActionPerformed(evt);
+                EmailFieldActionPerformed(evt);
             }
         });
-        jPanel2.add(idField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, 390, 30));
+        jPanel2.add(EmailField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 530, 430, 30));
+        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 660, 430, 20));
+        jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 420, 10));
 
         studentClassField.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         studentClassField.setBorder(null);
@@ -125,11 +130,19 @@ public class UpdateAccountStudent extends javax.swing.JFrame {
         });
         jPanel2.add(studentClassField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 430, 30));
 
+        EmailText.setBackground(new java.awt.Color(255, 255, 255));
+        EmailText.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        EmailText.setForeground(new java.awt.Color(0, 0, 0));
+        EmailText.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        EmailText.setText("Email");
+        EmailText.setOpaque(true);
+        jPanel2.add(EmailText, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 510, 320, -1));
+
         sectionField.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         sectionField.setBorder(null);
         sectionField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         sectionField.setOpaque(false);
-        jPanel2.add(sectionField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 440, 30));
+        jPanel2.add(sectionField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 430, 30));
 
         nameField.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         nameField.setBorder(null);
@@ -153,11 +166,16 @@ public class UpdateAccountStudent extends javax.swing.JFrame {
         });
         jPanel2.add(confirmPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 630, 440, 30));
 
-        passwordField.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
-        passwordField.setBorder(null);
-        passwordField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        passwordField.setOpaque(false);
-        jPanel2.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 530, 440, 30));
+        NumberField.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        NumberField.setBorder(null);
+        NumberField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        NumberField.setOpaque(false);
+        NumberField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NumberFieldActionPerformed(evt);
+            }
+        });
+        jPanel2.add(NumberField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, 430, 30));
 
         back_btn.setBorder(null);
         back_btn.setBorderPainted(false);
@@ -184,6 +202,17 @@ public class UpdateAccountStudent extends javax.swing.JFrame {
             }
         });
         jPanel2.add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 680, 180, 60));
+
+        idField1.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        idField1.setBorder(null);
+        idField1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        idField1.setOpaque(false);
+        idField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idField1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(idField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, 430, 30));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -228,20 +257,21 @@ public class UpdateAccountStudent extends javax.swing.JFrame {
         nameField.setText("");
         studentClassField.setText("");
         sectionField.setText("");
-        idField.setText("");
-        passwordField.setText("");
+        NumberField.setText("");
+        EmailField.setText("");
         confirmPasswordField.setText("");
     }
 
     public void profileShow() {
 
         String student_id = this.id;
-
         String StudentName = stdb.getStudentName();
         nameField.setText(StudentName);
-        idField.setText(student_id);
+        EmailField.setText(stdb.getStudentEmail());
         sectionField.setText(stdb.getSection());
         studentClassField.setText(stdb.getStudentClass());
+        NumberField.setText(stdb.getStudentPhoneNo());
+        
 
     }
 //.......................End Custom Functions....................//   
@@ -263,22 +293,23 @@ public class UpdateAccountStudent extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nameFieldActionPerformed
 
+
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         String Stu_Id = stdb.getId();
-        //System.out.println(Stu_Id);
-        String sql = "UPDATE student_accounts SET name=?,class=?,sec=?,pass=? WHERE id =" + Stu_Id;
+        String sql = "UPDATE student_accounts SET name=?,class=?,sec=?, phoneNo=?, email=? WHERE id =" + Stu_Id;
         String pass = null;
 
-        String originalPass = passwordField.getText();
-        if (originalPass.length() >= 4 && originalPass.equals(confirmPasswordField.getText())) {
-            pass = EncryptPass(originalPass);
+       String DBpass = stdb.getPassFromDB();
+        String originalPass = confirmPasswordField.getText();
+        pass = EncryptPass(originalPass);
+        if (originalPass.length() >= 4  && pass.equals(DBpass)){
             try {
                 pst = conn.prepareStatement(sql);
                 pst.setString(1, nameField.getText());
                 pst.setString(2, studentClassField.getText());
                 pst.setString(3, sectionField.getText());
-                //pst.setString(4, "100."+idField.getText());
-                pst.setString(4, pass);
+                pst.setString(4, NumberField.getText());
+                pst.setString(5, EmailField.getText());
                 pst.execute();
                 clearTextField();
                 JOptionPane.showMessageDialog(null, "Updated Successfully");
@@ -297,9 +328,17 @@ public class UpdateAccountStudent extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_confirmPasswordFieldActionPerformed
 
-    private void idFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idFieldActionPerformed
+    private void idField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idField1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_idFieldActionPerformed
+    }//GEN-LAST:event_idField1ActionPerformed
+
+    private void EmailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EmailFieldActionPerformed
+
+    private void NumberFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NumberFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NumberFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -328,20 +367,6 @@ public class UpdateAccountStudent extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -352,11 +377,15 @@ public class UpdateAccountStudent extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField EmailField;
+    private javax.swing.JLabel EmailText;
+    private javax.swing.JTextField NumberField;
+    private javax.swing.JLabel NumberText;
     private javax.swing.JLabel UpdateLogo;
     private javax.swing.JButton back_btn;
     private javax.swing.JButton close_b;
     private javax.swing.JPasswordField confirmPasswordField;
-    private javax.swing.JTextField idField;
+    private javax.swing.JTextField idField1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -366,9 +395,7 @@ public class UpdateAccountStudent extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JTextPane jTextPane2;
     private javax.swing.JTextField nameField;
-    private javax.swing.JPasswordField passwordField;
     private javax.swing.JTextField sectionField;
     private javax.swing.JTextField studentClassField;
     private javax.swing.JButton updateButton;

@@ -28,7 +28,10 @@ public class StudentDatabase {
     private String id;
     private String studentName;
     private String studentClass;
+    private String studentPhoneNo;
+    private String studentEmail;
     private String section;
+    private String passFromDB;
     final JPanel panel = new JPanel();
     Connection conn = null;
     PreparedStatement pst = null;
@@ -90,6 +93,10 @@ public class StudentDatabase {
                 setStudentName(rs.getString("name"));
                 setStudentClass(rs.getString("class"));
                 setSection(rs.getString("sec"));
+                setStudentPhoneNo(rs.getString("phoneNo"));
+                setStudentEmail(rs.getString("email"));
+                setPassFromDB(rs.getString("pass"));
+                
             }
         }catch(HeadlessException | SQLException e){
             JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
@@ -123,6 +130,16 @@ public class StudentDatabase {
     public String getSection() {
         return section;
     }
+
+    public String getPassFromDB() {
+        return passFromDB;
+    }
+
+    public void setPassFromDB(String passFromDB) {
+        this.passFromDB = passFromDB;
+    }
+
+  
     public void setStudentName(String studentName) {
         this.studentName = studentName;
     }
@@ -134,5 +151,22 @@ public class StudentDatabase {
     public void setSection(String section) {
         this.section = section;
     }
+
+    public String getStudentPhoneNo() {
+        return studentPhoneNo;
+    }
+
+    public String getStudentEmail() {
+        return studentEmail;
+    }
+
+    public void setStudentPhoneNo(String studentPhoneNo) {
+        this.studentPhoneNo = studentPhoneNo;
+    }
+
+    public void setStudentEmail(String studentEmail) {
+        this.studentEmail = studentEmail;
+    }
+    
 }
 
