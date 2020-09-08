@@ -83,6 +83,23 @@ public class StudentDatabase extends Accounts{
         }
         return null;
     }
+    
+    public List<Message> getMessage(){
+        String sql = "select * from message where ID=" + "\'" +getId()+ "\'";
+        List<Message> list = new ArrayList<Message>();
+        try {
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                Message messageId=new Message(rs.getString("teacher_name"),rs.getString("ID"),rs.getString("message"));
+                list.add(messageId);
+            }
+            return list;
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Can't get message from database.");
+        }
+        return null;
+    }    
     public void getStudentData(String id){
         String sql = "select * from student_accounts where id=\'" +id+ "\'";
         try{

@@ -109,6 +109,25 @@ public class TeacherDatabase extends Accounts{
             JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
         }
     } 
+    
+    public void sendMessage(String message,String studentId){
+        
+        
+        String sql = "INSERT INTO message(teacher_name, ID, message) VALUES(?,?,?)";
+        try {
+            pst = conn.prepareStatement(sql);
+     
+            pst.setString(1, getTeacherName());
+            pst.setString(2, studentId);
+            
+            pst.setString(3,message);
+            pst.execute();
+            
+            JOptionPane.showMessageDialog(null, "Message have been sent Successfully");
+        } catch (HeadlessException | SQLException e) {
+            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+    }
     public void setTeacherName(String teacherName) {
         this.teacherName = teacherName;
     }

@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.jOptionPane;
 import javax.swing.table.DefaultTableModel;
 import schoolmanagementsystem.Database.Homework;
+import schoolmanagementsystem.Database.Message;
 import schoolmanagementsystem.Database.Notice;
 import schoolmanagementsystem.Database.StudentDatabase;
 
@@ -49,6 +50,7 @@ public class StudentProfile extends javax.swing.JFrame {
         stdb=new StudentDatabase(this.id);
         showNoticeBoard();
         getHomeworks();
+        showMessage();
         hideSideMenu();
         profileShow();
     }
@@ -125,7 +127,10 @@ public class StudentProfile extends javax.swing.JFrame {
         resultPanel = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         MessegePanel = new javax.swing.JPanel();
+        MessegePanel1 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        messageTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -181,7 +186,7 @@ public class StudentProfile extends javax.swing.JFrame {
         );
         ind_0Layout.setVerticalGroup(
             ind_0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 82, Short.MAX_VALUE)
+            .addGap(0, 84, Short.MAX_VALUE)
         );
 
         Home1.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
@@ -203,7 +208,7 @@ public class StudentProfile extends javax.swing.JFrame {
         );
         home_btnLayout.setVerticalGroup(
             home_btnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ind_0, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+            .addComponent(ind_0, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
             .addGroup(home_btnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(home_btnLayout.createSequentialGroup()
                     .addContainerGap()
@@ -436,7 +441,7 @@ public class StudentProfile extends javax.swing.JFrame {
 
         messegeLebel.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         messegeLebel.setForeground(new java.awt.Color(255, 255, 255));
-        messegeLebel.setText("Messege");
+        messegeLebel.setText("Message");
 
         javax.swing.GroupLayout messege_btnLayout = new javax.swing.GroupLayout(messege_btn);
         messege_btn.setLayout(messege_btnLayout);
@@ -907,7 +912,7 @@ public class StudentProfile extends javax.swing.JFrame {
             noticePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, noticePanelLayout.createSequentialGroup()
                 .addComponent(HomeworkPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 5, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         noticePanelLayout.setVerticalGroup(
             noticePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -940,24 +945,86 @@ public class StudentProfile extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("result", resultPanel);
 
-        jLabel13.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
-        jLabel13.setText("Messege");
+        MessegePanel1.setBackground(new java.awt.Color(65, 59, 94));
+
+        jLabel13.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Message");
+
+        messageTable.setAutoCreateRowSorter(true);
+        messageTable.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        messageTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Teacher Name", "Message"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        messageTable.setMinimumSize(new java.awt.Dimension(165, 0));
+        messageTable.setPreferredSize(new java.awt.Dimension(225, 0));
+        messageTable.setRowHeight(30);
+        jScrollPane2.setViewportView(messageTable);
+        if (messageTable.getColumnModel().getColumnCount() > 0) {
+            messageTable.getColumnModel().getColumn(0).setMinWidth(150);
+            messageTable.getColumnModel().getColumn(0).setMaxWidth(250);
+        }
+
+        javax.swing.GroupLayout MessegePanel1Layout = new javax.swing.GroupLayout(MessegePanel1);
+        MessegePanel1.setLayout(MessegePanel1Layout);
+        MessegePanel1Layout.setHorizontalGroup(
+            MessegePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MessegePanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(864, Short.MAX_VALUE))
+            .addGroup(MessegePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(MessegePanel1Layout.createSequentialGroup()
+                    .addGap(6, 6, 6)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1023, Short.MAX_VALUE)
+                    .addGap(6, 6, 6)))
+        );
+        MessegePanel1Layout.setVerticalGroup(
+            MessegePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MessegePanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(616, Short.MAX_VALUE))
+            .addGroup(MessegePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(MessegePanel1Layout.createSequentialGroup()
+                    .addGap(73, 73, 73)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 546, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(74, Short.MAX_VALUE)))
+        );
 
         javax.swing.GroupLayout MessegePanelLayout = new javax.swing.GroupLayout(MessegePanel);
         MessegePanel.setLayout(MessegePanelLayout);
         MessegePanelLayout.setHorizontalGroup(
             MessegePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MessegePanelLayout.createSequentialGroup()
-                .addGap(290, 290, 290)
-                .addComponent(jLabel13)
-                .addContainerGap(651, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MessegePanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(MessegePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         MessegePanelLayout.setVerticalGroup(
             MessegePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MessegePanelLayout.createSequentialGroup()
-                .addGap(291, 291, 291)
-                .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(368, 368, 368))
+                .addComponent(MessegePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Messege", MessegePanel);
@@ -1057,6 +1124,19 @@ public class StudentProfile extends javax.swing.JFrame {
         }
     }
     
+    public void showMessage(){
+        
+        DefaultTableModel dtm = (DefaultTableModel) messageTable.getModel();
+        
+        List<Message> list=stdb.getMessage();
+        Object[] row=new Object[2];
+        for(int i=0;i<list.size();i++){
+            
+            row[0]=list.get(i).getTeacherName();
+            row[1]=list.get(i).getMessage();
+            dtm.addRow(row);
+        }
+    }
     int x =242;
     public void hideSideMenu(){
         if(x==242)
@@ -1386,6 +1466,7 @@ public class StudentProfile extends javax.swing.JFrame {
     private javax.swing.JPanel LeftCeditPanel;
     private javax.swing.JLabel MenuText;
     private javax.swing.JPanel MessegePanel;
+    private javax.swing.JPanel MessegePanel1;
     private javax.swing.JLabel NameFDB;
     private javax.swing.JLabel NameText2;
     private javax.swing.JLabel PhoneText;
@@ -1414,8 +1495,10 @@ public class StudentProfile extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton logOut;
+    private javax.swing.JTable messageTable;
     private javax.swing.JLabel messegeLebel;
     private javax.swing.JPanel messege_btn;
     private javax.swing.JPanel myNoticePanel;

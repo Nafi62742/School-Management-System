@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 07, 2020 at 09:21 PM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.3.11
+-- Generation Time: Sep 08, 2020 at 09:27 AM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.4.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -66,6 +65,28 @@ CREATE TABLE `login_info` (
 INSERT INTO `login_info` (`id`, `ip_address`, `state`) VALUES
 ('100.12', '192.168.43.18', 0),
 ('100.12', '192.168.0.108', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `message`
+--
+
+CREATE TABLE `message` (
+  `teacher_name` varchar(20) NOT NULL,
+  `ID` text NOT NULL,
+  `message` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `message`
+--
+
+INSERT INTO `message` (`teacher_name`, `ID`, `message`) VALUES
+('Fahim', '100.12', 'lalaal'),
+('Fahim', '100.12', 'whattttttttttt'),
+('Fahim', '100.11', 'llllllaallll'),
+('Fahim', '100.17', 'Nafi valo kore porashuna korben. >_<');
 
 -- --------------------------------------------------------
 
