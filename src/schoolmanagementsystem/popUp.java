@@ -5,6 +5,7 @@
  */
 package schoolmanagementsystem;
 
+import javax.swing.JOptionPane;
 import schoolmanagementsystem.Database.Accounts;
 
 /**
@@ -36,7 +37,7 @@ public class popUp extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         teacher = new javax.swing.JButton();
         student = new javax.swing.JButton();
-        close = new javax.swing.JButton();
+        exitButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         b1 = new javax.swing.JButton();
@@ -52,7 +53,6 @@ public class popUp extends javax.swing.JFrame {
         teacher.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolmanagementsystem/image/teacher.PNG"))); // NOI18N
         teacher.setText("jButton1");
         teacher.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        teacher.setOpaque(false);
         teacher.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 teacherActionPerformed(evt);
@@ -63,7 +63,6 @@ public class popUp extends javax.swing.JFrame {
         student.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolmanagementsystem/image/stu.PNG"))); // NOI18N
         student.setText("jButton1");
         student.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        student.setOpaque(false);
         student.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 studentActionPerformed(evt);
@@ -71,17 +70,16 @@ public class popUp extends javax.swing.JFrame {
         });
         jPanel1.add(student, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 330, 170, 60));
 
-        close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolmanagementsystem/image/close.png"))); // NOI18N
-        close.setBorder(null);
-        close.setBorderPainted(false);
-        close.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        close.setOpaque(false);
-        close.addActionListener(new java.awt.event.ActionListener() {
+        exitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolmanagementsystem/image/close.png"))); // NOI18N
+        exitButton.setBorder(null);
+        exitButton.setBorderPainted(false);
+        exitButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        exitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                closeActionPerformed(evt);
+                exitButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 30, 30));
+        jPanel1.add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 30, 30));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolmanagementsystem/image/pop up.PNG"))); // NOI18N
         jLabel3.setText("jLabel3");
@@ -93,7 +91,6 @@ public class popUp extends javax.swing.JFrame {
 
         b1.setBorder(null);
         b1.setBorderPainted(false);
-        b1.setOpaque(false);
         b1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b1ActionPerformed(evt);
@@ -103,7 +100,6 @@ public class popUp extends javax.swing.JFrame {
 
         b2.setBorder(null);
         b2.setBorderPainted(false);
-        b2.setOpaque(false);
         b2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b2ActionPerformed(evt);
@@ -115,7 +111,6 @@ public class popUp extends javax.swing.JFrame {
         b3.setActionCommand("");
         b3.setBorder(null);
         b3.setBorderPainted(false);
-        b3.setOpaque(false);
         b3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b3ActionPerformed(evt);
@@ -125,7 +120,6 @@ public class popUp extends javax.swing.JFrame {
 
         b4.setBorder(null);
         b4.setBorderPainted(false);
-        b4.setOpaque(false);
         b4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b4ActionPerformed(evt);
@@ -135,7 +129,6 @@ public class popUp extends javax.swing.JFrame {
 
         b5.setBorder(null);
         b5.setBorderPainted(false);
-        b5.setOpaque(false);
         b5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b5ActionPerformed(evt);
@@ -158,9 +151,12 @@ public class popUp extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void closeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_closeActionPerformed
+    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
+        int input = JOptionPane.showConfirmDialog(null, "Do you want to proceed?", "Quit", JOptionPane.YES_NO_CANCEL_OPTION);
+        if (input == 0) {
+            System.exit(0);
+        } 
+    }//GEN-LAST:event_exitButtonActionPerformed
 
     private void studentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentActionPerformed
         // TODO add your handling code here:
@@ -289,7 +285,7 @@ public class popUp extends javax.swing.JFrame {
     private javax.swing.JButton b3;
     private javax.swing.JButton b4;
     private javax.swing.JButton b5;
-    private javax.swing.JButton close;
+    private javax.swing.JButton exitButton;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;

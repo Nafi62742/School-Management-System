@@ -1,5 +1,6 @@
 package schoolmanagementsystem;
 import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
 import schoolmanagementsystem.Database.Accounts;
 
 
@@ -42,7 +43,7 @@ public class logInPage extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         signinButton = new javax.swing.JButton();
         signupButton = new javax.swing.JButton();
-        close_btn = new javax.swing.JButton();
+        exitButton = new javax.swing.JButton();
         BackgroundLebel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
 
@@ -148,15 +149,15 @@ public class logInPage extends javax.swing.JFrame {
         });
         jPanel1.add(signupButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 550, 130, 50));
 
-        close_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolmanagementsystem/image/close.png"))); // NOI18N
-        close_btn.setBorder(null);
-        close_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        close_btn.addActionListener(new java.awt.event.ActionListener() {
+        exitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolmanagementsystem/image/close.png"))); // NOI18N
+        exitButton.setBorder(null);
+        exitButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        exitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                close_btnActionPerformed(evt);
+                exitButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(close_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 10, 30, 30));
+        jPanel1.add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 10, 30, 30));
 
         BackgroundLebel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolmanagementsystem/image/Webp.net-resizeimage.PNG"))); // NOI18N
         jPanel1.add(BackgroundLebel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -220,9 +221,12 @@ public class logInPage extends javax.swing.JFrame {
         }     
     }//GEN-LAST:event_signinButtonActionPerformed
 
-    private void close_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_close_btnActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_close_btnActionPerformed
+    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
+        int input = JOptionPane.showConfirmDialog(null, "Do you want to proceed?", "Quit", JOptionPane.YES_NO_CANCEL_OPTION);
+        if (input == 0) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_exitButtonActionPerformed
 
     private void rememberUserCheckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rememberUserCheckboxActionPerformed
         
@@ -281,7 +285,7 @@ public class logInPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BackgroundLebel;
-    private javax.swing.JButton close_btn;
+    private javax.swing.JButton exitButton;
     private javax.swing.JTextField idField;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

@@ -2,7 +2,7 @@
 * To change this license header, choose License Headers in Project Properties.
 * To change this template file, choose Tools | Templates
 * and open the template in the editor.
- */
+*/
 package schoolmanagementsystem;
 
 import java.awt.HeadlessException;
@@ -16,21 +16,21 @@ import org.apache.commons.codec.binary.Base64;
 import schoolmanagementsystem.Database.StudentDatabase;
 
 public class UpdateAccountStudent extends javax.swing.JFrame {
-
+    
     Connection conn = null;
     PreparedStatement pst = null;
     private String id;
     StudentDatabase stdb;
     private ResultSet rs = null;
-
+    
     public UpdateAccountStudent() {
         this.setUndecorated(true);
         initComponents();
-
+        
         stdb = new StudentDatabase();
         conn = JConnection.connectdb();
     }
-
+    
     //override..
     public UpdateAccountStudent(String id) {
         this.setUndecorated(true);
@@ -40,7 +40,7 @@ public class UpdateAccountStudent extends javax.swing.JFrame {
         stdb = new StudentDatabase(this.id);
         profileShow();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -52,7 +52,7 @@ public class UpdateAccountStudent extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        close_b = new javax.swing.JButton();
+        exitButton = new javax.swing.JButton();
         NumberText = new javax.swing.JLabel();
         UpdateLogo = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -77,14 +77,14 @@ public class UpdateAccountStudent extends javax.swing.JFrame {
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        close_b.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolmanagementsystem/image/close.png"))); // NOI18N
-        close_b.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        close_b.addActionListener(new java.awt.event.ActionListener() {
+        exitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolmanagementsystem/image/close.png"))); // NOI18N
+        exitButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        exitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                close_bActionPerformed(evt);
+                exitButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(close_b, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 30, 30));
+        jPanel2.add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 30, 30));
 
         NumberText.setBackground(new java.awt.Color(255, 255, 255));
         NumberText.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
@@ -240,7 +240,7 @@ public class UpdateAccountStudent extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 //.......................Start Custom Functions....................//
-
+    
     private String EncryptPass(String passwordString) {
         try {
             String originalInput = passwordString;
@@ -252,7 +252,7 @@ public class UpdateAccountStudent extends javax.swing.JFrame {
         }
         return null;
     }
-
+    
     private void clearTextField() {
         nameField.setText("");
         studentClassField.setText("");
@@ -261,9 +261,9 @@ public class UpdateAccountStudent extends javax.swing.JFrame {
         EmailField.setText("");
         confirmPasswordField.setText("");
     }
-
+    
     public void profileShow() {
-
+        
         String student_id = this.id;
         String StudentName = stdb.getStudentName();
         nameField.setText(StudentName);
@@ -272,12 +272,15 @@ public class UpdateAccountStudent extends javax.swing.JFrame {
         studentClassField.setText(stdb.getStudentClass());
         NumberField.setText(stdb.getStudentPhoneNo());
         
-
+        
     }
 //.......................End Custom Functions....................//   
-    private void close_bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_close_bActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_close_bActionPerformed
+    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
+        int input = JOptionPane.showConfirmDialog(null, "Do you want to proceed?", "Quit", JOptionPane.YES_NO_CANCEL_OPTION);
+        if (input == 0) {
+            System.exit(0);
+        } 
+    }//GEN-LAST:event_exitButtonActionPerformed
 
     private void studentClassFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentClassFieldActionPerformed
         // TODO add your handling code here:
@@ -287,19 +290,19 @@ public class UpdateAccountStudent extends javax.swing.JFrame {
         dispose();
         new StudentProfile(this.id).setVisible(true);
     }//GEN-LAST:event_back_btnActionPerformed
-
+    
 
     private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nameFieldActionPerformed
-
+    
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         String Stu_Id = stdb.getId();
         String sql = "UPDATE student_accounts SET name=?,class=?,sec=?, phoneNo=?, email=? WHERE id =" + Stu_Id;
         String pass = null;
-
-       String DBpass = stdb.getPassFromDB();
+        
+        String DBpass = stdb.getPassFromDB();
         String originalPass = confirmPasswordField.getText();
         pass = EncryptPass(originalPass);
         if (originalPass.length() >= 4  && pass.equals(DBpass)){
@@ -314,7 +317,7 @@ public class UpdateAccountStudent extends javax.swing.JFrame {
                 clearTextField();
                 JOptionPane.showMessageDialog(null, "Updated Successfully");
                 dispose();
-
+                
                 new StudentProfile(this.id).setVisible(true);
             } catch (HeadlessException | SQLException e) {
                 JOptionPane.showMessageDialog(this, "Database error", "Warning", JOptionPane.WARNING_MESSAGE);
@@ -339,7 +342,7 @@ public class UpdateAccountStudent extends javax.swing.JFrame {
     private void NumberFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NumberFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NumberFieldActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
@@ -348,7 +351,7 @@ public class UpdateAccountStudent extends javax.swing.JFrame {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
+        */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -367,7 +370,7 @@ public class UpdateAccountStudent extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -383,8 +386,8 @@ public class UpdateAccountStudent extends javax.swing.JFrame {
     private javax.swing.JLabel NumberText;
     private javax.swing.JLabel UpdateLogo;
     private javax.swing.JButton back_btn;
-    private javax.swing.JButton close_b;
     private javax.swing.JPasswordField confirmPasswordField;
+    private javax.swing.JButton exitButton;
     private javax.swing.JTextField idField1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
@@ -400,7 +403,7 @@ public class UpdateAccountStudent extends javax.swing.JFrame {
     private javax.swing.JTextField studentClassField;
     private javax.swing.JButton updateButton;
     // End of variables declaration//GEN-END:variables
-
+    
     private int len(String originalPass) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

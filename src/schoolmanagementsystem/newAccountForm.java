@@ -38,7 +38,7 @@ public class newAccountForm extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        close_b = new javax.swing.JButton();
+        exitButton = new javax.swing.JButton();
         jTextPane2 = new javax.swing.JTextPane();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
@@ -60,14 +60,14 @@ public class newAccountForm extends javax.swing.JFrame {
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        close_b.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolmanagementsystem/image/close.png"))); // NOI18N
-        close_b.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        close_b.addActionListener(new java.awt.event.ActionListener() {
+        exitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolmanagementsystem/image/close.png"))); // NOI18N
+        exitButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        exitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                close_bActionPerformed(evt);
+                exitButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(close_b, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 30, 30));
+        jPanel2.add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 30, 30));
 
         jTextPane2.setEditable(false);
         jTextPane2.setBackground(new java.awt.Color(255, 255, 255));
@@ -199,9 +199,12 @@ public class newAccountForm extends javax.swing.JFrame {
         idField.setText("");
     }
 //.......................End Custom Functions....................//   
-    private void close_bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_close_bActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_close_bActionPerformed
+    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
+        int input = JOptionPane.showConfirmDialog(null, "Do you want to proceed?", "Quit", JOptionPane.YES_NO_CANCEL_OPTION);
+        if (input == 0) {
+            System.exit(0);
+        } 
+    }//GEN-LAST:event_exitButtonActionPerformed
 
     private void studentClassFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentClassFieldActionPerformed
         // TODO add your handling code here:
@@ -279,8 +282,8 @@ public class newAccountForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton back_btn;
-    private javax.swing.JButton close_b;
     private javax.swing.JPasswordField confirmPasswordField;
+    private javax.swing.JButton exitButton;
     private javax.swing.JTextField idField;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

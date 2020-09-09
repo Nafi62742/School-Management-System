@@ -48,7 +48,7 @@ public class UpdateAccountTeacher extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         UpdateLogo = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        exitButton = new javax.swing.JButton();
         nameField = new javax.swing.JTextField();
         subjectField = new javax.swing.JTextField();
         designationField = new javax.swing.JTextField();
@@ -80,14 +80,14 @@ public class UpdateAccountTeacher extends javax.swing.JFrame {
         UpdateLogo.setOpaque(true);
         jPanel1.add(UpdateLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 670, 180, 80));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolmanagementsystem/image/close.png"))); // NOI18N
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        exitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolmanagementsystem/image/close.png"))); // NOI18N
+        exitButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        exitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                exitButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 30, 30));
+        jPanel1.add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 30, 30));
 
         nameField.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         nameField.setBorder(null);
@@ -226,10 +226,12 @@ public class UpdateAccountTeacher extends javax.swing.JFrame {
         EmailField.setText(teacherDb.getTeacherEmail());
 
     }
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
+        int input = JOptionPane.showConfirmDialog(null, "Do you want to proceed?", "Quit", JOptionPane.YES_NO_CANCEL_OPTION);
+        if (input == 0) {
+            System.exit(0);
+        } 
+    }//GEN-LAST:event_exitButtonActionPerformed
 
     private void back_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_btnActionPerformed
         dispose();
@@ -363,7 +365,7 @@ public class UpdateAccountTeacher extends javax.swing.JFrame {
     private javax.swing.JButton back_btn;
     private javax.swing.JPasswordField confirmPasswordField;
     private javax.swing.JTextField designationField;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton exitButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;

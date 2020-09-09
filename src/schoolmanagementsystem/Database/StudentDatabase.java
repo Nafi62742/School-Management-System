@@ -13,7 +13,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -41,7 +45,7 @@ public class StudentDatabase extends Accounts{
     public StudentDatabase(){
         
     }
-
+    
     public void setId(String id) {
         this.id = id;
     }
@@ -70,15 +74,23 @@ public class StudentDatabase extends Accounts{
     public List<Homework> getHomework(){
         String sql = "select * from homework where class=\'"+getStudentClass()+ "\' and sec=\'"+getSection()+"\'";
         List<Homework> list = new ArrayList<Homework>();
+        Date today=new Date();
         try {
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             while (rs.next()) {
+                Date dueDate=new SimpleDateFormat("dd.MM.yyyy").parse(rs.getString("due_date"));
+                if(today.compareTo(dueDate) < 0){
                 Homework homeworkClass=new Homework(rs.getString("subject"),rs.getInt("total_marks"),rs.getString("post_date"),rs.getString("due_date"),rs.getString("homework_text"));
                 list.add(homeworkClass);
+                }
             }
             return list;
-        } catch (SQLException e) {
+        }catch(ParseException e){
+            JOptionPane.showMessageDialog(null, "Can't Parse Date.");
+            
+        }
+        catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Can't get homeworks from database.");
         }
         return null;
@@ -99,7 +111,7 @@ public class StudentDatabase extends Accounts{
             JOptionPane.showMessageDialog(null, "Can't get message from database.");
         }
         return null;
-    }    
+    }
     public void getStudentData(String id){
         String sql = "select * from student_accounts where id=\'" +id+ "\'";
         try{
@@ -132,16 +144,16 @@ public class StudentDatabase extends Accounts{
     public String getSection() {
         return section;
     }
-
+    
     public String getPassFromDB() {
         return passFromDB;
     }
-
+    
     public void setPassFromDB(String passFromDB) {
         this.passFromDB = passFromDB;
     }
-
-  
+    
+    
     public void setStudentName(String studentName) {
         this.studentName = studentName;
     }
@@ -153,19 +165,19 @@ public class StudentDatabase extends Accounts{
     public void setSection(String section) {
         this.section = section;
     }
-
+    
     public String getStudentPhoneNo() {
         return studentPhoneNo;
     }
-
+    
     public String getStudentEmail() {
         return studentEmail;
     }
-
+    
     public void setStudentPhoneNo(String studentPhoneNo) {
         this.studentPhoneNo = studentPhoneNo;
     }
-
+    
     public void setStudentEmail(String studentEmail) {
         this.studentEmail = studentEmail;
     }

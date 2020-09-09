@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.jOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -643,9 +644,9 @@ public class StudentProfile extends javax.swing.JFrame {
                             .addComponent(NameFDB, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Section, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(phoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(phoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(112, Short.MAX_VALUE))))
         );
         HomePanelLayout.setVerticalGroup(
             HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -992,7 +993,7 @@ public class StudentProfile extends javax.swing.JFrame {
             .addGroup(MessegePanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(864, Short.MAX_VALUE))
+                .addContainerGap(870, Short.MAX_VALUE))
             .addGroup(MessegePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(MessegePanel1Layout.createSequentialGroup()
                     .addGap(6, 6, 6)
@@ -1114,7 +1115,7 @@ public class StudentProfile extends javax.swing.JFrame {
         
         List<Notice> list=stdb.getNotice();
         Object[] row=new Object[5];
-        for(int i=0;i<list.size();i++){
+        for(int i=list.size()-1;i>=0;i--){
             row[0]=list.get(i).getDateString();
             row[1]=list.get(i).getTimeString();
             row[2]=list.get(i).getTeacherName();
@@ -1288,7 +1289,10 @@ public class StudentProfile extends javax.swing.JFrame {
     }//GEN-LAST:event_attendance_btnMousePressed
 
     private void close_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_close_btnActionPerformed
-        System.exit(0);
+        int input = JOptionPane.showConfirmDialog(null, "Do you want to proceed?", "Quit", JOptionPane.YES_NO_CANCEL_OPTION);
+        if (input == 0) {
+            System.exit(0);
+        } 
     }//GEN-LAST:event_close_btnActionPerformed
 
     private void logOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutActionPerformed

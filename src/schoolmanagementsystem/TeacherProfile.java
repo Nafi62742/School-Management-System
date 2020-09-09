@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.jOptionPane;
 import schoolmanagementsystem.Database.TeacherDatabase;
@@ -99,7 +100,7 @@ public class TeacherProfile extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
-        close_btn = new javax.swing.JButton();
+        exitButton = new javax.swing.JButton();
         sideMenu = new javax.swing.JPanel();
         home_btn = new javax.swing.JPanel();
         ind_0 = new javax.swing.JPanel();
@@ -190,12 +191,12 @@ public class TeacherProfile extends javax.swing.JFrame {
 
         jPanel6.setBackground(new java.awt.Color(19, 10, 52));
 
-        close_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolmanagementsystem/image/close.png"))); // NOI18N
-        close_btn.setBorder(null);
-        close_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        close_btn.addActionListener(new java.awt.event.ActionListener() {
+        exitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolmanagementsystem/image/close.png"))); // NOI18N
+        exitButton.setBorder(null);
+        exitButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        exitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                close_btnActionPerformed(evt);
+                exitButtonActionPerformed(evt);
             }
         });
 
@@ -205,13 +206,13 @@ public class TeacherProfile extends javax.swing.JFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addContainerGap(604, Short.MAX_VALUE)
-                .addComponent(close_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addComponent(close_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 2, Short.MAX_VALUE))
         );
 
@@ -1219,10 +1220,12 @@ public class TeacherProfile extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void close_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_close_btnActionPerformed
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_close_btnActionPerformed
+    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
+       int input = JOptionPane.showConfirmDialog(null, "Do you want to proceed?", "Quit", JOptionPane.YES_NO_CANCEL_OPTION);
+        if (input == 0) {
+            System.exit(0);
+        } 
+    }//GEN-LAST:event_exitButtonActionPerformed
     
     private void home_btnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_home_btnMousePressed
         // TODO add your handling code here:
@@ -1521,8 +1524,8 @@ public class TeacherProfile extends javax.swing.JFrame {
     private javax.swing.JLabel Subject;
     private javax.swing.JLabel SubjectText;
     private javax.swing.JPanel attendance_btn;
-    private javax.swing.JButton close_btn;
     private com.toedter.calendar.JDateChooser dateChooser;
+    private javax.swing.JButton exitButton;
     private javax.swing.JPanel home_btn;
     private javax.swing.JButton homeworkPostButton;
     private javax.swing.JTextArea homeworkTextArea;

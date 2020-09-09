@@ -748,10 +748,10 @@
                                       <Component id="NameFDB" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
                                       <Component id="ID" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
                                       <Component id="Section" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
-                                      <Component id="Email" min="-2" pref="300" max="-2" attributes="0"/>
                                       <Component id="phoneNo" min="-2" pref="351" max="-2" attributes="0"/>
+                                      <Component id="Email" alignment="0" min="-2" pref="621" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace pref="112" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -1477,7 +1477,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel13" min="-2" pref="159" max="-2" attributes="0"/>
-                              <EmptySpace pref="864" max="32767" attributes="0"/>
+                              <EmptySpace pref="870" max="32767" attributes="0"/>
                           </Group>
                           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
