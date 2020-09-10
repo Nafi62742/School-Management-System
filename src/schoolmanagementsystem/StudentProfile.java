@@ -54,6 +54,7 @@ public class StudentProfile extends javax.swing.JFrame {
         showMessage();
         hideSideMenu();
         profileShow();
+        resultShow();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -126,7 +127,30 @@ public class StudentProfile extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         noticeBoardTable = new javax.swing.JTable();
         resultPanel = new javax.swing.JPanel();
+        science = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        BanglaText = new javax.swing.JLabel();
+        EnglishText = new javax.swing.JLabel();
+        MathText = new javax.swing.JLabel();
+        religionText = new javax.swing.JLabel();
+        ScienceText = new javax.swing.JLabel();
+        BGSText = new javax.swing.JLabel();
+        english2nd = new javax.swing.JLabel();
+        ICTText = new javax.swing.JLabel();
+        religion = new javax.swing.JLabel();
+        bangla1st = new javax.swing.JLabel();
+        math = new javax.swing.JLabel();
+        BGS = new javax.swing.JLabel();
+        ICT = new javax.swing.JLabel();
+        ICTText1 = new javax.swing.JLabel();
+        totalMarks = new javax.swing.JLabel();
+        b1st = new javax.swing.JLabel();
+        e1st = new javax.swing.JLabel();
+        bangla2ndText = new javax.swing.JLabel();
+        bangla2nd = new javax.swing.JLabel();
+        English2ndText = new javax.swing.JLabel();
+        english1st = new javax.swing.JLabel();
+        noResult = new javax.swing.JLabel();
         MessegePanel = new javax.swing.JPanel();
         MessegePanel1 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
@@ -924,24 +948,223 @@ public class StudentProfile extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("notice", noticePanel);
 
+        resultPanel.setBackground(new java.awt.Color(65, 59, 94));
+
+        science.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        science.setForeground(new java.awt.Color(51, 255, 255));
+        science.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        science.setText("science");
+
         jLabel12.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("Result");
+
+        BanglaText.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        BanglaText.setForeground(new java.awt.Color(255, 255, 255));
+        BanglaText.setText("Bangla ");
+
+        EnglishText.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        EnglishText.setForeground(new java.awt.Color(255, 255, 255));
+        EnglishText.setText("English");
+
+        MathText.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        MathText.setForeground(new java.awt.Color(255, 255, 255));
+        MathText.setText("Math");
+
+        religionText.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        religionText.setForeground(new java.awt.Color(255, 255, 255));
+        religionText.setText("Religion");
+
+        ScienceText.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        ScienceText.setForeground(new java.awt.Color(255, 255, 255));
+        ScienceText.setText("Science");
+
+        BGSText.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        BGSText.setForeground(new java.awt.Color(255, 255, 255));
+        BGSText.setText("B.G.S");
+
+        english2nd.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        english2nd.setForeground(new java.awt.Color(51, 255, 255));
+        english2nd.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        english2nd.setText("english2nd");
+
+        ICTText.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        ICTText.setForeground(new java.awt.Color(255, 255, 255));
+        ICTText.setText("ICT");
+
+        religion.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        religion.setForeground(new java.awt.Color(51, 255, 255));
+        religion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        religion.setText("religion");
+
+        bangla1st.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        bangla1st.setForeground(new java.awt.Color(51, 255, 255));
+        bangla1st.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        bangla1st.setText("bangla1st");
+
+        math.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        math.setForeground(new java.awt.Color(51, 255, 255));
+        math.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        math.setText("math");
+
+        BGS.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        BGS.setForeground(new java.awt.Color(51, 255, 255));
+        BGS.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BGS.setText("bgs");
+
+        ICT.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        ICT.setForeground(new java.awt.Color(51, 255, 255));
+        ICT.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        ICT.setText("ict");
+
+        ICTText1.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        ICTText1.setForeground(new java.awt.Color(255, 255, 255));
+        ICTText1.setText("Total");
+
+        totalMarks.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        totalMarks.setForeground(new java.awt.Color(51, 255, 255));
+        totalMarks.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        totalMarks.setText("total marks");
+
+        b1st.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        b1st.setForeground(new java.awt.Color(255, 255, 255));
+        b1st.setText("1st");
+
+        e1st.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        e1st.setForeground(new java.awt.Color(255, 255, 255));
+        e1st.setText("1st");
+
+        bangla2ndText.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        bangla2ndText.setForeground(new java.awt.Color(255, 255, 255));
+        bangla2ndText.setText("Bangla 2nd");
+
+        bangla2nd.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        bangla2nd.setForeground(new java.awt.Color(51, 255, 255));
+        bangla2nd.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        bangla2nd.setText("bangla2nd");
+
+        English2ndText.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        English2ndText.setForeground(new java.awt.Color(255, 255, 255));
+        English2ndText.setText("English 2nd");
+
+        english1st.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        english1st.setForeground(new java.awt.Color(51, 255, 255));
+        english1st.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        english1st.setText("english1st");
+
+        noResult.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        noResult.setForeground(new java.awt.Color(255, 255, 255));
+        noResult.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout resultPanelLayout = new javax.swing.GroupLayout(resultPanel);
         resultPanel.setLayout(resultPanelLayout);
         resultPanelLayout.setHorizontalGroup(
             resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(resultPanelLayout.createSequentialGroup()
-                .addGap(290, 290, 290)
-                .addComponent(jLabel12)
-                .addContainerGap(675, Short.MAX_VALUE))
+                .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(resultPanelLayout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(MathText)
+                            .addGroup(resultPanelLayout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(ICTText1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(resultPanelLayout.createSequentialGroup()
+                                .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(ScienceText)
+                                    .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(BanglaText)
+                                        .addComponent(religionText)
+                                        .addComponent(BGSText)
+                                        .addComponent(ICTText)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(b1st))
+                            .addGroup(resultPanelLayout.createSequentialGroup()
+                                .addComponent(EnglishText)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(e1st)))
+                        .addGap(83, 83, 83)
+                        .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(totalMarks, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(religion, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(math, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(science, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BGS, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ICT, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(resultPanelLayout.createSequentialGroup()
+                                .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(resultPanelLayout.createSequentialGroup()
+                                        .addComponent(english1st, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(English2ndText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(resultPanelLayout.createSequentialGroup()
+                                        .addComponent(bangla1st, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(bangla2ndText, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(53, 53, 53)
+                                .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(bangla2nd, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(english2nd, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(resultPanelLayout.createSequentialGroup()
+                        .addGap(358, 358, 358)
+                        .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(noResult, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(320, Short.MAX_VALUE))
         );
         resultPanelLayout.setVerticalGroup(
             resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(resultPanelLayout.createSequentialGroup()
-                .addGap(291, 291, 291)
-                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(368, 368, 368))
+                .addGap(25, 25, 25)
+                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(noResult, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
+                .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(resultPanelLayout.createSequentialGroup()
+                        .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BanglaText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(b1st, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(22, 22, 22)
+                        .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(EnglishText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(e1st, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(English2ndText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(english1st))
+                        .addGap(20, 20, 20)
+                        .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(MathText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(math, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ScienceText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(science, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(36, 36, 36)
+                        .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(religionText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(religion, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(46, 46, 46)
+                        .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BGSText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BGS, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(35, 35, 35)
+                        .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ICTText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ICT, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(62, 62, 62)
+                        .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ICTText1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(totalMarks, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(88, 88, 88))
+                    .addGroup(resultPanelLayout.createSequentialGroup()
+                        .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(bangla1st, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(bangla2ndText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(bangla2nd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(english2nd)
+                        .addGap(483, 483, 483))))
         );
 
         jTabbedPane1.addTab("result", resultPanel);
@@ -1160,6 +1383,179 @@ public class StudentProfile extends javax.swing.JFrame {
         }
     }
     
+    
+    
+        public void resultShow(){
+        
+        String student_id =this.id;
+        String finalMarks=Integer.toString(stdb.getGrandTotal());
+        String b1= stdb.getBangla1st();
+        String b2= stdb.getBangla2nd();
+        String e1 = stdb.getEnglish1st();
+        String e2=stdb.getEnglish2nd();
+       String m=stdb.getMath();
+       String r=stdb.getReligion();
+       String s=stdb.getScience();
+       String ic=stdb.getIct();
+       String bgs=stdb.getBgs();
+       int resultClass=Integer.parseInt(stdb.getStudentClass());
+       if(b1==null&&b2==null&& e1==null && e2==null && m==null && r==null && s==null && ic==null && bgs==null){
+           noResult.setText("No result published yet");
+       
+       }
+       else if(resultClass>5&&resultClass<11){
+                  if(b1 == null){
+                      bangla1st.setText("-/100");
+                  }
+                  else{
+                      bangla1st.setText(b1+"/100");
+                  }
+                  if(b2 == null){
+                     bangla2nd.setText("-/50");
+                  }
+                  else{
+                      bangla2nd.setText(b2+"/50");
+                  }
+                   if(e1 == null){
+                      english1st.setText("-/100");
+                  }
+                  else{
+                     english1st.setText(e1+"/100");
+                  }
+                    if(e2 == null){
+                     english2nd.setText("-/50");
+                  }
+                  else{
+                      english2nd.setText(e2+"/50");
+                  }
+                   if(m == null){
+                      math.setText("-/100");
+                  }
+                  else{
+                     math.setText(m+"/100");
+                  }
+
+                  if(r == null){
+                      religion.setText("-/100");
+                  }
+                  else{
+                     religion.setText(r+"/100");
+                  }
+                  if(s == null){
+                      science.setText("-/100");
+                  }
+                  else{
+                     science.setText(s+"/100");
+                  }
+                  
+                  if(ic == null){
+                      ICT.setText("-/100");
+                  }
+                  else{
+                     ICT.setText(ic+"/100");
+                  }
+                  if(bgs == null){
+                      BGS.setText("-/100");
+                  }
+                  else{
+                     BGS.setText(bgs+"/100");
+                  }
+                  totalMarks.setText(finalMarks+"/1000");
+       }
+       else if(resultClass>3&&resultClass<6){
+                    if(b1 == null){
+                      bangla1st.setText("-/100");
+                  }
+                  else{
+                      bangla1st.setText(b1);
+                  }
+                  if(b2 == null){
+                     bangla2nd.setText("");
+                     bangla2ndText.setText("");
+                     b1st.setText("");
+                  }
+                  else{
+                      bangla2nd.setText(b2);
+                  }
+                   if(e1 == null){
+                      english1st.setText("");
+                  }
+                  else{
+                     english1st.setText(e1);
+                  }
+                    if(e2 == null){
+                     english2nd.setText("");
+                     English2ndText.setText("");
+                     e1st.setText("");
+                  }
+                  else{
+                      bangla2nd.setText(e2+"/100");
+                  }
+                   if(m == null){
+                      math.setText("");
+                  }
+                  else{
+                     math.setText(m+"/100");
+                  }
+
+                  if(r == null){
+                      religion.setText("");
+                  }
+                  else{
+                     religion.setText(r);
+                  }
+                  if(bgs == null){
+                      BGS.setText("");
+                  }
+                  else{
+                     BGS.setText(r);
+                  }
+                  ICTText.setText("");
+                  ICT.setText("");
+       }
+       else if(resultClass>0&&resultClass<4){
+                  if(b1 == null){
+                      bangla1st.setText("-/100");
+                  }
+                  else{
+                      bangla1st.setText(b1);
+                  }
+                bangla2nd.setText("");
+                bangla2ndText.setText("");
+                b1st.setText("");
+                   if(e1 == null){
+                      english1st.setText("");
+                  }
+                  else{
+                     english1st.setText(e1);
+                  }
+                english2nd.setText("");
+                English2ndText.setText("");
+                e1st.setText("");
+                   if(m == null){
+                      math.setText("");
+                  }
+                  else{
+                     math.setText(m+"/100");
+                  }
+
+                  if(r == null){
+                      religion.setText("");
+                  }
+                  else{
+                     religion.setText(r);
+                  }
+                  ICTText.setText("");
+                  ICT.setText("");
+                  BGSText.setText("");
+                  BGS.setText("");
+       }
+       else{
+           
+       }
+    }
+        
+    
     public void profileShow(){
         
         String student_id =this.id;
@@ -1178,14 +1574,12 @@ public class StudentProfile extends javax.swing.JFrame {
             phoneNo.setText(StudentPhnNo);
         }
          if(Studentemail == null){
-            phoneNo.setText("Email not given yet");
+            Email.setText("Email not given yet");
         }
         else{
             Email.setText(Studentemail);
         }
-        
-        
-        
+         
     }
     
 //......................End Custom Functions...................//
@@ -1454,20 +1848,29 @@ public class StudentProfile extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AttendenceLebel;
     private javax.swing.JPanel AttendencePanel;
+    private javax.swing.JLabel BGS;
+    private javax.swing.JLabel BGSText;
+    private javax.swing.JLabel BanglaText;
     private javax.swing.JLabel Class;
     private javax.swing.JLabel ClassText;
     private javax.swing.JLabel Edit;
     private javax.swing.JLabel Email;
     private javax.swing.JLabel EmailText;
+    private javax.swing.JLabel English2ndText;
+    private javax.swing.JLabel EnglishText;
     private javax.swing.JLabel Home1;
     private javax.swing.JPanel HomePanel;
     private javax.swing.JLabel Homework;
     private javax.swing.JPanel HomeworkPanel;
     private javax.swing.JPanel HomeworkPanel1;
     private javax.swing.JPanel HomeworkPanel2;
+    private javax.swing.JLabel ICT;
+    private javax.swing.JLabel ICTText;
+    private javax.swing.JLabel ICTText1;
     private javax.swing.JLabel ID;
     private javax.swing.JLabel IDTest1;
     private javax.swing.JPanel LeftCeditPanel;
+    private javax.swing.JLabel MathText;
     private javax.swing.JLabel MenuText;
     private javax.swing.JPanel MessegePanel;
     private javax.swing.JPanel MessegePanel1;
@@ -1475,13 +1878,21 @@ public class StudentProfile extends javax.swing.JFrame {
     private javax.swing.JLabel NameText2;
     private javax.swing.JLabel PhoneText;
     private javax.swing.JLabel ResultLebel;
+    private javax.swing.JLabel ScienceText;
     private javax.swing.JLabel Section;
     private javax.swing.JLabel SectionText;
     private javax.swing.JLabel SideMenuShow;
     private javax.swing.JPanel TopBar;
     private javax.swing.JPanel attendance_btn;
+    private javax.swing.JLabel b1st;
+    private javax.swing.JLabel bangla1st;
+    private javax.swing.JLabel bangla2nd;
+    private javax.swing.JLabel bangla2ndText;
     private javax.swing.JButton close_btn;
     private javax.swing.JLabel dueDateLabel;
+    private javax.swing.JLabel e1st;
+    private javax.swing.JLabel english1st;
+    private javax.swing.JLabel english2nd;
     private javax.swing.JPanel home_btn;
     private javax.swing.JLabel homeworkLabel;
     private javax.swing.JPanel homework_btn;
@@ -1502,11 +1913,13 @@ public class StudentProfile extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton logOut;
+    private javax.swing.JLabel math;
     private javax.swing.JTable messageTable;
     private javax.swing.JLabel messegeLebel;
     private javax.swing.JPanel messege_btn;
     private javax.swing.JPanel myNoticePanel;
     private javax.swing.JButton nextHomeworkButton;
+    private javax.swing.JLabel noResult;
     private javax.swing.JTable noticeBoardTable;
     private javax.swing.JLabel noticeLebel;
     private javax.swing.JPanel noticePanel;
@@ -1514,11 +1927,15 @@ public class StudentProfile extends javax.swing.JFrame {
     private javax.swing.JLabel phoneNo;
     private javax.swing.JLabel postDateLabel;
     private javax.swing.JButton previousHomeworkButton;
+    private javax.swing.JLabel religion;
+    private javax.swing.JLabel religionText;
     private javax.swing.JPanel resultPanel;
     private javax.swing.JPanel result_btn;
+    private javax.swing.JLabel science;
     private javax.swing.JPanel sideMenu;
     private javax.swing.JLabel sideMenuHide;
     private javax.swing.JLabel subjectLabel;
+    private javax.swing.JLabel totalMarks;
     private javax.swing.JLabel totalMarksLabel;
     // End of variables declaration//GEN-END:variables
 }

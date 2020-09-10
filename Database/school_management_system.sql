@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 08, 2020 at 09:27 AM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.4.7
+-- Generation Time: Sep 10, 2020 at 10:47 AM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -64,7 +64,11 @@ CREATE TABLE `login_info` (
 
 INSERT INTO `login_info` (`id`, `ip_address`, `state`) VALUES
 ('100.12', '192.168.43.18', 0),
-('100.12', '192.168.0.108', 0);
+('100.12', '192.168.0.108', 0),
+('100.17', '192.168.0.105', 0),
+('400.32', '192.168.0.105', 1),
+('100.17', '192.168.1.132', 1),
+('400.32', '192.168.1.132', 0);
 
 -- --------------------------------------------------------
 
@@ -110,6 +114,33 @@ CREATE TABLE `notice_board` (
 INSERT INTO `notice_board` (`date`, `time`, `teacher_name`, `class`, `subject`, `notice`) VALUES
 ('01.09.2020', '11:41 PM', 'Fahim', '10', 'Math', 'kalke cls off..karor asha lagbe na'),
 ('02.09.2020', '12:04 AM', 'Fahim', '10', 'Math', 'eto pora lekha kore ki hobe!?');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `results`
+--
+
+CREATE TABLE `results` (
+  `ID` text NOT NULL,
+  `bangla1st` text DEFAULT NULL,
+  `bangla2nd` text DEFAULT NULL,
+  `english1st` text DEFAULT NULL,
+  `english2nd` text DEFAULT NULL,
+  `math` text DEFAULT NULL,
+  `science` text DEFAULT NULL,
+  `religion` text DEFAULT NULL,
+  `bgs` text DEFAULT NULL,
+  `ict` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `results`
+--
+
+INSERT INTO `results` (`ID`, `bangla1st`, `bangla2nd`, `english1st`, `english2nd`, `math`, `science`, `religion`, `bgs`, `ict`) VALUES
+('100.17', NULL, NULL, NULL, NULL, '100', NULL, NULL, NULL, NULL),
+('100.12', NULL, NULL, NULL, NULL, '85', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -175,7 +206,7 @@ CREATE TABLE `teacher_accounts` (
 INSERT INTO `teacher_accounts` (`name`, `subject`, `designation`, `id`, `phoneNo`, `email`, `pass`) VALUES
 ('Fahim', 'Math', 'Senior Teacher', '400.12', NULL, NULL, 'MTIzNA=='),
 ('Fahim', 'Physics', 'Senior Teacher', '400.13', NULL, NULL, 'MTIzNA=='),
-('Dr Sharker Md. Numan', 'Medicine', 'Doctor', '400.32', '01760887297', 'nafiahmed318@gmail.com', 'bnVtYW4='),
+('Dr Sharker Md. Numan', 'Math', 'Professor', '400.32', '01760887297', 'nafiahmed318@gmail.com', 'bnVtYW4='),
 ('test1', 'math', 'teacher', '400.14', NULL, NULL, 'MTIzNA=='),
 ('test2', 'kkkj', 'jnonno', '400.15', NULL, NULL, 'MTIzNA==');
 

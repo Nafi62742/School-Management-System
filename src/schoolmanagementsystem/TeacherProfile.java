@@ -76,6 +76,7 @@ public class TeacherProfile extends javax.swing.JFrame {
         ID.setText(teacherID);
         Designation.setText(designation);
         Subject.setText(teacherDb.getTeacherSubject());
+        subb.setText(teacherDb.getTeacherSubject());
         if(teacherPhnNo== null){
             phoneNo.setText("Phone not given yet");
         }
@@ -83,10 +84,20 @@ public class TeacherProfile extends javax.swing.JFrame {
             phoneNo.setText(teacherPhnNo);
         }
          if(teacheremail== null){
-            phoneNo.setText("Email not given yet");
+            Email.setText("Email not given yet");
         }
         else{
             Email.setText(teacheremail);
+        }
+         
+         //disable paper function....
+        String CheckSub =teacherDb.getTeacherSubject();
+        String tSubject2=CheckSub.toLowerCase();
+         if(tSubject2.equals("bangla")||tSubject2.equals("english")){
+             
+         }
+        else{
+            selectPaper.disable();
         }
     }
     /**
@@ -173,6 +184,15 @@ public class TeacherProfile extends javax.swing.JFrame {
         noticePostButton = new javax.swing.JButton();
         resultPanel = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
+        resultOfID = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        marks = new javax.swing.JTextArea();
+        resultSubmitButton = new javax.swing.JButton();
+        teacherSUb = new javax.swing.JLabel();
+        subb = new javax.swing.JLabel();
+        studentIdResultField = new javax.swing.JTextField();
+        selectPaper = new javax.swing.JComboBox<>();
+        subjectPartText = new javax.swing.JLabel();
         MessegePanel = new javax.swing.JPanel();
         HomeworkPanel3 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
@@ -1073,24 +1093,123 @@ public class TeacherProfile extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("notice", noticePanel);
 
+        resultPanel.setBackground(new java.awt.Color(65, 59, 94));
+
         jLabel12.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Result");
+
+        resultOfID.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        resultOfID.setForeground(new java.awt.Color(255, 255, 255));
+        resultOfID.setText("Enter Student's ID");
+
+        jLabel24.setBackground(new java.awt.Color(65, 59, 94));
+        jLabel24.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setText("Enter Marks");
+
+        marks.setColumns(20);
+        marks.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        marks.setRows(5);
+        marks.setCaretColor(new java.awt.Color(18, 30, 49));
+
+        resultSubmitButton.setBackground(new java.awt.Color(51, 0, 255));
+        resultSubmitButton.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
+        resultSubmitButton.setForeground(new java.awt.Color(255, 255, 255));
+        resultSubmitButton.setText("Submit marks");
+        resultSubmitButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        resultSubmitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resultSubmitButtonActionPerformed(evt);
+            }
+        });
+
+        teacherSUb.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        teacherSUb.setForeground(new java.awt.Color(255, 255, 255));
+        teacherSUb.setText("Subject");
+
+        subb.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        subb.setForeground(new java.awt.Color(255, 255, 255));
+
+        studentIdResultField.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        studentIdResultField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                studentIdResultFieldActionPerformed(evt);
+            }
+        });
+
+        selectPaper.setBackground(new java.awt.Color(65, 59, 94));
+        selectPaper.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        selectPaper.setForeground(new java.awt.Color(255, 255, 255));
+        selectPaper.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "1st", "2nd" }));
+        selectPaper.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectPaperActionPerformed(evt);
+            }
+        });
+
+        subjectPartText.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        subjectPartText.setForeground(new java.awt.Color(255, 255, 255));
+        subjectPartText.setText("Paper :");
 
         javax.swing.GroupLayout resultPanelLayout = new javax.swing.GroupLayout(resultPanel);
         resultPanel.setLayout(resultPanelLayout);
         resultPanelLayout.setHorizontalGroup(
             resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(resultPanelLayout.createSequentialGroup()
-                .addGap(290, 290, 290)
-                .addComponent(jLabel12)
-                .addContainerGap(675, Short.MAX_VALUE))
+                .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(resultPanelLayout.createSequentialGroup()
+                        .addGap(500, 500, 500)
+                        .addComponent(jLabel12))
+                    .addGroup(resultPanelLayout.createSequentialGroup()
+                        .addGap(354, 354, 354)
+                        .addComponent(resultSubmitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(resultPanelLayout.createSequentialGroup()
+                        .addGap(160, 160, 160)
+                        .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(resultOfID, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(teacherSUb, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)))
+                        .addGap(44, 44, 44)
+                        .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(studentIdResultField, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
+                            .addComponent(marks, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
+                            .addComponent(subb, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(subjectPartText, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(selectPaper, 0, 179, Short.MAX_VALUE)
+                .addGap(47, 47, 47))
         );
         resultPanelLayout.setVerticalGroup(
             resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(resultPanelLayout.createSequentialGroup()
-                .addGap(291, 291, 291)
-                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(368, 368, 368))
+                .addGap(30, 30, 30)
+                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+                .addGap(92, 92, 92)
+                .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(studentIdResultField, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(resultOfID, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(resultPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(teacherSUb, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(subb, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(resultPanelLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(selectPaper, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(subjectPartText, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)))
+                .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(marks, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(179, 179, 179)
+                .addComponent(resultSubmitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(112, 112, 112))
         );
 
         jTabbedPane1.addTab("result", resultPanel);
@@ -1462,6 +1581,44 @@ public class TeacherProfile extends javax.swing.JFrame {
     private void studentIdTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentIdTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_studentIdTextFieldActionPerformed
+
+    private void resultSubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultSubmitButtonActionPerformed
+        String studentId = studentIdResultField.getText();
+        String Marks = marks.getText();
+        String Paper=(String) selectPaper.getSelectedItem();
+        int x=Integer.parseInt(Marks);
+        
+            if(Paper.equals("1st") &&x<=100){
+            teacherDb.marksSend(Marks,studentId,Paper);
+            studentIdResultField.setText("");
+            marks.setText("");
+        }
+        else if(Paper.equals("2nd") &&x<=50){
+            teacherDb.marksSend(Marks,studentId,Paper);
+            studentIdResultField.setText("");
+            marks.setText("");
+        }
+        else if(Paper.equals("None") &&x<=100){
+            teacherDb.marksSend(Marks,studentId);
+            studentIdResultField.setText("");
+            marks.setText("");
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Marks can't be more than 100 or 50(for second paper) or paper wrong", "Warning", JOptionPane.WARNING_MESSAGE);
+            marks.setText("");
+            
+        }
+        
+
+    }//GEN-LAST:event_resultSubmitButtonActionPerformed
+
+    private void studentIdResultFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentIdResultFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_studentIdResultFieldActionPerformed
+
+    private void selectPaperActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectPaperActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_selectPaperActionPerformed
     
     /**
      * @param args the command line arguments
@@ -1549,6 +1706,7 @@ public class TeacherProfile extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1566,6 +1724,7 @@ public class TeacherProfile extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JButton logOut;
+    private javax.swing.JTextArea marks;
     private javax.swing.JButton messageSendButton;
     private javax.swing.JTextArea messageTextArea;
     private javax.swing.JLabel messegeLebel;
@@ -1575,14 +1734,21 @@ public class TeacherProfile extends javax.swing.JFrame {
     private javax.swing.JTextArea noticeTextArea;
     private javax.swing.JPanel notices_btn;
     private javax.swing.JLabel phoneNo;
+    private javax.swing.JLabel resultOfID;
     private javax.swing.JPanel resultPanel;
+    private javax.swing.JButton resultSubmitButton;
     private javax.swing.JPanel result_btn;
     private javax.swing.JComboBox<String> selectClass;
+    private javax.swing.JComboBox<String> selectPaper;
     private javax.swing.JComboBox<String> selectSection;
     private javax.swing.JPanel sideMenu;
     private javax.swing.JLabel sideMenuHide;
     private javax.swing.JComboBox<String> studentClassComboBox;
+    private javax.swing.JTextField studentIdResultField;
     private javax.swing.JTextField studentIdTextField;
+    private javax.swing.JLabel subb;
+    private javax.swing.JLabel subjectPartText;
+    private javax.swing.JLabel teacherSUb;
     private javax.swing.JTextField totalMarks;
     // End of variables declaration//GEN-END:variables
     

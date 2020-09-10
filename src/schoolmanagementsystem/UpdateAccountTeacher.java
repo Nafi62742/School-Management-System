@@ -6,6 +6,7 @@
 package schoolmanagementsystem;
 
 import java.awt.HeadlessException;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -159,6 +160,11 @@ public class UpdateAccountTeacher extends javax.swing.JFrame {
                 confirmPasswordFieldActionPerformed(evt);
             }
         });
+        confirmPasswordField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                confirmPasswordFieldKeyPressed(evt);
+            }
+        });
         jPanel1.add(confirmPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 630, 430, 30));
 
         EmailText.setBackground(new java.awt.Color(255, 255, 255));
@@ -261,40 +267,42 @@ public class UpdateAccountTeacher extends javax.swing.JFrame {
         EmailField.setText("");
         confirmPasswordField.setText("");
     }
-    
-    private void UpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateButtonActionPerformed
+     public void updateTrigger() {
+
         String Teacher_Id = teacherDb.getId();
-        //System.out.println(Teacher_Id);
-        String sql = "UPDATE teacher_accounts SET name=?,subject=?,designation=?, phoneNo=?, email=? WHERE id =" + Teacher_Id;
-        String pass = null;
+        
+       String pass = null;
         String name=nameField.getText();
         String DBpass = teacherDb.getPassFromTDB();
         String originalPass = confirmPasswordField.getText();
         pass = EncryptPass(originalPass);
-        if(name.length()>30){
+         if(name.length()>30){
             JOptionPane.showMessageDialog(this, "Name should be shorter.", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        if (originalPass.length() >= 4   && pass.equals(DBpass)) {
-            
-            try {
-                pst = conn.prepareStatement(sql);
-                pst.setString(1, nameField.getText());
-                pst.setString(2, subjectField.getText());
-                pst.setString(3, designationField.getText());
-                pst.setString(4, PhoneNoField.getText());
-                pst.setString(5, EmailField.getText());
-                pst.execute();
-                clearTextField();
-                JOptionPane.showMessageDialog(null, "Updated Successfully");
-                dispose();
-                new TeacherProfile(this.id).setVisible(true);
-            } catch (HeadlessException | SQLException e) {
-                JOptionPane.showMessageDialog(this, "Database error", "Warning", JOptionPane.WARNING_MESSAGE);
+        
+          if (originalPass.length() >= 4  && pass.equals(DBpass)) {
+            int response = teacherDb.updateTeacherAccount(name, subjectField.getText(), designationField.getText(),Teacher_Id , PhoneNoField.getText(), EmailField.getText());
+           switch (response) {
+                case 1:
+                    JOptionPane.showMessageDialog(null, "Updated Successfully");
+                    //clearTextField();
+                    new TeacherProfile(this.id).setVisible(true);
+                    dispose();
+                    break;
+                default:
+                    clearTextField();
+                    break;
             }
-        } else {
+        } 
+        else {
             JOptionPane.showMessageDialog(this, "Please set password correctly", "Warning", JOptionPane.WARNING_MESSAGE);
         }
+   }
+         
+    
+    private void UpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateButtonActionPerformed
+       updateTrigger(); 
     }//GEN-LAST:event_UpdateButtonActionPerformed
 
     private void confirmPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmPasswordFieldActionPerformed
@@ -312,6 +320,12 @@ public class UpdateAccountTeacher extends javax.swing.JFrame {
     private void EmailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EmailFieldActionPerformed
+
+    private void confirmPasswordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_confirmPasswordFieldKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            updateTrigger();
+        }
+    }//GEN-LAST:event_confirmPasswordFieldKeyPressed
     
     /**
      * @param args the command line arguments

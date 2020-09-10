@@ -6,6 +6,7 @@
 package schoolmanagementsystem;
 
 import java.awt.HeadlessException;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -164,6 +165,11 @@ public class UpdateAccountStudent extends javax.swing.JFrame {
                 confirmPasswordFieldActionPerformed(evt);
             }
         });
+        confirmPasswordField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                confirmPasswordFieldKeyPressed(evt);
+            }
+        });
         jPanel2.add(confirmPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 630, 440, 30));
 
         NumberField.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
@@ -253,6 +259,7 @@ public class UpdateAccountStudent extends javax.swing.JFrame {
         return null;
     }
     
+    
     private void clearTextField() {
         nameField.setText("");
         studentClassField.setText("");
@@ -273,6 +280,33 @@ public class UpdateAccountStudent extends javax.swing.JFrame {
         NumberField.setText(stdb.getStudentPhoneNo());
         
         
+    }
+           public void updateTrigger() {
+
+        String Stu_Id = stdb.getId();
+        
+        String pass = null;
+        String DBpass = stdb.getPassFromDB();
+        String originalPass = confirmPasswordField.getText();
+        pass = EncryptPass(originalPass);
+          if (originalPass.length() >= 4  && pass.equals(DBpass)) {
+            int response = stdb.updateStudentAccount(nameField.getText(), studentClassField.getText(), sectionField.getText(),Stu_Id , NumberField.getText(), EmailField.getText());
+           switch (response) {
+                case 1:
+                    JOptionPane.showMessageDialog(null, "Updated Successfully");
+                    //clearTextField();
+                    new StudentProfile(this.id).setVisible(true);
+                    dispose();
+                    break;
+                default:
+                    clearTextField();
+                    break;
+            }
+        } 
+        else {
+            JOptionPane.showMessageDialog(this, "Please set password correctly", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+
     }
 //.......................End Custom Functions....................//   
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
@@ -298,33 +332,7 @@ public class UpdateAccountStudent extends javax.swing.JFrame {
     
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
-        String Stu_Id = stdb.getId();
-        String sql = "UPDATE student_accounts SET name=?,class=?,sec=?, phoneNo=?, email=? WHERE id =" + Stu_Id;
-        String pass = null;
-        
-        String DBpass = stdb.getPassFromDB();
-        String originalPass = confirmPasswordField.getText();
-        pass = EncryptPass(originalPass);
-        if (originalPass.length() >= 4  && pass.equals(DBpass)){
-            try {
-                pst = conn.prepareStatement(sql);
-                pst.setString(1, nameField.getText());
-                pst.setString(2, studentClassField.getText());
-                pst.setString(3, sectionField.getText());
-                pst.setString(4, NumberField.getText());
-                pst.setString(5, EmailField.getText());
-                pst.execute();
-                clearTextField();
-                JOptionPane.showMessageDialog(null, "Updated Successfully");
-                dispose();
-                
-                new StudentProfile(this.id).setVisible(true);
-            } catch (HeadlessException | SQLException e) {
-                JOptionPane.showMessageDialog(this, "Database error", "Warning", JOptionPane.WARNING_MESSAGE);
-            }
-        } else {
-            JOptionPane.showMessageDialog(this, "Please set password correctly", "Warning", JOptionPane.WARNING_MESSAGE);
-        }
+         updateTrigger();
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void confirmPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmPasswordFieldActionPerformed
@@ -342,6 +350,12 @@ public class UpdateAccountStudent extends javax.swing.JFrame {
     private void NumberFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NumberFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NumberFieldActionPerformed
+
+    private void confirmPasswordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_confirmPasswordFieldKeyPressed
+         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            updateTrigger();
+        }
+    }//GEN-LAST:event_confirmPasswordFieldKeyPressed
     
     /**
      * @param args the command line arguments

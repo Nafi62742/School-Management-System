@@ -128,6 +128,148 @@ public class TeacherDatabase extends Accounts{
             JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
         }
     }
+    
+          public void marksSend(String marks,String studentId,String paper){
+        String tSubject= getTeacherSubject();
+        String tSubject2=tSubject.toLowerCase();
+        if(tSubject2.equals("bangla")&&paper.equals("1st")){
+            String sql = "INSERT INTO results(ID, bangla1st) VALUES(?,?)";
+
+        try {
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, studentId);
+            pst.setString(2,marks);
+            pst.execute();
+            
+            JOptionPane.showMessageDialog(null, "Marks(bangla1st) have been added Successfully");
+        } catch (HeadlessException | SQLException e) {
+            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+        }
+        else if(tSubject2.equals("bangla")&&paper.equals("2nd")){
+            String sql = "INSERT INTO results(ID, bangla2nd) VALUES(?,?)";
+
+        try {
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, studentId);
+            pst.setString(2,marks);
+            pst.execute();
+            
+            JOptionPane.showMessageDialog(null, "Marks(bangla2nd) have been added Successfully");
+        } catch (HeadlessException | SQLException e) {
+            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+        }
+        else if(tSubject2.equals("english")&&paper.equals("2nd")){
+            String sql = "INSERT INTO results(ID, english2nd) VALUES(?,?)";
+        try {
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, studentId);
+            pst.setString(2,marks);
+            pst.execute();
+            
+            JOptionPane.showMessageDialog(null, "Marks(english2nd) have been added Successfully");
+        } catch (HeadlessException | SQLException e) {
+            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+        }
+         else if(tSubject2.equals("english")&&paper.equals("1st")){
+            String sql = "INSERT INTO results(ID, english1st) VALUES(?,?)";
+        try {
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, studentId);
+            pst.setString(2,marks);
+            pst.execute();
+            
+            JOptionPane.showMessageDialog(null, "Marks(english1st) have been added Successfully");
+        } catch (HeadlessException | SQLException e) {
+            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+        }
+        
+    }
+   public void marksSend(String marks,String studentId){
+        String tSubject= getTeacherSubject();
+        String tSubject2=tSubject.toLowerCase();
+        if(tSubject2.equals("math")){
+            String sql = "INSERT INTO results(ID, math) VALUES(?,?)";
+
+        try {
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, studentId);
+            pst.setString(2,marks);
+            pst.execute();
+            
+            JOptionPane.showMessageDialog(null, "Marks(Math) have been added Successfully");
+        } catch (HeadlessException | SQLException e) {
+            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+        }
+        else if(tSubject2.equals("science")){
+            String sql = "INSERT INTO results(ID, science) VALUES(?,?)";
+
+        try {
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, studentId);
+            pst.setString(2,marks);
+            pst.execute();
+            
+            JOptionPane.showMessageDialog(null, "Marks(science) have been added Successfully");
+        } catch (HeadlessException | SQLException e) {
+            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+        }
+         else if(tSubject2.equals("religion")){
+            String sql = "INSERT INTO results(ID, religion) VALUES(?,?)";
+
+        try {
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, studentId);
+            pst.setString(2,marks);
+            pst.execute();
+            
+            JOptionPane.showMessageDialog(null, "Marks(religion) have been added Successfully");
+        } catch (HeadlessException | SQLException e) {
+            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+        }
+       else if(tSubject2.equals("ict")){
+            String sql = "INSERT INTO results(ID, ict) VALUES(?,?)";
+
+        try {
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, studentId);
+            pst.setString(2,marks);
+            pst.execute();
+            
+            JOptionPane.showMessageDialog(null, "Marks(ict) have been added Successfully");
+            } catch (HeadlessException | SQLException e) {
+            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
+            }
+        }
+    }
+  public int updateTeacherAccount(String name,String subject,String designation,String Teacher_Id,String PhoneNo, String Email){
+        final JPanel panel = new JPanel();
+        
+        
+            String sql = "UPDATE teacher_accounts SET name=?,subject=?,designation=?, phoneNo=?, email=? WHERE id =" + Teacher_Id;
+            try {
+                pst = conn.prepareStatement(sql);
+                pst.setString(1, name);
+                pst.setString(2, subject);
+                pst.setString(3, designation);
+                pst.setString(4, PhoneNo);
+                pst.setString(5, Email);
+                pst.execute();
+                return 1;
+            } catch (HeadlessException | SQLException e) {
+                JOptionPane.showMessageDialog(panel, "Database error", "Warning", JOptionPane.WARNING_MESSAGE);
+                return 0;
+            }
+        
+    }
+    
+    
     public void setTeacherName(String teacherName) {
         this.teacherName = teacherName;
     }
