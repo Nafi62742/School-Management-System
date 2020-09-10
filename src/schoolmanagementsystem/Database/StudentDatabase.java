@@ -21,7 +21,6 @@ import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import schoolmanagementsystem.JConnection;
 import schoolmanagementsystem.logInPage;
 
 /**

@@ -5,6 +5,7 @@
 */
 package schoolmanagementsystem;
 
+import schoolmanagementsystem.Database.JConnection;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;

@@ -13,7 +13,6 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import org.apache.commons.codec.binary.Base64;
-import schoolmanagementsystem.JConnection;
 import schoolmanagementsystem.StudentProfile;
 import schoolmanagementsystem.TeacherProfile;
 import schoolmanagementsystem.logInPage;

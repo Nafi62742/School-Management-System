@@ -721,50 +721,63 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="IDTest1" min="-2" pref="157" max="-2" attributes="0"/>
-                                      <Component id="NameText2" min="-2" pref="157" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace pref="638" max="32767" attributes="0"/>
-                                  <Component id="Edit" min="-2" pref="68" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="EmailText" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
-                                          <Component id="ClassText" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="PhoneText" pref="163" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="IDTest1" min="-2" pref="157" max="-2" attributes="0"/>
+                                          <Component id="NameText2" min="-2" pref="157" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="SectionText" min="-2" pref="163" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="EmailText" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
+                                                  <Component id="ClassText" alignment="1" max="32767" attributes="0"/>
+                                                  <Component id="PhoneText" pref="163" max="32767" attributes="0"/>
+                                              </Group>
+                                              <Component id="SectionText" min="-2" pref="163" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="Class" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
+                                              <Component id="Section" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
+                                              <Component id="phoneNo" min="-2" pref="351" max="-2" attributes="0"/>
+                                              <Component id="Email" alignment="0" min="-2" pref="621" max="-2" attributes="0"/>
+                                              <Group type="102" attributes="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="NameFDB" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
+                                                      <Component id="ID" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
+                                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="Class" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
-                                      <Component id="NameFDB" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
-                                      <Component id="ID" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
-                                      <Component id="Section" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
-                                      <Component id="phoneNo" min="-2" pref="351" max="-2" attributes="0"/>
-                                      <Component id="Email" alignment="0" min="-2" pref="621" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace pref="112" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="225" max="-2" attributes="0"/>
+                                  <Component id="Edit" min="-2" pref="184" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace min="83" pref="112" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                          <EmptySpace min="65" pref="65" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="Class" min="-2" pref="59" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="Edit" alignment="3" max="32767" attributes="0"/>
                                       <Component id="NameText2" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
                                       <Component id="NameFDB" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
                                   </Group>
@@ -775,10 +788,6 @@
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="ClassText" min="-2" pref="68" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="Class" min="-2" pref="59" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
@@ -796,7 +805,9 @@
                               <Component id="EmailText" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
                               <Component id="Email" alignment="3" min="-2" pref="59" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="Edit" min="-2" pref="56" max="-2" attributes="0"/>
+                          <EmptySpace pref="41" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -906,7 +917,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Edit"/>
+                    <Property name="text" type="java.lang.String" value="Update Profile"/>
                   </Properties>
                   <Events>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="EditMouseClicked"/>
@@ -959,6 +970,19 @@
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="Email not given yet"/>
                   </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel1">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/schoolmanagementsystem/image/chatbot.png"/>
+                    </Property>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Hand Cursor"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel1MouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

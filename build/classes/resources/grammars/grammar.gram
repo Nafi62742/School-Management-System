@@ -1,0 +1,12 @@
+#JSGF V1.0;
+
+/**
+ * JSGF Grammar 
+ */
+
+grammar grammar;
+
+public <feelings>  = ( what are you doing | how are you | hello);
+public <voices>  = ( homework | notice );
+public <amazing>  = ( amazing | what day is today | what time is it | i am good | hey bot );
+public <nervous>  = (nervous | sorry | hey bot);
