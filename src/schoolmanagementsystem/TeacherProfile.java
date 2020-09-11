@@ -171,7 +171,17 @@ public class TeacherProfile extends javax.swing.JFrame {
         dateChooser = new com.toedter.calendar.JDateChooser();
         homeworkPostButton = new javax.swing.JButton();
         AttendencePanel = new javax.swing.JPanel();
+        AttendencePanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        selectMonth = new javax.swing.JComboBox<>();
+        workingDayTextField = new javax.swing.JTextField();
+        studentIdTextFieldA = new javax.swing.JTextField();
+        presentDaysTextField = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        attendanceUpdateButton = new javax.swing.JButton();
         noticePanel = new javax.swing.JPanel();
         HomeworkPanel2 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
@@ -966,24 +976,148 @@ public class TeacherProfile extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("homework", HomeworkPanel);
 
+        AttendencePanel1.setBackground(new java.awt.Color(65, 59, 94));
+
+        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Attendance");
+
+        selectMonth.setBackground(new java.awt.Color(18, 30, 49));
+        selectMonth.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        selectMonth.setForeground(new java.awt.Color(255, 255, 255));
+        selectMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
+        selectMonth.setToolTipText("");
+
+        workingDayTextField.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        workingDayTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                workingDayTextFieldActionPerformed(evt);
+            }
+        });
+
+        studentIdTextFieldA.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+
+        presentDaysTextField.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        presentDaysTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                presentDaysTextFieldActionPerformed(evt);
+            }
+        });
+
         jLabel10.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
-        jLabel10.setText("Attendance");
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Month");
+
+        jLabel17.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setText("Working Days");
+
+        jLabel22.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setText("Present Days");
+
+        jLabel23.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel23.setText("Student ID");
+
+        attendanceUpdateButton.setBackground(new java.awt.Color(19, 10, 52));
+        attendanceUpdateButton.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
+        attendanceUpdateButton.setForeground(new java.awt.Color(255, 255, 255));
+        attendanceUpdateButton.setText("Update");
+        attendanceUpdateButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        attendanceUpdateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                attendanceUpdateButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout AttendencePanel1Layout = new javax.swing.GroupLayout(AttendencePanel1);
+        AttendencePanel1.setLayout(AttendencePanel1Layout);
+        AttendencePanel1Layout.setHorizontalGroup(
+            AttendencePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AttendencePanel1Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(AttendencePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AttendencePanel1Layout.createSequentialGroup()
+                        .addGroup(AttendencePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(AttendencePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(AttendencePanel1Layout.createSequentialGroup()
+                                .addGap(44, 44, 44)
+                                .addComponent(selectMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AttendencePanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                                .addComponent(studentIdTextFieldA, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(AttendencePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(AttendencePanel1Layout.createSequentialGroup()
+                                .addGap(64, 64, 64)
+                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(AttendencePanel1Layout.createSequentialGroup()
+                                .addGap(72, 72, 72)
+                                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(AttendencePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(workingDayTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(presentDaysTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(207, 207, 207))
+                    .addGroup(AttendencePanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(AttendencePanel1Layout.createSequentialGroup()
+                .addGap(380, 380, 380)
+                .addComponent(attendanceUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        AttendencePanel1Layout.setVerticalGroup(
+            AttendencePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AttendencePanel1Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addGroup(AttendencePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(selectMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(workingDayTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(AttendencePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AttendencePanel1Layout.createSequentialGroup()
+                        .addGap(123, 123, 123)
+                        .addGroup(AttendencePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(AttendencePanel1Layout.createSequentialGroup()
+                        .addGap(109, 109, 109)
+                        .addGroup(AttendencePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(AttendencePanel1Layout.createSequentialGroup()
+                                .addComponent(studentIdTextFieldA, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+                                .addGap(6, 6, 6))
+                            .addComponent(presentDaysTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(111, 111, 111)
+                .addComponent(attendanceUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(116, 116, 116))
+        );
 
         javax.swing.GroupLayout AttendencePanelLayout = new javax.swing.GroupLayout(AttendencePanel);
         AttendencePanel.setLayout(AttendencePanelLayout);
         AttendencePanelLayout.setHorizontalGroup(
             AttendencePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AttendencePanelLayout.createSequentialGroup()
-                .addGap(292, 292, 292)
-                .addComponent(jLabel10)
-                .addContainerGap(612, Short.MAX_VALUE))
+            .addGap(0, 1035, Short.MAX_VALUE)
+            .addGroup(AttendencePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(AttendencePanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(AttendencePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         AttendencePanelLayout.setVerticalGroup(
             AttendencePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AttendencePanelLayout.createSequentialGroup()
-                .addGap(247, 247, 247)
-                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
-                .addGap(386, 386, 386))
+            .addGap(0, 693, Short.MAX_VALUE)
+            .addGroup(AttendencePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(AttendencePanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(AttendencePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("attendence", AttendencePanel);
@@ -1624,6 +1758,31 @@ public class TeacherProfile extends javax.swing.JFrame {
     private void selectPaperActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectPaperActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_selectPaperActionPerformed
+
+    private void workingDayTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_workingDayTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_workingDayTextFieldActionPerformed
+
+    private void presentDaysTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_presentDaysTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_presentDaysTextFieldActionPerformed
+
+    private void attendanceUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attendanceUpdateButtonActionPerformed
+        String month = (String) selectMonth.getSelectedItem();
+        String studentId = studentIdTextFieldA.getText();
+        int workingDays = Integer.parseInt(workingDayTextField.getText());
+        int presentDays = Integer.parseInt(presentDaysTextField.getText());
+        
+        if(workingDays <= 26 && presentDays <= workingDays)
+        teacherDb.attendanceUpdate(month, studentId, workingDays, presentDays);
+        
+        else {
+        JOptionPane.showMessageDialog(null, "Enter valid number", "Warning", JOptionPane.WARNING_MESSAGE);
+        studentIdTextFieldA.setText("");
+        presentDaysTextField.setText("");
+        
+        }
+    }//GEN-LAST:event_attendanceUpdateButtonActionPerformed
     
     /**
      * @param args the command line arguments
@@ -1662,6 +1821,7 @@ public class TeacherProfile extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AttendencePanel;
+    private javax.swing.JPanel AttendencePanel1;
     private javax.swing.JLabel Designation;
     private javax.swing.JLabel DesignationText;
     private javax.swing.JLabel Edit;
@@ -1685,6 +1845,7 @@ public class TeacherProfile extends javax.swing.JFrame {
     private javax.swing.JLabel SideMenuShow1;
     private javax.swing.JLabel Subject;
     private javax.swing.JLabel SubjectText;
+    private javax.swing.JButton attendanceUpdateButton;
     private javax.swing.JPanel attendance_btn;
     private com.toedter.calendar.JDateChooser dateChooser;
     private javax.swing.JButton exitButton;
@@ -1699,6 +1860,7 @@ public class TeacherProfile extends javax.swing.JFrame {
     private javax.swing.JPanel ind_4;
     private javax.swing.JPanel ind_5;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -1706,11 +1868,14 @@ public class TeacherProfile extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1739,11 +1904,13 @@ public class TeacherProfile extends javax.swing.JFrame {
     private javax.swing.JTextArea noticeTextArea;
     private javax.swing.JPanel notices_btn;
     private javax.swing.JLabel phoneNo;
+    private javax.swing.JTextField presentDaysTextField;
     private javax.swing.JLabel resultOfID;
     private javax.swing.JPanel resultPanel;
     private javax.swing.JButton resultSubmitButton;
     private javax.swing.JPanel result_btn;
     private javax.swing.JComboBox<String> selectClass;
+    private javax.swing.JComboBox<String> selectMonth;
     private javax.swing.JComboBox<String> selectPaper;
     private javax.swing.JComboBox<String> selectSection;
     private javax.swing.JPanel sideMenu;
@@ -1751,10 +1918,12 @@ public class TeacherProfile extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> studentClassComboBox;
     private javax.swing.JTextField studentIdResultField;
     private javax.swing.JTextField studentIdTextField;
+    private javax.swing.JTextField studentIdTextFieldA;
     private javax.swing.JLabel subb;
     private javax.swing.JLabel subjectPartText;
     private javax.swing.JLabel teacherSUb;
     private javax.swing.JTextField totalMarks;
+    private javax.swing.JTextField workingDayTextField;
     // End of variables declaration//GEN-END:variables
     
     private void setColor(JPanel pane)

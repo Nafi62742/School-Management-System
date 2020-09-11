@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.jOptionPane;
 import javax.swing.table.DefaultTableModel;
+import schoolmanagementsystem.Database.Attendance;
 import schoolmanagementsystem.Database.Homework;
 import schoolmanagementsystem.Database.Message;
 import schoolmanagementsystem.Database.Notice;
@@ -124,7 +125,15 @@ public class StudentProfile extends javax.swing.JFrame {
         previousHomeworkButton = new javax.swing.JButton();
         nextHomeworkButton = new javax.swing.JButton();
         AttendencePanel = new javax.swing.JPanel();
+        AttendencePanel1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        workingDayTextField = new javax.swing.JTextField();
+        presentDaysTextField = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        showAttendance = new javax.swing.JButton();
         noticePanel = new javax.swing.JPanel();
         HomeworkPanel2 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
@@ -848,24 +857,131 @@ public class StudentProfile extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("homework", HomeworkPanel);
 
+        AttendencePanel1.setBackground(new java.awt.Color(65, 59, 94));
+
+        jLabel4.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Attendance");
+
+        jComboBox2.setBackground(new java.awt.Color(18, 30, 49));
+        jComboBox2.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        jComboBox2.setForeground(new java.awt.Color(255, 255, 255));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
+        jComboBox2.setToolTipText("");
+
+        workingDayTextField.setEditable(false);
+        workingDayTextField.setBackground(new java.awt.Color(19, 10, 52));
+        workingDayTextField.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        workingDayTextField.setForeground(new java.awt.Color(255, 255, 255));
+        workingDayTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                workingDayTextFieldActionPerformed(evt);
+            }
+        });
+
+        presentDaysTextField.setEditable(false);
+        presentDaysTextField.setBackground(new java.awt.Color(19, 10, 52));
+        presentDaysTextField.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        presentDaysTextField.setForeground(new java.awt.Color(255, 255, 255));
+        presentDaysTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                presentDaysTextFieldActionPerformed(evt);
+            }
+        });
+
         jLabel10.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
-        jLabel10.setText("Attendance");
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Month");
+
+        jLabel17.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setText("Working Days");
+
+        jLabel22.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setText("Present Days");
+
+        showAttendance.setBackground(new java.awt.Color(18, 30, 49));
+        showAttendance.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        showAttendance.setForeground(new java.awt.Color(255, 255, 255));
+        showAttendance.setText("Search");
+        showAttendance.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        showAttendance.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showAttendanceActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout AttendencePanel1Layout = new javax.swing.GroupLayout(AttendencePanel1);
+        AttendencePanel1.setLayout(AttendencePanel1Layout);
+        AttendencePanel1Layout.setHorizontalGroup(
+            AttendencePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AttendencePanel1Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(AttendencePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(AttendencePanel1Layout.createSequentialGroup()
+                        .addGroup(AttendencePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(AttendencePanel1Layout.createSequentialGroup()
+                                .addGroup(AttendencePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(17, 17, 17))
+                            .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(2, 2, 2)
+                        .addGroup(AttendencePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(AttendencePanel1Layout.createSequentialGroup()
+                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(149, 149, 149)
+                                .addComponent(showAttendance, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(AttendencePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(presentDaysTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(workingDayTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)))))
+                .addContainerGap(385, Short.MAX_VALUE))
+        );
+        AttendencePanel1Layout.setVerticalGroup(
+            AttendencePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AttendencePanel1Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addGroup(AttendencePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AttendencePanel1Layout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(showAttendance, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(AttendencePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(32, 32, 32)
+                .addGroup(AttendencePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(workingDayTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addGroup(AttendencePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(presentDaysTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(289, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout AttendencePanelLayout = new javax.swing.GroupLayout(AttendencePanel);
         AttendencePanel.setLayout(AttendencePanelLayout);
         AttendencePanelLayout.setHorizontalGroup(
             AttendencePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AttendencePanelLayout.createSequentialGroup()
-                .addGap(292, 292, 292)
-                .addComponent(jLabel10)
-                .addContainerGap(612, Short.MAX_VALUE))
+            .addGap(0, 1052, Short.MAX_VALUE)
+            .addGroup(AttendencePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(AttendencePanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(AttendencePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         AttendencePanelLayout.setVerticalGroup(
             AttendencePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AttendencePanelLayout.createSequentialGroup()
-                .addGap(247, 247, 247)
-                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
-                .addGap(386, 386, 386))
+            .addGap(0, 702, Short.MAX_VALUE)
+            .addGroup(AttendencePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(AttendencePanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(AttendencePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("attendence", AttendencePanel);
@@ -1234,7 +1350,7 @@ public class StudentProfile extends javax.swing.JFrame {
                 .addGroup(MessegePanelLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(jScrollPaneMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 1018, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(14, Short.MAX_VALUE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         MessegePanelLayout.setVerticalGroup(
             MessegePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1354,13 +1470,25 @@ public class StudentProfile extends javax.swing.JFrame {
         Object[] row2=new Object[2];
         for(int i=0;i<list.size();i++){
             
-            row2[0]=list.get(i).getTeacherName();
-            //System.out.println(row2[0]);
-            row2[1]=list.get(i).getMessage();
-            //System.out.println(row2[1]);
+            row2[0]=list.get(i).getTeacherName();            
+            row2[1]=list.get(i).getMessage();            
             dtm2.addRow(row2);
             
         }
+    }
+    
+    public void showAttendance(String Month)
+    {   
+        List<Attendance> list = stdb.getAttendance(Month);
+        
+        for(int i =0; i<list.size();i++){
+           
+        String wD = Integer.toString(list.get(i).getWorkingDays());
+        workingDayTextField.setText(wD);        
+        String pD = Integer.toString(list.get(i).getPresentDays());
+        presentDaysTextField.setText(pD);
+        }
+        
     }
     int x =242;
     public void hideSideMenu(){
@@ -1394,17 +1522,17 @@ public class StudentProfile extends javax.swing.JFrame {
                 String b2= Integer.toString(stdb.getBangla2nd());
                 String e1 = Integer.toString(stdb.getEnglish1st());
                 String e2=Integer.toString(stdb.getEnglish2nd());
-               String m=Integer.toString(stdb.getMath());
-               String r=Integer.toString(stdb.getReligion());
-               String s=Integer.toString(stdb.getScience());
-               String ic=Integer.toString(stdb.getIct());
-               String bgs=Integer.toString(stdb.getBgs());
-               int resultClass=Integer.parseInt(stdb.getStudentClass());
-               if(b1.equals("0") &&b2.equals("0")&& e1.equals("0") && e2.equals("0") && m.equals("0") && r.equals("0") && s.equals("0") && ic.equals("0") && bgs.equals("0")){
+                String m=Integer.toString(stdb.getMath());
+                String r=Integer.toString(stdb.getReligion());
+                String s=Integer.toString(stdb.getScience());
+                String ic=Integer.toString(stdb.getIct());
+                String bgs=Integer.toString(stdb.getBgs());
+                int resultClass=Integer.parseInt(stdb.getStudentClass());
+                if(b1.equals("0") &&b2.equals("0")&& e1.equals("0") && e2.equals("0") && m.equals("0") && r.equals("0") && s.equals("0") && ic.equals("0") && bgs.equals("0")){
                    noResult.setText("No result published yet");
 
-               }
-               else if(resultClass>5&&resultClass<11){
+                }
+                else if(resultClass>5&&resultClass<11){
                           if(b1 .equals("0")){
                               bangla1st.setText("-/100");
                           }
@@ -1461,7 +1589,7 @@ public class StudentProfile extends javax.swing.JFrame {
                           else{
                              BGS.setText(bgs+"/100");
                           }
-                          totalMarks.setText(finalMarks+"/1000");
+                          totalMarks.setText(finalMarks+"/800");
                 }
                 else if(resultClass>3&&resultClass<6){
                             if(b1.equals("0")){
@@ -1513,6 +1641,7 @@ public class StudentProfile extends javax.swing.JFrame {
                           }
                           ICTText.setText("");
                           ICT.setText("");
+                          totalMarks.setText(finalMarks+"/600");
                }
                else if(resultClass>0&&resultClass<4){
                           if(b1.equals("0")){
@@ -1550,6 +1679,7 @@ public class StudentProfile extends javax.swing.JFrame {
                           ICT.setText("");
                           BGSText.setText("");
                           BGS.setText("");
+                          totalMarks.setText(finalMarks+"/500");
                }
                else{
 
@@ -1801,6 +1931,22 @@ public class StudentProfile extends javax.swing.JFrame {
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         new Chatbot().setVisible(true);
     }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void workingDayTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_workingDayTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_workingDayTextFieldActionPerformed
+
+    private void presentDaysTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_presentDaysTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_presentDaysTextFieldActionPerformed
+
+    private void showAttendanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showAttendanceActionPerformed
+
+        String manth =(String) jComboBox2.getSelectedItem();
+
+        showAttendance(manth);
+
+    }//GEN-LAST:event_showAttendanceActionPerformed
     
     /**
      * @param args the command line arguments
@@ -1853,6 +1999,7 @@ public class StudentProfile extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AttendenceLebel;
     private javax.swing.JPanel AttendencePanel;
+    private javax.swing.JPanel AttendencePanel1;
     private javax.swing.JLabel BGS;
     private javax.swing.JLabel BGSText;
     private javax.swing.JLabel BanglaText;
@@ -1906,12 +2053,16 @@ public class StudentProfile extends javax.swing.JFrame {
     private javax.swing.JPanel ind_3;
     private javax.swing.JPanel ind_4;
     private javax.swing.JPanel ind_5;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -1931,16 +2082,19 @@ public class StudentProfile extends javax.swing.JFrame {
     private javax.swing.JPanel notices_btn;
     private javax.swing.JLabel phoneNo;
     private javax.swing.JLabel postDateLabel;
+    private javax.swing.JTextField presentDaysTextField;
     private javax.swing.JButton previousHomeworkButton;
     private javax.swing.JLabel religion;
     private javax.swing.JLabel religionText;
     private javax.swing.JPanel resultPanel;
     private javax.swing.JPanel result_btn;
     private javax.swing.JLabel science;
+    private javax.swing.JButton showAttendance;
     private javax.swing.JPanel sideMenu;
     private javax.swing.JLabel sideMenuHide;
     private javax.swing.JLabel subjectLabel;
     private javax.swing.JLabel totalMarks;
     private javax.swing.JLabel totalMarksLabel;
+    private javax.swing.JTextField workingDayTextField;
     // End of variables declaration//GEN-END:variables
 }

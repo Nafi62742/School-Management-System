@@ -128,6 +128,25 @@ public class TeacherDatabase extends Accounts{
         }
     }
     
+    public void attendanceUpdate(String month,String studentId, int workingDays, int presentDays){
+        
+        
+        String sql = "INSERT INTO attendance(month, ID, working_days, present_days) VALUES(?,?,?,?)";
+        try {
+            pst = conn.prepareStatement(sql);
+     
+            pst.setString(1, month);
+            pst.setString(2, studentId);
+            pst.setInt(3,workingDays);
+            pst.setInt(4,presentDays);
+            pst.execute();
+            
+            JOptionPane.showMessageDialog(null, "Attendance have been updated Successfully");
+        } catch (HeadlessException | SQLException e) {
+            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+    }
+    
         public void marksSend(int marks,String studentId,String paper){
         String tSubject= getTeacherSubject();
         String tSubject2=tSubject.toLowerCase();

@@ -131,6 +131,23 @@ public class StudentDatabase extends Accounts{
         }
         return null;
     }
+    public List<Attendance> getAttendance(String month){
+        String sql = "select * from attendance where ID=" + "\'" +getId()+ "\' and month = \'"+ month+ "\'";
+        List<Attendance> list = new ArrayList<Attendance>();
+        try {
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                Attendance attend = new Attendance(rs.getString("month"),rs.getString("ID"),rs.getInt("working_days"), rs.getInt("present_days"));
+                list.add(attend);
+            }
+            return list;
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Can't get message from database.");
+        }
+        return null;
+     
+    }
     public void getStudentData(String id){
         String sql = "select * from student_accounts where id=\'" +id+ "\'";
         try{
