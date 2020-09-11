@@ -116,6 +116,7 @@ public class StudentDatabase extends Accounts{
     
     public List<Message> getMessage(){
         String sql = "select * from message where ID=" + "\'" +getId()+ "\'";
+       
         List<Message> list = new ArrayList<Message>();
         try {
             pst = conn.prepareStatement(sql);
@@ -126,7 +127,7 @@ public class StudentDatabase extends Accounts{
             }
             return list;
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Can't get message from database.");
+            JOptionPane.showMessageDialog(null, "Can't get message from database.","Warning",JOptionPane.WARNING_MESSAGE);
         }
         return null;
     }

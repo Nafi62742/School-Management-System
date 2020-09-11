@@ -50,9 +50,12 @@ public class StudentProfile extends javax.swing.JFrame {
         initComponents();
         this.id=id;
         stdb=new StudentDatabase(this.id);
+        
+        showMessage();
+        
         showNoticeBoard();
         getHomeworks();
-        showMessage();
+        
         hideSideMenu();
         profileShow();
         resultShow();
@@ -154,9 +157,8 @@ public class StudentProfile extends javax.swing.JFrame {
         english1st = new javax.swing.JLabel();
         noResult = new javax.swing.JLabel();
         MessegePanel = new javax.swing.JPanel();
-        MessegePanel1 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        jScrollPaneMessage = new javax.swing.JScrollPane();
         messageTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1186,7 +1188,7 @@ public class StudentProfile extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("result", resultPanel);
 
-        MessegePanel1.setBackground(new java.awt.Color(65, 59, 94));
+        MessegePanel.setBackground(new java.awt.Color(65, 59, 94));
 
         jLabel13.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
@@ -1217,55 +1219,34 @@ public class StudentProfile extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        messageTable.setMinimumSize(new java.awt.Dimension(165, 0));
-        messageTable.setPreferredSize(new java.awt.Dimension(225, 0));
         messageTable.setRowHeight(30);
-        jScrollPane2.setViewportView(messageTable);
-        if (messageTable.getColumnModel().getColumnCount() > 0) {
-            messageTable.getColumnModel().getColumn(0).setMinWidth(150);
-            messageTable.getColumnModel().getColumn(0).setMaxWidth(250);
-        }
-
-        javax.swing.GroupLayout MessegePanel1Layout = new javax.swing.GroupLayout(MessegePanel1);
-        MessegePanel1.setLayout(MessegePanel1Layout);
-        MessegePanel1Layout.setHorizontalGroup(
-            MessegePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MessegePanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(870, Short.MAX_VALUE))
-            .addGroup(MessegePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(MessegePanel1Layout.createSequentialGroup()
-                    .addGap(6, 6, 6)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1023, Short.MAX_VALUE)
-                    .addGap(6, 6, 6)))
-        );
-        MessegePanel1Layout.setVerticalGroup(
-            MessegePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MessegePanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(616, Short.MAX_VALUE))
-            .addGroup(MessegePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(MessegePanel1Layout.createSequentialGroup()
-                    .addGap(73, 73, 73)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 546, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(74, Short.MAX_VALUE)))
-        );
+        jScrollPaneMessage.setViewportView(messageTable);
 
         javax.swing.GroupLayout MessegePanelLayout = new javax.swing.GroupLayout(MessegePanel);
         MessegePanel.setLayout(MessegePanelLayout);
         MessegePanelLayout.setHorizontalGroup(
             MessegePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MessegePanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(MessegePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(MessegePanelLayout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(704, Short.MAX_VALUE))
+            .addGroup(MessegePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(MessegePanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPaneMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 1018, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(14, Short.MAX_VALUE)))
         );
         MessegePanelLayout.setVerticalGroup(
             MessegePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MessegePanelLayout.createSequentialGroup()
-                .addComponent(MessegePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(622, Short.MAX_VALUE))
+            .addGroup(MessegePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MessegePanelLayout.createSequentialGroup()
+                    .addContainerGap(74, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 546, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(74, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("Messege", MessegePanel);
@@ -1367,15 +1348,18 @@ public class StudentProfile extends javax.swing.JFrame {
     
     public void showMessage(){
         
-        DefaultTableModel dtm = (DefaultTableModel) messageTable.getModel();
+        DefaultTableModel dtm2 = (DefaultTableModel) messageTable.getModel();
         
         List<Message> list=stdb.getMessage();
-        Object[] row=new Object[2];
+        Object[] row2=new Object[2];
         for(int i=0;i<list.size();i++){
             
-            row[0]=list.get(i).getTeacherName();
-            row[1]=list.get(i).getMessage();
-            dtm.addRow(row);
+            row2[0]=list.get(i).getTeacherName();
+            //System.out.println(row2[0]);
+            row2[1]=list.get(i).getMessage();
+            //System.out.println(row2[1]);
+            dtm2.addRow(row2);
+            
         }
     }
     int x =242;
@@ -1404,172 +1388,172 @@ public class StudentProfile extends javax.swing.JFrame {
     
         public void resultShow(){
         
-        String student_id =this.id;
-        String finalMarks=Integer.toString(stdb.getGrandTotal());
-        String b1= Integer.toString(stdb.getBangla1st());
-        String b2= Integer.toString(stdb.getBangla2nd());
-        String e1 = Integer.toString(stdb.getEnglish1st());
-        String e2=Integer.toString(stdb.getEnglish2nd());
-       String m=Integer.toString(stdb.getMath());
-       String r=Integer.toString(stdb.getReligion());
-       String s=Integer.toString(stdb.getScience());
-       String ic=Integer.toString(stdb.getIct());
-       String bgs=Integer.toString(stdb.getBgs());
-       int resultClass=Integer.parseInt(stdb.getStudentClass());
-       if(b1.equals("0") &&b2.equals("0")&& e1.equals("0") && e2.equals("0") && m.equals("0") && r.equals("0") && s.equals("0") && ic.equals("0") && bgs.equals("0")){
-           noResult.setText("No result published yet");
-       
-       }
-       else if(resultClass>5&&resultClass<11){
-                  if(b1 .equals("0")){
-                      bangla1st.setText("-/100");
-                  }
-                  else{
-                      bangla1st.setText(b1+"/100");
-                  }
-                  if(b2.equals("0")){
-                     bangla2nd.setText("-/50");
-                  }
-                  else{
-                      bangla2nd.setText(b2+"/50");
-                  }
-                   if(e1 .equals("0")){
-                      english1st.setText("-/100");
-                  }
-                  else{
-                     english1st.setText(e1+"/100");
-                  }
-                    if(e2 .equals("0")){
-                     english2nd.setText("-/50");
-                  }
-                  else{
-                      english2nd.setText(e2+"/50");
-                  }
-                   if(m .equals("0")){
-                      math.setText("-/100");
-                  }
-                  else{
-                     math.setText(m+"/100");
-                  }
+                String student_id =this.id;
+                String finalMarks=Integer.toString(stdb.getGrandTotal());
+                String b1= Integer.toString(stdb.getBangla1st());
+                String b2= Integer.toString(stdb.getBangla2nd());
+                String e1 = Integer.toString(stdb.getEnglish1st());
+                String e2=Integer.toString(stdb.getEnglish2nd());
+               String m=Integer.toString(stdb.getMath());
+               String r=Integer.toString(stdb.getReligion());
+               String s=Integer.toString(stdb.getScience());
+               String ic=Integer.toString(stdb.getIct());
+               String bgs=Integer.toString(stdb.getBgs());
+               int resultClass=Integer.parseInt(stdb.getStudentClass());
+               if(b1.equals("0") &&b2.equals("0")&& e1.equals("0") && e2.equals("0") && m.equals("0") && r.equals("0") && s.equals("0") && ic.equals("0") && bgs.equals("0")){
+                   noResult.setText("No result published yet");
 
-                  if(r.equals("0")){
-                      religion.setText("-/100");
-                  }
-                  else{
-                     religion.setText(r+"/100");
-                  }
-                  if(s.equals("0")){
-                      science.setText("-/100");
-                  }
-                  else{
-                     science.setText(s+"/100");
-                  }
-                  
-                  if(ic.equals("0")){
-                      ICT.setText("-/100");
-                  }
-                  else{
-                     ICT.setText(ic+"/100");
-                  }
-                  if(bgs.equals("0")){
-                      BGS.setText("-/100");
-                  }
-                  else{
-                     BGS.setText(bgs+"/100");
-                  }
-                  totalMarks.setText(finalMarks+"/1000");
-       }
-       else if(resultClass>3&&resultClass<6){
-                    if(b1.equals("0")){
-                      bangla1st.setText("-/100");
-                  }
-                  else{
-                      bangla1st.setText(b1);
-                  }
-                  if(b2.equals("0")){
-                     bangla2nd.setText("");
-                     bangla2ndText.setText("");
-                     b1st.setText("");
-                  }
-                  else{
-                      bangla2nd.setText(b2);
-                  }
-                   if(e1.equals("0")){
-                      english1st.setText("");
-                  }
-                  else{
-                     english1st.setText(e1);
-                  }
-                    if(e2.equals("0")){
-                     english2nd.setText("");
-                     English2ndText.setText("");
-                     e1st.setText("");
-                  }
-                  else{
-                      bangla2nd.setText(e2+"/100");
-                  }
-                   if(m.equals("0")){
-                      math.setText("");
-                  }
-                  else{
-                     math.setText(m+"/100");
-                  }
+               }
+               else if(resultClass>5&&resultClass<11){
+                          if(b1 .equals("0")){
+                              bangla1st.setText("-/100");
+                          }
+                          else{
+                              bangla1st.setText(b1+"/100");
+                          }
+                          if(b2.equals("0")){
+                             bangla2nd.setText("-/50");
+                          }
+                          else{
+                              bangla2nd.setText(b2+"/50");
+                          }
+                           if(e1 .equals("0")){
+                              english1st.setText("-/100");
+                          }
+                          else{
+                             english1st.setText(e1+"/100");
+                          }
+                            if(e2 .equals("0")){
+                             english2nd.setText("-/50");
+                          }
+                          else{
+                              english2nd.setText(e2+"/50");
+                          }
+                           if(m .equals("0")){
+                              math.setText("-/100");
+                          }
+                          else{
+                             math.setText(m+"/100");
+                          }
 
-                  if(r.equals("0")){
-                      religion.setText("");
-                  }
-                  else{
-                     religion.setText(r);
-                  }
-                  if(bgs.equals("0")){
-                      BGS.setText("");
-                  }
-                  else{
-                     BGS.setText(r);
-                  }
-                  ICTText.setText("");
-                  ICT.setText("");
-       }
-       else if(resultClass>0&&resultClass<4){
-                  if(b1.equals("0")){
-                      bangla1st.setText("-/100");
-                  }
-                  else{
-                      bangla1st.setText(b1);
-                  }
-                bangla2nd.setText("");
-                bangla2ndText.setText("");
-                b1st.setText("");
-                   if(e1.equals("0")){
-                      english1st.setText("");
-                  }
-                  else{
-                     english1st.setText(e1);
-                  }
-                english2nd.setText("");
-                English2ndText.setText("");
-                e1st.setText("");
-                   if(m.equals("0")){
-                      math.setText("");
-                  }
-                  else{
-                     math.setText(m+"/100");
-                  }
+                          if(r.equals("0")){
+                              religion.setText("-/100");
+                          }
+                          else{
+                             religion.setText(r+"/100");
+                          }
+                          if(s.equals("0")){
+                              science.setText("-/100");
+                          }
+                          else{
+                             science.setText(s+"/100");
+                          }
 
-                  if(r.equals("0")){
-                      religion.setText("");
-                  }
-                  else{
-                     religion.setText(r);
-                  }
-                  ICTText.setText("");
-                  ICT.setText("");
-                  BGSText.setText("");
-                  BGS.setText("");
-       }
-       else{
-           
-       }
+                          if(ic.equals("0")){
+                              ICT.setText("-/100");
+                          }
+                          else{
+                             ICT.setText(ic+"/100");
+                          }
+                          if(bgs.equals("0")){
+                              BGS.setText("-/100");
+                          }
+                          else{
+                             BGS.setText(bgs+"/100");
+                          }
+                          totalMarks.setText(finalMarks+"/1000");
+                }
+                else if(resultClass>3&&resultClass<6){
+                            if(b1.equals("0")){
+                              bangla1st.setText("-/100");
+                          }
+                          else{
+                              bangla1st.setText(b1);
+                          }
+                          if(b2.equals("0")){
+                             bangla2nd.setText("");
+                             bangla2ndText.setText("");
+                             b1st.setText("");
+                          }
+                          else{
+                              bangla2nd.setText(b2);
+                          }
+                           if(e1.equals("0")){
+                              english1st.setText("");
+                          }
+                          else{
+                             english1st.setText(e1);
+                          }
+                            if(e2.equals("0")){
+                             english2nd.setText("");
+                             English2ndText.setText("");
+                             e1st.setText("");
+                          }
+                          else{
+                              bangla2nd.setText(e2+"/100");
+                          }
+                           if(m.equals("0")){
+                              math.setText("");
+                          }
+                          else{
+                             math.setText(m+"/100");
+                          }
+
+                          if(r.equals("0")){
+                              religion.setText("");
+                          }
+                          else{
+                             religion.setText(r);
+                          }
+                          if(bgs.equals("0")){
+                              BGS.setText("");
+                          }
+                          else{
+                             BGS.setText(r);
+                          }
+                          ICTText.setText("");
+                          ICT.setText("");
+               }
+               else if(resultClass>0&&resultClass<4){
+                          if(b1.equals("0")){
+                              bangla1st.setText("-/100");
+                          }
+                          else{
+                              bangla1st.setText(b1);
+                          }
+                        bangla2nd.setText("");
+                        bangla2ndText.setText("");
+                        b1st.setText("");
+                           if(e1.equals("0")){
+                              english1st.setText("");
+                          }
+                          else{
+                             english1st.setText(e1);
+                          }
+                        english2nd.setText("");
+                        English2ndText.setText("");
+                        e1st.setText("");
+                           if(m.equals("0")){
+                              math.setText("");
+                          }
+                          else{
+                             math.setText(m+"/100");
+                          }
+
+                          if(r.equals("0")){
+                              religion.setText("");
+                          }
+                          else{
+                             religion.setText(r);
+                          }
+                          ICTText.setText("");
+                          ICT.setText("");
+                          BGSText.setText("");
+                          BGS.setText("");
+               }
+               else{
+
+               }
     }
         
     
@@ -1894,7 +1878,6 @@ public class StudentProfile extends javax.swing.JFrame {
     private javax.swing.JLabel MathText;
     private javax.swing.JLabel MenuText;
     private javax.swing.JPanel MessegePanel;
-    private javax.swing.JPanel MessegePanel1;
     private javax.swing.JLabel NameFDB;
     private javax.swing.JLabel NameText2;
     private javax.swing.JLabel PhoneText;
@@ -1932,7 +1915,7 @@ public class StudentProfile extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPaneMessage;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton logOut;
     private javax.swing.JLabel math;

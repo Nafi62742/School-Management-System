@@ -30,6 +30,21 @@ public class Accounts {
         conn = JConnection.connectdb();
     }
     
+    public void createResultAccount(String id){
+        final JPanel panel = new JPanel();
+        
+       String sql = "INSERT INTO results(ID) VALUES (?)";
+        try {
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, id);
+            pst.execute();
+
+            //JOptionPane.showMessageDialog(null, "Marks(english2nd) have been added Successfully");
+        } catch (HeadlessException | SQLException e) {
+            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+    }
+    
     public int createStudentAccount(String name,String studentClass,String section,String id,String userPass){
         final JPanel panel = new JPanel();
         String sql = "INSERT INTO student_accounts(name,class,sec,id,pass) VALUES(?,?,?,?,?)";
@@ -52,6 +67,8 @@ public class Accounts {
             JOptionPane.showMessageDialog(panel, "Database error", "Warning", JOptionPane.WARNING_MESSAGE);
             return 0;
         }
+
+       
     }
     public int createTeacherAccount(String name,String subject,String designation,String id,String userPass){
         final JPanel panel = new JPanel();
@@ -212,7 +229,5 @@ public class Accounts {
     public String getId(){
         return this.id;
     }
-//    public void setId(String id){
-//        this.id=id;
-//    }
+
 }

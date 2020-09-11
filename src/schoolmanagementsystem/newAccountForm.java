@@ -224,6 +224,7 @@ public class newAccountForm extends javax.swing.JFrame {
     private void signupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupButtonActionPerformed
         String originalPass = passwordField.getText();
         if (originalPass.length() >= 4 && originalPass.equals(confirmPasswordField.getText())) {
+            account.createResultAccount("100."+idField.getText());
             int response=account.createStudentAccount(nameField.getText(),studentClassField.getText(),sectionField.getText(),"100."+idField.getText(),originalPass);
             switch (response) {
                 case 2:

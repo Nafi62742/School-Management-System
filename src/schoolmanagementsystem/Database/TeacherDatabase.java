@@ -132,26 +132,24 @@ public class TeacherDatabase extends Accounts{
         String tSubject= getTeacherSubject();
         String tSubject2=tSubject.toLowerCase();
         if(tSubject2.equals("bangla")&&paper.equals("1st")){
-            String sql = "INSERT INTO results(ID, bangla1st) VALUES(?,?)";
-
+        String sql = "UPDATE results SET bangla1st=? WHERE ID=" + studentId;
+        
         try {
             pst = conn.prepareStatement(sql);
-            pst.setString(1, studentId);
-            pst.setInt(2,marks);
+            pst.setInt(1,marks);
             pst.execute();
             
             JOptionPane.showMessageDialog(null, "Marks(bangla1st) have been added Successfully");
         } catch (HeadlessException | SQLException e) {
             JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
-        }
+            }
         }
         else if(tSubject2.equals("bangla")&&paper.equals("2nd")){
-            String sql = "INSERT INTO results(ID, bangla2nd) VALUES(?,?)";
+            String sql = "UPDATE results SET bangla2nd=? WHERE ID=" + studentId;
 
         try {
             pst = conn.prepareStatement(sql);
-            pst.setString(1, studentId);
-            pst.setInt(2,marks);
+            pst.setInt(1,marks);
             pst.execute();
             
             JOptionPane.showMessageDialog(null, "Marks(bangla2nd) have been added Successfully");
@@ -160,11 +158,10 @@ public class TeacherDatabase extends Accounts{
         }
         }
         else if(tSubject2.equals("english")&&paper.equals("2nd")){
-            String sql = "INSERT INTO results(ID, english2nd) VALUES(?,?)";
+            String sql = "UPDATE results SET english2nd=? WHERE ID=" + studentId;
         try {
             pst = conn.prepareStatement(sql);
-            pst.setString(1, studentId);
-            pst.setInt(2,marks);
+            pst.setInt(1,marks);
             pst.execute();
             
             JOptionPane.showMessageDialog(null, "Marks(english2nd) have been added Successfully");
@@ -173,11 +170,10 @@ public class TeacherDatabase extends Accounts{
         }
         }
          else if(tSubject2.equals("english")&&paper.equals("1st")){
-            String sql = "INSERT INTO results(ID, english1st) VALUES(?,?)";
+            String sql = "UPDATE results SET english1st=? WHERE ID=" + studentId;
         try {
             pst = conn.prepareStatement(sql);
-            pst.setString(1, studentId);
-            pst.setInt(2,marks);
+            pst.setInt(1,marks);
             pst.execute();
             
             JOptionPane.showMessageDialog(null, "Marks(english1st) have been added Successfully");
@@ -191,12 +187,11 @@ public class TeacherDatabase extends Accounts{
         String tSubject= getTeacherSubject();
         String tSubject2=tSubject.toLowerCase();
         if(tSubject2.equals("math")){
-            String sql = "INSERT INTO results(ID, math) VALUES(?,?)";
+            String sql = "UPDATE results SET math=? WHERE ID=" + studentId;
 
         try {
             pst = conn.prepareStatement(sql);
-            pst.setString(1, studentId);
-            pst.setInt(2,marks);
+            pst.setInt(1,marks);
             pst.execute();
             
             JOptionPane.showMessageDialog(null, "Marks(Math) have been added Successfully");
@@ -205,12 +200,11 @@ public class TeacherDatabase extends Accounts{
         }
         }
         else if(tSubject2.equals("science")){
-            String sql = "INSERT INTO results(ID, science) VALUES(?,?)";
+            String sql = "UPDATE results SET science=? WHERE ID=" + studentId;
 
         try {
             pst = conn.prepareStatement(sql);
-            pst.setString(1, studentId);
-            pst.setInt(2,marks);
+            pst.setInt(1,marks);
             pst.execute();
             
             JOptionPane.showMessageDialog(null, "Marks(science) have been added Successfully");
@@ -219,12 +213,11 @@ public class TeacherDatabase extends Accounts{
         }
         }
          else if(tSubject2.equals("religion")){
-            String sql = "INSERT INTO results(ID, religion) VALUES(?,?)";
+            String sql = "UPDATE results SET religion=? WHERE ID=" + studentId;
 
         try {
             pst = conn.prepareStatement(sql);
-            pst.setString(1, studentId);
-            pst.setInt(2,marks);
+            pst.setInt(1,marks);
             pst.execute();
             
             JOptionPane.showMessageDialog(null, "Marks(religion) have been added Successfully");
@@ -233,12 +226,11 @@ public class TeacherDatabase extends Accounts{
         }
         }
        else if(tSubject2.equals("ict")){
-            String sql = "INSERT INTO results(ID, ict) VALUES(?,?)";
+            String sql = "UPDATE results SET ict=? WHERE ID=" + studentId;
 
         try {
             pst = conn.prepareStatement(sql);
-            pst.setString(1, studentId);
-            pst.setInt(2,marks);
+            pst.setInt(1,marks);
             pst.execute();
             
             JOptionPane.showMessageDialog(null, "Marks(ict) have been added Successfully");
@@ -247,14 +239,12 @@ public class TeacherDatabase extends Accounts{
             }
         }
         else if(tSubject2.equals("bgs")){
-            String sql = "INSERT INTO results(ID, bgs) VALUES(?,?)";
+            String sql = "UPDATE results SET bgs=? WHERE ID=" + studentId;
 
         try {
             pst = conn.prepareStatement(sql);
-            pst.setString(1, studentId);
-            pst.setInt(2,marks);
+            pst.setInt(1,marks);
             pst.execute();
-            
             JOptionPane.showMessageDialog(null, "Marks(bgs) have been added Successfully");
             } catch (HeadlessException | SQLException e) {
             JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
