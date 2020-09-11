@@ -53,7 +53,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="710" y="0" width="570" height="30"/>
+              <AbsoluteConstraints x="0" y="0" width="1280" height="30"/>
             </Constraint>
           </Constraints>
 
@@ -61,7 +61,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="540" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="1250" max="32767" attributes="0"/>
                       <Component id="close_btn" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1645,7 +1645,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
@@ -1653,7 +1653,7 @@
                                       <Component id="MathText" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                                          <Component id="ICTText1" min="-2" pref="71" max="-2" attributes="0"/>
+                                          <Component id="TotalText" min="-2" pref="71" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="1" attributes="0">
@@ -1705,10 +1705,11 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="358" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="noResult" min="-2" pref="139" max="-2" attributes="0"/>
-                                      <Component id="jLabel12" min="-2" pref="139" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="jLabel12" min="-2" pref="139" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="179" max="-2" attributes="0"/>
+                                  <Component id="noResult" min="-2" pref="457" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="320" max="32767" attributes="0"/>
@@ -1763,7 +1764,7 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="ICTText1" alignment="3" max="32767" attributes="0"/>
+                                      <Component id="TotalText" alignment="3" max="32767" attributes="0"/>
                                       <Component id="totalMarks" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
@@ -1957,7 +1958,7 @@
                     <Property name="text" type="java.lang.String" value="ict"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="ICTText1">
+                <Component class="javax.swing.JLabel" name="TotalText">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Comic Sans MS" size="18" style="1"/>
