@@ -1406,72 +1406,72 @@ public class StudentProfile extends javax.swing.JFrame {
         
         String student_id =this.id;
         String finalMarks=Integer.toString(stdb.getGrandTotal());
-        String b1= stdb.getBangla1st();
-        String b2= stdb.getBangla2nd();
-        String e1 = stdb.getEnglish1st();
-        String e2=stdb.getEnglish2nd();
-       String m=stdb.getMath();
-       String r=stdb.getReligion();
-       String s=stdb.getScience();
-       String ic=stdb.getIct();
-       String bgs=stdb.getBgs();
+        String b1= Integer.toString(stdb.getBangla1st());
+        String b2= Integer.toString(stdb.getBangla2nd());
+        String e1 = Integer.toString(stdb.getEnglish1st());
+        String e2=Integer.toString(stdb.getEnglish2nd());
+       String m=Integer.toString(stdb.getMath());
+       String r=Integer.toString(stdb.getReligion());
+       String s=Integer.toString(stdb.getScience());
+       String ic=Integer.toString(stdb.getIct());
+       String bgs=Integer.toString(stdb.getBgs());
        int resultClass=Integer.parseInt(stdb.getStudentClass());
-       if(b1==null&&b2==null&& e1==null && e2==null && m==null && r==null && s==null && ic==null && bgs==null){
+       if(b1.equals("0") &&b2.equals("0")&& e1.equals("0") && e2.equals("0") && m.equals("0") && r.equals("0") && s.equals("0") && ic.equals("0") && bgs.equals("0")){
            noResult.setText("No result published yet");
        
        }
        else if(resultClass>5&&resultClass<11){
-                  if(b1 == null){
+                  if(b1 .equals("0")){
                       bangla1st.setText("-/100");
                   }
                   else{
                       bangla1st.setText(b1+"/100");
                   }
-                  if(b2 == null){
+                  if(b2.equals("0")){
                      bangla2nd.setText("-/50");
                   }
                   else{
                       bangla2nd.setText(b2+"/50");
                   }
-                   if(e1 == null){
+                   if(e1 .equals("0")){
                       english1st.setText("-/100");
                   }
                   else{
                      english1st.setText(e1+"/100");
                   }
-                    if(e2 == null){
+                    if(e2 .equals("0")){
                      english2nd.setText("-/50");
                   }
                   else{
                       english2nd.setText(e2+"/50");
                   }
-                   if(m == null){
+                   if(m .equals("0")){
                       math.setText("-/100");
                   }
                   else{
                      math.setText(m+"/100");
                   }
 
-                  if(r == null){
+                  if(r.equals("0")){
                       religion.setText("-/100");
                   }
                   else{
                      religion.setText(r+"/100");
                   }
-                  if(s == null){
+                  if(s.equals("0")){
                       science.setText("-/100");
                   }
                   else{
                      science.setText(s+"/100");
                   }
                   
-                  if(ic == null){
+                  if(ic.equals("0")){
                       ICT.setText("-/100");
                   }
                   else{
                      ICT.setText(ic+"/100");
                   }
-                  if(bgs == null){
+                  if(bgs.equals("0")){
                       BGS.setText("-/100");
                   }
                   else{
@@ -1480,13 +1480,13 @@ public class StudentProfile extends javax.swing.JFrame {
                   totalMarks.setText(finalMarks+"/1000");
        }
        else if(resultClass>3&&resultClass<6){
-                    if(b1 == null){
+                    if(b1.equals("0")){
                       bangla1st.setText("-/100");
                   }
                   else{
                       bangla1st.setText(b1);
                   }
-                  if(b2 == null){
+                  if(b2.equals("0")){
                      bangla2nd.setText("");
                      bangla2ndText.setText("");
                      b1st.setText("");
@@ -1494,13 +1494,13 @@ public class StudentProfile extends javax.swing.JFrame {
                   else{
                       bangla2nd.setText(b2);
                   }
-                   if(e1 == null){
+                   if(e1.equals("0")){
                       english1st.setText("");
                   }
                   else{
                      english1st.setText(e1);
                   }
-                    if(e2 == null){
+                    if(e2.equals("0")){
                      english2nd.setText("");
                      English2ndText.setText("");
                      e1st.setText("");
@@ -1508,20 +1508,20 @@ public class StudentProfile extends javax.swing.JFrame {
                   else{
                       bangla2nd.setText(e2+"/100");
                   }
-                   if(m == null){
+                   if(m.equals("0")){
                       math.setText("");
                   }
                   else{
                      math.setText(m+"/100");
                   }
 
-                  if(r == null){
+                  if(r.equals("0")){
                       religion.setText("");
                   }
                   else{
                      religion.setText(r);
                   }
-                  if(bgs == null){
+                  if(bgs.equals("0")){
                       BGS.setText("");
                   }
                   else{
@@ -1531,7 +1531,7 @@ public class StudentProfile extends javax.swing.JFrame {
                   ICT.setText("");
        }
        else if(resultClass>0&&resultClass<4){
-                  if(b1 == null){
+                  if(b1.equals("0")){
                       bangla1st.setText("-/100");
                   }
                   else{
@@ -1540,7 +1540,7 @@ public class StudentProfile extends javax.swing.JFrame {
                 bangla2nd.setText("");
                 bangla2ndText.setText("");
                 b1st.setText("");
-                   if(e1 == null){
+                   if(e1.equals("0")){
                       english1st.setText("");
                   }
                   else{
@@ -1549,14 +1549,14 @@ public class StudentProfile extends javax.swing.JFrame {
                 english2nd.setText("");
                 English2ndText.setText("");
                 e1st.setText("");
-                   if(m == null){
+                   if(m.equals("0")){
                       math.setText("");
                   }
                   else{
                      math.setText(m+"/100");
                   }
 
-                  if(r == null){
+                  if(r.equals("0")){
                       religion.setText("");
                   }
                   else{

@@ -37,15 +37,15 @@ public class StudentDatabase extends Accounts{
     
            
     private String studentId;
-    private String bangla1st;
-    private String bangla2nd;
-    private String english1st;
-    private String english2nd;
-    private String math;
-    private String science;
-    private String religion;
-    private String ict;
-    private String bgs;
+    private int bangla1st;
+    private int bangla2nd;
+    private int english1st;
+    private int english2nd;
+    private int math;
+    private int science;
+    private int religion;
+    private int ict;
+    private int bgs;
     private int grandTotal;
     
     
@@ -159,60 +159,18 @@ public class StudentDatabase extends Accounts{
         int bgs;
         int ic;
         
-        if(getBangla1st()==null){
-            b1= 0;
-        }
-        else{
-            b1= Integer.parseInt(getBangla1st());
-        }
-        if(getBangla2nd()==null){
-            b2=0;
-        }else{
-            b2= Integer.parseInt(getBangla2nd());
-        }
-        if(getBangla2nd()==null){
-            b2=0;
-        }else{
-            b2= Integer.parseInt(getBangla2nd());
-        }
-        if(getEnglish1st()==null){
-            e1=0;
-        }else{
-            e1 = Integer.parseInt(getEnglish1st());
-        }
-         if(getEnglish2nd()==null){
-            e2=0;
-        }else{
-             e2=Integer.parseInt(getEnglish2nd());
-        }
-        if(getMath()==null){
-            m=0;
-        }else{
-             m=Integer.parseInt(getMath());
-        }
-       
-        if(getReligion()==null){
-            r=0;
-        }else{
-            r=Integer.parseInt(getReligion());
-        }
-        if(getScience()==null){
-            s=0;
-        }else{
-            s=Integer.parseInt(getScience());
-        }
-        
-        if(getIct()==null){
-            ic=0;
-        }else{
-            ic=Integer.parseInt(getIct());
-        }
-        if(getBgs()==null){
-            bgs=0;
-        }else{
-            bgs=Integer.parseInt(getBgs());
-        }
-        
+            b1=getBangla1st();
+            b2= getBangla2nd();
+            b2= getBangla2nd();
+            e1 = getEnglish1st();
+             e2=getEnglish2nd();
+             m=getMath();
+            r=getReligion();
+             s=getScience();
+
+            ic=getIct();
+            bgs=getBgs();
+
         int gt=b1+b2+e1+e2+m+r+s+ic+bgs;
         setGrandTotal(gt);
     }
@@ -224,16 +182,15 @@ public class StudentDatabase extends Accounts{
             rs = pst.executeQuery();
             if (rs.next()) {
                // rslt.setStudentId("ID");
-                setBangla1st(rs.getString("bangla1st"));
-                setBangla2nd(rs.getString("bangla2nd"));
-                setEnglish1st(rs.getString("english1st"));
-                setEnglish2nd(rs.getString("english2nd"));
-                setMath(rs.getString("math"));
-                setReligion(rs.getString("religion"));
-                setScience(rs.getString("science"));
-                setReligion(rs.getString("bgs"));
-                setScience(rs.getString("ict"));
-        
+                setBangla1st(rs.getInt("bangla1st"));
+                setBangla2nd(rs.getInt("bangla2nd"));
+                setEnglish1st(rs.getInt("english1st"));
+                setEnglish2nd(rs.getInt("english2nd"));
+                setMath(rs.getInt("math"));
+                setReligion(rs.getInt("religion"));
+                setScience(rs.getInt("science"));
+                setBgs(rs.getInt("bgs"));
+                setIct(rs.getInt("ict"));
                 //Results messageId=new Results(rs.getString("ID"),rs.getString("bangla1st"),rs.getString("bangla2nd"),rs.getString("english1st"),rs.getString("english2nd"),rs.getString("math"),rs.getString("science"),rs.getString("religion"));
             }
         }catch(HeadlessException | SQLException e){
@@ -316,77 +273,79 @@ public class StudentDatabase extends Accounts{
     
     //result works
 
-    public String getBangla1st() {
+    public int getBangla1st() {
         return bangla1st;
     }
 
-    public void setBangla1st(String bangla1st) {
+    public void setBangla1st(int bangla1st) {
         this.bangla1st = bangla1st;
     }
 
-    public String getBangla2nd() {
+    public int getBangla2nd() {
         return bangla2nd;
     }
 
-    public void setBangla2nd(String bangla2nd) {
+    public void setBangla2nd(int bangla2nd) {
         this.bangla2nd = bangla2nd;
     }
 
-    public String getEnglish1st() {
+    public int getEnglish1st() {
         return english1st;
     }
 
-    public void setEnglish1st(String english1st) {
+    public void setEnglish1st(int english1st) {
         this.english1st = english1st;
     }
 
-    public String getEnglish2nd() {
+    public int getEnglish2nd() {
         return english2nd;
     }
 
-    public void setEnglish2nd(String english2nd) {
+    public void setEnglish2nd(int english2nd) {
         this.english2nd = english2nd;
     }
 
-    public String getMath() {
+    public int getMath() {
         return math;
     }
 
-    public void setMath(String math) {
+    public void setMath(int math) {
         this.math = math;
     }
 
-    public String getScience() {
+    public int getScience() {
         return science;
     }
 
-    public void setScience(String science) {
+    public void setScience(int science) {
         this.science = science;
     }
 
-    public String getReligion() {
+    public int getReligion() {
         return religion;
     }
 
-    public void setReligion(String religion) {
+    public void setReligion(int religion) {
         this.religion = religion;
     }
 
-    public String getIct() {
+    public int getIct() {
         return ict;
     }
 
-    public void setIct(String ict) {
+    public void setIct(int ict) {
         this.ict = ict;
     }
 
-    public String getBgs() {
+    public int getBgs() {
         return bgs;
     }
 
-    public void setBgs(String bgs) {
+    public void setBgs(int bgs) {
         this.bgs = bgs;
     }
+
+    
 
     public int getGrandTotal() {
         return grandTotal;

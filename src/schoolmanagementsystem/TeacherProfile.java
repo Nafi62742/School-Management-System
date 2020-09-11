@@ -1559,7 +1559,9 @@ public class TeacherProfile extends javax.swing.JFrame {
     }//GEN-LAST:event_messege_btnMousePressed
 
     private void EditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EditMouseClicked
-        UpdateAccountTeacher updateAccountTeacher = new UpdateAccountTeacher(this.id);
+        String teacherID =  teacherDb.getId();
+        System.out.println(teacherID);
+        UpdateAccountTeacher updateAccountTeacher = new UpdateAccountTeacher(teacherID);
         updateAccountTeacher.setVisible(true);
 
         updateAccountTeacher.setResizable(false);
@@ -1584,22 +1586,25 @@ public class TeacherProfile extends javax.swing.JFrame {
 
     private void resultSubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultSubmitButtonActionPerformed
         String studentId = studentIdResultField.getText();
-        String Marks = marks.getText();
-        String Paper=(String) selectPaper.getSelectedItem();
-        int x=Integer.parseInt(Marks);
         
-            if(Paper.equals("1st") &&x<=100){
-            teacherDb.marksSend(Marks,studentId,Paper);
+        String Marks = marks.getText();
+        //String Paper=(String) selectPaper.getSelectedItem();
+        int x=Integer.parseInt(Marks);
+        String Paper=(String) selectPaper.getSelectedItem();
+       
+        
+        if(Paper.equals("1st") &&x<=100){
+            teacherDb.marksSend(x,studentId,Paper);
             studentIdResultField.setText("");
             marks.setText("");
         }
         else if(Paper.equals("2nd") &&x<=50){
-            teacherDb.marksSend(Marks,studentId,Paper);
+            teacherDb.marksSend(x,studentId,Paper);
             studentIdResultField.setText("");
             marks.setText("");
         }
         else if(Paper.equals("None") &&x<=100){
-            teacherDb.marksSend(Marks,studentId);
+            teacherDb.marksSend(x,studentId);
             studentIdResultField.setText("");
             marks.setText("");
         }

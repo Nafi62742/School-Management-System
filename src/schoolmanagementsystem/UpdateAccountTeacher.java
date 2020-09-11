@@ -186,6 +186,11 @@ public class UpdateAccountTeacher extends javax.swing.JFrame {
         back_btn.setBorderPainted(false);
         back_btn.setContentAreaFilled(false);
         back_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        back_btn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                back_btnMouseClicked(evt);
+            }
+        });
         back_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 back_btnActionPerformed(evt);
@@ -241,8 +246,9 @@ public class UpdateAccountTeacher extends javax.swing.JFrame {
     }//GEN-LAST:event_exitButtonActionPerformed
 
     private void back_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_btnActionPerformed
-        dispose();
+        
         new TeacherProfile(this.id).setVisible(true);
+        dispose();
     }//GEN-LAST:event_back_btnActionPerformed
 
     private void subjectFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subjectFieldActionPerformed
@@ -327,6 +333,10 @@ public class UpdateAccountTeacher extends javax.swing.JFrame {
             updateTrigger();
         }
     }//GEN-LAST:event_confirmPasswordFieldKeyPressed
+
+    private void back_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_back_btnMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_back_btnMouseClicked
     
     /**
      * @param args the command line arguments

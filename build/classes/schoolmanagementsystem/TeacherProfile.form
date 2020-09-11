@@ -1648,14 +1648,11 @@
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="resultPanel">
-<<<<<<< Updated upstream
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="5e" green="3b" red="41" type="rgb"/>
                 </Property>
               </Properties>
-=======
->>>>>>> Stashed changes
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="result">
@@ -1668,7 +1665,6 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-<<<<<<< Updated upstream
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="500" max="-2" attributes="0"/>
@@ -1700,18 +1696,12 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="selectPaper" pref="179" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-=======
-                          <EmptySpace min="-2" pref="290" max="-2" attributes="0"/>
-                          <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="675" max="32767" attributes="0"/>
->>>>>>> Stashed changes
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-<<<<<<< Updated upstream
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="jLabel12" pref="61" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
@@ -1744,11 +1734,6 @@
                           <EmptySpace min="-2" pref="179" max="-2" attributes="0"/>
                           <Component id="resultSubmitButton" min="-2" pref="46" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
-=======
-                          <EmptySpace min="-2" pref="291" max="-2" attributes="0"/>
-                          <Component id="jLabel12" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" pref="368" max="-2" attributes="0"/>
->>>>>>> Stashed changes
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1759,7 +1744,6 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Comic Sans MS" size="24" style="1"/>
                     </Property>
-<<<<<<< Updated upstream
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
@@ -1891,11 +1875,6 @@
                     <Property name="text" type="java.lang.String" value="Paper :"/>
                   </Properties>
                 </Component>
-=======
-                    <Property name="text" type="java.lang.String" value="Result"/>
-                  </Properties>
-                </Component>
->>>>>>> Stashed changes
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="MessegePanel">

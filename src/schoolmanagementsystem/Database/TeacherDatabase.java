@@ -128,7 +128,7 @@ public class TeacherDatabase extends Accounts{
         }
     }
     
-          public void marksSend(String marks,String studentId,String paper){
+        public void marksSend(int marks,String studentId,String paper){
         String tSubject= getTeacherSubject();
         String tSubject2=tSubject.toLowerCase();
         if(tSubject2.equals("bangla")&&paper.equals("1st")){
@@ -137,7 +137,7 @@ public class TeacherDatabase extends Accounts{
         try {
             pst = conn.prepareStatement(sql);
             pst.setString(1, studentId);
-            pst.setString(2,marks);
+            pst.setInt(2,marks);
             pst.execute();
             
             JOptionPane.showMessageDialog(null, "Marks(bangla1st) have been added Successfully");
@@ -151,7 +151,7 @@ public class TeacherDatabase extends Accounts{
         try {
             pst = conn.prepareStatement(sql);
             pst.setString(1, studentId);
-            pst.setString(2,marks);
+            pst.setInt(2,marks);
             pst.execute();
             
             JOptionPane.showMessageDialog(null, "Marks(bangla2nd) have been added Successfully");
@@ -164,7 +164,7 @@ public class TeacherDatabase extends Accounts{
         try {
             pst = conn.prepareStatement(sql);
             pst.setString(1, studentId);
-            pst.setString(2,marks);
+            pst.setInt(2,marks);
             pst.execute();
             
             JOptionPane.showMessageDialog(null, "Marks(english2nd) have been added Successfully");
@@ -177,7 +177,7 @@ public class TeacherDatabase extends Accounts{
         try {
             pst = conn.prepareStatement(sql);
             pst.setString(1, studentId);
-            pst.setString(2,marks);
+            pst.setInt(2,marks);
             pst.execute();
             
             JOptionPane.showMessageDialog(null, "Marks(english1st) have been added Successfully");
@@ -187,7 +187,7 @@ public class TeacherDatabase extends Accounts{
         }
         
     }
-   public void marksSend(String marks,String studentId){
+   public void marksSend(int marks,String studentId){
         String tSubject= getTeacherSubject();
         String tSubject2=tSubject.toLowerCase();
         if(tSubject2.equals("math")){
@@ -196,7 +196,7 @@ public class TeacherDatabase extends Accounts{
         try {
             pst = conn.prepareStatement(sql);
             pst.setString(1, studentId);
-            pst.setString(2,marks);
+            pst.setInt(2,marks);
             pst.execute();
             
             JOptionPane.showMessageDialog(null, "Marks(Math) have been added Successfully");
@@ -210,7 +210,7 @@ public class TeacherDatabase extends Accounts{
         try {
             pst = conn.prepareStatement(sql);
             pst.setString(1, studentId);
-            pst.setString(2,marks);
+            pst.setInt(2,marks);
             pst.execute();
             
             JOptionPane.showMessageDialog(null, "Marks(science) have been added Successfully");
@@ -224,7 +224,7 @@ public class TeacherDatabase extends Accounts{
         try {
             pst = conn.prepareStatement(sql);
             pst.setString(1, studentId);
-            pst.setString(2,marks);
+            pst.setInt(2,marks);
             pst.execute();
             
             JOptionPane.showMessageDialog(null, "Marks(religion) have been added Successfully");
@@ -238,10 +238,24 @@ public class TeacherDatabase extends Accounts{
         try {
             pst = conn.prepareStatement(sql);
             pst.setString(1, studentId);
-            pst.setString(2,marks);
+            pst.setInt(2,marks);
             pst.execute();
             
             JOptionPane.showMessageDialog(null, "Marks(ict) have been added Successfully");
+            } catch (HeadlessException | SQLException e) {
+            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
+            }
+        }
+        else if(tSubject2.equals("bgs")){
+            String sql = "INSERT INTO results(ID, bgs) VALUES(?,?)";
+
+        try {
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, studentId);
+            pst.setInt(2,marks);
+            pst.execute();
+            
+            JOptionPane.showMessageDialog(null, "Marks(bgs) have been added Successfully");
             } catch (HeadlessException | SQLException e) {
             JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
             }

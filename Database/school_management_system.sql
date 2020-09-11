@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 10, 2020 at 10:47 AM
+-- Generation Time: Sep 11, 2020 at 07:27 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -123,15 +123,15 @@ INSERT INTO `notice_board` (`date`, `time`, `teacher_name`, `class`, `subject`, 
 
 CREATE TABLE `results` (
   `ID` text NOT NULL,
-  `bangla1st` text DEFAULT NULL,
-  `bangla2nd` text DEFAULT NULL,
-  `english1st` text DEFAULT NULL,
-  `english2nd` text DEFAULT NULL,
-  `math` text DEFAULT NULL,
-  `science` text DEFAULT NULL,
-  `religion` text DEFAULT NULL,
-  `bgs` text DEFAULT NULL,
-  `ict` text DEFAULT NULL
+  `bangla1st` int(11) DEFAULT 0,
+  `bangla2nd` int(11) DEFAULT 0,
+  `english1st` int(11) DEFAULT 0,
+  `english2nd` int(11) DEFAULT 0,
+  `math` int(11) DEFAULT 0,
+  `science` int(11) DEFAULT 0,
+  `religion` int(11) DEFAULT 0,
+  `bgs` int(11) DEFAULT 0,
+  `ict` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -139,8 +139,11 @@ CREATE TABLE `results` (
 --
 
 INSERT INTO `results` (`ID`, `bangla1st`, `bangla2nd`, `english1st`, `english2nd`, `math`, `science`, `religion`, `bgs`, `ict`) VALUES
-('100.17', NULL, NULL, NULL, NULL, '100', NULL, NULL, NULL, NULL),
-('100.12', NULL, NULL, NULL, NULL, '85', NULL, NULL, NULL, NULL);
+('100.17', NULL, NULL, NULL, NULL, 100, NULL, NULL, NULL, NULL),
+('100.12', NULL, NULL, NULL, NULL, 85, NULL, NULL, NULL, NULL),
+('100.17', NULL, NULL, NULL, NULL, 85, NULL, NULL, NULL, NULL),
+('100.17', NULL, NULL, NULL, NULL, 70, NULL, NULL, NULL, NULL),
+('100.17', NULL, NULL, NULL, NULL, 20, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -165,7 +168,7 @@ CREATE TABLE `student_accounts` (
 INSERT INTO `student_accounts` (`name`, `class`, `sec`, `id`, `phoneNo`, `email`, `pass`) VALUES
 ('Fahim', '10', 'a', '100.12', NULL, NULL, 'MTIzNA=='),
 ('Pranto', '8', 'b', '100.11', NULL, NULL, 'MTIzNA=='),
-('Nafi Ahmed', '10', 'A', '100.17', '01760887297', 'nafiahmed318@gmail.com', 'TmFmaTAwNw=='),
+('Nafi Ahmed', '10', 'A', '100.17', '01760887296', 'nafiahmed318@gmail.com', 'TmFmaTAwNw=='),
 ('test1', '10', 'a', '100.15', NULL, NULL, 'MTIzNA=='),
 ('test2', '10', 'a', '100.14', NULL, NULL, 'MTIzNA=='),
 ('test3', '10', 'a', '100.16', NULL, NULL, 'MTIzNA==');
