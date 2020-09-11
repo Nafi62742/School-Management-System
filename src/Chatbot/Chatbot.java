@@ -5,6 +5,7 @@
 */
 package Chatbot;
 
+import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -14,12 +15,18 @@ public class Chatbot extends javax.swing.JFrame {
     SpeechRecogniser speechRecogniser;
     TextToSpeech tts;
     ChatbotResponse chatbotResponse;
-    
     public Chatbot() {
         this.setUndecorated(true);
         initComponents();
         tts=new TextToSpeech();
         chatbotResponse=new ChatbotResponse();
+        welcomeMessage();
+    }
+    public Chatbot(int totalHomeworks) {
+        this.setUndecorated(true);
+        initComponents();
+        tts=new TextToSpeech();
+        chatbotResponse=new ChatbotResponse(totalHomeworks);
         welcomeMessage();
     }
     
@@ -108,6 +115,11 @@ public class Chatbot extends javax.swing.JFrame {
                 chatboxTextFieldActionPerformed(evt);
             }
         });
+        chatboxTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                chatboxTextFieldKeyPressed(evt);
+            }
+        });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolmanagementsystem/image/audio.png"))); // NOI18N
         jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -185,17 +197,30 @@ public class Chatbot extends javax.swing.JFrame {
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         tts.speek("Hi....I'm chatbot.");
-        speechRecogniser = new SpeechRecogniser(chatboxTextPane,tts);
+        speechRecogniser = new SpeechRecogniser(chatboxTextPane,tts,chatbotResponse);
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        String response=chatbotResponse.getResponse(chatboxTextField.getText());
-        chatboxTextField.setText("");
+        String response=chatbotResponse.getResponse(chatboxTextField.getText().toLowerCase());
+        chatboxTextPane.setText(chatboxTextPane.getText()+"You : "+chatboxTextField.getText()+"\n");
         if(!response.equals("")){
             chatboxTextPane.setText(chatboxTextPane.getText()+"Bot : "+response+"\n");
             tts.speek(response);
         }
+        chatboxTextField.setText("");
     }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void chatboxTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_chatboxTextFieldKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            String response=chatbotResponse.getResponse(chatboxTextField.getText().toLowerCase());
+            chatboxTextPane.setText(chatboxTextPane.getText()+"You : "+chatboxTextField.getText()+"\n");
+            if(!response.equals("")){
+                chatboxTextPane.setText(chatboxTextPane.getText()+"Bot : "+response+"\n");
+                tts.speek(response);
+            }
+            chatboxTextField.setText("");
+        } 
+    }//GEN-LAST:event_chatboxTextFieldKeyPressed
     
     /**
      * @param args the command line arguments

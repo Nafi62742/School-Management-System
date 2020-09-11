@@ -1929,7 +1929,7 @@ public class StudentProfile extends javax.swing.JFrame {
     }//GEN-LAST:event_EditMouseClicked
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        new Chatbot().setVisible(true);
+        new Chatbot(totalHomeworks).setVisible(true);
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void workingDayTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_workingDayTextFieldActionPerformed

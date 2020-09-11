@@ -66,10 +66,10 @@ public class SpeechRecogniser {
     /**
      * Constructor
      */
-    public SpeechRecogniser(JTextPane chatboxTextPane,TextToSpeech tts) {
+    public SpeechRecogniser(JTextPane chatboxTextPane,TextToSpeech tts,ChatbotResponse chatbotResponse) {
         this.chatboxTextPane=chatboxTextPane;
         this.tts=tts;
-        chatbotResponse=new ChatbotResponse();
+        this.chatbotResponse=chatbotResponse;
         // Loading Message
 //        logger.log(Level.INFO, "Loading Speech Recognizer...\n");
 chatboxTextPane.setText(chatboxTextPane.getText()+"Bot : Loading Speech Recognizer...\n");

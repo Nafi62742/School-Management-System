@@ -16,6 +16,7 @@ import java.util.Date;
 public class ChatbotResponse {
     Date datetime;
     String time;
+    int totalHomeworks;
     DateFormat dayFormat = new SimpleDateFormat("EEEEE");
     DateFormat dateFormat = new SimpleDateFormat("dd");
     DateFormat monthFormat = new SimpleDateFormat("MMMMM");
@@ -29,6 +30,15 @@ public class ChatbotResponse {
         monthString=monthFormat.format(datetime);
         yearString=yearFormat.format(datetime);
     }
+    public ChatbotResponse(int totalHomeworks) {
+        datetime=new Date();
+        dayString=dayFormat.format(datetime);
+        dateString=dateFormat.format(datetime);
+        monthString=monthFormat.format(datetime);
+        yearString=yearFormat.format(datetime);
+        this.totalHomeworks=totalHomeworks;
+        System.out.println("Total homeworks="+totalHomeworks);
+    }
     public String getResponse(String speech){
         if(speech!=null){
             if(speech.contains("how are you")){
@@ -40,8 +50,20 @@ public class ChatbotResponse {
                 return ("It is " + dayString + ", " + monthString +" "+dateString+", "+yearString);
             }else if(speech.contains("hey bot")){
                 return ("Hello my friend, How can I help you?");
-            }else if(speech.contains("hello")||speech.contains("hi")){
-                return ("Hello....I'm chatbot.");
+            }else if(speech.contains("hello")||speech.contains("hi")||speech.contains("who are you")){
+                return ("Hi my friend....I'm chatbot. Speed sixteen Megahertz, memory 8 Gigabytes.");
+            }else if(speech.contains("homework")||speech.contains("how many homework do i have")){
+                if(totalHomeworks==0){
+                    return ("You have no homework to do. Enjoy your free time.");
+                }else if(totalHomeworks==1){
+                    return ("You have only one homework to do. Hurry up!");
+                }else{
+                    return ("You have "+totalHomeworks+" to do. Hurry up! I wish I could help you in your homeworks.");
+                }
+            }else if(speech.contains("thank you")){
+                return ("You are most welcome.");
+            }else if(speech.contains("welcome")||speech.contains("fine thank you")){
+                return ("It is my pleasure.");
             }
         }else{
             return "";
