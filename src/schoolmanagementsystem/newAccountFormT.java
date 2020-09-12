@@ -6,6 +6,7 @@
 package schoolmanagementsystem;
 
 import java.awt.HeadlessException;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -97,6 +98,11 @@ public class newAccountFormT extends javax.swing.JFrame {
                 nameFieldActionPerformed(evt);
             }
         });
+        nameField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nameFieldKeyPressed(evt);
+            }
+        });
         jPanel1.add(nameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 440, -1));
 
         subjectField.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
@@ -108,12 +114,27 @@ public class newAccountFormT extends javax.swing.JFrame {
                 subjectFieldActionPerformed(evt);
             }
         });
+        subjectField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                subjectFieldKeyPressed(evt);
+            }
+        });
         jPanel1.add(subjectField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 430, 30));
 
         designationField.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         designationField.setBorder(null);
         designationField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         designationField.setOpaque(false);
+        designationField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                designationFieldActionPerformed(evt);
+            }
+        });
+        designationField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                designationFieldKeyPressed(evt);
+            }
+        });
         jPanel1.add(designationField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 440, 30));
         jPanel1.add(jTextPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -124,6 +145,11 @@ public class newAccountFormT extends javax.swing.JFrame {
         idField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 idFieldActionPerformed(evt);
+            }
+        });
+        idField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                idFieldKeyPressed(evt);
             }
         });
         jPanel1.add(idField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, 390, 30));
@@ -253,6 +279,106 @@ public class newAccountFormT extends javax.swing.JFrame {
     private void idFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_idFieldActionPerformed
+
+    private void nameFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameFieldKeyPressed
+        // TODO add your handling code here
+        String name=nameField.getText();
+        int length=name.length();
+        
+        char c = evt.getKeyChar();
+        if((c>='a'&&c<='z')||(c>='A'&&c<='Z')){
+            if(length<30){
+                nameField.setEditable(true);
+            }
+            else{
+                nameField.setEditable(false);
+            }
+        }
+        else{
+            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
+                nameField.setEditable(true);
+            }
+            else{
+                 nameField.setEditable(false);
+            }
+        }
+    }//GEN-LAST:event_nameFieldKeyPressed
+
+    private void subjectFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_subjectFieldKeyPressed
+        // TODO add your handling code here:
+        String sub=subjectField.getText();
+        int length=sub.length();
+        
+        char c = evt.getKeyChar();
+        if((c>='a'&&c<='z')||(c>='A'&&c<='Z')){
+            if(length<20){
+                subjectField.setEditable(true);
+            }
+            else{
+                subjectField.setEditable(false);
+            }
+        }
+        else{
+            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
+                subjectField.setEditable(true);
+            }
+            else{
+                 subjectField.setEditable(false);
+            }
+        }
+    }//GEN-LAST:event_subjectFieldKeyPressed
+
+    private void designationFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_designationFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_designationFieldActionPerformed
+
+    private void designationFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_designationFieldKeyPressed
+        // TODO add your handling code here:
+        String sub=designationField.getText();
+        int length=sub.length();
+        
+        char c = evt.getKeyChar();
+        if((c>='a'&&c<='z')||(c>='A'&&c<='Z')){
+            if(length<15){
+                designationField.setEditable(true);
+            }
+            else{
+                designationField.setEditable(false);
+            }
+        }
+        else{
+            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
+                designationField.setEditable(true);
+            }
+            else{
+                 designationField.setEditable(false);
+            }
+        }
+    }//GEN-LAST:event_designationFieldKeyPressed
+
+    private void idFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idFieldKeyPressed
+        // TODO add your handling code here:
+        String phoneNo=idField.getText();
+        int length=phoneNo.length();
+        
+        char c = evt.getKeyChar();
+        if(c>='0'&&c<='9'){
+            if(length<6){
+                idField.setEditable(true);
+            }
+            else{
+                idField.setEditable(false);
+            }
+        }
+        else{
+            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
+                idField.setEditable(true);
+            }
+            else{
+                 idField.setEditable(false);
+            }
+        }
+    }//GEN-LAST:event_idFieldKeyPressed
     
     /**
      * @param args the command line arguments
