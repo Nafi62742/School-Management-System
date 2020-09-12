@@ -152,7 +152,7 @@ public class StudentDatabase extends Accounts{
             }
             return list;
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Can't get message from database.");
+            JOptionPane.showMessageDialog(null, "Can't get attendance from database.");
         }
         return null;
      
