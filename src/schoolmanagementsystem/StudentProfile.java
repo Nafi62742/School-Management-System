@@ -45,8 +45,9 @@ public class StudentProfile extends javax.swing.JFrame {
     List<Homework> homeworkList;
     int totalHomeworks=0;
     int toggleHomework=0;
-        int dateNotificationToggle =0;
+    int dateNotificationToggle =0;
     int homeworkNotificationCheck =0;
+    int noticeNotificationCheck=0;
     public String id;
     
     //Constructor
@@ -183,6 +184,7 @@ public class StudentProfile extends javax.swing.JFrame {
         English2ndText = new javax.swing.JLabel();
         english1st = new javax.swing.JLabel();
         noResult = new javax.swing.JLabel();
+        complements = new javax.swing.JLabel();
         MessegePanel = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jScrollPaneMessage = new javax.swing.JScrollPane();
@@ -680,7 +682,7 @@ public class StudentProfile extends javax.swing.JFrame {
             }
         });
 
-        notifierField.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        notifierField.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         notifierField.setForeground(new java.awt.Color(255, 255, 255));
         notifierField.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         notifierField.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -698,17 +700,20 @@ public class StudentProfile extends javax.swing.JFrame {
                     .addGroup(HomePanelLayout.createSequentialGroup()
                         .addGap(91, 91, 91)
                         .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(IDTest1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(NameText2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(IDTest1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(HomePanelLayout.createSequentialGroup()
                                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(EmailText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(ClassText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(PhoneText, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))
-                                    .addComponent(SectionText, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(53, 53, 53)
+                                    .addGroup(HomePanelLayout.createSequentialGroup()
+                                        .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(EmailText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(ClassText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(PhoneText, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))
+                                            .addComponent(SectionText, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(53, 53, 53))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomePanelLayout.createSequentialGroup()
+                                        .addComponent(NameText2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(59, 59, 59)))
                                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Section, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(phoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -722,11 +727,11 @@ public class StudentProfile extends javax.swing.JFrame {
                                     .addGroup(HomePanelLayout.createSequentialGroup()
                                         .addComponent(Class, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(140, 140, 140)
-                                        .addComponent(notifierField, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                        .addComponent(notifierField, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(HomePanelLayout.createSequentialGroup()
                         .addGap(225, 225, 225)
                         .addComponent(Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(83, 110, Short.MAX_VALUE))
+                .addGap(45, 45, Short.MAX_VALUE))
         );
         HomePanelLayout.setVerticalGroup(
             HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -734,10 +739,10 @@ public class StudentProfile extends javax.swing.JFrame {
                 .addGap(65, 65, 65)
                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(HomePanelLayout.createSequentialGroup()
-                        .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(NameText2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(NameFDB, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(NameFDB, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NameText2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(IDTest1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -754,7 +759,7 @@ public class StudentProfile extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(38, 38, 38)
                         .addComponent(notifierField, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)))
                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(PhoneText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(phoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -764,7 +769,7 @@ public class StudentProfile extends javax.swing.JFrame {
                     .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("home", HomePanel);
@@ -1187,7 +1192,7 @@ public class StudentProfile extends javax.swing.JFrame {
 
         resultPanel.setBackground(new java.awt.Color(65, 59, 94));
 
-        science.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        science.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
         science.setForeground(new java.awt.Color(51, 255, 255));
         science.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         science.setText("science");
@@ -1197,60 +1202,60 @@ public class StudentProfile extends javax.swing.JFrame {
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("Result");
 
-        BanglaText.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        BanglaText.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
         BanglaText.setForeground(new java.awt.Color(255, 255, 255));
         BanglaText.setText("Bangla ");
 
-        EnglishText.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        EnglishText.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
         EnglishText.setForeground(new java.awt.Color(255, 255, 255));
         EnglishText.setText("English");
 
-        MathText.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        MathText.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
         MathText.setForeground(new java.awt.Color(255, 255, 255));
         MathText.setText("Math");
 
-        religionText.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        religionText.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
         religionText.setForeground(new java.awt.Color(255, 255, 255));
         religionText.setText("Religion");
 
-        ScienceText.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        ScienceText.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
         ScienceText.setForeground(new java.awt.Color(255, 255, 255));
         ScienceText.setText("Science");
 
-        BGSText.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        BGSText.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
         BGSText.setForeground(new java.awt.Color(255, 255, 255));
         BGSText.setText("B.G.S");
 
-        english2nd.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        english2nd.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
         english2nd.setForeground(new java.awt.Color(51, 255, 255));
         english2nd.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         english2nd.setText("english2nd");
 
-        ICTText.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        ICTText.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
         ICTText.setForeground(new java.awt.Color(255, 255, 255));
         ICTText.setText("ICT");
 
-        religion.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        religion.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
         religion.setForeground(new java.awt.Color(51, 255, 255));
         religion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         religion.setText("religion");
 
-        bangla1st.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        bangla1st.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
         bangla1st.setForeground(new java.awt.Color(51, 255, 255));
         bangla1st.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         bangla1st.setText("bangla1st");
 
-        math.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        math.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
         math.setForeground(new java.awt.Color(51, 255, 255));
         math.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         math.setText("math");
 
-        BGS.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        BGS.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
         BGS.setForeground(new java.awt.Color(51, 255, 255));
         BGS.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         BGS.setText("bgs");
 
-        ICT.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        ICT.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
         ICT.setForeground(new java.awt.Color(51, 255, 255));
         ICT.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ICT.setText("ict");
@@ -1264,28 +1269,28 @@ public class StudentProfile extends javax.swing.JFrame {
         totalMarks.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         totalMarks.setText("total marks");
 
-        b1st.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        b1st.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
         b1st.setForeground(new java.awt.Color(255, 255, 255));
         b1st.setText("1st");
 
-        e1st.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        e1st.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
         e1st.setForeground(new java.awt.Color(255, 255, 255));
         e1st.setText("1st");
 
-        bangla2ndText.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        bangla2ndText.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
         bangla2ndText.setForeground(new java.awt.Color(255, 255, 255));
         bangla2ndText.setText("Bangla 2nd");
 
-        bangla2nd.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        bangla2nd.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
         bangla2nd.setForeground(new java.awt.Color(51, 255, 255));
         bangla2nd.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         bangla2nd.setText("bangla2nd");
 
-        English2ndText.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        English2ndText.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
         English2ndText.setForeground(new java.awt.Color(255, 255, 255));
         English2ndText.setText("English 2nd");
 
-        english1st.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        english1st.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
         english1st.setForeground(new java.awt.Color(51, 255, 255));
         english1st.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         english1st.setText("english1st");
@@ -1293,6 +1298,10 @@ public class StudentProfile extends javax.swing.JFrame {
         noResult.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         noResult.setForeground(new java.awt.Color(255, 255, 255));
         noResult.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        complements.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        complements.setForeground(new java.awt.Color(255, 255, 255));
+        complements.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout resultPanelLayout = new javax.swing.GroupLayout(resultPanel);
         resultPanel.setLayout(resultPanelLayout);
@@ -1324,7 +1333,10 @@ public class StudentProfile extends javax.swing.JFrame {
                         .addGap(83, 83, 83)
                         .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(totalMarks, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(religion, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(resultPanelLayout.createSequentialGroup()
+                                .addComponent(religion, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(135, 135, 135)
+                                .addComponent(complements, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(math, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(science, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(BGS, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1344,20 +1356,20 @@ public class StudentProfile extends javax.swing.JFrame {
                                     .addComponent(bangla2nd, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(english2nd, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(resultPanelLayout.createSequentialGroup()
-                        .addGap(358, 358, 358)
-                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(311, 311, 311)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(resultPanelLayout.createSequentialGroup()
                         .addGap(179, 179, 179)
-                        .addComponent(noResult, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(320, Short.MAX_VALUE))
+                        .addComponent(noResult, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         resultPanelLayout.setVerticalGroup(
             resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(resultPanelLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(noResult, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                .addComponent(noResult, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
                 .addGap(20, 20, 20)
                 .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(resultPanelLayout.createSequentialGroup()
@@ -1402,7 +1414,9 @@ public class StudentProfile extends javax.swing.JFrame {
                             .addComponent(bangla2nd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addComponent(english2nd)
-                        .addGap(483, 483, 483))))
+                        .addGap(115, 115, 115)
+                        .addComponent(complements, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(320, 320, 320))))
         );
 
         jTabbedPane1.addTab("result", resultPanel);
@@ -1489,8 +1503,7 @@ public class StudentProfile extends javax.swing.JFrame {
         public int checkDate(String dueDate){
         Date datetime = new Date();
         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-        String dateString=dateFormat.format(datetime);
-        System.out.println(dueDate);
+        String dateString=dateFormat.format(datetime);  
         if(dueDate.equals(dateString)){
             return 1;
         }
@@ -1499,7 +1512,13 @@ public class StudentProfile extends javax.swing.JFrame {
     public void getHomeworks(){
         homeworkList=stdb.getHomework();
         totalHomeworks=homeworkList.size();
-        showHomework();
+        
+        int notifier =checkDate(homeworkList.get(totalHomeworks-1).getDueDateString());
+            if(notifier==1){
+                dateNotificationToggle= 1;
+                homeworkNotificationCheck=1;
+       }
+       showHomework();
     }
     public void showHomework(){
         if(totalHomeworks>=1){
@@ -1511,9 +1530,7 @@ public class StudentProfile extends javax.swing.JFrame {
             homeworkLabel.setText("<html>"+homeworkList.get(0).getHomeworkText()+"</html>");
             
             int notifier =checkDate(homeworkList.get(0).getDueDateString());
-            if(notifier==1&& homeworkNotificationCheck ==0){
-                dateNotificationToggle= 1;
-            }
+           
         }else{
             nextHomeworkButton.setVisible(false);
             previousHomeworkButton.setVisible(false);
@@ -1528,9 +1545,11 @@ public class StudentProfile extends javax.swing.JFrame {
     public void nextHomework(){
         toggleHomework++;
         toggleHomework%=totalHomeworks;
+        
         if(toggleHomework==0){
             previousHomeworkButton.setVisible(false);
             showHomework();
+            
         }
         else if(totalHomeworks>=1&&toggleHomework<totalHomeworks){
             previousHomeworkButton.setVisible(true);
@@ -1539,10 +1558,7 @@ public class StudentProfile extends javax.swing.JFrame {
             postDateLabel.setText("Post Date : "+homeworkList.get(toggleHomework).getPostDate());
             dueDateLabel.setText("Due Date : "+homeworkList.get(toggleHomework).getDueDateString());
             homeworkLabel.setText("<html>"+homeworkList.get(toggleHomework).getHomeworkText()+"</html>");
-                        int notifier =checkDate(homeworkList.get(toggleHomework).getDueDateString());
-            if(notifier==1){
-                dateNotificationToggle= 1;
-            }
+            
         }
     }
     public void previousHomework(){
@@ -1577,6 +1593,7 @@ public class StudentProfile extends javax.swing.JFrame {
             int notifier =checkDate(list.get(i).getDateString());
             if(notifier==1&&dateNotificationToggle!=1){
                 dateNotificationToggle= 2;
+                noticeNotificationCheck=1;
             }
             row[1]=list.get(i).getTimeString();
             row[2]=list.get(i).getTeacherName();
@@ -1667,6 +1684,32 @@ public class StudentProfile extends javax.swing.JFrame {
         }
     }
     
+    
+           public void resultComplements(int total){
+                            int finalMarks=stdb.getGrandTotal();
+                             String b1= Integer.toString(stdb.getBangla1st());
+                             String b2= Integer.toString(stdb.getBangla2nd());
+                             String e1 = Integer.toString(stdb.getEnglish1st());
+                             String e2=Integer.toString(stdb.getEnglish2nd());
+                             String m=Integer.toString(stdb.getMath());
+                             String r=Integer.toString(stdb.getReligion());
+                             String s=Integer.toString(stdb.getScience());
+                             String ic=Integer.toString(stdb.getIct());
+                             String bgs=Integer.toString(stdb.getBgs());
+                             int percentage=(finalMarks*100)/total;
+               if(b1.equals("0") ||b2.equals("0")|| e1.equals("0") ||e2.equals("0") || m.equals("0") || r.equals("0") || s.equals("0") || ic.equals("0") || bgs.equals("0")){
+                      complements.setText("");
+               }
+               else if(percentage<40){
+                   complements.setText("You have failed");
+               }
+               else if(percentage>80){
+                   complements.setText("Excelent");
+               }
+                else if(percentage>80){
+                   complements.setText("Satisfactory");
+               }
+           }
     
     public void resultPageClear(){
                    bangla1st.setText("");
@@ -1772,6 +1815,7 @@ public class StudentProfile extends javax.swing.JFrame {
                              BGS.setText(bgs+"/100");
                           }
                           totalMarks.setText(finalMarks+"/800");
+                           resultComplements(800);
                 }
                 else if(resultClass>3&&resultClass<6){
                             if(b1.equals("0")){
@@ -1824,6 +1868,7 @@ public class StudentProfile extends javax.swing.JFrame {
                           ICTText.setText("");
                           ICT.setText("");
                           totalMarks.setText(finalMarks+"/600");
+                          resultComplements(600);
                }
                else if(resultClass>0&&resultClass<4){
                           if(b1.equals("0")){
@@ -1862,9 +1907,11 @@ public class StudentProfile extends javax.swing.JFrame {
                           BGSText.setText("");
                           BGS.setText("");
                           totalMarks.setText(finalMarks+"/500");
+                          resultComplements(500);
                }
                else{
-
+                    //noResult.setText("Student does't have a ");
+                    //resultPageClear();
                }
     }
         
@@ -2136,16 +2183,17 @@ public class StudentProfile extends javax.swing.JFrame {
     }//GEN-LAST:event_absentDaysTextFieldActionPerformed
 
     public void notifierButtonUse(){
-        if(dateNotificationToggle==1){
-            notifierField.setText("You have a homework pending today!!");
-            
-        }
-        else if(dateNotificationToggle==2){
-            notifierField.setText("You have a notice!!");
-        }
-        else{
-            notifierField.setText("");
-        }
+        for(int i=0;i<4;i++)
+            if(dateNotificationToggle==1){
+                notifierField.setText("You have a homework pending today!!");
+
+            }
+            else if(dateNotificationToggle==2){
+                notifierField.setText("You have a notice!!");
+            }
+            else{
+                notifierField.setText("");
+            }
     }
     private void notifierFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_notifierFieldMouseClicked
         if(dateNotificationToggle==1){
@@ -2163,7 +2211,8 @@ public class StudentProfile extends javax.swing.JFrame {
             ind_3.setOpaque(false);
             ind_4.setOpaque(false);
             ind_5.setOpaque(false);
-            dateNotificationToggle=0;
+            homeworkNotificationCheck=0;
+            dateNotificationToggle++;
 
         }
         else if(dateNotificationToggle==2){
@@ -2181,7 +2230,9 @@ public class StudentProfile extends javax.swing.JFrame {
             ind_3.setOpaque(true);
             ind_4.setOpaque(false);
             ind_5.setOpaque(false);
-            dateNotificationToggle=0;
+            noticeNotificationCheck=0;
+            dateNotificationToggle++;
+            
 
         }
         else if(dateNotificationToggle==3){
@@ -2199,6 +2250,7 @@ public class StudentProfile extends javax.swing.JFrame {
             ind_3.setOpaque(false);
             ind_4.setOpaque(false);
             ind_5.setOpaque(true);
+            dateNotificationToggle=0;
 
         }
 
@@ -2299,6 +2351,7 @@ public class StudentProfile extends javax.swing.JFrame {
     private javax.swing.JLabel bangla2ndText;
     private javax.swing.JPanel barPanel;
     private javax.swing.JButton close_btn;
+    private javax.swing.JLabel complements;
     private javax.swing.JLabel dueDateLabel;
     private javax.swing.JLabel e1st;
     private javax.swing.JLabel english1st;

@@ -30,7 +30,7 @@ public class Accounts {
         conn = JConnection.connectdb();
     }
     
-    public void createResultAccount(String id){
+    public void createResultfieldForStu(String id){
         final JPanel panel = new JPanel();
         
        String sql = "INSERT INTO results(ID) VALUES (?)";

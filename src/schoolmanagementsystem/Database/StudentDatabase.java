@@ -73,6 +73,20 @@ public class StudentDatabase extends Accounts{
         getResult(id);
         totalMarks();
     }
+        /*public void resultfieldForStu(String id){
+        final JPanel panel = new JPanel();
+        
+       String sql = "INSERT INTO results(ID) VALUES (?)";
+        try {
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, id);
+            pst.execute();
+
+            //JOptionPane.showMessageDialog(null, "Marks(english2nd) have been added Successfully");
+        } catch (HeadlessException | SQLException e) {
+            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+    }*/
     public List<Notice> getNotice(){
         String sql = "select * from notice_board where class=" + "\'" +getStudentClass()+ "\'";
         List<Notice> list = new ArrayList<Notice>();

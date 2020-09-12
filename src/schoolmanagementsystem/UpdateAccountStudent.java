@@ -290,6 +290,7 @@ public class UpdateAccountStudent extends javax.swing.JFrame {
         String DBpass = stdb.getPassFromDB();
         String originalPass = confirmPasswordField.getText();
         pass = EncryptPass(originalPass);
+        //stdb.resultfieldForStu(Stu_Id);
           if (originalPass.length() >= 4  && pass.equals(DBpass)) {
             int response = stdb.updateStudentAccount(nameField.getText(), studentClassField.getText(), sectionField.getText(),Stu_Id , NumberField.getText(), EmailField.getText());
            switch (response) {
