@@ -11,6 +11,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -42,6 +45,8 @@ public class StudentProfile extends javax.swing.JFrame {
     List<Homework> homeworkList;
     int totalHomeworks=0;
     int toggleHomework=0;
+        int dateNotificationToggle =0;
+    int homeworkNotificationCheck =0;
     public String id;
     
     //Constructor
@@ -65,6 +70,8 @@ public class StudentProfile extends javax.swing.JFrame {
         hideSideMenu();
         profileShow();
         resultShow();
+      
+        notifierButtonUse();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -118,6 +125,7 @@ public class StudentProfile extends javax.swing.JFrame {
         EmailText = new javax.swing.JLabel();
         Email = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        notifierField = new javax.swing.JLabel();
         HomeworkPanel = new javax.swing.JPanel();
         HomeworkPanel1 = new javax.swing.JPanel();
         dueDateLabel = new javax.swing.JLabel();
@@ -672,6 +680,15 @@ public class StudentProfile extends javax.swing.JFrame {
             }
         });
 
+        notifierField.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        notifierField.setForeground(new java.awt.Color(255, 255, 255));
+        notifierField.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        notifierField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                notifierFieldMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout HomePanelLayout = new javax.swing.GroupLayout(HomePanel);
         HomePanel.setLayout(HomePanelLayout);
         HomePanelLayout.setHorizontalGroup(
@@ -692,8 +709,7 @@ public class StudentProfile extends javax.swing.JFrame {
                                         .addComponent(PhoneText, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))
                                     .addComponent(SectionText, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(53, 53, 53)
-                                .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(Class, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Section, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(phoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -702,21 +718,21 @@ public class StudentProfile extends javax.swing.JFrame {
                                             .addComponent(NameFDB, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(148, 148, 148)
-                                        .addComponent(jLabel1))))))
+                                        .addComponent(jLabel1))
+                                    .addGroup(HomePanelLayout.createSequentialGroup()
+                                        .addComponent(Class, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(140, 140, 140)
+                                        .addComponent(notifierField, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(HomePanelLayout.createSequentialGroup()
                         .addGap(225, 225, 225)
                         .addComponent(Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(83, 112, Short.MAX_VALUE))
+                .addGap(83, 110, Short.MAX_VALUE))
         );
         HomePanelLayout.setVerticalGroup(
             HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomePanelLayout.createSequentialGroup()
                 .addGap(65, 65, 65)
-                .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomePanelLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Class, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(HomePanelLayout.createSequentialGroup()
                         .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(NameText2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -726,12 +742,19 @@ public class StudentProfile extends javax.swing.JFrame {
                             .addComponent(IDTest1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(ClassText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(24, 24, 24)
-                .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SectionText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Section, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                        .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ClassText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Class, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(24, 24, 24)
+                        .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(SectionText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Section, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27))
+                    .addGroup(HomePanelLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(38, 38, 38)
+                        .addComponent(notifierField, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(PhoneText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(phoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -741,7 +764,7 @@ public class StudentProfile extends javax.swing.JFrame {
                     .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("home", HomePanel);
@@ -1463,6 +1486,16 @@ public class StudentProfile extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     //......................Start Custom Functions...................//
+        public int checkDate(String dueDate){
+        Date datetime = new Date();
+        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        String dateString=dateFormat.format(datetime);
+        System.out.println(dueDate);
+        if(dueDate.equals(dateString)){
+            return 1;
+        }
+        return 0;
+    }
     public void getHomeworks(){
         homeworkList=stdb.getHomework();
         totalHomeworks=homeworkList.size();
@@ -1476,6 +1509,11 @@ public class StudentProfile extends javax.swing.JFrame {
             postDateLabel.setText("Post Date : "+homeworkList.get(0).getPostDate());
             dueDateLabel.setText("Due Date : "+homeworkList.get(0).getDueDateString());
             homeworkLabel.setText("<html>"+homeworkList.get(0).getHomeworkText()+"</html>");
+            
+            int notifier =checkDate(homeworkList.get(0).getDueDateString());
+            if(notifier==1&& homeworkNotificationCheck ==0){
+                dateNotificationToggle= 1;
+            }
         }else{
             nextHomeworkButton.setVisible(false);
             previousHomeworkButton.setVisible(false);
@@ -1501,6 +1539,10 @@ public class StudentProfile extends javax.swing.JFrame {
             postDateLabel.setText("Post Date : "+homeworkList.get(toggleHomework).getPostDate());
             dueDateLabel.setText("Due Date : "+homeworkList.get(toggleHomework).getDueDateString());
             homeworkLabel.setText("<html>"+homeworkList.get(toggleHomework).getHomeworkText()+"</html>");
+                        int notifier =checkDate(homeworkList.get(toggleHomework).getDueDateString());
+            if(notifier==1){
+                dateNotificationToggle= 1;
+            }
         }
     }
     public void previousHomework(){
@@ -1532,6 +1574,10 @@ public class StudentProfile extends javax.swing.JFrame {
         Object[] row=new Object[5];
         for(int i=list.size()-1;i>=0;i--){
             row[0]=list.get(i).getDateString();
+            int notifier =checkDate(list.get(i).getDateString());
+            if(notifier==1&&dateNotificationToggle!=1){
+                dateNotificationToggle= 2;
+            }
             row[1]=list.get(i).getTimeString();
             row[2]=list.get(i).getTeacherName();
             row[3]=list.get(i).getSubject();
@@ -1867,6 +1913,7 @@ public class StudentProfile extends javax.swing.JFrame {
         ind_3.setOpaque(false);
         ind_4.setOpaque(false);
         ind_5.setOpaque(false);
+        notifierButtonUse();
     }//GEN-LAST:event_home_btnMousePressed
 
     private void homework_btnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homework_btnMousePressed
@@ -2087,6 +2134,75 @@ public class StudentProfile extends javax.swing.JFrame {
     private void absentDaysTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_absentDaysTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_absentDaysTextFieldActionPerformed
+
+    public void notifierButtonUse(){
+        if(dateNotificationToggle==1){
+            notifierField.setText("You have a homework pending today!!");
+            
+        }
+        else if(dateNotificationToggle==2){
+            notifierField.setText("You have a notice!!");
+        }
+        else{
+            notifierField.setText("");
+        }
+    }
+    private void notifierFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_notifierFieldMouseClicked
+        if(dateNotificationToggle==1){
+            jTabbedPane1.setSelectedIndex(1);
+            setColor(homework_btn);
+            resetColor(home_btn);
+            resetColor(result_btn);
+            resetColor(notices_btn);
+            resetColor(attendance_btn);
+            resetColor(messege_btn);
+
+            ind_0.setOpaque(false);
+            ind_1.setOpaque(true);
+            ind_2.setOpaque(false);
+            ind_3.setOpaque(false);
+            ind_4.setOpaque(false);
+            ind_5.setOpaque(false);
+            dateNotificationToggle=0;
+
+        }
+        else if(dateNotificationToggle==2){
+            jTabbedPane1.setSelectedIndex(3);
+            setColor(notices_btn);
+            resetColor(homework_btn);
+            resetColor(result_btn);
+            resetColor(home_btn);
+            resetColor(attendance_btn);
+            resetColor(messege_btn);
+
+            ind_0.setOpaque(false);
+            ind_1.setOpaque(false);
+            ind_2.setOpaque(false);
+            ind_3.setOpaque(true);
+            ind_4.setOpaque(false);
+            ind_5.setOpaque(false);
+            dateNotificationToggle=0;
+
+        }
+        else if(dateNotificationToggle==3){
+            jTabbedPane1.setSelectedIndex(5);
+            setColor(messege_btn);
+            resetColor(home_btn);
+            resetColor(homework_btn);
+            resetColor(result_btn);
+            resetColor(notices_btn);
+            resetColor(attendance_btn);
+
+            ind_0.setOpaque(false);
+            ind_1.setOpaque(false);
+            ind_2.setOpaque(false);
+            ind_3.setOpaque(false);
+            ind_4.setOpaque(false);
+            ind_5.setOpaque(true);
+
+        }
+
+    }//GEN-LAST:event_notifierFieldMouseClicked
     
     /**
      * @param args the command line arguments
@@ -2225,6 +2341,7 @@ public class StudentProfile extends javax.swing.JFrame {
     private javax.swing.JLabel noticeLebel;
     private javax.swing.JPanel noticePanel;
     private javax.swing.JPanel notices_btn;
+    private javax.swing.JLabel notifierField;
     private javax.swing.JLabel phoneNo;
     private javax.swing.JLabel postDateLabel;
     private javax.swing.JTextField presentDaysTextField;
