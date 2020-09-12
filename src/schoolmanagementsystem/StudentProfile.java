@@ -1434,15 +1434,22 @@ public class StudentProfile extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Teacher Name", "Message"
+                "Teacher Name", "Message", "Date", "Time"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         messageTable.setRowHeight(30);
@@ -1450,7 +1457,8 @@ public class StudentProfile extends javax.swing.JFrame {
         if (messageTable.getColumnModel().getColumnCount() > 0) {
             messageTable.getColumnModel().getColumn(0).setMinWidth(0);
             messageTable.getColumnModel().getColumn(0).setPreferredWidth(300);
-            messageTable.getColumnModel().getColumn(0).setMaxWidth(300);
+            messageTable.getColumnModel().getColumn(0).setMaxWidth(200);
+            messageTable.getColumnModel().getColumn(1).setPreferredWidth(450);
         }
 
         javax.swing.GroupLayout MessegePanelLayout = new javax.swing.GroupLayout(MessegePanel);
@@ -1608,11 +1616,14 @@ public class StudentProfile extends javax.swing.JFrame {
         DefaultTableModel dtm2 = (DefaultTableModel) messageTable.getModel();
         
         List<Message> list=stdb.getMessage();
-        Object[] row2=new Object[2];
+        Object[] row2=new Object[4];
         for(int i=0;i<list.size();i++){
             
             row2[0]=list.get(i).getTeacherName();            
-            row2[1]=list.get(i).getMessage();            
+            row2[1]=list.get(i).getMessage();
+            row2[2]=list.get(i).getDateString();
+            row2[3]=list.get(i).getTimeString();
+            
             dtm2.addRow(row2);
             
         }

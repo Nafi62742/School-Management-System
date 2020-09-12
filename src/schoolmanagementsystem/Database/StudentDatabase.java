@@ -145,7 +145,7 @@ public class StudentDatabase extends Accounts{
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             while (rs.next()) {
-                Message messageId=new Message(rs.getString("teacher_name"),rs.getString("ID"),rs.getString("message"));
+                Message messageId=new Message(rs.getString("teacher_name"),rs.getString("ID"),rs.getString("message"),rs.getString("date"),rs.getString("time"));
                 list.add(messageId);
             }
             return list;

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 11, 2020 at 07:27 AM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.9
+-- Generation Time: Sep 12, 2020 at 05:44 PM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.4.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,30 @@ SET time_zone = "+00:00";
 --
 -- Database: `school_management_system`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `attendance`
+--
+
+CREATE TABLE `attendance` (
+  `month` text NOT NULL,
+  `ID` text NOT NULL,
+  `working_days` int(5) NOT NULL,
+  `present_days` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `attendance`
+--
+
+INSERT INTO `attendance` (`month`, `ID`, `working_days`, `present_days`) VALUES
+('January', '100.12', 40, 30),
+('February', '100.12', 100, 50),
+('June', '100.14', 20, 20),
+('December', '100.17', 25, 25),
+('December', '100.17', 25, 10);
 
 -- --------------------------------------------------------
 
@@ -68,7 +92,14 @@ INSERT INTO `login_info` (`id`, `ip_address`, `state`) VALUES
 ('100.17', '192.168.0.105', 0),
 ('400.32', '192.168.0.105', 1),
 ('100.17', '192.168.1.132', 1),
-('400.32', '192.168.1.132', 0);
+('400.32', '192.168.1.132', 0),
+('400.12', '192.168.1.3', 0),
+('100.12', '192.168.1.3', 0),
+('400.14', '192.168.1.3', 0),
+('100.14', '192.168.1.3', 0),
+('100.17', '192.168.1.3', 1),
+('400.12', '192.168.1.6', 0),
+('100.12', '192.168.1.6', 0);
 
 -- --------------------------------------------------------
 
@@ -77,20 +108,20 @@ INSERT INTO `login_info` (`id`, `ip_address`, `state`) VALUES
 --
 
 CREATE TABLE `message` (
-  `teacher_name` varchar(20) NOT NULL,
+  `teacher_name` text NOT NULL,
   `ID` text NOT NULL,
-  `message` text NOT NULL
+  `message` text NOT NULL,
+  `date` text NOT NULL,
+  `time` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `message`
 --
 
-INSERT INTO `message` (`teacher_name`, `ID`, `message`) VALUES
-('Fahim', '100.12', 'lalaal'),
-('Fahim', '100.12', 'whattttttttttt'),
-('Fahim', '100.11', 'llllllaallll'),
-('Fahim', '100.17', 'Nafi valo kore porashuna korben. >_<');
+INSERT INTO `message` (`teacher_name`, `ID`, `message`, `date`, `time`) VALUES
+('Fahim', '100.17', 'asda dasd asdf ', '', ''),
+('Fahim', '100.12', 'what is what?', '12.09.2020', '09:38 PM');
 
 -- --------------------------------------------------------
 
@@ -123,15 +154,15 @@ INSERT INTO `notice_board` (`date`, `time`, `teacher_name`, `class`, `subject`, 
 
 CREATE TABLE `results` (
   `ID` text NOT NULL,
-  `bangla1st` int(11) DEFAULT 0,
-  `bangla2nd` int(11) DEFAULT 0,
-  `english1st` int(11) DEFAULT 0,
-  `english2nd` int(11) DEFAULT 0,
-  `math` int(11) DEFAULT 0,
-  `science` int(11) DEFAULT 0,
-  `religion` int(11) DEFAULT 0,
-  `bgs` int(11) DEFAULT 0,
-  `ict` int(11) DEFAULT 0
+  `bangla1st` int(11) DEFAULT NULL,
+  `bangla2nd` int(11) DEFAULT NULL,
+  `english1st` int(11) DEFAULT NULL,
+  `english2nd` int(11) DEFAULT NULL,
+  `math` int(11) DEFAULT NULL,
+  `science` int(11) DEFAULT NULL,
+  `religion` int(11) DEFAULT NULL,
+  `bgs` int(11) DEFAULT NULL,
+  `ict` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -140,10 +171,7 @@ CREATE TABLE `results` (
 
 INSERT INTO `results` (`ID`, `bangla1st`, `bangla2nd`, `english1st`, `english2nd`, `math`, `science`, `religion`, `bgs`, `ict`) VALUES
 ('100.17', NULL, NULL, NULL, NULL, 100, NULL, NULL, NULL, NULL),
-('100.12', NULL, NULL, NULL, NULL, 85, NULL, NULL, NULL, NULL),
-('100.17', NULL, NULL, NULL, NULL, 85, NULL, NULL, NULL, NULL),
-('100.17', NULL, NULL, NULL, NULL, 70, NULL, NULL, NULL, NULL),
-('100.17', NULL, NULL, NULL, NULL, 20, NULL, NULL, NULL, NULL);
+('100.12', NULL, NULL, NULL, NULL, 85, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -168,7 +196,7 @@ CREATE TABLE `student_accounts` (
 INSERT INTO `student_accounts` (`name`, `class`, `sec`, `id`, `phoneNo`, `email`, `pass`) VALUES
 ('Fahim', '10', 'a', '100.12', NULL, NULL, 'MTIzNA=='),
 ('Pranto', '8', 'b', '100.11', NULL, NULL, 'MTIzNA=='),
-('Nafi Ahmed', '10', 'A', '100.17', '01760887296', 'nafiahmed318@gmail.com', 'TmFmaTAwNw=='),
+('Nafi Ahmed', '10', 'A', '100.17', '01760887297', 'nafiahmed318@gmail.com', 'TmFmaTAwNw=='),
 ('test1', '10', 'a', '100.15', NULL, NULL, 'MTIzNA=='),
 ('test2', '10', 'a', '100.14', NULL, NULL, 'MTIzNA=='),
 ('test3', '10', 'a', '100.16', NULL, NULL, 'MTIzNA==');

@@ -111,8 +111,12 @@ public class TeacherDatabase extends Accounts{
     
     public void sendMessage(String message,String studentId){
         
-        
-        String sql = "INSERT INTO message(teacher_name, ID, message) VALUES(?,?,?)";
+        Date datetime = new Date();
+        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        DateFormat timeFormat = new SimpleDateFormat("hh:mm aa");
+        String dateString=dateFormat.format(datetime);
+        String timeString=timeFormat.format(datetime);
+        String sql = "INSERT INTO message(teacher_name, ID, message,date, time) VALUES(?,?,?,?,?)";
         try {
             pst = conn.prepareStatement(sql);
      
@@ -120,6 +124,8 @@ public class TeacherDatabase extends Accounts{
             pst.setString(2, studentId);
             
             pst.setString(3,message);
+            pst.setString(4,dateString);
+            pst.setString(5,timeString);
             pst.execute();
             
             JOptionPane.showMessageDialog(null, "Message have been sent Successfully");

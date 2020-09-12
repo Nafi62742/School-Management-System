@@ -10,14 +10,26 @@ public class Message {
     private String message;
     private String studentId;
     private String teacherName;
+    private String dateString;
+    private String timeString;
+
+    public String getDateString() {
+        return dateString;
+    }
+
+    public String getTimeString() {
+        return timeString;
+    }
     
 
     public Message() {
     }
-    public Message(String teacherName, String studentId,String message ) {
+    public Message(String teacherName, String studentId,String message, String dateString, String timeString ) {
         this.message = message;
         this.studentId = studentId;
         this.teacherName = teacherName;
+        this.dateString = dateString;
+        this.timeString = timeString;
     }
 
     
@@ -30,9 +42,12 @@ public class Message {
         return studentId;
     }
 
-    public Object getTeacherName() {
+    public String getTeacherName() {
         return teacherName; 
     }
+    
+    
+    
 
   
 }
