@@ -6,6 +6,7 @@
 package schoolmanagementsystem;
 
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -994,13 +995,33 @@ public class TeacherProfile extends javax.swing.JFrame {
                 workingDayTextFieldActionPerformed(evt);
             }
         });
+        workingDayTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                workingDayTextFieldKeyPressed(evt);
+            }
+        });
 
         studentIdTextFieldA.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        studentIdTextFieldA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                studentIdTextFieldAActionPerformed(evt);
+            }
+        });
+        studentIdTextFieldA.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                studentIdTextFieldAKeyPressed(evt);
+            }
+        });
 
         presentDaysTextField.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         presentDaysTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 presentDaysTextFieldActionPerformed(evt);
+            }
+        });
+        presentDaysTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                presentDaysTextFieldKeyPressed(evt);
             }
         });
 
@@ -1246,6 +1267,11 @@ public class TeacherProfile extends javax.swing.JFrame {
         marks.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         marks.setRows(5);
         marks.setCaretColor(new java.awt.Color(18, 30, 49));
+        marks.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                marksKeyPressed(evt);
+            }
+        });
 
         resultSubmitButton.setBackground(new java.awt.Color(51, 0, 255));
         resultSubmitButton.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
@@ -1783,6 +1809,107 @@ public class TeacherProfile extends javax.swing.JFrame {
             x=0;
         }
     }//GEN-LAST:event_sideMenuHideMouseClicked
+
+    private void marksKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_marksKeyPressed
+        // TODO add your handling code here:
+        
+        String mrk=marks.getText();
+        int length=mrk.length();
+        
+            char c = evt.getKeyChar();
+        if(c>='0'&&c<='9'){
+            if(length<3){
+                marks.setEditable(true);
+            }
+            else{
+                marks.setEditable(false);
+            }
+        }
+        else{
+            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
+                marks.setEditable(true);
+            }
+            else{
+                 marks.setEditable(false);
+            }
+        }
+    }//GEN-LAST:event_marksKeyPressed
+
+    private void studentIdTextFieldAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentIdTextFieldAActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_studentIdTextFieldAActionPerformed
+
+    private void studentIdTextFieldAKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_studentIdTextFieldAKeyPressed
+        // TODO add your handling code here:
+        String mrk=studentIdTextFieldA.getText();
+        int length=mrk.length();
+        
+        char c = evt.getKeyChar();
+        if(c>=33&&c<=127){
+            if(length<10||(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE)){
+                studentIdTextFieldA.setEditable(true);
+            }
+            else{
+                studentIdTextFieldA.setEditable(false);
+            }
+        }
+        else{
+            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
+                studentIdTextFieldA.setEditable(true);
+            }
+            else{
+                 studentIdTextFieldA.setEditable(false);
+            }
+        }
+    }//GEN-LAST:event_studentIdTextFieldAKeyPressed
+
+    private void workingDayTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_workingDayTextFieldKeyPressed
+        // TODO add your handling code here:
+        String wd=workingDayTextField.getText();
+        int length=wd.length();
+        
+            char c = evt.getKeyChar();
+        if(c>='0'&&c<='9'){
+            if(length<2){
+                workingDayTextField.setEditable(true);
+            }
+            else{
+                workingDayTextField.setEditable(false);
+            }
+        }
+        else{
+            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
+                workingDayTextField.setEditable(true);
+            }
+            else{
+                 workingDayTextField.setEditable(false);
+            }
+        }
+    }//GEN-LAST:event_workingDayTextFieldKeyPressed
+
+    private void presentDaysTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_presentDaysTextFieldKeyPressed
+        // TODO add your handling code here:
+                String pd=presentDaysTextField.getText();
+        int length=pd.length();
+        
+            char c = evt.getKeyChar();
+        if(c>='0'&&c<='9'){
+            if(length<2){
+                presentDaysTextField.setEditable(true);
+            }
+            else{
+                presentDaysTextField.setEditable(false);
+            }
+        }
+        else{
+            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
+                presentDaysTextField.setEditable(true);
+            }
+            else{
+                 presentDaysTextField.setEditable(false);
+            }
+        }
+    }//GEN-LAST:event_presentDaysTextFieldKeyPressed
     
     /**
      * @param args the command line arguments

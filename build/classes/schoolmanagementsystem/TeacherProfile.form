@@ -1580,6 +1580,7 @@
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="workingDayTextFieldActionPerformed"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="workingDayTextFieldKeyPressed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="studentIdTextFieldA">
@@ -1588,6 +1589,10 @@
                           <Font name="Comic Sans MS" size="24" style="1"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="studentIdTextFieldAActionPerformed"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="studentIdTextFieldAKeyPressed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="presentDaysTextField">
                       <Properties>
@@ -1597,6 +1602,7 @@
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="presentDaysTextFieldActionPerformed"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="presentDaysTextFieldKeyPressed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel10">
@@ -2021,6 +2027,9 @@
                       <Color blue="31" green="1e" red="12" type="rgb"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="marksKeyPressed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="resultSubmitButton">
                   <Properties>
