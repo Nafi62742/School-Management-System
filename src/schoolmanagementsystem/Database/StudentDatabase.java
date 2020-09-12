@@ -90,23 +90,32 @@ public class StudentDatabase extends Accounts{
         return null;
     }
     public List<Homework> getHomework(){
+        DateFormat dateFormat = new SimpleDateFormat("dd");
+        DateFormat monthFormat = new SimpleDateFormat("MMMMM");
+        DateFormat yearFormat = new SimpleDateFormat("yyyy");
         String sql = "select * from homework where class=\'"+getStudentClass()+ "\' and sec=\'"+getSection()+"\'";
         List<Homework> list = new ArrayList<Homework>();
         Date today=new Date();
+        String dateString=dateFormat.format(today);
+        String monthString=monthFormat.format(today);
+        String yearString=yearFormat.format(today);
+        String dueDateString,dueMonthString,dueYearString;
         try {
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             while (rs.next()) {
                 Date dueDate=new SimpleDateFormat("dd.MM.yyyy").parse(rs.getString("due_date"));
-                if(today.compareTo(dueDate) < 0){
-                Homework homeworkClass=new Homework(rs.getString("subject"),rs.getInt("total_marks"),rs.getString("post_date"),rs.getString("due_date"),rs.getString("homework_text"));
-                list.add(homeworkClass);
+                dueDateString=dateFormat.format(dueDate);
+                dueMonthString=monthFormat.format(dueDate);
+                dueYearString=yearFormat.format(dueDate);
+                if(today.compareTo(dueDate) <0||(dateString.equals(dueDateString)&&monthString.equals(dueMonthString)&&yearString.equals(dueYearString))){
+                    Homework homeworkClass=new Homework(rs.getString("subject"),rs.getInt("total_marks"),rs.getString("post_date"),rs.getString("due_date"),rs.getString("homework_text"));
+                    list.add(homeworkClass);
                 }
             }
             return list;
         }catch(ParseException e){
             JOptionPane.showMessageDialog(null, "Can't Parse Date.");
-            
         }
         catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Can't get homeworks from database.");
