@@ -121,13 +121,14 @@ public class StudentProfile extends javax.swing.JFrame {
         ID = new javax.swing.JLabel();
         ClassText = new javax.swing.JLabel();
         Class = new javax.swing.JLabel();
-        Edit = new javax.swing.JLabel();
         phoneNo = new javax.swing.JLabel();
         PhoneText = new javax.swing.JLabel();
         EmailText = new javax.swing.JLabel();
         Email = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         notifierField = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        Edit = new javax.swing.JLabel();
         HomeworkPanel = new javax.swing.JPanel();
         HomeworkPanel1 = new javax.swing.JPanel();
         dueDateLabel = new javax.swing.JLabel();
@@ -658,15 +659,6 @@ public class StudentProfile extends javax.swing.JFrame {
         Class.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Class.setText("Class show");
 
-        Edit.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
-        Edit.setForeground(new java.awt.Color(255, 255, 255));
-        Edit.setText("Update Profile");
-        Edit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                EditMouseClicked(evt);
-            }
-        });
-
         phoneNo.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         phoneNo.setForeground(new java.awt.Color(153, 255, 255));
         phoneNo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -703,6 +695,34 @@ public class StudentProfile extends javax.swing.JFrame {
                 notifierFieldMouseClicked(evt);
             }
         });
+
+        jPanel3.setBackground(new java.awt.Color(28, 46, 60));
+
+        Edit.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        Edit.setForeground(new java.awt.Color(255, 255, 255));
+        Edit.setText("Update Profile");
+        Edit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EditMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(8, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout HomePanelLayout = new javax.swing.GroupLayout(HomePanel);
         HomePanel.setLayout(HomePanelLayout);
@@ -742,9 +762,9 @@ public class StudentProfile extends javax.swing.JFrame {
                                         .addGap(140, 140, 140)
                                         .addComponent(notifierField, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(HomePanelLayout.createSequentialGroup()
-                        .addGap(225, 225, 225)
-                        .addComponent(Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(45, 45, Short.MAX_VALUE))
+                        .addGap(319, 319, 319)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         HomePanelLayout.setVerticalGroup(
             HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -780,9 +800,9 @@ public class StudentProfile extends javax.swing.JFrame {
                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(EmailText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("home", HomePanel);
@@ -2515,6 +2535,7 @@ public void resultShow(){
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPaneMessage;
     private javax.swing.JTabbedPane jTabbedPane1;

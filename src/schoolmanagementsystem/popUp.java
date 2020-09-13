@@ -91,6 +91,7 @@ public class popUp extends javax.swing.JFrame {
 
         b1.setBorder(null);
         b1.setBorderPainted(false);
+        b1.setContentAreaFilled(false);
         b1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b1ActionPerformed(evt);
@@ -100,6 +101,7 @@ public class popUp extends javax.swing.JFrame {
 
         b2.setBorder(null);
         b2.setBorderPainted(false);
+        b2.setContentAreaFilled(false);
         b2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b2ActionPerformed(evt);
@@ -111,6 +113,7 @@ public class popUp extends javax.swing.JFrame {
         b3.setActionCommand("");
         b3.setBorder(null);
         b3.setBorderPainted(false);
+        b3.setContentAreaFilled(false);
         b3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b3ActionPerformed(evt);
@@ -120,6 +123,7 @@ public class popUp extends javax.swing.JFrame {
 
         b4.setBorder(null);
         b4.setBorderPainted(false);
+        b4.setContentAreaFilled(false);
         b4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b4ActionPerformed(evt);
@@ -129,6 +133,7 @@ public class popUp extends javax.swing.JFrame {
 
         b5.setBorder(null);
         b5.setBorderPainted(false);
+        b5.setContentAreaFilled(false);
         b5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b5ActionPerformed(evt);
