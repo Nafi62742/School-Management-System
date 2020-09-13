@@ -64,7 +64,7 @@ public class StudentProfile extends javax.swing.JFrame {
         this.id=id;
         stdb=new StudentDatabase(this.id);
         
-        showMessage();
+       showMessage();
         
         showNoticeBoard();
         getHomeworks();
@@ -1709,13 +1709,13 @@ public class StudentProfile extends javax.swing.JFrame {
         
         List<Message> list=stdb.getMessage();
         Object[] row2=new Object[4];
-        for(int i=0;i<list.size();i++){
+        for(int i=list.size()-1;i>=0;i--){
             
             row2[0]=list.get(i).getTeacherName();            
             row2[1]=list.get(i).getMessage();
             row2[2]=list.get(i).getDateString();
             row2[3]=list.get(i).getTimeString();
-            int notifier =checkDate(homeworkList.get(totalHomeworks-1).getDueDateString());
+            int notifier =checkDate(list.get(i).getDateString());
             if(notifier==1){
                 dateNotificationToggle= 3;
                 messageNotificationCheck=1;

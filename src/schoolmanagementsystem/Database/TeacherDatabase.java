@@ -6,8 +6,6 @@
 package schoolmanagementsystem.Database;
 
 import java.awt.HeadlessException;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -157,129 +155,127 @@ public class TeacherDatabase extends Accounts{
         String tSubject= getTeacherSubject();
         String tSubject2=tSubject.toLowerCase();
         if(tSubject2.equals("bangla")&&paper.equals("1st")){
-        String sql = "UPDATE results SET bangla1st=? WHERE ID=" + studentId;
-        
-        try {
-            pst = conn.prepareStatement(sql);
-            pst.setInt(1,marks);
-            pst.execute();
-            
-            JOptionPane.showMessageDialog(null, "Marks(bangla1st) have been added Successfully");
-        } catch (HeadlessException | SQLException e) {
-            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
+            String sql = "UPDATE results SET bangla1st=? WHERE ID=" + studentId;
+
+            try {
+                pst = conn.prepareStatement(sql);
+                pst.setInt(1,marks);
+                pst.execute();
+
+                JOptionPane.showMessageDialog(null, "Marks(bangla1st) have been added Successfully");
+            } catch (HeadlessException | SQLException e) {
+                JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
             }
         }
         else if(tSubject2.equals("bangla")&&paper.equals("2nd")){
             String sql = "UPDATE results SET bangla2nd=? WHERE ID=" + studentId;
 
-        try {
-            pst = conn.prepareStatement(sql);
-            pst.setInt(1,marks);
-            pst.execute();
-            
-            JOptionPane.showMessageDialog(null, "Marks(bangla2nd) have been added Successfully");
-        } catch (HeadlessException | SQLException e) {
-            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
-        }
+            try {
+                pst = conn.prepareStatement(sql);
+                pst.setInt(1,marks);
+                pst.execute();
+
+                JOptionPane.showMessageDialog(null, "Marks(bangla2nd) have been added Successfully");
+            } catch (HeadlessException | SQLException e) {
+                JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
+            }
         }
         else if(tSubject2.equals("english")&&paper.equals("2nd")){
-            String sql = "UPDATE results SET english2nd=? WHERE ID=" + studentId;
-        try {
-            pst = conn.prepareStatement(sql);
-            pst.setInt(1,marks);
-            pst.execute();
-            
-            JOptionPane.showMessageDialog(null, "Marks(english2nd) have been added Successfully");
-        } catch (HeadlessException | SQLException e) {
-            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
-        }
+             String sql = "UPDATE results SET english2nd=? WHERE ID=" + studentId;
+            try {
+                pst = conn.prepareStatement(sql);
+                pst.setInt(1,marks);
+                pst.execute();
+
+                JOptionPane.showMessageDialog(null, "Marks(english2nd) have been added Successfully");
+            } catch (HeadlessException | SQLException e) {
+                JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
+            }
         }
          else if(tSubject2.equals("english")&&paper.equals("1st")){
-            String sql = "UPDATE results SET english1st=? WHERE ID=" + studentId;
-        try {
-            pst = conn.prepareStatement(sql);
-            pst.setInt(1,marks);
-            pst.execute();
-            
-            JOptionPane.showMessageDialog(null, "Marks(english1st) have been added Successfully");
-        } catch (HeadlessException | SQLException e) {
-            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
-        }
+                String sql = "UPDATE results SET english1st=? WHERE ID=" + studentId;
+            try {
+                pst = conn.prepareStatement(sql);
+                pst.setInt(1,marks);
+                pst.execute();
+
+                JOptionPane.showMessageDialog(null, "Marks(english1st) have been added Successfully");
+            } catch (HeadlessException | SQLException e) {
+                JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
+            }
         }
         
     }
    public void marksSend(int marks,String studentId){
         String tSubject= getTeacherSubject();
         String tSubject2=tSubject.toLowerCase();
-        if(tSubject2.equals("math")){
-            String sql = "UPDATE results SET math=? WHERE ID=" + studentId;
+            if(tSubject2.equals("math")){
+                String sql = "UPDATE results SET math=? WHERE ID=" + studentId;
 
-        try {
-            pst = conn.prepareStatement(sql);
-            pst.setInt(1,marks);
-            pst.execute();
-            
-            JOptionPane.showMessageDialog(null, "Marks(Math) have been added Successfully");
-        } catch (HeadlessException | SQLException e) {
-            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
-        }
+            try {
+                pst = conn.prepareStatement(sql);
+                pst.setInt(1,marks);
+                pst.execute();
+
+                JOptionPane.showMessageDialog(null, "Marks(Math) have been added Successfully");
+            } catch (HeadlessException | SQLException e) {
+                JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
+            }
         }
         else if(tSubject2.equals("science")){
-            String sql = "UPDATE results SET science=? WHERE ID=" + studentId;
+                String sql = "UPDATE results SET science=? WHERE ID=" + studentId;
 
-        try {
-            pst = conn.prepareStatement(sql);
-            pst.setInt(1,marks);
-            pst.execute();
-            
-            JOptionPane.showMessageDialog(null, "Marks(science) have been added Successfully");
-        } catch (HeadlessException | SQLException e) {
-            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
-        }
-        }
-         else if(tSubject2.equals("religion")){
-            String sql = "UPDATE results SET religion=? WHERE ID=" + studentId;
+            try {
+                pst = conn.prepareStatement(sql);
+                pst.setInt(1,marks);
+                pst.execute();
 
-        try {
-            pst = conn.prepareStatement(sql);
-            pst.setInt(1,marks);
-            pst.execute();
-            
-            JOptionPane.showMessageDialog(null, "Marks(religion) have been added Successfully");
-        } catch (HeadlessException | SQLException e) {
-            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
-        }
+                JOptionPane.showMessageDialog(null, "Marks(science) have been added Successfully");
+            } catch (HeadlessException | SQLException e) {
+                JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
+            }
+            }
+             else if(tSubject2.equals("religion")){
+                String sql = "UPDATE results SET religion=? WHERE ID=" + studentId;
+
+            try {
+                pst = conn.prepareStatement(sql);
+                pst.setInt(1,marks);
+                pst.execute();
+
+                JOptionPane.showMessageDialog(null, "Marks(religion) have been added Successfully");
+            } catch (HeadlessException | SQLException e) {
+                JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
+            }
         }
        else if(tSubject2.equals("ict")){
             String sql = "UPDATE results SET ict=? WHERE ID=" + studentId;
 
-        try {
-            pst = conn.prepareStatement(sql);
-            pst.setInt(1,marks);
-            pst.execute();
-            
-            JOptionPane.showMessageDialog(null, "Marks(ict) have been added Successfully");
-            } catch (HeadlessException | SQLException e) {
-            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
-            }
-        }
-        else if(tSubject2.equals("bgs")){
-            String sql = "UPDATE results SET bgs=? WHERE ID=" + studentId;
+            try {
+                pst = conn.prepareStatement(sql);
+                pst.setInt(1,marks);
+                pst.execute();
 
-        try {
-            pst = conn.prepareStatement(sql);
-            pst.setInt(1,marks);
-            pst.execute();
-            JOptionPane.showMessageDialog(null, "Marks(bgs) have been added Successfully");
-            } catch (HeadlessException | SQLException e) {
-            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Marks(ict) have been added Successfully");
+                } catch (HeadlessException | SQLException e) {
+                JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
+                }
             }
-        }
+            else if(tSubject2.equals("bangladesh and global studies")){
+                String sql = "UPDATE results SET bgs=? WHERE ID=" + studentId;
+
+            try {
+                pst = conn.prepareStatement(sql);
+                pst.setInt(1,marks);
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Marks(bgs) have been added Successfully");
+                } catch (HeadlessException | SQLException e) {
+                JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
+                }
+            }
     }
   public int updateTeacherAccount(String name,String subject,String designation,String Teacher_Id,String PhoneNo, String Email){
         final JPanel panel = new JPanel();
-        
-        
             String sql = "UPDATE teacher_accounts SET name=?,subject=?,designation=?, phoneNo=?, email=? WHERE id =" + Teacher_Id;
             try {
                 pst = conn.prepareStatement(sql);
