@@ -147,11 +147,12 @@ public class TeacherProfile extends javax.swing.JFrame {
         ID = new javax.swing.JLabel();
         SubjectText = new javax.swing.JLabel();
         Subject = new javax.swing.JLabel();
-        Edit = new javax.swing.JLabel();
         Email = new javax.swing.JLabel();
         EmailText = new javax.swing.JLabel();
         phoneNo = new javax.swing.JLabel();
         PhoneText = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        Edit = new javax.swing.JLabel();
         HomeworkPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -619,6 +620,8 @@ public class TeacherProfile extends javax.swing.JFrame {
 
         jPanel1.add(LeftCeditPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 247, 720));
 
+        jTabbedPane1.setBackground(new java.awt.Color(65, 59, 94));
+
         HomePanel.setBackground(new java.awt.Color(65, 59, 94));
 
         NameText.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
@@ -626,12 +629,12 @@ public class TeacherProfile extends javax.swing.JFrame {
         NameText.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         NameText.setText("Name:");
 
-        Designation.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        Designation.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         Designation.setForeground(new java.awt.Color(153, 255, 255));
         Designation.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Designation.setText("Designation show");
 
-        Name.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        Name.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         Name.setForeground(new java.awt.Color(51, 255, 255));
         Name.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Name.setText("Name Show");
@@ -646,7 +649,7 @@ public class TeacherProfile extends javax.swing.JFrame {
         IDText.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         IDText.setText("ID:");
 
-        ID.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        ID.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         ID.setForeground(new java.awt.Color(153, 255, 255));
         ID.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ID.setText("ID show");
@@ -656,21 +659,12 @@ public class TeacherProfile extends javax.swing.JFrame {
         SubjectText.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         SubjectText.setText("Subject:");
 
-        Subject.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        Subject.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         Subject.setForeground(new java.awt.Color(153, 255, 255));
         Subject.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Subject.setText("Subject show");
 
-        Edit.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
-        Edit.setForeground(new java.awt.Color(255, 255, 255));
-        Edit.setText("Edit");
-        Edit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                EditMouseClicked(evt);
-            }
-        });
-
-        Email.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        Email.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         Email.setForeground(new java.awt.Color(153, 255, 255));
         Email.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Email.setText("Email not given yet");
@@ -680,7 +674,7 @@ public class TeacherProfile extends javax.swing.JFrame {
         EmailText.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         EmailText.setText("Email:");
 
-        phoneNo.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        phoneNo.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         phoneNo.setForeground(new java.awt.Color(153, 255, 255));
         phoneNo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         phoneNo.setText("Phone number not given yet");
@@ -690,39 +684,67 @@ public class TeacherProfile extends javax.swing.JFrame {
         PhoneText.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         PhoneText.setText("Phone No:");
 
+        jPanel2.setBackground(new java.awt.Color(28, 46, 60));
+        jPanel2.setForeground(new java.awt.Color(102, 102, 102));
+
+        Edit.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        Edit.setForeground(new java.awt.Color(255, 255, 255));
+        Edit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Edit.setText("Update Profile");
+        Edit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EditMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout HomePanelLayout = new javax.swing.GroupLayout(HomePanel);
         HomePanel.setLayout(HomePanelLayout);
         HomePanelLayout.setHorizontalGroup(
             HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomePanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(96, 96, 96))
             .addGroup(HomePanelLayout.createSequentialGroup()
-                .addGap(118, 118, 118)
                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(IDText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NameText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SubjectText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DesignationText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PhoneText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(EmailText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(94, 94, 94)
-                .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(phoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Designation, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Subject, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(HomePanelLayout.createSequentialGroup()
+                        .addGap(118, 118, 118)
+                        .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(IDText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NameText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SubjectText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DesignationText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PhoneText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(EmailText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(94, 94, 94)
+                        .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(phoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Designation, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Subject, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(HomePanelLayout.createSequentialGroup()
+                        .addGap(360, 360, 360)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(318, Short.MAX_VALUE))
         );
         HomePanelLayout.setVerticalGroup(
             HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HomePanelLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(Edit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(17, 17, 17)
+                .addGap(100, 100, 100)
                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(NameText, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -734,9 +756,10 @@ public class TeacherProfile extends javax.swing.JFrame {
                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SubjectText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Subject, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(HomePanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(Designation, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(21, 21, 21)
                         .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -744,13 +767,14 @@ public class TeacherProfile extends javax.swing.JFrame {
                             .addComponent(PhoneText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18))
                     .addGroup(HomePanelLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addComponent(DesignationText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(EmailText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addGap(4, 4, 4)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80))
         );
 
         jTabbedPane1.addTab("home", HomePanel);
@@ -2007,6 +2031,7 @@ public class TeacherProfile extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
