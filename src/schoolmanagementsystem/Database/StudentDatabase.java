@@ -62,6 +62,7 @@ public class StudentDatabase extends Accounts{
         
     }
     
+    
     public void setId(String id) {
         this.id = id;
     }
@@ -171,6 +172,9 @@ public class StudentDatabase extends Accounts{
         return null;
      
     }
+    
+    
+    
     public void getStudentData(String id){
         String sql = "select * from student_accounts where id=\'" +id+ "\'";
         try{
