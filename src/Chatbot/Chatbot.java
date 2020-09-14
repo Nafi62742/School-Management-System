@@ -6,9 +6,6 @@
 package Chatbot;
 
 import java.awt.event.KeyEvent;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 
 public class Chatbot extends javax.swing.JFrame {
     

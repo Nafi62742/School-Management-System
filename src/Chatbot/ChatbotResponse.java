@@ -53,16 +53,17 @@ public class ChatbotResponse {
             }else if(speech.contains("hello")||speech.contains("hi")||speech.contains("who are you")){
                 return ("Hi my friend....I'm chatbot. Speed sixteen Megahertz, memory 8 Gigabytes.");
             }else if(speech.contains("homework")||speech.contains("how many homework do i have")){
-                if(totalHomeworks==0){
-                    return ("You have no homework to do. Enjoy your free time.");
-                }else if(totalHomeworks==1){
-                    return ("You have only one homework to do. Hurry up!");
-                }else{
-                    return ("You have "+totalHomeworks+" to do. Hurry up! I wish I could help you in your homeworks.");
+                switch (totalHomeworks) {
+                    case 0:
+                        return ("You have no homework to do. Enjoy your free time.");
+                    case 1:
+                        return ("You have only one homework to do. Hurry up!");
+                    default:
+                        return ("You have "+totalHomeworks+" to do. Hurry up! I wish I could help you in your homeworks.");
                 }
             }else if(speech.contains("thank you")){
                 return ("You are most welcome.");
-            }else if(speech.contains("welcome")||speech.contains("fine thank you")){
+            }else if(speech.contains("welcome")){
                 return ("It is my pleasure.");
             }
         }else{

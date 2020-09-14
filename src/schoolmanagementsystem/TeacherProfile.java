@@ -266,7 +266,11 @@ public class TeacherProfile extends javax.swing.JFrame {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+<<<<<<< Updated upstream
                 .addContainerGap(1238, Short.MAX_VALUE)
+=======
+                .addContainerGap(1244, Short.MAX_VALUE)
+>>>>>>> Stashed changes
                 .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
