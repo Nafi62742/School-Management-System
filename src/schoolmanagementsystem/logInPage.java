@@ -122,7 +122,7 @@ public class logInPage extends javax.swing.JFrame {
                 passwordFieldKeyPressed(evt);
             }
         });
-        jPanel1.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 320, 360, 40));
+        jPanel1.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 320, 370, 40));
 
         jSeparator2.setForeground(new java.awt.Color(153, 153, 153));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 360, 360, 10));
