@@ -278,7 +278,7 @@ public class newAccountForm extends javax.swing.JFrame {
         int length=name.length();
         
         char c = evt.getKeyChar();
-        if((c>='a'&&c<='z')||(c>='A'&&c<='Z')){
+        if((c>='a'&& c<='z')||(c>='A'&& c<='Z')||(c ==' ')){
             if(length<30){
                 nameField.setEditable(true);
             }

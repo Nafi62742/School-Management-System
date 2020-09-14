@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 12, 2020 at 05:44 PM
+-- Generation Time: Sep 14, 2020 at 06:58 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -43,7 +43,8 @@ INSERT INTO `attendance` (`month`, `ID`, `working_days`, `present_days`) VALUES
 ('February', '100.12', 100, 50),
 ('June', '100.14', 20, 20),
 ('December', '100.17', 25, 25),
-('December', '100.17', 25, 10);
+('December', '100.17', 25, 10),
+('August', '100.12', 20, 15);
 
 -- --------------------------------------------------------
 
@@ -68,7 +69,8 @@ CREATE TABLE `homework` (
 
 INSERT INTO `homework` (`class`, `sec`, `teacher_name`, `subject`, `total_marks`, `post_date`, `due_date`, `homework_text`) VALUES
 ('10', 'a', 'Fahim', 'Physics', 78, '02.09.2020', '10.09.2020', ';llmlmlonilbuybubnnoiniubyibib'),
-('10', 'a', 'Fahim', 'Math', 67, '02.09.2020', '18.09.2020', 'onlnlnilbyu 7yfuiyvu6t 7tf6tvyf56tf 7tfytvbygf65fty 7tf7bg7f65');
+('10', 'a', 'Fahim', 'Math', 67, '02.09.2020', '18.09.2020', 'onlnlnilbyu 7yfuiyvu6t 7tf6tvyf56tf 7tfytvbygf65fty 7tf7bg7f65'),
+('10', 'a', 'Fahim', 'Math', 100, '12.09.2020', '15.09.2020', 'hnv;oxcjhxmbXCV,bXC,');
 
 -- --------------------------------------------------------
 
@@ -99,7 +101,8 @@ INSERT INTO `login_info` (`id`, `ip_address`, `state`) VALUES
 ('100.14', '192.168.1.3', 0),
 ('100.17', '192.168.1.3', 1),
 ('400.12', '192.168.1.6', 0),
-('100.12', '192.168.1.6', 0);
+('100.12', '192.168.1.6', 0),
+('100.17', '192.168.1.6', 0);
 
 -- --------------------------------------------------------
 
@@ -121,7 +124,8 @@ CREATE TABLE `message` (
 
 INSERT INTO `message` (`teacher_name`, `ID`, `message`, `date`, `time`) VALUES
 ('Fahim', '100.17', 'asda dasd asdf ', '', ''),
-('Fahim', '100.12', 'what is what?', '12.09.2020', '09:38 PM');
+('Fahim', '100.12', 'what is what?', '12.09.2020', '09:38 PM'),
+('Fahim', '100.12', 'what', '12.09.2020', '11:11 PM');
 
 -- --------------------------------------------------------
 
@@ -144,7 +148,8 @@ CREATE TABLE `notice_board` (
 
 INSERT INTO `notice_board` (`date`, `time`, `teacher_name`, `class`, `subject`, `notice`) VALUES
 ('01.09.2020', '11:41 PM', 'Fahim', '10', 'Math', 'kalke cls off..karor asha lagbe na'),
-('02.09.2020', '12:04 AM', 'Fahim', '10', 'Math', 'eto pora lekha kore ki hobe!?');
+('02.09.2020', '12:04 AM', 'Fahim', '10', 'Math', 'eto pora lekha kore ki hobe!?'),
+('12.09.2020', '11:11 PM', 'Fahim', '10', 'Math', 'llllllllllllllllllllllllll');
 
 -- --------------------------------------------------------
 
@@ -171,7 +176,7 @@ CREATE TABLE `results` (
 
 INSERT INTO `results` (`ID`, `bangla1st`, `bangla2nd`, `english1st`, `english2nd`, `math`, `science`, `religion`, `bgs`, `ict`) VALUES
 ('100.17', NULL, NULL, NULL, NULL, 100, NULL, NULL, NULL, NULL),
-('100.12', NULL, NULL, NULL, NULL, 85, NULL, NULL, NULL, NULL);
+('100.12', NULL, NULL, NULL, NULL, 50, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -221,8 +226,8 @@ CREATE TABLE `student_data` (
 --
 
 CREATE TABLE `teacher_accounts` (
-  `name` varchar(20) NOT NULL,
-  `subject` varchar(20) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `subject` varchar(40) NOT NULL,
   `designation` text NOT NULL,
   `id` text NOT NULL,
   `phoneNo` text DEFAULT NULL,
@@ -239,7 +244,12 @@ INSERT INTO `teacher_accounts` (`name`, `subject`, `designation`, `id`, `phoneNo
 ('Fahim', 'Physics', 'Senior Teacher', '400.13', NULL, NULL, 'MTIzNA=='),
 ('Dr Sharker Md. Numan', 'Math', 'Professor', '400.32', '01760887297', 'nafiahmed318@gmail.com', 'bnVtYW4='),
 ('test1', 'math', 'teacher', '400.14', NULL, NULL, 'MTIzNA=='),
-('test2', 'kkkj', 'jnonno', '400.15', NULL, NULL, 'MTIzNA==');
+('test2', 'kkkj', 'jnonno', '400.15', NULL, NULL, 'MTIzNA=='),
+('Rahim', 'Bangla', 'MSc', '400.01', NULL, NULL, 'MTIzNA=='),
+('Karim', 'English', 'Teacher', '400.02', NULL, NULL, 'MTIzNA=='),
+('Rafi', 'ICT', 'Teacher', '400.03', NULL, NULL, 'MTIzNA=='),
+('Zim', 'Religion', 'Professor', '400.04', NULL, NULL, 'MTIzNA=='),
+('Atik', 'Bangladesh and global Studies', 'Teacher', '400.05', NULL, NULL, 'MTIzNA==');
 
 --
 -- Indexes for dumped tables
