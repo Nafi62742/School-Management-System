@@ -587,16 +587,16 @@ public class StudentProfile extends javax.swing.JFrame {
         LeftCeditPanel.setLayout(LeftCeditPanelLayout);
         LeftCeditPanelLayout.setHorizontalGroup(
             LeftCeditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 240, Short.MAX_VALUE)
+            .addGap(0, 250, Short.MAX_VALUE)
             .addGroup(LeftCeditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LeftCeditPanelLayout.createSequentialGroup()
-                    .addContainerGap(48, Short.MAX_VALUE)
+                    .addContainerGap(53, Short.MAX_VALUE)
                     .addComponent(MenuText, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(73, Short.MAX_VALUE)))
+                    .addContainerGap(78, Short.MAX_VALUE)))
             .addGroup(LeftCeditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(LeftCeditPanelLayout.createSequentialGroup()
                     .addComponent(SideMenuShow)
-                    .addGap(0, 200, Short.MAX_VALUE)))
+                    .addGap(0, 210, Short.MAX_VALUE)))
         );
         LeftCeditPanelLayout.setVerticalGroup(
             LeftCeditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -613,7 +613,7 @@ public class StudentProfile extends javax.swing.JFrame {
                     .addContainerGap(647, Short.MAX_VALUE)))
         );
 
-        jPanel1.add(LeftCeditPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 720));
+        jPanel1.add(LeftCeditPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 720));
 
         jTabbedPane1.setBackground(new java.awt.Color(65, 59, 94));
 

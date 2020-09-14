@@ -14,18 +14,12 @@ public class SchoolManagementSystem {
 
     public static void main(String[] args) {
         // TODO code application logic here
-        logInPage LP= new logInPage();
-       
-        LP.setVisible(true);
-        LP.setResizable(false);
-        LP.setDefaultCloseOperation(LP.DO_NOTHING_ON_CLOSE);
         
-        //StudentProfile SP= new StudentProfile();
-       
-        //SP.setVisible(true);
+        Intro intro= new Intro();
+        intro.setVisible(true);
+        intro.setResizable(false);
+        intro.setDefaultCloseOperation(intro.DO_NOTHING_ON_CLOSE);
         
-        
-          
         
     }
     
