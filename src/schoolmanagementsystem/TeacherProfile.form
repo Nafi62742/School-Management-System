@@ -49,7 +49,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="700" y="0" width="580" height="32"/>
+              <AbsoluteConstraints x="0" y="0" width="1280" height="32"/>
             </Constraint>
           </Constraints>
 
@@ -57,7 +57,11 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="544" max="32767" attributes="0"/>
+<<<<<<< Updated upstream
+                      <EmptySpace pref="1238" max="32767" attributes="0"/>
+=======
+                      <EmptySpace pref="1244" max="32767" attributes="0"/>
+>>>>>>> Stashed changes
                       <Component id="exitButton" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -791,38 +795,14 @@
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="IDText" min="-2" pref="157" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="ColonLebel24" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="SubjectText" min="-2" pref="157" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="ColonLebel25" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="DesignationText" min="-2" pref="157" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="ColonLebel26" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="PhoneText" min="-2" pref="157" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="ColonLebel27" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <Component id="EmailText" min="-2" pref="157" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="ColonLebel28" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="NameText" min="-2" pref="157" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="ColonLebel23" min="-2" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="IDText" min="-2" pref="157" max="-2" attributes="0"/>
+                                      <Component id="NameText" min="-2" pref="157" max="-2" attributes="0"/>
+                                      <Component id="SubjectText" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
+                                      <Component id="DesignationText" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
+                                      <Component id="PhoneText" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
+                                      <Component id="EmailText" min="-2" pref="157" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="phoneNo" min="-2" pref="351" max="-2" attributes="0"/>
                                       <Component id="Email" min="-2" pref="300" max="-2" attributes="0"/>
@@ -844,59 +824,32 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="Name" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
-                                      <Component id="NameText" alignment="3" min="-2" pref="58" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="ColonLebel23" min="-2" pref="62" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              </Group>
+                          <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="Name" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
+                              <Component id="NameText" alignment="3" min="-2" pref="58" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace type="separate" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="IDText" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
                               <Component id="ID" alignment="3" min="-2" pref="59" max="-2" attributes="0"/>
-                              <Component id="ColonLebel24" alignment="3" min="-2" pref="62" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="SubjectText" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
                               <Component id="Subject" alignment="3" min="-2" pref="59" max="-2" attributes="0"/>
-                              <Component id="ColonLebel25" alignment="3" min="-2" pref="62" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="Designation" min="-2" pref="59" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="ColonLebel26" min="-2" pref="62" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                      </Group>
+                                  <Component id="Designation" min="-2" pref="59" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="phoneNo" alignment="3" min="-2" pref="59" max="-2" attributes="0"/>
+                                      <Component id="PhoneText" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="phoneNo" alignment="3" min="-2" pref="59" max="-2" attributes="0"/>
-                                              <Component id="PhoneText" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="ColonLebel27" min="-2" pref="62" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="DesignationText" min="-2" pref="68" max="-2" attributes="0"/>
@@ -906,7 +859,6 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="EmailText" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
                               <Component id="Email" alignment="3" min="-2" pref="59" max="-2" attributes="0"/>
-                              <Component id="ColonLebel28" alignment="3" min="-2" pref="62" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                           <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
@@ -925,7 +877,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="2"/>
-                    <Property name="text" type="java.lang.String" value="Name"/>
+                    <Property name="text" type="java.lang.String" value="Name:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="Designation">
@@ -961,7 +913,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="2"/>
-                    <Property name="text" type="java.lang.String" value="Designation"/>
+                    <Property name="text" type="java.lang.String" value="Designation:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="IDText">
@@ -973,7 +925,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="2"/>
-                    <Property name="text" type="java.lang.String" value="ID"/>
+                    <Property name="text" type="java.lang.String" value="ID:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="ID">
@@ -997,7 +949,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="2"/>
-                    <Property name="text" type="java.lang.String" value="Subject"/>
+                    <Property name="text" type="java.lang.String" value="Subject:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="Subject">
@@ -1033,7 +985,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="2"/>
-                    <Property name="text" type="java.lang.String" value="Email"/>
+                    <Property name="text" type="java.lang.String" value="Email:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="phoneNo">
@@ -1057,7 +1009,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="2"/>
-                    <Property name="text" type="java.lang.String" value="Phone no"/>
+                    <Property name="text" type="java.lang.String" value="Phone No:"/>
                   </Properties>
                 </Component>
                 <Container class="javax.swing.JPanel" name="jPanel2">
@@ -1084,7 +1036,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="Edit" min="-2" pref="46" max="-2" attributes="0"/>
-                              <EmptySpace pref="28" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1107,72 +1059,6 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JLabel" name="ColonLebel23">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Comic Sans MS" size="36" style="1"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value=":"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="ColonLebel24">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Comic Sans MS" size="36" style="1"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value=":"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="ColonLebel25">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Comic Sans MS" size="36" style="1"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value=":"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="ColonLebel26">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Comic Sans MS" size="36" style="1"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value=":"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="ColonLebel27">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Comic Sans MS" size="36" style="1"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value=":"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="ColonLebel28">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Comic Sans MS" size="36" style="1"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value=":"/>
-                  </Properties>
-                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="HomeworkPanel">
@@ -1579,7 +1465,6 @@
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="totalMarksActionPerformed"/>
-                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="totalMarksKeyPressed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel18">
@@ -2135,23 +2020,23 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="500" max="-2" attributes="0"/>
+                                  <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="354" max="-2" attributes="0"/>
                                   <Component id="resultSubmitButton" min="-2" pref="314" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="teacherSUb" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jLabel24" alignment="0" pref="219" max="32767" attributes="0"/>
-                                      <Component id="resultOfID" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="ColonLebel29" min="-2" max="-2" attributes="0"/>
-                                      <Component id="ColonLebel30" min="-2" max="-2" attributes="0"/>
-                                      <Component id="ColonLebel31" min="-2" max="-2" attributes="0"/>
+                                      <Component id="resultOfID" alignment="0" min="-2" pref="246" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="teacherSUb" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jLabel24" alignment="0" pref="219" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="studentIdResultField" alignment="0" pref="234" max="32767" attributes="0"/>
                                       <Component id="marks" alignment="0" pref="234" max="32767" attributes="0"/>
@@ -2165,57 +2050,41 @@
                           <Component id="selectPaper" pref="179" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="467" max="-2" attributes="0"/>
-                          <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="jLabel12" pref="61" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="studentIdResultField" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                              <Component id="resultOfID" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                          </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                  <Component id="jLabel12" max="32767" attributes="0"/>
-                                  <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="studentIdResultField" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
-                                      <Component id="resultOfID" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                                      <Component id="teacherSUb" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                                      <Component id="subb" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="teacherSUb" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                                              <Component id="subb" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="selectPaper" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="subjectPartText" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
-                                  <Component id="ColonLebel29" min="-2" pref="62" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="ColonLebel30" min="-2" pref="62" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="selectPaper" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="subjectPartText" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace pref="17" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="ColonLebel31" alignment="3" min="-2" pref="105" max="-2" attributes="0"/>
                               <Component id="jLabel24" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
                               <Component id="marks" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="222" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="179" max="-2" attributes="0"/>
                           <Component id="resultSubmitButton" min="-2" pref="46" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
                       </Group>
@@ -2362,39 +2231,6 @@
                     <Property name="text" type="java.lang.String" value="Paper :"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="ColonLebel29">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Comic Sans MS" size="36" style="1"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value=":"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="ColonLebel30">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Comic Sans MS" size="36" style="1"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value=":"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="ColonLebel31">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Comic Sans MS" size="36" style="1"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value=":"/>
-                  </Properties>
-                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="MessegePanel">
@@ -2410,14 +2246,19 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                           <Component id="HomeworkPanel3" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="HomeworkPanel3" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                          <Component id="HomeworkPanel3" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -2437,24 +2278,18 @@
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jScrollPane3" alignment="0" pref="953" max="32767" attributes="0"/>
                                   <Component id="jLabel19" alignment="0" min="-2" pref="198" max="-2" attributes="0"/>
-                                  <Component id="jSeparator7" alignment="0" max="32767" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel21" alignment="0" min="-2" pref="219" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabel20" min="-2" pref="246" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                              <Component id="ColonLebel32" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel20" min="-2" pref="246" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="studentIdTextField" min="-2" pref="218" max="-2" attributes="0"/>
                                   </Group>
+                                  <Component id="jLabel21" alignment="0" min="-2" pref="219" max="-2" attributes="0"/>
+                                  <Component id="jSeparator7" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="388" max="32767" attributes="0"/>
+                              <EmptySpace pref="381" max="32767" attributes="0"/>
                               <Component id="messageSendButton" min="-2" pref="314" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="352" max="-2" attributes="0"/>
                           </Group>
@@ -2465,18 +2300,12 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                               <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="31" max="32767" attributes="0"/>
-                              <Component id="jSeparator7" min="-2" pref="13" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jLabel20" min="-2" pref="44" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="ColonLebel32" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
-                                          <Component id="studentIdTextField" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                                  </Group>
+                              <Component id="jSeparator7" min="-2" pref="13" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel20" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
+                                  <Component id="studentIdTextField" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel21" min="-2" pref="48" max="-2" attributes="0"/>
@@ -2484,7 +2313,7 @@
                               <Component id="jScrollPane3" min="-2" pref="291" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                               <Component id="messageSendButton" min="-2" pref="46" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                              <EmptySpace pref="48" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2592,17 +2421,6 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="studentIdTextFieldActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="ColonLebel32">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Comic Sans MS" size="36" style="1"/>
-                        </Property>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value=":"/>
-                      </Properties>
-                    </Component>
                   </SubComponents>
                 </Container>
               </SubComponents>
@@ -2657,23 +2475,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                  <Component id="ColonLebel17" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="ColonLebel19" min="-2" max="-2" attributes="0"/>
-                                      <Component id="ColonLebel18" min="-2" max="-2" attributes="0"/>
-                                      <Component id="ColonLebel20" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="ColonLebel21" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="ColonLebel22" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="Class" min="-2" pref="157" max="-2" attributes="0"/>
                               <Component id="Section" min="-2" pref="157" max="-2" attributes="0"/>
@@ -2692,70 +2494,47 @@
                           <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                           <Component id="jLabel25" min="-2" pref="52" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="ID1" min="-2" pref="59" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="ClassText" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
-                                      <Component id="Class" alignment="3" min="-2" pref="59" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="Section" alignment="3" min="-2" pref="59" max="-2" attributes="0"/>
-                                      <Component id="SectionText" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="PhoneText1" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
-                                      <Component id="phoneNo1" alignment="3" min="-2" pref="59" max="-2" attributes="0"/>
-                                      <Component id="ColonLebel21" alignment="3" min="-2" pref="62" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="Email1" alignment="3" min="-2" pref="59" max="-2" attributes="0"/>
-                                      <Component id="EmailText1" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
-                                      <Component id="ColonLebel22" alignment="3" min="-2" pref="62" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
+                              <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="enter_id_label" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jTextField2" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
                                       <Component id="searchT_btn" alignment="3" min="-2" pref="51" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="0" pref="34" max="32767" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="NameText2" alignment="0" min="-2" pref="68" max="-2" attributes="0"/>
-                                              <Component id="NameFDB" min="-2" pref="68" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="ColonLebel17" min="-2" pref="62" max="-2" attributes="0"/>
-                                      </Group>
+                                  <EmptySpace min="0" pref="33" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="NameText2" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
+                                      <Component id="NameFDB" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="IDTest1" min="-2" pref="68" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                                          <Component id="ColonLebel18" min="-2" pref="62" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="ColonLebel19" min="-2" pref="62" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                                  <Component id="ColonLebel20" min="-2" pref="62" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="195" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="IDTest1" min="-2" pref="68" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="ID1" min="-2" pref="59" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="ClassText" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
+                              <Component id="Class" alignment="3" min="-2" pref="59" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="Section" alignment="3" min="-2" pref="59" max="-2" attributes="0"/>
+                              <Component id="SectionText" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="PhoneText1" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
+                              <Component id="phoneNo1" alignment="3" min="-2" pref="59" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="Email1" alignment="3" min="-2" pref="59" max="-2" attributes="0"/>
+                              <Component id="EmailText1" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2950,72 +2729,6 @@
                       <Color blue="ff" green="ff" red="99" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="2"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="ColonLebel17">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Comic Sans MS" size="36" style="1"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value=":"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="ColonLebel18">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Comic Sans MS" size="36" style="1"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value=":"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="ColonLebel19">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Comic Sans MS" size="36" style="1"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value=":"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="ColonLebel20">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Comic Sans MS" size="36" style="1"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value=":"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="ColonLebel21">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Comic Sans MS" size="36" style="1"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value=":"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="ColonLebel22">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Comic Sans MS" size="36" style="1"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value=":"/>
                   </Properties>
                 </Component>
               </SubComponents>

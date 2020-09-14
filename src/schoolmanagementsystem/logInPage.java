@@ -15,12 +15,12 @@ public class logInPage extends javax.swing.JFrame {
             initComponents();
         }else{
             if(userId.contains("100.")){
-            new StudentProfile(userId).setVisible(true);
-            dispose();
-        }else if(userId.contains("400.")){
-            new TeacherProfile(userId).setVisible(true);
-            dispose();
-        }
+                new StudentProfile(userId).setVisible(true);
+                dispose();
+            }else if(userId.contains("400.")){
+                new TeacherProfile(userId).setVisible(true);
+                dispose();
+            }
         }
     }
     
@@ -179,7 +179,7 @@ public class logInPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
 //...................Start Custom Functions....................//
-
+    
     private void clearTextField(){
         idField.setText("");
         passwordField.setText("");

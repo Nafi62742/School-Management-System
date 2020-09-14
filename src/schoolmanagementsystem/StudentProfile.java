@@ -48,7 +48,7 @@ public class StudentProfile extends javax.swing.JFrame {
     int dateNotificationToggle =0;
     int homeworkNotificationCheck =0;
     int noticeNotificationCheck=0;
-     int messageNotificationCheck=0;
+    int messageNotificationCheck=0;
     public String id;
     
     //Constructor
@@ -64,7 +64,7 @@ public class StudentProfile extends javax.swing.JFrame {
         this.id=id;
         stdb=new StudentDatabase(this.id);
         
-       showMessage();
+        showMessage();
         
         showNoticeBoard();
         getHomeworks();
@@ -72,7 +72,7 @@ public class StudentProfile extends javax.swing.JFrame {
         hideSideMenu();
         profileShow();
         resultShow();
-      
+        
         notifierButtonUse();
     }
     /**
@@ -129,12 +129,6 @@ public class StudentProfile extends javax.swing.JFrame {
         notifierField = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         Edit = new javax.swing.JLabel();
-        ColonLebel10 = new javax.swing.JLabel();
-        ColonLebel11 = new javax.swing.JLabel();
-        ColonLebel12 = new javax.swing.JLabel();
-        ColonLebel13 = new javax.swing.JLabel();
-        ColonLebel14 = new javax.swing.JLabel();
-        ColonLebel16 = new javax.swing.JLabel();
         HomeworkPanel = new javax.swing.JPanel();
         HomeworkPanel1 = new javax.swing.JPanel();
         dueDateLabel = new javax.swing.JLabel();
@@ -665,6 +659,19 @@ public class StudentProfile extends javax.swing.JFrame {
         Class.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Class.setText("Class show");
 
+<<<<<<< Updated upstream
+=======
+        Edit.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        Edit.setForeground(new java.awt.Color(255, 255, 255));
+        Edit.setText("Update Profile");
+        Edit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Edit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EditMouseClicked(evt);
+            }
+        });
+
+>>>>>>> Stashed changes
         phoneNo.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         phoneNo.setForeground(new java.awt.Color(153, 255, 255));
         phoneNo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -730,30 +737,6 @@ public class StudentProfile extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        ColonLebel10.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
-        ColonLebel10.setForeground(new java.awt.Color(255, 255, 255));
-        ColonLebel10.setText(":");
-
-        ColonLebel11.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
-        ColonLebel11.setForeground(new java.awt.Color(255, 255, 255));
-        ColonLebel11.setText(":");
-
-        ColonLebel12.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
-        ColonLebel12.setForeground(new java.awt.Color(255, 255, 255));
-        ColonLebel12.setText(":");
-
-        ColonLebel13.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
-        ColonLebel13.setForeground(new java.awt.Color(255, 255, 255));
-        ColonLebel13.setText(":");
-
-        ColonLebel14.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
-        ColonLebel14.setForeground(new java.awt.Color(255, 255, 255));
-        ColonLebel14.setText(":");
-
-        ColonLebel16.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
-        ColonLebel16.setForeground(new java.awt.Color(255, 255, 255));
-        ColonLebel16.setText(":");
-
         javax.swing.GroupLayout HomePanelLayout = new javax.swing.GroupLayout(HomePanel);
         HomePanel.setLayout(HomePanelLayout);
         HomePanelLayout.setHorizontalGroup(
@@ -763,32 +746,20 @@ public class StudentProfile extends javax.swing.JFrame {
                     .addGroup(HomePanelLayout.createSequentialGroup()
                         .addGap(91, 91, 91)
                         .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(HomePanelLayout.createSequentialGroup()
-                                .addComponent(IDTest1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ColonLebel12, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(IDTest1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(HomePanelLayout.createSequentialGroup()
                                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(HomePanelLayout.createSequentialGroup()
-                                        .addComponent(SectionText, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(ColonLebel13, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomePanelLayout.createSequentialGroup()
-                                            .addComponent(NameText2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(ColonLebel10, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(HomePanelLayout.createSequentialGroup()
+                                        .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(EmailText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(ClassText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(PhoneText, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
-                                                .addComponent(EmailText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(ColonLebel11, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(ColonLebel14, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(ColonLebel16, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addGap(29, 29, 29)
+                                                .addComponent(PhoneText, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))
+                                            .addComponent(SectionText, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(53, 53, 53))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomePanelLayout.createSequentialGroup()
+                                        .addComponent(NameText2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(59, 59, 59)))
                                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Section, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(phoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -801,12 +772,12 @@ public class StudentProfile extends javax.swing.JFrame {
                                         .addComponent(jLabel1))
                                     .addGroup(HomePanelLayout.createSequentialGroup()
                                         .addComponent(Class, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(122, 122, 122)
+                                        .addGap(140, 140, 140)
                                         .addComponent(notifierField, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(HomePanelLayout.createSequentialGroup()
-                        .addGap(334, 334, 334)
+                        .addGap(319, 319, 319)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         HomePanelLayout.setVerticalGroup(
             HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -816,41 +787,35 @@ public class StudentProfile extends javax.swing.JFrame {
                     .addGroup(HomePanelLayout.createSequentialGroup()
                         .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(NameFDB, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(NameText2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ColonLebel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(NameText2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(IDTest1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ColonLebel12, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(ClassText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Class, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ColonLebel11, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(19, 19, 19)
+                            .addComponent(Class, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(24, 24, 24)
                         .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(SectionText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Section, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ColonLebel13, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Section, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(27, 27, 27))
                     .addGroup(HomePanelLayout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(38, 38, 38)
                         .addComponent(notifierField, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(PhoneText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(phoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ColonLebel14, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(phoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(EmailText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ColonLebel16, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("home", HomePanel);
@@ -914,12 +879,6 @@ public class StudentProfile extends javax.swing.JFrame {
         HomeworkPanel1.setLayout(HomeworkPanel1Layout);
         HomeworkPanel1Layout.setHorizontalGroup(
             HomeworkPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomeworkPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(HomeworkPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dueDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(postDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(271, 271, 271))
             .addGroup(HomeworkPanel1Layout.createSequentialGroup()
                 .addGroup(HomeworkPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(HomeworkPanel1Layout.createSequentialGroup()
@@ -932,9 +891,15 @@ public class StudentProfile extends javax.swing.JFrame {
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(homeworkLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 652, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(HomeworkPanel1Layout.createSequentialGroup()
-                        .addGap(294, 294, 294)
+                        .addGap(239, 239, 239)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(349, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomeworkPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(HomeworkPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dueDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(postDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(271, 271, 271))
         );
         HomeworkPanel1Layout.setVerticalGroup(
             HomeworkPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -950,10 +915,10 @@ public class StudentProfile extends javax.swing.JFrame {
                         .addComponent(totalMarksLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(dueDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(homeworkLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addComponent(homeworkLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(118, 118, 118))
+                .addContainerGap(286, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout HomeworkPanelLayout = new javax.swing.GroupLayout(HomeworkPanel);
@@ -1180,7 +1145,7 @@ public class StudentProfile extends javax.swing.JFrame {
         myNoticePanel.setBackground(new java.awt.Color(65, 59, 94));
 
         noticeBoardTable.setAutoCreateRowSorter(true);
-        noticeBoardTable.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        noticeBoardTable.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         noticeBoardTable.setForeground(new java.awt.Color(0, 0, 0));
         noticeBoardTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1498,7 +1463,7 @@ public class StudentProfile extends javax.swing.JFrame {
                                 .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(resultPanelLayout.createSequentialGroup()
                                         .addComponent(ColonLebel8, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(english2nd, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(resultPanelLayout.createSequentialGroup()
                                         .addComponent(ColonLebel9, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1668,10 +1633,10 @@ public class StudentProfile extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     //......................Start Custom Functions...................//
-        public int checkDate(String dueDate){
+    public int checkDate(String dueDate){
         Date datetime = new Date();
         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-        String dateString=dateFormat.format(datetime);  
+        String dateString=dateFormat.format(datetime);
         if(dueDate.equals(dateString)){
             return 1;
         }
@@ -1682,11 +1647,11 @@ public class StudentProfile extends javax.swing.JFrame {
         totalHomeworks=homeworkList.size();
         
         int notifier =checkDate(homeworkList.get(totalHomeworks-1).getDueDateString());
-            if(notifier==1){
-                dateNotificationToggle= 1;
-                homeworkNotificationCheck=1;
-       }
-       showHomework();
+        if(notifier==1){
+            dateNotificationToggle= 1;
+            homeworkNotificationCheck=1;
+        }
+        showHomework();
     }
     public void showHomework(){
         if(totalHomeworks>=1){
@@ -1698,7 +1663,7 @@ public class StudentProfile extends javax.swing.JFrame {
             homeworkLabel.setText("<html>"+homeworkList.get(0).getHomeworkText()+"</html>");
             
             int notifier =checkDate(homeworkList.get(0).getDueDateString());
-           
+            
         }else{
             nextHomeworkButton.setVisible(false);
             previousHomeworkButton.setVisible(false);
@@ -1779,7 +1744,7 @@ public class StudentProfile extends javax.swing.JFrame {
         Object[] row2=new Object[4];
         for(int i=list.size()-1;i>=0;i--){
             
-            row2[0]=list.get(i).getTeacherName();            
+            row2[0]=list.get(i).getTeacherName();
             row2[1]=list.get(i).getMessage();
             row2[2]=list.get(i).getDateString();
             row2[3]=list.get(i).getTimeString();
@@ -1793,6 +1758,11 @@ public class StudentProfile extends javax.swing.JFrame {
             
         }
     }
+    
+    
+    
+    
+    
     public void showAttendance(String Month) {
         List<Attendance> list = stdb.getAttendance(Month);
         int aD =0;
@@ -1801,15 +1771,17 @@ public class StudentProfile extends javax.swing.JFrame {
         }
         else{
             for (int i = 0; i < list.size(); i++) {
-
-                    aD = list.get(i).getWorkingDays() - list.get(i).getPresentDays();
-                    absentDaysTextField.setText(Integer.toString(aD));
-                    String wD = Integer.toString(list.get(i).getWorkingDays());
-                    workingDayTextField.setText(wD);
-                    String pD = Integer.toString(list.get(i).getPresentDays());
-                    presentDaysTextField.setText(pD);
+                
+                aD = list.get(i).getWorkingDays() - list.get(i).getPresentDays();
+                absentDaysTextField.setText(Integer.toString(aD));
+                String wD = Integer.toString(list.get(i).getWorkingDays());
+                workingDayTextField.setText(wD);
+                String pD = Integer.toString(list.get(i).getPresentDays());
+                presentDaysTextField.setText(pD);
             }
+            
         }
+        
     }
     
     
@@ -1819,11 +1791,11 @@ public class StudentProfile extends javax.swing.JFrame {
         DefaultCategoryDataset dcd = new DefaultCategoryDataset();
         List<Attendance> list = stdb.getAttendance(month);
         for (int i = 0; i < list.size(); i++) {
-
+            
             wD = list.get(i).getWorkingDays();
-
+            
             pD = list.get(i).getPresentDays();
-
+            
         }
         dcd.setValue(wD, "Days", "Working Days");
         dcd.setValue(pD, "Days", "Present Days");
@@ -1857,250 +1829,252 @@ public class StudentProfile extends javax.swing.JFrame {
         }
     }
     
+    
     public void resultComplements(int total){
-                            int finalMarks=stdb.getGrandTotal();
-                             String b1= Integer.toString(stdb.getBangla1st());
-                             String b2= Integer.toString(stdb.getBangla2nd());
-                             String e1 = Integer.toString(stdb.getEnglish1st());
-                             String e2=Integer.toString(stdb.getEnglish2nd());
-                             String m=Integer.toString(stdb.getMath());
-                             String r=Integer.toString(stdb.getReligion());
-                             String s=Integer.toString(stdb.getScience());
-                             String ic=Integer.toString(stdb.getIct());
-                             String bgs=Integer.toString(stdb.getBgs());
-                             int percentage=(finalMarks*100)/total;
-               if(b1.equals("0") ||b2.equals("0")|| e1.equals("0") ||e2.equals("0") || m.equals("0") || r.equals("0") || s.equals("0") || ic.equals("0") || bgs.equals("0")){
-                      complements.setText("");
-               }
-               else if(percentage<40){
-                   complements.setText("You have failed");
-               }
-               else if(percentage>80){
-                   complements.setText("Excelent");
-               }
-                else if(percentage>80){
-                   complements.setText("Satisfactory");
-               }
+        int finalMarks=stdb.getGrandTotal();
+        String b1= Integer.toString(stdb.getBangla1st());
+        String b2= Integer.toString(stdb.getBangla2nd());
+        String e1 = Integer.toString(stdb.getEnglish1st());
+        String e2=Integer.toString(stdb.getEnglish2nd());
+        String m=Integer.toString(stdb.getMath());
+        String r=Integer.toString(stdb.getReligion());
+        String s=Integer.toString(stdb.getScience());
+        String ic=Integer.toString(stdb.getIct());
+        String bgs=Integer.toString(stdb.getBgs());
+        int percentage=(finalMarks*100)/total;
+        if(b1.equals("0") ||b2.equals("0")|| e1.equals("0") ||e2.equals("0") || m.equals("0") || r.equals("0") || s.equals("0") || ic.equals("0") || bgs.equals("0")){
+            complements.setText("");
+        }
+        else if(percentage<40){
+            complements.setText("You have failed");
+        }
+        else if(percentage>80){
+            complements.setText("Excelent");
+        }
+        else if(percentage>80){
+            complements.setText("Satisfactory");
+        }
     }
     
     public void resultPageClear(){
-                   bangla1st.setText("");
-                   bangla2nd.setText("");
-                   english1st.setText("");
-                   english2nd.setText("");
-                   math.setText("");
-                   religion.setText("");
-                   science.setText("");
-                   ICT.setText("");
-                   BGS.setText("");
-                   totalMarks.setText("");
-                   
-                   BanglaText.setText("");
-                   b1st.setText("");
-                   bangla2ndText.setText("");
-                   
-                   EnglishText.setText("");
-                   e1st.setText("");
-                   English2ndText.setText("");
-                   
-                   MathText.setText("");
-                   ScienceText.setText("");
-                   ICTText.setText("");
-                   BGSText.setText("");
-                   religionText.setText("");
-                   TotalText.setText("");
-                   ColonLebel.setText("");
-
-                   ColonLebel1.setText("");
-                   ColonLebel2.setText("");
-                   ColonLebel3.setText("");
-                   ColonLebel4.setText("");
-                   ColonLebel5.setText("");
-                   ColonLebel6.setText("");
-                   ColonLebel7.setText("");
-                   ColonLebel8.setText("");
-                   ColonLebel9.setText("");
- }   
-
-public void resultShow(){
+        bangla1st.setText("");
+        bangla2nd.setText("");
+        english1st.setText("");
+        english2nd.setText("");
+        math.setText("");
+        religion.setText("");
+        science.setText("");
+        ICT.setText("");
+        BGS.setText("");
+        totalMarks.setText("");
         
-            String student_id =this.id;
-            String finalMarks=Integer.toString(stdb.getGrandTotal());
-            String b1= Integer.toString(stdb.getBangla1st());
-            String b2= Integer.toString(stdb.getBangla2nd());
-            String e1 = Integer.toString(stdb.getEnglish1st());
-            String e2=Integer.toString(stdb.getEnglish2nd());
-            String m=Integer.toString(stdb.getMath());
-            String r=Integer.toString(stdb.getReligion());
-            String s=Integer.toString(stdb.getScience());
-            String ic=Integer.toString(stdb.getIct());
-            String bgs=Integer.toString(stdb.getBgs());
-            int resultClass=Integer.parseInt(stdb.getStudentClass());
-            if(b1.equals("0") &&b2.equals("0")&& e1.equals("0") && e2.equals("0") && m.equals("0") && r.equals("0") && s.equals("0") && ic.equals("0") && bgs.equals("0")){
-               noResult.setText("No result published yet");
-                resultPageClear();
-            }
-            else if(resultClass>5&&resultClass<11){
-                      if(b1 .equals("0")){
-                          bangla1st.setText("-/100");
-                      }
-                      else{
-                          bangla1st.setText(b1+"/100");
-                      }
-                      if(b2.equals("0")){
-                         bangla2nd.setText("-/50");
-                      }
-                      else{
-                          bangla2nd.setText(b2+"/50");
-                      }
-                       if(e1 .equals("0")){
-                          english1st.setText("-/100");
-                      }
-                      else{
-                         english1st.setText(e1+"/100");
-                      }
-                        if(e2 .equals("0")){
-                         english2nd.setText("-/50");
-                      }
-                      else{
-                          english2nd.setText(e2+"/50");
-                      }
-                       if(m .equals("0")){
-                          math.setText("-/100");
-                      }
-                      else{
-                         math.setText(m+"/100");
-                      }
-
-                      if(r.equals("0")){
-                          religion.setText("-/100");
-                      }
-                      else{
-                         religion.setText(r+"/100");
-                      }
-                      if(s.equals("0")){
-                          science.setText("-/100");
-                      }
-                      else{
-                         science.setText(s+"/100");
-                      }
-
-                      if(ic.equals("0")){
-                          ICT.setText("-/100");
-                      }
-                      else{
-                         ICT.setText(ic+"/100");
-                      }
-                      if(bgs.equals("0")){
-                          BGS.setText("-/100");
-                      }
-                      else{
-                         BGS.setText(bgs+"/100");
-                      }
-                      totalMarks.setText(finalMarks+"/800");
-                       resultComplements(800);
-            }
-            else if(resultClass>3&&resultClass<6){
-                        if(b1.equals("0")){
-                          bangla1st.setText("-/100");
-                      }
-                      else{
-                          bangla1st.setText(b1);
-                      }
-                      if(b2.equals("0")){
-                         bangla2nd.setText("");
-                         bangla2ndText.setText("");
-                         b1st.setText("");
-                      }
-                      else{
-                          bangla2nd.setText(b2);
-                      }
-                       if(e1.equals("0")){
-                          english1st.setText("");
-                      }
-                      else{
-                         english1st.setText(e1);
-                      }
-                        if(e2.equals("0")){
-                         english2nd.setText("");
-                         English2ndText.setText("");
-                         e1st.setText("");
-                      }
-                      else{
-                          bangla2nd.setText(e2+"/100");
-                      }
-                       if(m.equals("0")){
-                          math.setText("");
-                      }
-                      else{
-                         math.setText(m+"/100");
-                      }
-
-                      if(r.equals("0")){
-                          religion.setText("");
-                      }
-                      else{
-                         religion.setText(r);
-                      }
-                      if(bgs.equals("0")){
-                          BGS.setText("");
-                      }
-                      else{
-                         BGS.setText(r);
-                      }
-                      ColonLebel8.setText("");
-                      ColonLebel9.setText("");
-                      ICTText.setText("");
-                      ICT.setText("");
-                      totalMarks.setText(finalMarks+"/600");
-                      resultComplements(600);
-           }
-           else if(resultClass>0&&resultClass<4){
-                      if(b1.equals("0")){
-                          bangla1st.setText("-/100");
-                      }
-                      else{
-                          bangla1st.setText(b1);
-                      }
-                    bangla2nd.setText("");
-                    bangla2ndText.setText("");
-                    b1st.setText("");
-                       if(e1.equals("0")){
-                          english1st.setText("");
-                      }
-                      else{
-                         english1st.setText(e1);
-                      }
-                    english2nd.setText("");
-                    English2ndText.setText("");
-                    e1st.setText("");
-                       if(m.equals("0")){
-                          math.setText("");
-                      }
-                      else{
-                         math.setText(m+"/100");
-                      }
-
-                      if(r.equals("0")){
-                          religion.setText("");
-                      }
-                      else{
-                         religion.setText(r);
-                      }
-                      ICTText.setText("");
-                      ICT.setText("");
-                      BGSText.setText("");
-                      BGS.setText("");
-                      ColonLebel8.setText("");
-                      ColonLebel9.setText("");
-                      totalMarks.setText(finalMarks+"/500");
-                      resultComplements(500);
-           }
-           else{
-                
-           }
+        BanglaText.setText("");
+        b1st.setText("");
+        bangla2ndText.setText("");
+        
+        EnglishText.setText("");
+        e1st.setText("");
+        English2ndText.setText("");
+        
+        MathText.setText("");
+        ScienceText.setText("");
+        ICTText.setText("");
+        BGSText.setText("");
+        religionText.setText("");
+        TotalText.setText("");
+        ColonLebel.setText("");
+        
+        ColonLebel1.setText("");
+        ColonLebel2.setText("");
+        ColonLebel3.setText("");
+        ColonLebel4.setText("");
+        ColonLebel5.setText("");
+        ColonLebel6.setText("");
+        ColonLebel7.setText("");
+        ColonLebel8.setText("");
+        ColonLebel9.setText("");
     }
+    
+    public void resultShow(){
         
+        String student_id =this.id;
+        String finalMarks=Integer.toString(stdb.getGrandTotal());
+        String b1= Integer.toString(stdb.getBangla1st());
+        String b2= Integer.toString(stdb.getBangla2nd());
+        String e1 = Integer.toString(stdb.getEnglish1st());
+        String e2=Integer.toString(stdb.getEnglish2nd());
+        String m=Integer.toString(stdb.getMath());
+        String r=Integer.toString(stdb.getReligion());
+        String s=Integer.toString(stdb.getScience());
+        String ic=Integer.toString(stdb.getIct());
+        String bgs=Integer.toString(stdb.getBgs());
+        int resultClass=Integer.parseInt(stdb.getStudentClass());
+        if(b1.equals("0") &&b2.equals("0")&& e1.equals("0") && e2.equals("0") && m.equals("0") && r.equals("0") && s.equals("0") && ic.equals("0") && bgs.equals("0")){
+            noResult.setText("No result published yet");
+            resultPageClear();
+        }
+        else if(resultClass>5&&resultClass<11){
+            if(b1 .equals("0")){
+                bangla1st.setText("-/100");
+            }
+            else{
+                bangla1st.setText(b1+"/100");
+            }
+            if(b2.equals("0")){
+                bangla2nd.setText("-/50");
+            }
+            else{
+                bangla2nd.setText(b2+"/50");
+            }
+            if(e1 .equals("0")){
+                english1st.setText("-/100");
+            }
+            else{
+                english1st.setText(e1+"/100");
+            }
+            if(e2 .equals("0")){
+                english2nd.setText("-/50");
+            }
+            else{
+                english2nd.setText(e2+"/50");
+            }
+            if(m .equals("0")){
+                math.setText("-/100");
+            }
+            else{
+                math.setText(m+"/100");
+            }
+            
+            if(r.equals("0")){
+                religion.setText("-/100");
+            }
+            else{
+                religion.setText(r+"/100");
+            }
+            if(s.equals("0")){
+                science.setText("-/100");
+            }
+            else{
+                science.setText(s+"/100");
+            }
+            
+            if(ic.equals("0")){
+                ICT.setText("-/100");
+            }
+            else{
+                ICT.setText(ic+"/100");
+            }
+            if(bgs.equals("0")){
+                BGS.setText("-/100");
+            }
+            else{
+                BGS.setText(bgs+"/100");
+            }
+            totalMarks.setText(finalMarks+"/800");
+            resultComplements(800);
+        }
+        else if(resultClass>3&&resultClass<6){
+            if(b1.equals("0")){
+                bangla1st.setText("-/100");
+            }
+            else{
+                bangla1st.setText(b1);
+            }
+            if(b2.equals("0")){
+                bangla2nd.setText("");
+                bangla2ndText.setText("");
+                b1st.setText("");
+            }
+            else{
+                bangla2nd.setText(b2);
+            }
+            if(e1.equals("0")){
+                english1st.setText("");
+            }
+            else{
+                english1st.setText(e1);
+            }
+            if(e2.equals("0")){
+                english2nd.setText("");
+                English2ndText.setText("");
+                e1st.setText("");
+            }
+            else{
+                bangla2nd.setText(e2+"/100");
+            }
+            if(m.equals("0")){
+                math.setText("");
+            }
+            else{
+                math.setText(m+"/100");
+            }
+            
+            if(r.equals("0")){
+                religion.setText("");
+            }
+            else{
+                religion.setText(r);
+            }
+            if(bgs.equals("0")){
+                BGS.setText("");
+            }
+            else{
+                BGS.setText(r);
+            }
+            ColonLebel8.setText("");
+            ColonLebel9.setText("");
+            ICTText.setText("");
+            ICT.setText("");
+            totalMarks.setText(finalMarks+"/600");
+            resultComplements(600);
+        }
+        else if(resultClass>0&&resultClass<4){
+            if(b1.equals("0")){
+                bangla1st.setText("-/100");
+            }
+            else{
+                bangla1st.setText(b1);
+            }
+            bangla2nd.setText("");
+            bangla2ndText.setText("");
+            b1st.setText("");
+            if(e1.equals("0")){
+                english1st.setText("");
+            }
+            else{
+                english1st.setText(e1);
+            }
+            english2nd.setText("");
+            English2ndText.setText("");
+            e1st.setText("");
+            if(m.equals("0")){
+                math.setText("");
+            }
+            else{
+                math.setText(m+"/100");
+            }
+            
+            if(r.equals("0")){
+                religion.setText("");
+            }
+            else{
+                religion.setText(r);
+            }
+            ICTText.setText("");
+            ICT.setText("");
+            BGSText.setText("");
+            BGS.setText("");
+            ColonLebel8.setText("");
+            ColonLebel9.setText("");
+            totalMarks.setText(finalMarks+"/500");
+            resultComplements(500);
+        }
+        else{
+            //noResult.setText("Student does't have a ");
+            //resultPageClear();
+        }
+    }
+    
     
     public void profileShow(){
         
@@ -2119,13 +2093,13 @@ public void resultShow(){
         else{
             phoneNo.setText(StudentPhnNo);
         }
-         if(Studentemail == null){
+        if(Studentemail == null){
             Email.setText("Email not given yet");
         }
         else{
             Email.setText(Studentemail);
         }
-         
+        
     }
     
 //......................End Custom Functions...................//
@@ -2335,11 +2309,11 @@ public void resultShow(){
     private void EditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EditMouseClicked
         UpdateAccountStudent updateAccountStudent = new UpdateAccountStudent(this.id);
         updateAccountStudent.setVisible(true);
-
+        
         updateAccountStudent.setResizable(false);
-
+        
         updateAccountStudent.setDefaultCloseOperation(updateAccountStudent.DO_NOTHING_ON_CLOSE);
-
+        
         //popUp pU = new popUp();
         dispose();
     }//GEN-LAST:event_EditMouseClicked
@@ -2357,9 +2331,9 @@ public void resultShow(){
     }//GEN-LAST:event_presentDaysTextFieldActionPerformed
 
     private void showAttendanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showAttendanceActionPerformed
-
+        
         String manth = (String) jComboBox2.getSelectedItem();
-
+        
         showAttendance(manth);
         updateChart(manth);
     }//GEN-LAST:event_showAttendanceActionPerformed
@@ -2367,12 +2341,12 @@ public void resultShow(){
     private void absentDaysTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_absentDaysTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_absentDaysTextFieldActionPerformed
-
+    
     public void notifierButtonUse(){
         for(int i=0;i<4;i++)
             if(dateNotificationToggle==1){
                 notifierField.setText("You have a homework pending today!!");
-
+                
             }
             else if(dateNotificationToggle==2){
                 notifierField.setText("You have a notice!!");
@@ -2393,7 +2367,7 @@ public void resultShow(){
             resetColor(notices_btn);
             resetColor(attendance_btn);
             resetColor(messege_btn);
-
+            
             ind_0.setOpaque(false);
             ind_1.setOpaque(true);
             ind_2.setOpaque(false);
@@ -2402,7 +2376,7 @@ public void resultShow(){
             ind_5.setOpaque(false);
             homeworkNotificationCheck=0;
             dateNotificationToggle++;
-
+            
         }
         else if(dateNotificationToggle==2){
             jTabbedPane1.setSelectedIndex(3);
@@ -2412,7 +2386,7 @@ public void resultShow(){
             resetColor(home_btn);
             resetColor(attendance_btn);
             resetColor(messege_btn);
-
+            
             ind_0.setOpaque(false);
             ind_1.setOpaque(false);
             ind_2.setOpaque(false);
@@ -2422,7 +2396,7 @@ public void resultShow(){
             noticeNotificationCheck=0;
             dateNotificationToggle++;
             
-
+            
         }
         else if(dateNotificationToggle==3){
             jTabbedPane1.setSelectedIndex(5);
@@ -2432,7 +2406,7 @@ public void resultShow(){
             resetColor(result_btn);
             resetColor(notices_btn);
             resetColor(attendance_btn);
-
+            
             ind_0.setOpaque(false);
             ind_1.setOpaque(false);
             ind_2.setOpaque(false);
@@ -2440,7 +2414,7 @@ public void resultShow(){
             ind_4.setOpaque(false);
             ind_5.setOpaque(true);
             dateNotificationToggle=0;
-
+            
         }
 
     }//GEN-LAST:event_notifierFieldMouseClicked
@@ -2505,12 +2479,6 @@ public void resultShow(){
     private javax.swing.JLabel ClassText;
     private javax.swing.JLabel ColonLebel;
     private javax.swing.JLabel ColonLebel1;
-    private javax.swing.JLabel ColonLebel10;
-    private javax.swing.JLabel ColonLebel11;
-    private javax.swing.JLabel ColonLebel12;
-    private javax.swing.JLabel ColonLebel13;
-    private javax.swing.JLabel ColonLebel14;
-    private javax.swing.JLabel ColonLebel16;
     private javax.swing.JLabel ColonLebel2;
     private javax.swing.JLabel ColonLebel3;
     private javax.swing.JLabel ColonLebel4;
