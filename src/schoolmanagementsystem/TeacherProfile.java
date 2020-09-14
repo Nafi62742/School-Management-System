@@ -266,7 +266,7 @@ public class TeacherProfile extends javax.swing.JFrame {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(458, Short.MAX_VALUE)
+                .addContainerGap(1238, Short.MAX_VALUE)
                 .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -277,7 +277,7 @@ public class TeacherProfile extends javax.swing.JFrame {
                 .addGap(0, 2, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 0, 500, 32));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 32));
 
         sideMenu.setBackground(new java.awt.Color(19, 10, 52));
 
@@ -1599,7 +1599,7 @@ public class TeacherProfile extends javax.swing.JFrame {
         });
 
         jTextField2.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField2.setForeground(new java.awt.Color(0, 0, 0));
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
@@ -2230,7 +2230,7 @@ public class TeacherProfile extends javax.swing.JFrame {
 
     private void searchT_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchT_btnActionPerformed
         
-        System.out.print(jTextField2.getText());
+        
         profileShowStudent(jTextField2.getText());
         
         

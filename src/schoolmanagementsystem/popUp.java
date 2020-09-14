@@ -79,7 +79,7 @@ public class popUp extends javax.swing.JFrame {
                 exitButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 30, 30));
+        jPanel1.add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 0, 30, 30));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolmanagementsystem/image/pop up.PNG"))); // NOI18N
         jLabel3.setText("jLabel3");
