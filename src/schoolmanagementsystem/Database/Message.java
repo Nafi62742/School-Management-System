@@ -45,10 +45,6 @@ public class Message {
     public String getTeacherName() {
         return teacherName; 
     }
-
-    public Object getStudentName() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
     
     

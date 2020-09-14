@@ -1746,10 +1746,6 @@ public class StudentProfile extends javax.swing.JFrame {
         }
     }
     
-    
-    
-    
-    
     public void showAttendance(String Month) {
         List<Attendance> list = stdb.getAttendance(Month);
         int aD =0;
@@ -2182,9 +2178,9 @@ public void resultShow(){
         
         ind_0.setOpaque(false);
         ind_1.setOpaque(false);
-        ind_2.setOpaque(false);
+        ind_2.setOpaque(true);
         ind_3.setOpaque(false);
-        ind_4.setOpaque(true);
+        ind_4.setOpaque(false);
         ind_5.setOpaque(false);
         
         
@@ -2262,9 +2258,9 @@ public void resultShow(){
         
         ind_0.setOpaque(false);
         ind_1.setOpaque(false);
-        ind_2.setOpaque(false);
+        ind_2.setOpaque(true);
         ind_3.setOpaque(false);
-        ind_4.setOpaque(true);
+        ind_4.setOpaque(false);
         ind_5.setOpaque(false);
     }//GEN-LAST:event_AttendenceLebelMouseClicked
 
