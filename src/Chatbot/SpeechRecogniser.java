@@ -104,6 +104,9 @@ try {
     logger.log(Level.SEVERE, null, ex);
 }
 
+// Start recognition process pruning previously cached data.
+// recognizer.startRecognition(true);
+
 //Check if needed resources are available
 startResourcesThread();
 //Start speech recognition thread
@@ -119,6 +122,7 @@ startSpeechRecognition();
         
         //Check lock
         if (speechRecognizerThreadRunning){
+            //logger.log(Level.INFO, "Speech Recognition Thread already running...\n");
             chatboxTextPane.setText(chatboxTextPane.getText()+"Bot : Speech Recognition already running...\n");
         }
         else
@@ -133,6 +137,7 @@ startSpeechRecognition();
                 recognizer.startRecognition(true);
                 
                 //Information
+                //logger.log(Level.INFO, "You can start to speak...\n");
                 chatboxTextPane.setText(chatboxTextPane.getText()+"Bot : You can start to speak...\n");
                 tts.speek("Now You can talk to me");
                 try {
@@ -147,7 +152,8 @@ startSpeechRecognition();
                             
                             //Check the result
                             if (speechResult == null){
-                                chatboxTextPane.setText(chatboxTextPane.getText()+"Bot : I can't understand what you said.\n");
+//                logger.log(Level.INFO, "I can't understand what you said.\n");
+chatboxTextPane.setText(chatboxTextPane.getText()+"Bot : I can't understand what you said.\n");
                             }
                             else {
                                 
@@ -229,6 +235,7 @@ startSpeechRecognition();
                 }
             });
         }
+        
     }
     
     /**
@@ -249,6 +256,8 @@ startSpeechRecognition();
         } catch (InterruptedException ex) {
             Logger.getLogger(SpeechRecogniser.class.getName()).log(Level.SEVERE, null, ex);
         }
+//        System.out.println(speech);
+
     }
     
     public boolean getIgnoreSpeechRecognitionResults() {

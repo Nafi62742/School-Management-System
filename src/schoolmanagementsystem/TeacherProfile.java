@@ -165,6 +165,12 @@ public class TeacherProfile extends javax.swing.JFrame {
         PhoneText = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         Edit = new javax.swing.JLabel();
+        ColonLebel23 = new javax.swing.JLabel();
+        ColonLebel24 = new javax.swing.JLabel();
+        ColonLebel25 = new javax.swing.JLabel();
+        ColonLebel26 = new javax.swing.JLabel();
+        ColonLebel27 = new javax.swing.JLabel();
+        ColonLebel28 = new javax.swing.JLabel();
         HomeworkPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -217,6 +223,9 @@ public class TeacherProfile extends javax.swing.JFrame {
         studentIdResultField = new javax.swing.JTextField();
         selectPaper = new javax.swing.JComboBox<>();
         subjectPartText = new javax.swing.JLabel();
+        ColonLebel29 = new javax.swing.JLabel();
+        ColonLebel30 = new javax.swing.JLabel();
+        ColonLebel31 = new javax.swing.JLabel();
         MessegePanel = new javax.swing.JPanel();
         HomeworkPanel3 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
@@ -227,6 +236,7 @@ public class TeacherProfile extends javax.swing.JFrame {
         jSeparator7 = new javax.swing.JSeparator();
         messageSendButton = new javax.swing.JButton();
         studentIdTextField = new javax.swing.JTextField();
+        ColonLebel32 = new javax.swing.JLabel();
         searchPanel = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         enter_id_label = new javax.swing.JLabel();
@@ -244,6 +254,12 @@ public class TeacherProfile extends javax.swing.JFrame {
         phoneNo1 = new javax.swing.JLabel();
         EmailText1 = new javax.swing.JLabel();
         Email1 = new javax.swing.JLabel();
+        ColonLebel17 = new javax.swing.JLabel();
+        ColonLebel18 = new javax.swing.JLabel();
+        ColonLebel19 = new javax.swing.JLabel();
+        ColonLebel20 = new javax.swing.JLabel();
+        ColonLebel21 = new javax.swing.JLabel();
+        ColonLebel22 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -266,11 +282,7 @@ public class TeacherProfile extends javax.swing.JFrame {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-<<<<<<< Updated upstream
-                .addContainerGap(1238, Short.MAX_VALUE)
-=======
                 .addContainerGap(1244, Short.MAX_VALUE)
->>>>>>> Stashed changes
                 .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -707,7 +719,7 @@ public class TeacherProfile extends javax.swing.JFrame {
         NameText.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         NameText.setForeground(new java.awt.Color(255, 255, 255));
         NameText.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        NameText.setText("Name:");
+        NameText.setText("Name");
 
         Designation.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         Designation.setForeground(new java.awt.Color(153, 255, 255));
@@ -722,12 +734,12 @@ public class TeacherProfile extends javax.swing.JFrame {
         DesignationText.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         DesignationText.setForeground(new java.awt.Color(255, 255, 255));
         DesignationText.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        DesignationText.setText("Designation:");
+        DesignationText.setText("Designation");
 
         IDText.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         IDText.setForeground(new java.awt.Color(255, 255, 255));
         IDText.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        IDText.setText("ID:");
+        IDText.setText("ID");
 
         ID.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         ID.setForeground(new java.awt.Color(153, 255, 255));
@@ -737,7 +749,7 @@ public class TeacherProfile extends javax.swing.JFrame {
         SubjectText.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         SubjectText.setForeground(new java.awt.Color(255, 255, 255));
         SubjectText.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        SubjectText.setText("Subject:");
+        SubjectText.setText("Subject");
 
         Subject.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         Subject.setForeground(new java.awt.Color(153, 255, 255));
@@ -752,7 +764,7 @@ public class TeacherProfile extends javax.swing.JFrame {
         EmailText.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         EmailText.setForeground(new java.awt.Color(255, 255, 255));
         EmailText.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        EmailText.setText("Email:");
+        EmailText.setText("Email");
 
         phoneNo.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         phoneNo.setForeground(new java.awt.Color(153, 255, 255));
@@ -762,7 +774,7 @@ public class TeacherProfile extends javax.swing.JFrame {
         PhoneText.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         PhoneText.setForeground(new java.awt.Color(255, 255, 255));
         PhoneText.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        PhoneText.setText("Phone No:");
+        PhoneText.setText("Phone no");
 
         jPanel2.setBackground(new java.awt.Color(28, 46, 60));
         jPanel2.setForeground(new java.awt.Color(102, 102, 102));
@@ -790,8 +802,32 @@ public class TeacherProfile extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
+
+        ColonLebel23.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
+        ColonLebel23.setForeground(new java.awt.Color(255, 255, 255));
+        ColonLebel23.setText(":");
+
+        ColonLebel24.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
+        ColonLebel24.setForeground(new java.awt.Color(255, 255, 255));
+        ColonLebel24.setText(":");
+
+        ColonLebel25.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
+        ColonLebel25.setForeground(new java.awt.Color(255, 255, 255));
+        ColonLebel25.setText(":");
+
+        ColonLebel26.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
+        ColonLebel26.setForeground(new java.awt.Color(255, 255, 255));
+        ColonLebel26.setText(":");
+
+        ColonLebel27.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
+        ColonLebel27.setForeground(new java.awt.Color(255, 255, 255));
+        ColonLebel27.setText(":");
+
+        ColonLebel28.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
+        ColonLebel28.setForeground(new java.awt.Color(255, 255, 255));
+        ColonLebel28.setText(":");
 
         javax.swing.GroupLayout HomePanelLayout = new javax.swing.GroupLayout(HomePanel);
         HomePanel.setLayout(HomePanelLayout);
@@ -802,13 +838,31 @@ public class TeacherProfile extends javax.swing.JFrame {
                     .addGroup(HomePanelLayout.createSequentialGroup()
                         .addGap(118, 118, 118)
                         .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(IDText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(NameText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SubjectText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(DesignationText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(PhoneText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(EmailText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(94, 94, 94)
+                            .addGroup(HomePanelLayout.createSequentialGroup()
+                                .addComponent(IDText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(ColonLebel24))
+                            .addGroup(HomePanelLayout.createSequentialGroup()
+                                .addComponent(SubjectText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(ColonLebel25))
+                            .addGroup(HomePanelLayout.createSequentialGroup()
+                                .addComponent(DesignationText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(ColonLebel26))
+                            .addGroup(HomePanelLayout.createSequentialGroup()
+                                .addComponent(PhoneText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(ColonLebel27))
+                            .addGroup(HomePanelLayout.createSequentialGroup()
+                                .addComponent(EmailText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(ColonLebel28))
+                            .addGroup(HomePanelLayout.createSequentialGroup()
+                                .addComponent(NameText, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(ColonLebel23)))
+                        .addGap(66, 66, 66)
                         .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(phoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -824,34 +878,53 @@ public class TeacherProfile extends javax.swing.JFrame {
         HomePanelLayout.setVerticalGroup(
             HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HomePanelLayout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NameText, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(HomePanelLayout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NameText, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomePanelLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ColonLebel23, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(IDText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                    .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ColonLebel24, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SubjectText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Subject, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Subject, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ColonLebel25, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(HomePanelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(Designation, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21)
-                        .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(phoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(PhoneText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18))
+                        .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(HomePanelLayout.createSequentialGroup()
+                                .addComponent(Designation, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(21, 21, 21))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomePanelLayout.createSequentialGroup()
+                                .addComponent(ColonLebel26, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(HomePanelLayout.createSequentialGroup()
+                                .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(phoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(PhoneText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomePanelLayout.createSequentialGroup()
+                                .addComponent(ColonLebel27, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))))
                     .addGroup(HomePanelLayout.createSequentialGroup()
                         .addComponent(DesignationText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(EmailText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ColonLebel28, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(4, 4, 4)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(80, 80, 80))
@@ -1411,6 +1484,18 @@ public class TeacherProfile extends javax.swing.JFrame {
         subjectPartText.setForeground(new java.awt.Color(255, 255, 255));
         subjectPartText.setText("Paper :");
 
+        ColonLebel29.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
+        ColonLebel29.setForeground(new java.awt.Color(255, 255, 255));
+        ColonLebel29.setText(":");
+
+        ColonLebel30.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
+        ColonLebel30.setForeground(new java.awt.Color(255, 255, 255));
+        ColonLebel30.setText(":");
+
+        ColonLebel31.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
+        ColonLebel31.setForeground(new java.awt.Color(255, 255, 255));
+        ColonLebel31.setText(":");
+
         javax.swing.GroupLayout resultPanelLayout = new javax.swing.GroupLayout(resultPanel);
         resultPanel.setLayout(resultPanelLayout);
         resultPanelLayout.setHorizontalGroup(
@@ -1418,19 +1503,20 @@ public class TeacherProfile extends javax.swing.JFrame {
             .addGroup(resultPanelLayout.createSequentialGroup()
                 .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(resultPanelLayout.createSequentialGroup()
-                        .addGap(500, 500, 500)
-                        .addComponent(jLabel12))
-                    .addGroup(resultPanelLayout.createSequentialGroup()
                         .addGap(354, 354, 354)
                         .addComponent(resultSubmitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(resultPanelLayout.createSequentialGroup()
                         .addGap(160, 160, 160)
+                        .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(teacherSUb, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                            .addComponent(resultOfID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
                         .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(resultOfID, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(teacherSUb, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)))
-                        .addGap(44, 44, 44)
+                            .addComponent(ColonLebel29)
+                            .addComponent(ColonLebel30)
+                            .addComponent(ColonLebel31))
+                        .addGap(37, 37, 37)
                         .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(studentIdResultField, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
                             .addComponent(marks, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
@@ -1440,33 +1526,45 @@ public class TeacherProfile extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(selectPaper, 0, 179, Short.MAX_VALUE)
                 .addGap(47, 47, 47))
+            .addGroup(resultPanelLayout.createSequentialGroup()
+                .addGap(467, 467, 467)
+                .addComponent(jLabel12)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         resultPanelLayout.setVerticalGroup(
             resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(resultPanelLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
-                .addGap(92, 92, 92)
-                .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(studentIdResultField, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(resultOfID, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(resultPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(53, 53, 53)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(69, 69, 69)
                         .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(teacherSUb, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(subb, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addComponent(studentIdResultField, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(resultOfID, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(resultPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(teacherSUb, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(subb, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addGroup(resultPanelLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(selectPaper, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(subjectPartText, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(resultPanelLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(selectPaper, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(subjectPartText, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)))
+                        .addGap(151, 151, 151)
+                        .addComponent(ColonLebel29, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ColonLebel30, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ColonLebel31, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(marks, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(179, 179, 179)
+                .addGap(222, 222, 222)
                 .addComponent(resultSubmitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(112, 112, 112))
         );
@@ -1517,6 +1615,10 @@ public class TeacherProfile extends javax.swing.JFrame {
             }
         });
 
+        ColonLebel32.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
+        ColonLebel32.setForeground(new java.awt.Color(255, 255, 255));
+        ColonLebel32.setText(":");
+
         javax.swing.GroupLayout HomeworkPanel3Layout = new javax.swing.GroupLayout(HomeworkPanel3);
         HomeworkPanel3.setLayout(HomeworkPanel3Layout);
         HomeworkPanel3Layout.setHorizontalGroup(
@@ -1526,15 +1628,19 @@ public class TeacherProfile extends javax.swing.JFrame {
                 .addGroup(HomeworkPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 953, Short.MAX_VALUE)
                     .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator7)
                     .addGroup(HomeworkPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(HomeworkPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(HomeworkPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)
+                                .addComponent(ColonLebel32)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(studentIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator7))
+                        .addComponent(studentIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomeworkPanel3Layout.createSequentialGroup()
-                .addContainerGap(381, Short.MAX_VALUE)
+                .addContainerGap(388, Short.MAX_VALUE)
                 .addComponent(messageSendButton, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(352, 352, 352))
         );
@@ -1543,19 +1649,23 @@ public class TeacherProfile extends javax.swing.JFrame {
             .addGroup(HomeworkPanel3Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(jLabel19)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addGroup(HomeworkPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(HomeworkPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(studentIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(HomeworkPanel3Layout.createSequentialGroup()
+                        .addGroup(HomeworkPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ColonLebel32, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(studentIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(3, 3, 3)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(54, 54, 54)
                 .addComponent(messageSendButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addGap(41, 41, 41))
         );
 
         javax.swing.GroupLayout MessegePanelLayout = new javax.swing.GroupLayout(MessegePanel);
@@ -1563,16 +1673,12 @@ public class TeacherProfile extends javax.swing.JFrame {
         MessegePanelLayout.setHorizontalGroup(
             MessegePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MessegePanelLayout.createSequentialGroup()
-                .addGap(7, 7, 7)
                 .addComponent(HomeworkPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         MessegePanelLayout.setVerticalGroup(
             MessegePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MessegePanelLayout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addComponent(HomeworkPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(11, 11, 11))
+            .addComponent(HomeworkPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Messege", MessegePanel);
@@ -1664,6 +1770,30 @@ public class TeacherProfile extends javax.swing.JFrame {
         Email1.setForeground(new java.awt.Color(153, 255, 255));
         Email1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
+        ColonLebel17.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
+        ColonLebel17.setForeground(new java.awt.Color(255, 255, 255));
+        ColonLebel17.setText(":");
+
+        ColonLebel18.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
+        ColonLebel18.setForeground(new java.awt.Color(255, 255, 255));
+        ColonLebel18.setText(":");
+
+        ColonLebel19.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
+        ColonLebel19.setForeground(new java.awt.Color(255, 255, 255));
+        ColonLebel19.setText(":");
+
+        ColonLebel20.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
+        ColonLebel20.setForeground(new java.awt.Color(255, 255, 255));
+        ColonLebel20.setText(":");
+
+        ColonLebel21.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
+        ColonLebel21.setForeground(new java.awt.Color(255, 255, 255));
+        ColonLebel21.setText(":");
+
+        ColonLebel22.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
+        ColonLebel22.setForeground(new java.awt.Color(255, 255, 255));
+        ColonLebel22.setText(":");
+
         javax.swing.GroupLayout searchPanelLayout = new javax.swing.GroupLayout(searchPanel);
         searchPanel.setLayout(searchPanelLayout);
         searchPanelLayout.setHorizontalGroup(
@@ -1693,7 +1823,19 @@ public class TeacherProfile extends javax.swing.JFrame {
                         .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(NameText2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(IDTest1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(54, 54, 54)
+                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(searchPanelLayout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(ColonLebel17))
+                    .addGroup(searchPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ColonLebel19)
+                            .addComponent(ColonLebel18)
+                            .addComponent(ColonLebel20)
+                            .addComponent(ColonLebel21)
+                            .addComponent(ColonLebel22))))
+                .addGap(26, 26, 26)
                 .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Class, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Section, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1710,37 +1852,54 @@ public class TeacherProfile extends javax.swing.JFrame {
                 .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(searchPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ID1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ClassText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Class, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Section, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SectionText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(PhoneText1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(phoneNo1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ColonLebel21, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Email1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(EmailText1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ColonLebel22, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(23, 23, 23))
+                    .addGroup(searchPanelLayout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(enter_id_label)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(searchT_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 33, Short.MAX_VALUE)
-                        .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(NameText2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(NameFDB, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(IDTest1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(searchPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ID1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ClassText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Class, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Section, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SectionText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(PhoneText1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(phoneNo1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Email1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(EmailText1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23))
+                        .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(searchPanelLayout.createSequentialGroup()
+                                .addGap(0, 34, Short.MAX_VALUE)
+                                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(NameText2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(NameFDB, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(searchPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(ColonLebel17, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(searchPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(IDTest1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(searchPanelLayout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addComponent(ColonLebel18, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ColonLebel19, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(ColonLebel20, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(195, 195, 195))))
         );
 
         jTabbedPane1.addTab("Search", searchPanel);
@@ -2027,7 +2186,6 @@ public class TeacherProfile extends javax.swing.JFrame {
         String studentId = studentIdResultField.getText();
         
         String Marks = marks.getText();
-        //String Paper=(String) selectPaper.getSelectedItem();
         int x=Integer.parseInt(Marks);
         String Paper=(String) selectPaper.getSelectedItem();
        
@@ -2289,6 +2447,22 @@ public class TeacherProfile extends javax.swing.JFrame {
     private javax.swing.JPanel AttendencePanel1;
     private javax.swing.JLabel Class;
     private javax.swing.JLabel ClassText;
+    private javax.swing.JLabel ColonLebel17;
+    private javax.swing.JLabel ColonLebel18;
+    private javax.swing.JLabel ColonLebel19;
+    private javax.swing.JLabel ColonLebel20;
+    private javax.swing.JLabel ColonLebel21;
+    private javax.swing.JLabel ColonLebel22;
+    private javax.swing.JLabel ColonLebel23;
+    private javax.swing.JLabel ColonLebel24;
+    private javax.swing.JLabel ColonLebel25;
+    private javax.swing.JLabel ColonLebel26;
+    private javax.swing.JLabel ColonLebel27;
+    private javax.swing.JLabel ColonLebel28;
+    private javax.swing.JLabel ColonLebel29;
+    private javax.swing.JLabel ColonLebel30;
+    private javax.swing.JLabel ColonLebel31;
+    private javax.swing.JLabel ColonLebel32;
     private javax.swing.JLabel Designation;
     private javax.swing.JLabel DesignationText;
     private javax.swing.JLabel Edit;

@@ -35,7 +35,7 @@ public class StudentDatabase extends Accounts{
     private String section;
     private String passFromDB;
     
-    
+           
     private String studentId;
     private int bangla1st;
     private int bangla2nd;
@@ -74,7 +74,20 @@ public class StudentDatabase extends Accounts{
         getResult(id);
         totalMarks();
     }
-    
+        /*public void resultfieldForStu(String id){
+        final JPanel panel = new JPanel();
+        
+       String sql = "INSERT INTO results(ID) VALUES (?)";
+        try {
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, id);
+            pst.execute();
+
+            //JOptionPane.showMessageDialog(null, "Marks(english2nd) have been added Successfully");
+        } catch (HeadlessException | SQLException e) {
+            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+    }*/
     public List<Notice> getNotice(){
         String sql = "select * from notice_board where class=" + "\'" +getStudentClass()+ "\'";
         List<Notice> list = new ArrayList<Notice>();
@@ -127,7 +140,7 @@ public class StudentDatabase extends Accounts{
     
     public List<Message> getMessage(){
         String sql = "select * from message where ID=" + "\'" +getId()+ "\'";
-        
+       
         List<Message> list = new ArrayList<Message>();
         try {
             pst = conn.prepareStatement(sql);
@@ -157,7 +170,7 @@ public class StudentDatabase extends Accounts{
             JOptionPane.showMessageDialog(null, "Can't get attendance from database.");
         }
         return null;
-        
+     
     }
     
     
@@ -179,7 +192,7 @@ public class StudentDatabase extends Accounts{
             JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
         }
     }
-    
+        
     public void  totalMarks(){
         int b1;
         int b2;
@@ -191,29 +204,29 @@ public class StudentDatabase extends Accounts{
         int bgs;
         int ic;
         
-        b1=getBangla1st();
-        b2= getBangla2nd();
-        b2= getBangla2nd();
-        e1 = getEnglish1st();
-        e2=getEnglish2nd();
-        m=getMath();
-        r=getReligion();
-        s=getScience();
-        
-        ic=getIct();
-        bgs=getBgs();
-        
+            b1=getBangla1st();
+            b2= getBangla2nd();
+            b2= getBangla2nd();
+            e1 = getEnglish1st();
+             e2=getEnglish2nd();
+             m=getMath();
+            r=getReligion();
+             s=getScience();
+
+            ic=getIct();
+            bgs=getBgs();
+
         int gt=b1+b2+e1+e2+m+r+s+ic+bgs;
         setGrandTotal(gt);
     }
-    public void getResult(String id){
+        public void getResult(String id){
         String sql = "select * from results where ID=" + "\'" +id+ "\'";
         
         try {
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             if (rs.next()) {
-                // rslt.setStudentId("ID");
+               // rslt.setStudentId("ID");
                 setBangla1st(rs.getInt("bangla1st"));
                 setBangla2nd(rs.getInt("bangla2nd"));
                 setEnglish1st(rs.getInt("english1st"));
@@ -228,25 +241,25 @@ public class StudentDatabase extends Accounts{
         }catch(HeadlessException | SQLException e){
             JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
         }
-    }
+    }   
     public int updateStudentAccount(String name,String studentClass,String section,String Stu_Id,String phoneNo, String Email){
         final JPanel panel = new JPanel();
         
         String sql = "UPDATE student_accounts SET name=?,class=?,sec=?, phoneNo=?, email=? WHERE id =" + Stu_Id;
-        try {
-            pst = conn.prepareStatement(sql);
-            pst.setString(1, name);
-            pst.setString(2, studentClass);
-            pst.setString(3, section);
-            pst.setString(4, phoneNo);
-            pst.setString(5, Email);
-            pst.execute();
-            
-            return 1;
-        } catch (HeadlessException | SQLException e) {
-            JOptionPane.showMessageDialog(panel, "Database error", "Warning", JOptionPane.WARNING_MESSAGE);
-            return 0;
-        }
+            try {
+                pst = conn.prepareStatement(sql);
+                pst.setString(1, name);
+                pst.setString(2, studentClass);
+                pst.setString(3, section);
+                pst.setString(4, phoneNo);
+                pst.setString(5, Email);
+                pst.execute();
+                
+                return 1;
+            } catch (HeadlessException | SQLException e) {
+                JOptionPane.showMessageDialog(panel, "Database error", "Warning", JOptionPane.WARNING_MESSAGE);
+                return 0;
+            }
     }
     
     
@@ -304,85 +317,85 @@ public class StudentDatabase extends Accounts{
     }
     
     //result works
-    
+
     public int getBangla1st() {
         return bangla1st;
     }
-    
+
     public void setBangla1st(int bangla1st) {
         this.bangla1st = bangla1st;
     }
-    
+
     public int getBangla2nd() {
         return bangla2nd;
     }
-    
+
     public void setBangla2nd(int bangla2nd) {
         this.bangla2nd = bangla2nd;
     }
-    
+
     public int getEnglish1st() {
         return english1st;
     }
-    
+
     public void setEnglish1st(int english1st) {
         this.english1st = english1st;
     }
-    
+
     public int getEnglish2nd() {
         return english2nd;
     }
-    
+
     public void setEnglish2nd(int english2nd) {
         this.english2nd = english2nd;
     }
-    
+
     public int getMath() {
         return math;
     }
-    
+
     public void setMath(int math) {
         this.math = math;
     }
-    
+
     public int getScience() {
         return science;
     }
-    
+
     public void setScience(int science) {
         this.science = science;
     }
-    
+
     public int getReligion() {
         return religion;
     }
-    
+
     public void setReligion(int religion) {
         this.religion = religion;
     }
-    
+
     public int getIct() {
         return ict;
     }
-    
+
     public void setIct(int ict) {
         this.ict = ict;
     }
-    
+
     public int getBgs() {
         return bgs;
     }
-    
+
     public void setBgs(int bgs) {
         this.bgs = bgs;
     }
+
     
-    
-    
+
     public int getGrandTotal() {
         return grandTotal;
     }
-    
+
     public void setGrandTotal(int grandTotal) {
         this.grandTotal = grandTotal;
     }

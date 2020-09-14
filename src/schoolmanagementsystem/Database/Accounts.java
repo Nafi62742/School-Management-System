@@ -15,6 +15,9 @@ import javax.swing.JPanel;
 import org.apache.commons.codec.binary.Base64;
 import schoolmanagementsystem.StudentProfile;
 import schoolmanagementsystem.TeacherProfile;
+import schoolmanagementsystem.logInPage;
+import schoolmanagementsystem.newAccountForm;
+import schoolmanagementsystem.newAccountFormT;
 
 public class Accounts {
     public String id;
