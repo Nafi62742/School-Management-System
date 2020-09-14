@@ -13,9 +13,13 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.jOptionPane;
+import javax.swing.table.DefaultTableModel;
+import schoolmanagementsystem.Database.Message;
+import schoolmanagementsystem.Database.StudentDatabase;
 import schoolmanagementsystem.Database.TeacherDatabase;
 
 /**
@@ -32,15 +36,18 @@ public class TeacherProfile extends javax.swing.JFrame {
     ResultSet rs = null;
     Statement st;
     TeacherDatabase teacherDb;
+    StudentDatabase stdb;
     private String id;
     public TeacherProfile() {
         initComponents();
         hideSideMenu();
     }
+    
     public TeacherProfile(String id) {
         this.setUndecorated(true);
         initComponents();
         teacherDb=new TeacherDatabase(id);
+        
         hideSideMenu();
         profileShow();
     }
@@ -101,6 +108,8 @@ public class TeacherProfile extends javax.swing.JFrame {
             selectPaper.disable();
         }
     }
+    
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -134,6 +143,9 @@ public class TeacherProfile extends javax.swing.JFrame {
         messege_btn = new javax.swing.JPanel();
         ind_mes_5 = new javax.swing.JPanel();
         messegeLebel = new javax.swing.JLabel();
+        search_btn = new javax.swing.JPanel();
+        ind_sea_6 = new javax.swing.JPanel();
+        searchLabel = new javax.swing.JLabel();
         LeftCeditPanel = new javax.swing.JPanel();
         MenuText1 = new javax.swing.JLabel();
         SideMenuShow1 = new javax.swing.JLabel();
@@ -215,6 +227,23 @@ public class TeacherProfile extends javax.swing.JFrame {
         jSeparator7 = new javax.swing.JSeparator();
         messageSendButton = new javax.swing.JButton();
         studentIdTextField = new javax.swing.JTextField();
+        searchPanel = new javax.swing.JPanel();
+        jLabel25 = new javax.swing.JLabel();
+        enter_id_label = new javax.swing.JLabel();
+        searchT_btn = new javax.swing.JButton();
+        jTextField2 = new javax.swing.JTextField();
+        NameText2 = new javax.swing.JLabel();
+        NameFDB = new javax.swing.JLabel();
+        IDTest1 = new javax.swing.JLabel();
+        ID1 = new javax.swing.JLabel();
+        ClassText = new javax.swing.JLabel();
+        Class = new javax.swing.JLabel();
+        SectionText = new javax.swing.JLabel();
+        Section = new javax.swing.JLabel();
+        PhoneText1 = new javax.swing.JLabel();
+        phoneNo1 = new javax.swing.JLabel();
+        EmailText1 = new javax.swing.JLabel();
+        Email1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -237,7 +266,7 @@ public class TeacherProfile extends javax.swing.JFrame {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(654, Short.MAX_VALUE)
+                .addContainerGap(458, Short.MAX_VALUE)
                 .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -248,7 +277,7 @@ public class TeacherProfile extends javax.swing.JFrame {
                 .addGap(0, 2, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 0, 690, 32));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 0, 500, 32));
 
         sideMenu.setBackground(new java.awt.Color(19, 10, 52));
 
@@ -532,6 +561,50 @@ public class TeacherProfile extends javax.swing.JFrame {
             .addComponent(messegeLebel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
+        search_btn.setBackground(new java.awt.Color(19, 10, 52));
+        search_btn.setForeground(new java.awt.Color(255, 255, 255));
+        search_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        search_btn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                search_btnMousePressed(evt);
+            }
+        });
+
+        ind_sea_6.setBackground(new java.awt.Color(255, 255, 255));
+        ind_sea_6.setOpaque(false);
+        ind_sea_6.setPreferredSize(new java.awt.Dimension(5, 60));
+
+        javax.swing.GroupLayout ind_sea_6Layout = new javax.swing.GroupLayout(ind_sea_6);
+        ind_sea_6.setLayout(ind_sea_6Layout);
+        ind_sea_6Layout.setHorizontalGroup(
+            ind_sea_6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
+        );
+        ind_sea_6Layout.setVerticalGroup(
+            ind_sea_6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        searchLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        searchLabel.setForeground(new java.awt.Color(255, 255, 255));
+        searchLabel.setText("Search Student");
+
+        javax.swing.GroupLayout search_btnLayout = new javax.swing.GroupLayout(search_btn);
+        search_btn.setLayout(search_btnLayout);
+        search_btnLayout.setHorizontalGroup(
+            search_btnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(search_btnLayout.createSequentialGroup()
+                .addComponent(ind_sea_6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(searchLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        search_btnLayout.setVerticalGroup(
+            search_btnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ind_sea_6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(searchLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout sideMenuLayout = new javax.swing.GroupLayout(sideMenu);
         sideMenu.setLayout(sideMenuLayout);
         sideMenuLayout.setHorizontalGroup(
@@ -550,6 +623,7 @@ public class TeacherProfile extends javax.swing.JFrame {
             .addComponent(result_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(notices_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(messege_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(search_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         sideMenuLayout.setVerticalGroup(
             sideMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -568,7 +642,9 @@ public class TeacherProfile extends javax.swing.JFrame {
                 .addComponent(result_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(messege_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(search_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(logOut, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37))
         );
@@ -1482,24 +1558,188 @@ public class TeacherProfile extends javax.swing.JFrame {
         MessegePanel.setLayout(MessegePanelLayout);
         MessegePanelLayout.setHorizontalGroup(
             MessegePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1071, Short.MAX_VALUE)
-            .addGroup(MessegePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(MessegePanelLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(HomeworkPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(MessegePanelLayout.createSequentialGroup()
+                .addGap(7, 7, 7)
+                .addComponent(HomeworkPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MessegePanelLayout.setVerticalGroup(
             MessegePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 693, Short.MAX_VALUE)
-            .addGroup(MessegePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(MessegePanelLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(HomeworkPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addGroup(MessegePanelLayout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addComponent(HomeworkPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(11, 11, 11))
         );
 
         jTabbedPane1.addTab("Messege", MessegePanel);
+
+        searchPanel.setBackground(new java.awt.Color(65, 59, 94));
+
+        jLabel25.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel25.setText("Search Student");
+
+        enter_id_label.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        enter_id_label.setForeground(new java.awt.Color(255, 255, 255));
+        enter_id_label.setText("Enter ID");
+
+        searchT_btn.setBackground(new java.awt.Color(19, 10, 52));
+        searchT_btn.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        searchT_btn.setForeground(new java.awt.Color(255, 255, 255));
+        searchT_btn.setText("Search");
+        searchT_btn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchT_btnMouseClicked(evt);
+            }
+        });
+        searchT_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchT_btnActionPerformed(evt);
+            }
+        });
+
+        jTextField2.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        jTextField2.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+
+        NameText2.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        NameText2.setForeground(new java.awt.Color(255, 255, 255));
+        NameText2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        NameText2.setText("Name");
+
+        NameFDB.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
+        NameFDB.setForeground(new java.awt.Color(51, 255, 255));
+        NameFDB.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+
+        IDTest1.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        IDTest1.setForeground(new java.awt.Color(255, 255, 255));
+        IDTest1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        IDTest1.setText("ID:");
+
+        ID1.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
+        ID1.setForeground(new java.awt.Color(153, 255, 255));
+        ID1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+
+        ClassText.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        ClassText.setForeground(new java.awt.Color(255, 255, 255));
+        ClassText.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        ClassText.setText("Class");
+
+        Class.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
+        Class.setForeground(new java.awt.Color(153, 255, 255));
+        Class.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+
+        SectionText.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        SectionText.setForeground(new java.awt.Color(255, 255, 255));
+        SectionText.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        SectionText.setText("Section");
+
+        Section.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
+        Section.setForeground(new java.awt.Color(153, 255, 255));
+        Section.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+
+        PhoneText1.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        PhoneText1.setForeground(new java.awt.Color(255, 255, 255));
+        PhoneText1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        PhoneText1.setText("Phone No");
+
+        phoneNo1.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
+        phoneNo1.setForeground(new java.awt.Color(153, 255, 255));
+        phoneNo1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+
+        EmailText1.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        EmailText1.setForeground(new java.awt.Color(255, 255, 255));
+        EmailText1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        EmailText1.setText("Email");
+
+        Email1.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
+        Email1.setForeground(new java.awt.Color(153, 255, 255));
+        Email1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+
+        javax.swing.GroupLayout searchPanelLayout = new javax.swing.GroupLayout(searchPanel);
+        searchPanel.setLayout(searchPanelLayout);
+        searchPanelLayout.setHorizontalGroup(
+            searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(searchPanelLayout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel25)
+                    .addGroup(searchPanelLayout.createSequentialGroup()
+                        .addComponent(enter_id_label, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(59, 59, 59)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(90, 90, 90)
+                        .addComponent(searchT_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, searchPanelLayout.createSequentialGroup()
+                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(searchPanelLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(EmailText1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PhoneText1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SectionText, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ClassText, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(searchPanelLayout.createSequentialGroup()
+                        .addGap(262, 262, 262)
+                        .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(NameText2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(IDTest1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(54, 54, 54)
+                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Class, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Section, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(phoneNo1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Email1, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NameFDB, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ID1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(87, 87, 87))
+        );
+        searchPanelLayout.setVerticalGroup(
+            searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(searchPanelLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(searchPanelLayout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(enter_id_label)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(searchT_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 33, Short.MAX_VALUE)
+                        .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(NameText2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NameFDB, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(IDTest1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(searchPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ID1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ClassText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Class, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Section, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SectionText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PhoneText1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(phoneNo1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Email1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EmailText1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23))
+        );
+
+        jTabbedPane1.addTab("Search", searchPanel);
 
         jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 1040, 720));
 
@@ -1534,6 +1774,7 @@ public class TeacherProfile extends javax.swing.JFrame {
         resetColor(notices_btn);
         resetColor(attendance_btn);
         resetColor(messege_btn);
+        resetColor(search_btn);
         
         ind_home_0.setOpaque(true);
         ind_hw_1.setOpaque(false);
@@ -1541,6 +1782,7 @@ public class TeacherProfile extends javax.swing.JFrame {
         ind_noti_3.setOpaque(false);
         ind_att_4.setOpaque(false);
         ind_mes_5.setOpaque(false);
+        ind_sea_6.setOpaque(false);
 
     }//GEN-LAST:event_home_btnMousePressed
 
@@ -1553,6 +1795,7 @@ public class TeacherProfile extends javax.swing.JFrame {
         resetColor(notices_btn);
         resetColor(attendance_btn);
         resetColor(messege_btn);
+        resetColor(search_btn);
         
         ind_home_0.setOpaque(false);
         ind_hw_1.setOpaque(true);
@@ -1560,6 +1803,7 @@ public class TeacherProfile extends javax.swing.JFrame {
         ind_noti_3.setOpaque(false);
         ind_att_4.setOpaque(false);
         ind_mes_5.setOpaque(false);
+        ind_sea_6.setOpaque(false);
 
     }//GEN-LAST:event_homework_btnMousePressed
 
@@ -1573,6 +1817,7 @@ public class TeacherProfile extends javax.swing.JFrame {
         resetColor(notices_btn);
         resetColor(attendance_btn);
         resetColor(messege_btn);
+        resetColor(search_btn);
         
         ind_home_0.setOpaque(false);
         ind_hw_1.setOpaque(false);
@@ -1580,6 +1825,8 @@ public class TeacherProfile extends javax.swing.JFrame {
         ind_noti_3.setOpaque(false);
         ind_att_4.setOpaque(false);
         ind_mes_5.setOpaque(false);
+        ind_sea_6.setOpaque(false);
+        
 
 
     }//GEN-LAST:event_result_btnMousePressed
@@ -1593,6 +1840,7 @@ public class TeacherProfile extends javax.swing.JFrame {
         resetColor(result_btn);
         resetColor(notices_btn);
         resetColor(messege_btn);
+        resetColor(search_btn);
         
         
         ind_home_0.setOpaque(false);
@@ -1600,7 +1848,8 @@ public class TeacherProfile extends javax.swing.JFrame {
         ind_res_2.setOpaque(false);
         ind_noti_3.setOpaque(false);
         ind_att_4.setOpaque(true);
-       ind_mes_5.setOpaque(false);
+        ind_mes_5.setOpaque(false);
+        ind_sea_6.setOpaque(false);
 
     }//GEN-LAST:event_attendance_btnMousePressed
 
@@ -1622,6 +1871,7 @@ public class TeacherProfile extends javax.swing.JFrame {
         resetColor(home_btn);
         resetColor(attendance_btn);
         resetColor(messege_btn);
+        resetColor(search_btn);
         
         ind_home_0.setOpaque(false);
         ind_hw_1.setOpaque(false);
@@ -1629,6 +1879,7 @@ public class TeacherProfile extends javax.swing.JFrame {
         ind_noti_3.setOpaque(true);
         ind_att_4.setOpaque(false);
         ind_mes_5.setOpaque(false);
+        ind_sea_6.setOpaque(false);
 
     }//GEN-LAST:event_notices_btnMousePressed
 
@@ -1674,7 +1925,31 @@ public class TeacherProfile extends javax.swing.JFrame {
         teacherDb.postNotice(studentClass, notice);
         noticeTextArea.setText("");
     }//GEN-LAST:event_noticePostButtonActionPerformed
-
+    public void profileShowStudent(String stu_Id){
+        stdb=new StudentDatabase(stu_Id);
+        String student_id =stdb.getId();
+        
+        String StudentName = stdb.getStudentName();
+        String StudentPhnNo = stdb.getStudentPhoneNo();
+        String Studentemail = stdb.getStudentEmail();
+        NameFDB.setText(StudentName);
+        ID1.setText(student_id);
+        Section.setText(stdb.getSection());
+        Class.setText(stdb.getStudentClass());
+        if(StudentPhnNo == null){
+            phoneNo1.setText("Phone not given yet");
+        }
+        else{
+            phoneNo1.setText(StudentPhnNo);
+        }
+         if(Studentemail == null){
+            Email1.setText("Email not given yet");
+        }
+        else{
+            Email1.setText(Studentemail);
+        }
+         
+    }
     private void SideMenuShow1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SideMenuShow1MouseClicked
         if(x == 0)
         {
@@ -1707,6 +1982,7 @@ public class TeacherProfile extends javax.swing.JFrame {
         resetColor(result_btn);
         resetColor(notices_btn);
         resetColor(attendance_btn);
+        resetColor(search_btn);
         
         ind_home_0.setOpaque(false);
         ind_hw_1.setOpaque(false);
@@ -1714,6 +1990,7 @@ public class TeacherProfile extends javax.swing.JFrame {
         ind_noti_3.setOpaque(false);
         ind_att_4.setOpaque(false);
         ind_mes_5.setOpaque(true);
+        ind_sea_6.setOpaque(false);
     }//GEN-LAST:event_messege_btnMousePressed
 
     private void EditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EditMouseClicked
@@ -1929,6 +2206,44 @@ public class TeacherProfile extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_presentDaysTextFieldKeyPressed
+
+    private void search_btnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_btnMousePressed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(6);
+        resetColor(messege_btn);
+        resetColor(home_btn);
+        resetColor(homework_btn);
+        resetColor(result_btn);
+        resetColor(notices_btn);
+        resetColor(attendance_btn);
+        setColor(search_btn);
+        
+        ind_home_0.setOpaque(false);
+        ind_hw_1.setOpaque(false);
+        ind_res_2.setOpaque(false);
+        ind_noti_3.setOpaque(false);
+        ind_att_4.setOpaque(false);
+        ind_mes_5.setOpaque(false);
+        ind_sea_6.setOpaque(true);
+        
+    }//GEN-LAST:event_search_btnMousePressed
+
+    private void searchT_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchT_btnActionPerformed
+        
+        System.out.print(jTextField2.getText());
+        profileShowStudent(jTextField2.getText());
+        
+        
+    }//GEN-LAST:event_searchT_btnActionPerformed
+
+    private void searchT_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchT_btnMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_searchT_btnMouseClicked
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
     
     /**
      * @param args the command line arguments
@@ -1968,11 +2283,15 @@ public class TeacherProfile extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AttendencePanel;
     private javax.swing.JPanel AttendencePanel1;
+    private javax.swing.JLabel Class;
+    private javax.swing.JLabel ClassText;
     private javax.swing.JLabel Designation;
     private javax.swing.JLabel DesignationText;
     private javax.swing.JLabel Edit;
     private javax.swing.JLabel Email;
+    private javax.swing.JLabel Email1;
     private javax.swing.JLabel EmailText;
+    private javax.swing.JLabel EmailText1;
     private javax.swing.JPanel HomePanel;
     private javax.swing.JLabel Homework;
     private javax.swing.JPanel HomeworkPanel;
@@ -1980,20 +2299,28 @@ public class TeacherProfile extends javax.swing.JFrame {
     private javax.swing.JPanel HomeworkPanel2;
     private javax.swing.JPanel HomeworkPanel3;
     private javax.swing.JLabel ID;
+    private javax.swing.JLabel ID1;
+    private javax.swing.JLabel IDTest1;
     private javax.swing.JLabel IDText;
     private javax.swing.JPanel LeftCeditPanel;
     private javax.swing.JLabel MenuText1;
     private javax.swing.JPanel MessegePanel;
     private javax.swing.JLabel Name;
+    private javax.swing.JLabel NameFDB;
     private javax.swing.JLabel NameText;
+    private javax.swing.JLabel NameText2;
     private javax.swing.JLabel PhoneText;
+    private javax.swing.JLabel PhoneText1;
     private javax.swing.JLabel Profile;
+    private javax.swing.JLabel Section;
+    private javax.swing.JLabel SectionText;
     private javax.swing.JLabel SideMenuShow1;
     private javax.swing.JLabel Subject;
     private javax.swing.JLabel SubjectText;
     private javax.swing.JButton attendanceUpdateButton;
     private javax.swing.JPanel attendance_btn;
     private com.toedter.calendar.JDateChooser dateChooser;
+    private javax.swing.JLabel enter_id_label;
     private javax.swing.JButton exitButton;
     private javax.swing.JPanel home_btn;
     private javax.swing.JButton homeworkPostButton;
@@ -2005,6 +2332,7 @@ public class TeacherProfile extends javax.swing.JFrame {
     private javax.swing.JPanel ind_mes_5;
     private javax.swing.JPanel ind_noti_3;
     private javax.swing.JPanel ind_res_2;
+    private javax.swing.JPanel ind_sea_6;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -2023,6 +2351,7 @@ public class TeacherProfile extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -2040,6 +2369,7 @@ public class TeacherProfile extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JButton logOut;
     private javax.swing.JTextArea marks;
     private javax.swing.JButton messageSendButton;
@@ -2051,11 +2381,16 @@ public class TeacherProfile extends javax.swing.JFrame {
     private javax.swing.JTextArea noticeTextArea;
     private javax.swing.JPanel notices_btn;
     private javax.swing.JLabel phoneNo;
+    private javax.swing.JLabel phoneNo1;
     private javax.swing.JTextField presentDaysTextField;
     private javax.swing.JLabel resultOfID;
     private javax.swing.JPanel resultPanel;
     private javax.swing.JButton resultSubmitButton;
     private javax.swing.JPanel result_btn;
+    private javax.swing.JLabel searchLabel;
+    private javax.swing.JPanel searchPanel;
+    private javax.swing.JButton searchT_btn;
+    private javax.swing.JPanel search_btn;
     private javax.swing.JComboBox<String> selectClass;
     private javax.swing.JComboBox<String> selectMonth;
     private javax.swing.JComboBox<String> selectPaper;
