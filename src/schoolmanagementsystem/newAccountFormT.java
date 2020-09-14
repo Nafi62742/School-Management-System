@@ -58,10 +58,12 @@ public class newAccountFormT extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         exitButton = new javax.swing.JButton();
+        updateText6 = new javax.swing.JLabel();
+        updateText2 = new javax.swing.JLabel();
+        updateText5 = new javax.swing.JLabel();
         nameField = new javax.swing.JTextField();
         subjectField = new javax.swing.JTextField();
         designationField = new javax.swing.JTextField();
-        jTextPane1 = new javax.swing.JTextPane();
         idField = new javax.swing.JTextField();
         passwordField = new javax.swing.JPasswordField();
         confirmPasswordField = new javax.swing.JPasswordField();
@@ -87,7 +89,31 @@ public class newAccountFormT extends javax.swing.JFrame {
                 exitButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 30, 30));
+        jPanel1.add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, 30, 30));
+
+        updateText6.setBackground(new java.awt.Color(255, 255, 255));
+        updateText6.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        updateText6.setForeground(new java.awt.Color(0, 0, 0));
+        updateText6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        updateText6.setText("(must be at least 4 letters)");
+        updateText6.setOpaque(true);
+        jPanel1.add(updateText6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 510, 160, 20));
+
+        updateText2.setBackground(new java.awt.Color(255, 255, 255));
+        updateText2.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        updateText2.setForeground(new java.awt.Color(0, 0, 0));
+        updateText2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        updateText2.setText("(Must be less or equal 30 words)");
+        updateText2.setOpaque(true);
+        jPanel1.add(updateText2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 180, 30));
+
+        updateText5.setBackground(new java.awt.Color(255, 255, 255));
+        updateText5.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        updateText5.setForeground(new java.awt.Color(0, 0, 0));
+        updateText5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        updateText5.setText("(must be unique)");
+        updateText5.setOpaque(true);
+        jPanel1.add(updateText5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 410, 100, 30));
 
         nameField.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         nameField.setBorder(null);
@@ -103,7 +129,7 @@ public class newAccountFormT extends javax.swing.JFrame {
                 nameFieldKeyPressed(evt);
             }
         });
-        jPanel1.add(nameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 440, -1));
+        jPanel1.add(nameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 430, -1));
 
         subjectField.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         subjectField.setBorder(null);
@@ -135,8 +161,7 @@ public class newAccountFormT extends javax.swing.JFrame {
                 designationFieldKeyPressed(evt);
             }
         });
-        jPanel1.add(designationField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 440, 30));
-        jPanel1.add(jTextPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jPanel1.add(designationField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 430, 30));
 
         idField.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         idField.setBorder(null);
@@ -152,13 +177,13 @@ public class newAccountFormT extends javax.swing.JFrame {
                 idFieldKeyPressed(evt);
             }
         });
-        jPanel1.add(idField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, 390, 30));
+        jPanel1.add(idField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, 380, 30));
 
         passwordField.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         passwordField.setBorder(null);
         passwordField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         passwordField.setOpaque(false);
-        jPanel1.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 530, 440, 30));
+        jPanel1.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 530, 430, 30));
 
         confirmPasswordField.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         confirmPasswordField.setBorder(null);
@@ -169,7 +194,7 @@ public class newAccountFormT extends javax.swing.JFrame {
                 confirmPasswordFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(confirmPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 630, 440, 30));
+        jPanel1.add(confirmPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 630, 430, 30));
 
         jTextPane2.setEditable(false);
         jTextPane2.setBackground(new java.awt.Color(255, 255, 255));
@@ -179,10 +204,10 @@ public class newAccountFormT extends javax.swing.JFrame {
         jTextPane2.setOpaque(false);
         jPanel1.add(jTextPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, 60, 30));
         jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 430, 10));
-        jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 440, 10));
-        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 440, 10));
+        jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 430, 10));
+        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 430, 10));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, 430, 10));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 560, 440, 20));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 560, 430, 20));
         jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 660, 430, 10));
 
         back_btn.setBorder(null);
@@ -430,11 +455,13 @@ public class newAccountFormT extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTextPane jTextPane2;
     private javax.swing.JTextField nameField;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JButton signupButton1;
     private javax.swing.JTextField subjectField;
+    private javax.swing.JLabel updateText2;
+    private javax.swing.JLabel updateText5;
+    private javax.swing.JLabel updateText6;
     // End of variables declaration//GEN-END:variables
 }

@@ -13,6 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import org.apache.commons.codec.binary.Base64;
 import schoolmanagementsystem.Database.StudentDatabase;
@@ -49,12 +50,14 @@ public class UpdateAccountTeacher extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        updateText1 = new javax.swing.JLabel();
         UpdateLogo = new javax.swing.JLabel();
         exitButton = new javax.swing.JButton();
         nameField = new javax.swing.JTextField();
         subjectField = new javax.swing.JTextField();
         designationField = new javax.swing.JTextField();
-        jTextPane1 = new javax.swing.JTextPane();
+        updateText2 = new javax.swing.JLabel();
+        updateText = new javax.swing.JLabel();
         NumberText = new javax.swing.JLabel();
         EmailField = new javax.swing.JTextField();
         PhoneNoField = new javax.swing.JTextField();
@@ -74,6 +77,14 @@ public class UpdateAccountTeacher extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        updateText1.setBackground(new java.awt.Color(255, 255, 255));
+        updateText1.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        updateText1.setForeground(new java.awt.Color(0, 0, 0));
+        updateText1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        updateText1.setText("(***@email.com)");
+        updateText1.setOpaque(true);
+        jPanel1.add(updateText1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 510, 110, 20));
+
         UpdateLogo.setBackground(new java.awt.Color(255, 255, 255));
         UpdateLogo.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         UpdateLogo.setForeground(new java.awt.Color(0, 0, 153));
@@ -89,7 +100,7 @@ public class UpdateAccountTeacher extends javax.swing.JFrame {
                 exitButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 30, 30));
+        jPanel1.add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, 30, 30));
 
         nameField.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         nameField.setBorder(null);
@@ -105,7 +116,7 @@ public class UpdateAccountTeacher extends javax.swing.JFrame {
                 nameFieldKeyPressed(evt);
             }
         });
-        jPanel1.add(nameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 440, -1));
+        jPanel1.add(nameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 430, -1));
 
         subjectField.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         subjectField.setBorder(null);
@@ -133,7 +144,22 @@ public class UpdateAccountTeacher extends javax.swing.JFrame {
             }
         });
         jPanel1.add(designationField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 430, 30));
-        jPanel1.add(jTextPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        updateText2.setBackground(new java.awt.Color(255, 255, 255));
+        updateText2.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        updateText2.setForeground(new java.awt.Color(0, 0, 0));
+        updateText2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        updateText2.setText("(Must be less or equal 30 words)");
+        updateText2.setOpaque(true);
+        jPanel1.add(updateText2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 180, 20));
+
+        updateText.setBackground(new java.awt.Color(255, 255, 255));
+        updateText.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
+        updateText.setForeground(new java.awt.Color(0, 0, 0));
+        updateText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        updateText.setText("Update Account");
+        updateText.setOpaque(true);
+        jPanel1.add(updateText, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 360, 60));
 
         NumberText.setBackground(new java.awt.Color(255, 255, 255));
         NumberText.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
@@ -302,33 +328,33 @@ public class UpdateAccountTeacher extends javax.swing.JFrame {
      public void updateTrigger() {
 
         String Teacher_Id = teacherDb.getId();
-        
        String pass = null;
         String name=nameField.getText();
         String DBpass = teacherDb.getPassFromTDB();
         String originalPass = confirmPasswordField.getText();
-        pass = EncryptPass(originalPass);
-         if(name.length()>30){
-            JOptionPane.showMessageDialog(this, "Name should be shorter.", "Warning", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        
-          if (originalPass.length() >= 4  && pass.equals(DBpass)) {
-            int response = teacherDb.updateTeacherAccount(name, subjectField.getText(), designationField.getText(),Teacher_Id , PhoneNoField.getText(), EmailField.getText());
-           switch (response) {
-                case 1:
-                    JOptionPane.showMessageDialog(null, "Updated Successfully");
-                    //clearTextField();
-                    new TeacherProfile(this.id).setVisible(true);
-                    dispose();
-                    break;
-                default:
-                    clearTextField();
-                    break;
-            }
+        pass = EncryptPass(originalPass);      
+        if (!(Pattern.matches("^[a-zA-Z0-9]+[@]{1}+[a-zA-Z0-9]+[.]{1}+[a-zA-Z0-9]+$", EmailField.getText()))) 
+        {
+            JOptionPane.showMessageDialog(null, "Please enter a valid email", "Error", JOptionPane.ERROR_MESSAGE);
         } 
-        else {
-            JOptionPane.showMessageDialog(this, "Please set password correctly", "Warning", JOptionPane.WARNING_MESSAGE);
+        else{
+            if (originalPass.length() >= 4  && pass.equals(DBpass)) {
+              int response = teacherDb.updateTeacherAccount(name, subjectField.getText(), designationField.getText(),Teacher_Id , PhoneNoField.getText(), EmailField.getText());
+             switch (response) {
+                  case 1:
+                      JOptionPane.showMessageDialog(null, "Updated Successfully");
+                      //clearTextField();
+                      new TeacherProfile(this.id).setVisible(true);
+                      dispose();
+                      break;
+                  default:
+                      clearTextField();
+                      break;
+              }
+          } 
+          else {
+              JOptionPane.showMessageDialog(this, "Please set password correctly", "Warning", JOptionPane.WARNING_MESSAGE);
+          }
         }
    }
          
@@ -369,7 +395,7 @@ public class UpdateAccountTeacher extends javax.swing.JFrame {
         int length=name.length();
         
         char c = evt.getKeyChar();
-        if((c>='a'&&c<='z')||(c>='A'&&c<='Z')){
+        if((c>='a'&&c<='z')||(c>='A'&&c<='Z')||(c==' ')){
             if(length<30){
                 nameField.setEditable(true);
             }
@@ -393,7 +419,7 @@ public class UpdateAccountTeacher extends javax.swing.JFrame {
         int length=sub.length();
         
         char c = evt.getKeyChar();
-        if((c>='a'&&c<='z')||(c>='A'&&c<='Z')){
+        if((c>='a'&&c<='z')||(c>='A'&&c<='Z')||(c==' ')){
             if(length<20){
                 subjectField.setEditable(true);
             }
@@ -417,7 +443,7 @@ public class UpdateAccountTeacher extends javax.swing.JFrame {
         int length=sub.length();
         
         char c = evt.getKeyChar();
-        if((c>='a'&&c<='z')||(c>='A'&&c<='Z')){
+        if((c>='a'&&c<='z')||(c>='A'&&c<='Z')||(c==' ')){
             if(length<15){
                 designationField.setEditable(true);
             }
@@ -544,8 +570,10 @@ public class UpdateAccountTeacher extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTextField nameField;
     private javax.swing.JTextField subjectField;
+    private javax.swing.JLabel updateText;
+    private javax.swing.JLabel updateText1;
+    private javax.swing.JLabel updateText2;
     // End of variables declaration//GEN-END:variables
 }

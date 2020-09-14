@@ -231,9 +231,10 @@ public class Intro extends javax.swing.JFrame {
                 @Override
                 public void run(){
                     try{
+                        
                         for(int i = 1280;i>=0;i=i-1){
                            
-                            Thread.sleep(1);
+                            Thread.sleep(4);
                             intro.setSize(1280,i);
                             if(i==200)
                             {

@@ -40,7 +40,12 @@ public class newAccountForm extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        updateText6 = new javax.swing.JLabel();
         exitButton = new javax.swing.JButton();
+        updateText5 = new javax.swing.JLabel();
+        updateText2 = new javax.swing.JLabel();
+        updateText3 = new javax.swing.JLabel();
+        updateText4 = new javax.swing.JLabel();
         jTextPane2 = new javax.swing.JTextPane();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
@@ -62,6 +67,14 @@ public class newAccountForm extends javax.swing.JFrame {
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        updateText6.setBackground(new java.awt.Color(255, 255, 255));
+        updateText6.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        updateText6.setForeground(new java.awt.Color(0, 0, 0));
+        updateText6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        updateText6.setText("(must be at least 4 letters)");
+        updateText6.setOpaque(true);
+        jPanel2.add(updateText6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 510, 160, 20));
+
         exitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolmanagementsystem/image/close.png"))); // NOI18N
         exitButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         exitButton.addActionListener(new java.awt.event.ActionListener() {
@@ -69,7 +82,39 @@ public class newAccountForm extends javax.swing.JFrame {
                 exitButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 30, 30));
+        jPanel2.add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, 30, 30));
+
+        updateText5.setBackground(new java.awt.Color(255, 255, 255));
+        updateText5.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        updateText5.setForeground(new java.awt.Color(0, 0, 0));
+        updateText5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        updateText5.setText("(must be unique)");
+        updateText5.setOpaque(true);
+        jPanel2.add(updateText5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 410, 100, 30));
+
+        updateText2.setBackground(new java.awt.Color(255, 255, 255));
+        updateText2.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        updateText2.setForeground(new java.awt.Color(0, 0, 0));
+        updateText2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        updateText2.setText("(Must be less or equal 30 words)");
+        updateText2.setOpaque(true);
+        jPanel2.add(updateText2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 180, 30));
+
+        updateText3.setBackground(new java.awt.Color(255, 255, 255));
+        updateText3.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        updateText3.setForeground(new java.awt.Color(0, 0, 0));
+        updateText3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        updateText3.setText("(1-10)");
+        updateText3.setOpaque(true);
+        jPanel2.add(updateText3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 40, 20));
+
+        updateText4.setBackground(new java.awt.Color(255, 255, 255));
+        updateText4.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        updateText4.setForeground(new java.awt.Color(0, 0, 0));
+        updateText4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        updateText4.setText("(a/b/c)");
+        updateText4.setOpaque(true);
+        jPanel2.add(updateText4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 40, 30));
 
         jTextPane2.setEditable(false);
         jTextPane2.setBackground(new java.awt.Color(255, 255, 255));
@@ -427,6 +472,11 @@ public class newAccountForm extends javax.swing.JFrame {
     private javax.swing.JTextField sectionField;
     private javax.swing.JButton signupButton;
     private javax.swing.JTextField studentClassField;
+    private javax.swing.JLabel updateText2;
+    private javax.swing.JLabel updateText3;
+    private javax.swing.JLabel updateText4;
+    private javax.swing.JLabel updateText5;
+    private javax.swing.JLabel updateText6;
     // End of variables declaration//GEN-END:variables
     
     private int len(String originalPass) {

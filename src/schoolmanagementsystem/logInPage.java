@@ -79,7 +79,7 @@ public class logInPage extends javax.swing.JFrame {
         });
         jPanel1.add(rememberUserCheckbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 390, 200, 40));
 
-        idField.setBackground(new java.awt.Color(112, 144, 196));
+        idField.setBackground(new java.awt.Color(255, 255, 255));
         idField.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         idField.setForeground(new java.awt.Color(255, 255, 255));
         idField.setText("Enter Your ID");
