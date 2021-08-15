@@ -108,11 +108,7 @@
         <Component class="javax.swing.JTextField" name="idField">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-<<<<<<< Updated upstream
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
-=======
-              <Color blue="c4" green="90" red="70" type="rgb"/>
->>>>>>> Stashed changes
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Comic Sans MS" size="18" style="1"/>
@@ -131,10 +127,7 @@
           </Properties>
           <Events>
             <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="idFieldFocusGained"/>
-<<<<<<< Updated upstream
-=======
             <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="idFieldMouseEntered"/>
->>>>>>> Stashed changes
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="idFieldActionPerformed"/>
           </Events>
           <Constraints>
@@ -179,11 +172,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-<<<<<<< Updated upstream
               <AbsoluteConstraints x="880" y="320" width="370" height="40"/>
-=======
-              <AbsoluteConstraints x="890" y="320" width="360" height="40"/>
->>>>>>> Stashed changes
             </Constraint>
           </Constraints>
         </Component>
