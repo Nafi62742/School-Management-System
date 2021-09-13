@@ -1,32 +1,29 @@
 package schoolmanagementsystem;
-
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import schoolmanagementsystem.Database.Accounts;
 
+
 public class logInPage extends javax.swing.JFrame {
-
     Accounts account;
-
     public logInPage() {
         this.setUndecorated(true);
-        initComponents();
-        account = new Accounts();
-//        String userId = null;
-        String userId = account.isUserLoggedIn();
-        if (userId == null) {
+        account=new Accounts();
+        
+        String userId=account.isUserLoggedIn();
+        if(userId==null){
             initComponents();
-        } else {
-            if (userId.contains("100.")) {
-                new StudentProfile(userId).setVisible(true);
-                dispose();
-            } else if (userId.contains("400.")) {
-                new TeacherProfile(userId).setVisible(true);
-                dispose();
-            }
+        }else{
+            if(userId.contains("100.")){
+            new StudentProfile(userId).setVisible(true);
+            dispose();
+        }else if(userId.contains("400.")){
+            new TeacherProfile(userId).setVisible(true);
+            dispose();
+        }
         }
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -92,11 +89,6 @@ public class logInPage extends javax.swing.JFrame {
         idField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 idFieldFocusGained(evt);
-            }
-        });
-        idField.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                idFieldMouseEntered(evt);
             }
         });
         idField.addActionListener(new java.awt.event.ActionListener() {
@@ -185,14 +177,17 @@ public class logInPage extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    
 //...................Start Custom Functions....................//
-    private void clearTextField() {
+
+    private void clearTextField(){
         idField.setText("");
         passwordField.setText("");
     }
-
+    
 //...................End Custom Functions....................//
+    
+    
     private void idFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_idFieldActionPerformed
@@ -207,23 +202,23 @@ public class logInPage extends javax.swing.JFrame {
 
     private void signupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupButtonActionPerformed
         popUp pU = new popUp(account);
-
+        
         pU.setVisible(true);
         pU.setResizable(false);
-
+        
         pU.setDefaultCloseOperation(pU.DO_NOTHING_ON_CLOSE);
-
+        
         logInPage lF = new logInPage();
         dispose();
     }//GEN-LAST:event_signupButtonActionPerformed
-
+    
     private void signinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signinButtonActionPerformed
-        boolean userValid = account.accountLogin(idField.getText(), passwordField.getText(), rememberUserCheckbox.isSelected());
-        if (userValid == true) {
+        boolean userValid=account.accountLogin(idField.getText(),passwordField.getText(),rememberUserCheckbox.isSelected());
+        if(userValid==true){
             dispose();
-        } else {
+        }else{
             clearTextField();
-        }
+        }     
     }//GEN-LAST:event_signinButtonActionPerformed
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
@@ -234,7 +229,7 @@ public class logInPage extends javax.swing.JFrame {
     }//GEN-LAST:event_exitButtonActionPerformed
 
     private void rememberUserCheckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rememberUserCheckboxActionPerformed
-
+        
     }//GEN-LAST:event_rememberUserCheckboxActionPerformed
 
     private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
@@ -242,30 +237,26 @@ public class logInPage extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordFieldActionPerformed
 
     private void passwordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordFieldKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            boolean userValid = account.accountLogin(idField.getText(), passwordField.getText(), false);
-            if (userValid == true) {
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            boolean userValid=account.accountLogin(idField.getText(), passwordField.getText(), false);
+            if(userValid==true){
                 dispose();
-            } else {
+            }else{
                 clearTextField();
             }
         }
     }//GEN-LAST:event_passwordFieldKeyPressed
-
-    private void idFieldMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_idFieldMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_idFieldMouseEntered
-
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
+        */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -283,7 +274,7 @@ public class logInPage extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(logInPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

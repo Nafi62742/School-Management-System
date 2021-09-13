@@ -49,11 +49,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-<<<<<<< Updated upstream
               <AbsoluteConstraints x="0" y="0" width="1280" height="32"/>
-=======
-              <AbsoluteConstraints x="740" y="0" width="540" height="32"/>
->>>>>>> Stashed changes
             </Constraint>
           </Constraints>
 
@@ -61,11 +57,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-<<<<<<< Updated upstream
                       <EmptySpace pref="1244" max="32767" attributes="0"/>
-=======
-                      <EmptySpace pref="504" max="32767" attributes="0"/>
->>>>>>> Stashed changes
                       <Component id="exitButton" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -130,10 +122,7 @@
                   <Component id="result_btn" alignment="0" max="32767" attributes="0"/>
                   <Component id="notices_btn" alignment="0" max="32767" attributes="0"/>
                   <Component id="messege_btn" alignment="1" max="32767" attributes="0"/>
-<<<<<<< Updated upstream
                   <Component id="search_btn" alignment="1" max="32767" attributes="0"/>
-=======
->>>>>>> Stashed changes
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -153,13 +142,9 @@
                       <Component id="result_btn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="messege_btn" min="-2" max="-2" attributes="0"/>
-<<<<<<< Updated upstream
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="search_btn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="34" max="32767" attributes="0"/>
-=======
-                      <EmptySpace pref="112" max="32767" attributes="0"/>
->>>>>>> Stashed changes
                       <Component id="logOut" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   </Group>
@@ -621,7 +606,6 @@
                 </Component>
               </SubComponents>
             </Container>
-<<<<<<< Updated upstream
             <Container class="javax.swing.JPanel" name="search_btn">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -694,8 +678,6 @@
                 </Component>
               </SubComponents>
             </Container>
-=======
->>>>>>> Stashed changes
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="LeftCeditPanel">
@@ -809,7 +791,6 @@
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< Updated upstream
                                       <Group type="102" attributes="0">
                                           <Component id="IDText" min="-2" pref="157" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -842,16 +823,6 @@
                                       </Group>
                                   </Group>
                                   <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-=======
-                                      <Component id="IDText" min="-2" pref="157" max="-2" attributes="0"/>
-                                      <Component id="NameText" min="-2" pref="157" max="-2" attributes="0"/>
-                                      <Component id="SubjectText" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
-                                      <Component id="DesignationText" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
-                                      <Component id="PhoneText" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
-                                      <Component id="EmailText" min="-2" pref="157" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
->>>>>>> Stashed changes
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="phoneNo" min="-2" pref="351" max="-2" attributes="0"/>
                                       <Component id="Email" min="-2" pref="300" max="-2" attributes="0"/>
@@ -873,7 +844,6 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-<<<<<<< Updated upstream
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
@@ -899,28 +869,11 @@
                               <Component id="SubjectText" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
                               <Component id="Subject" alignment="3" min="-2" pref="59" max="-2" attributes="0"/>
                               <Component id="ColonLebel25" alignment="3" min="-2" pref="62" max="-2" attributes="0"/>
-=======
-                          <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="Name" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
-                              <Component id="NameText" alignment="3" min="-2" pref="58" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="IDText" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
-                              <Component id="ID" alignment="3" min="-2" pref="59" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="SubjectText" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
-                              <Component id="Subject" alignment="3" min="-2" pref="59" max="-2" attributes="0"/>
->>>>>>> Stashed changes
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-<<<<<<< Updated upstream
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <Component id="Designation" min="-2" pref="59" max="-2" attributes="0"/>
@@ -944,15 +897,6 @@
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-=======
-                                  <Component id="Designation" min="-2" pref="59" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="phoneNo" alignment="3" min="-2" pref="59" max="-2" attributes="0"/>
-                                      <Component id="PhoneText" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
->>>>>>> Stashed changes
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="DesignationText" min="-2" pref="68" max="-2" attributes="0"/>
@@ -962,10 +906,7 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="EmailText" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
                               <Component id="Email" alignment="3" min="-2" pref="59" max="-2" attributes="0"/>
-<<<<<<< Updated upstream
                               <Component id="ColonLebel28" alignment="3" min="-2" pref="62" max="-2" attributes="0"/>
-=======
->>>>>>> Stashed changes
                           </Group>
                           <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                           <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
@@ -984,11 +925,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="2"/>
-<<<<<<< Updated upstream
                     <Property name="text" type="java.lang.String" value="Name"/>
-=======
-                    <Property name="text" type="java.lang.String" value="Name:"/>
->>>>>>> Stashed changes
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="Designation">
@@ -1024,11 +961,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="2"/>
-<<<<<<< Updated upstream
                     <Property name="text" type="java.lang.String" value="Designation"/>
-=======
-                    <Property name="text" type="java.lang.String" value="Designation:"/>
->>>>>>> Stashed changes
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="IDText">
@@ -1040,11 +973,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="2"/>
-<<<<<<< Updated upstream
                     <Property name="text" type="java.lang.String" value="ID"/>
-=======
-                    <Property name="text" type="java.lang.String" value="ID:"/>
->>>>>>> Stashed changes
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="ID">
@@ -1068,11 +997,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="2"/>
-<<<<<<< Updated upstream
                     <Property name="text" type="java.lang.String" value="Subject"/>
-=======
-                    <Property name="text" type="java.lang.String" value="Subject:"/>
->>>>>>> Stashed changes
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="Subject">
@@ -1108,11 +1033,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="2"/>
-<<<<<<< Updated upstream
                     <Property name="text" type="java.lang.String" value="Email"/>
-=======
-                    <Property name="text" type="java.lang.String" value="Email:"/>
->>>>>>> Stashed changes
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="phoneNo">
@@ -1136,11 +1057,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="2"/>
-<<<<<<< Updated upstream
                     <Property name="text" type="java.lang.String" value="Phone no"/>
-=======
-                    <Property name="text" type="java.lang.String" value="Phone No:"/>
->>>>>>> Stashed changes
                   </Properties>
                 </Component>
                 <Container class="javax.swing.JPanel" name="jPanel2">
@@ -1167,11 +1084,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="Edit" min="-2" pref="46" max="-2" attributes="0"/>
-<<<<<<< Updated upstream
                               <EmptySpace pref="28" max="32767" attributes="0"/>
-=======
-                              <EmptySpace max="32767" attributes="0"/>
->>>>>>> Stashed changes
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1194,7 +1107,6 @@
                     </Component>
                   </SubComponents>
                 </Container>
-<<<<<<< Updated upstream
                 <Component class="javax.swing.JLabel" name="ColonLebel23">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -1261,8 +1173,6 @@
                     <Property name="text" type="java.lang.String" value=":"/>
                   </Properties>
                 </Component>
-=======
->>>>>>> Stashed changes
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="HomeworkPanel">
@@ -2224,19 +2134,11 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-<<<<<<< Updated upstream
-=======
-                                  <EmptySpace min="-2" pref="500" max="-2" attributes="0"/>
-                                  <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
->>>>>>> Stashed changes
                                   <EmptySpace min="-2" pref="354" max="-2" attributes="0"/>
                                   <Component id="resultSubmitButton" min="-2" pref="314" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
-<<<<<<< Updated upstream
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                       <Component id="teacherSUb" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jLabel24" alignment="0" pref="219" max="32767" attributes="0"/>
@@ -2249,16 +2151,6 @@
                                       <Component id="ColonLebel31" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-=======
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="resultOfID" alignment="0" min="-2" pref="246" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="teacherSUb" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jLabel24" alignment="0" pref="219" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
->>>>>>> Stashed changes
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="studentIdResultField" alignment="0" pref="234" max="32767" attributes="0"/>
                                       <Component id="marks" alignment="0" pref="234" max="32767" attributes="0"/>
@@ -2272,20 +2164,16 @@
                           <Component id="selectPaper" pref="179" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                       </Group>
-<<<<<<< Updated upstream
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="467" max="-2" attributes="0"/>
                           <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
-=======
->>>>>>> Stashed changes
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-<<<<<<< Updated upstream
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
@@ -2327,38 +2215,6 @@
                               <Component id="marks" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="222" max="-2" attributes="0"/>
-=======
-                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="jLabel12" pref="61" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="studentIdResultField" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
-                              <Component id="resultOfID" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="teacherSUb" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                                      <Component id="subb" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="selectPaper" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="subjectPartText" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace pref="17" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel24" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
-                              <Component id="marks" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="179" max="-2" attributes="0"/>
->>>>>>> Stashed changes
                           <Component id="resultSubmitButton" min="-2" pref="46" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
                       </Group>
@@ -2505,7 +2361,6 @@
                     <Property name="text" type="java.lang.String" value="Paper :"/>
                   </Properties>
                 </Component>
-<<<<<<< Updated upstream
                 <Component class="javax.swing.JLabel" name="ColonLebel29">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -2539,8 +2394,6 @@
                     <Property name="text" type="java.lang.String" value=":"/>
                   </Properties>
                 </Component>
-=======
->>>>>>> Stashed changes
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="MessegePanel">
@@ -2555,36 +2408,15 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< Updated upstream
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="HomeworkPanel3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-=======
-                      <EmptySpace min="0" pref="1071" max="32767" attributes="0"/>
-                      <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="HomeworkPanel3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
->>>>>>> Stashed changes
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< Updated upstream
                       <Component id="HomeworkPanel3" alignment="0" max="32767" attributes="0"/>
-=======
-                      <EmptySpace min="0" pref="693" max="32767" attributes="0"/>
-                      <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="HomeworkPanel3" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
->>>>>>> Stashed changes
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -2604,7 +2436,6 @@
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jScrollPane3" alignment="0" pref="953" max="32767" attributes="0"/>
                                   <Component id="jLabel19" alignment="0" min="-2" pref="198" max="-2" attributes="0"/>
-<<<<<<< Updated upstream
                                   <Component id="jSeparator7" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -2618,24 +2449,11 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="studentIdTextField" min="-2" pref="218" max="-2" attributes="0"/>
                                   </Group>
-=======
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel20" min="-2" pref="246" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="studentIdTextField" min="-2" pref="218" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="jLabel21" alignment="0" min="-2" pref="219" max="-2" attributes="0"/>
-                                  <Component id="jSeparator7" alignment="0" max="32767" attributes="0"/>
->>>>>>> Stashed changes
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-<<<<<<< Updated upstream
                               <EmptySpace pref="388" max="32767" attributes="0"/>
-=======
-                              <EmptySpace pref="381" max="32767" attributes="0"/>
->>>>>>> Stashed changes
                               <Component id="messageSendButton" min="-2" pref="314" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="352" max="-2" attributes="0"/>
                           </Group>
@@ -2646,7 +2464,6 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                               <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
-<<<<<<< Updated upstream
                               <EmptySpace pref="31" max="32767" attributes="0"/>
                               <Component id="jSeparator7" min="-2" pref="13" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -2659,14 +2476,6 @@
                                       </Group>
                                       <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
                                   </Group>
-=======
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jSeparator7" min="-2" pref="13" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel20" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
-                                  <Component id="studentIdTextField" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
->>>>>>> Stashed changes
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel21" min="-2" pref="48" max="-2" attributes="0"/>
@@ -2674,11 +2483,7 @@
                               <Component id="jScrollPane3" min="-2" pref="291" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                               <Component id="messageSendButton" min="-2" pref="46" max="-2" attributes="0"/>
-<<<<<<< Updated upstream
                               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-=======
-                              <EmptySpace pref="48" max="32767" attributes="0"/>
->>>>>>> Stashed changes
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2786,7 +2591,6 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="studentIdTextFieldActionPerformed"/>
                       </Events>
                     </Component>
-<<<<<<< Updated upstream
                     <Component class="javax.swing.JLabel" name="ColonLebel32">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -2798,13 +2602,10 @@
                         <Property name="text" type="java.lang.String" value=":"/>
                       </Properties>
                     </Component>
-=======
->>>>>>> Stashed changes
                   </SubComponents>
                 </Container>
               </SubComponents>
             </Container>
-<<<<<<< Updated upstream
             <Container class="javax.swing.JPanel" name="searchPanel">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -3218,8 +3019,6 @@
                 </Component>
               </SubComponents>
             </Container>
-=======
->>>>>>> Stashed changes
           </SubComponents>
         </Container>
       </SubComponents>

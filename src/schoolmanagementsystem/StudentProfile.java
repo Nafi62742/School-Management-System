@@ -2,7 +2,7 @@
 * To change this license header, choose License Headers in Project Properties.
 * To change this template file, choose Tools | Templates
 * and open the template in the editor.
- */
+*/
 package schoolmanagementsystem;
 
 import Chatbot.Chatbot;
@@ -34,54 +34,47 @@ import schoolmanagementsystem.Database.StudentDatabase;
  *
  * @author Administrator
  */
-public class StudentProfile extends javax.swing.JFrame {
 
+public class StudentProfile extends javax.swing.JFrame {
+    
     Connection conn = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
     Statement st;
     StudentDatabase stdb;
     List<Homework> homeworkList;
-    int totalHomeworks = 0;
-    int toggleHomework = 0;
-    int dateNotificationToggle = 0;
-    int homeworkNotificationCheck = 0;
-    int noticeNotificationCheck = 0;
-    int messageNotificationCheck = 0;
+    int totalHomeworks=0;
+    int toggleHomework=0;
+    int dateNotificationToggle =0;
+    int homeworkNotificationCheck =0;
+    int noticeNotificationCheck=0;
+     int messageNotificationCheck=0;
     public String id;
-
+    
     //Constructor
     public StudentProfile() {
         this.setUndecorated(true);
         initComponents();
         hideSideMenu();
     }
-
     //Constructor (Polymorphism - Method Overloading)
     public StudentProfile(String id) {
         this.setUndecorated(true);
         initComponents();
-<<<<<<< Updated upstream
         this.id=id;
         stdb=new StudentDatabase(this.id);
         
        showMessage();
         
-=======
-        this.id = id;
-        stdb = new StudentDatabase(this.id);
-
-        showMessage();
->>>>>>> Stashed changes
         showNoticeBoard();
         getHomeworks();
-
+        
         hideSideMenu();
         profileShow();
         resultShow();
+      
         notifierButtonUse();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1673,42 +1666,40 @@ public class StudentProfile extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    
     //......................Start Custom Functions...................//
-    public int checkDate(String dueDate) {
+        public int checkDate(String dueDate){
         Date datetime = new Date();
         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-        String dateString = dateFormat.format(datetime);
-        if (dueDate.equals(dateString)) {
+        String dateString=dateFormat.format(datetime);  
+        if(dueDate.equals(dateString)){
             return 1;
         }
         return 0;
     }
-
-    public void getHomeworks() {
-        homeworkList = stdb.getHomework();
-        totalHomeworks = homeworkList.size();
-
-        int notifier = checkDate(homeworkList.get(totalHomeworks - 1).getDueDateString());
-        if (notifier == 1) {
-            dateNotificationToggle = 1;
-            homeworkNotificationCheck = 1;
-        }
-        showHomework();
+    public void getHomeworks(){
+        homeworkList=stdb.getHomework();
+        totalHomeworks=homeworkList.size();
+        
+        int notifier =checkDate(homeworkList.get(totalHomeworks-1).getDueDateString());
+            if(notifier==1){
+                dateNotificationToggle= 1;
+                homeworkNotificationCheck=1;
+       }
+       showHomework();
     }
-
-    public void showHomework() {
-        if (totalHomeworks >= 1) {
+    public void showHomework(){
+        if(totalHomeworks>=1){
             nextHomeworkButton.setVisible(true);
-            subjectLabel.setText("Subject : " + homeworkList.get(0).getSubject());
-            totalMarksLabel.setText("Total Marks : " + homeworkList.get(0).getTotalMarks());
-            postDateLabel.setText("Post Date : " + homeworkList.get(0).getPostDate());
-            dueDateLabel.setText("Due Date : " + homeworkList.get(0).getDueDateString());
-            homeworkLabel.setText("<html>" + homeworkList.get(0).getHomeworkText() + "</html>");
-
-            int notifier = checkDate(homeworkList.get(0).getDueDateString());
-
-        } else {
+            subjectLabel.setText("Subject : "+homeworkList.get(0).getSubject());
+            totalMarksLabel.setText("Total Marks : "+homeworkList.get(0).getTotalMarks());
+            postDateLabel.setText("Post Date : "+homeworkList.get(0).getPostDate());
+            dueDateLabel.setText("Due Date : "+homeworkList.get(0).getDueDateString());
+            homeworkLabel.setText("<html>"+homeworkList.get(0).getHomeworkText()+"</html>");
+            
+            int notifier =checkDate(homeworkList.get(0).getDueDateString());
+           
+        }else{
             nextHomeworkButton.setVisible(false);
             previousHomeworkButton.setVisible(false);
             subjectLabel.setText("");
@@ -1716,72 +1707,73 @@ public class StudentProfile extends javax.swing.JFrame {
             postDateLabel.setText("");
             dueDateLabel.setText("");
             homeworkLabel.setText("Hey, You have no homework to do. Enjoy your free time. Thank you.");
-
+            
         }
     }
-
-    public void nextHomework() {
+    public void nextHomework(){
         toggleHomework++;
-        toggleHomework %= totalHomeworks;
-
-        if (toggleHomework == 0) {
+        toggleHomework%=totalHomeworks;
+        
+        if(toggleHomework==0){
             previousHomeworkButton.setVisible(false);
             showHomework();
-
-        } else if (totalHomeworks >= 1 && toggleHomework < totalHomeworks) {
+            
+        }
+        else if(totalHomeworks>=1&&toggleHomework<totalHomeworks){
             previousHomeworkButton.setVisible(true);
-            subjectLabel.setText("Subject : " + homeworkList.get(toggleHomework).getSubject());
-            totalMarksLabel.setText("Total Marks : " + homeworkList.get(toggleHomework).getTotalMarks());
-            postDateLabel.setText("Post Date : " + homeworkList.get(toggleHomework).getPostDate());
-            dueDateLabel.setText("Due Date : " + homeworkList.get(toggleHomework).getDueDateString());
-            homeworkLabel.setText("<html>" + homeworkList.get(toggleHomework).getHomeworkText() + "</html>");
-
+            subjectLabel.setText("Subject : "+homeworkList.get(toggleHomework).getSubject());
+            totalMarksLabel.setText("Total Marks : "+homeworkList.get(toggleHomework).getTotalMarks());
+            postDateLabel.setText("Post Date : "+homeworkList.get(toggleHomework).getPostDate());
+            dueDateLabel.setText("Due Date : "+homeworkList.get(toggleHomework).getDueDateString());
+            homeworkLabel.setText("<html>"+homeworkList.get(toggleHomework).getHomeworkText()+"</html>");
+            
         }
     }
-
-    public void previousHomework() {
+    public void previousHomework(){
         toggleHomework--;
-        if (toggleHomework < 0) {
-            toggleHomework = 0;
+        if(toggleHomework<0){
+            toggleHomework=0;
             previousHomeworkButton.setVisible(false);
             showHomework();
-        } else if (toggleHomework == 0) {
+        }
+        else if(toggleHomework==0){
             previousHomeworkButton.setVisible(false);
             showHomework();
-        } else if (totalHomeworks >= 1 && toggleHomework >= 0) {
-            subjectLabel.setText("Subject : " + homeworkList.get(toggleHomework).getSubject());
-            totalMarksLabel.setText("Total Marks : " + homeworkList.get(toggleHomework).getTotalMarks());
-            postDateLabel.setText("Post Date : " + homeworkList.get(toggleHomework).getPostDate());
-            dueDateLabel.setText("Due Date : " + homeworkList.get(toggleHomework).getDueDateString());
-            homeworkLabel.setText("<html>" + homeworkList.get(toggleHomework).getHomeworkText() + "</html>");
+        }
+        else if(totalHomeworks>=1&&toggleHomework>=0){
+            subjectLabel.setText("Subject : "+homeworkList.get(toggleHomework).getSubject());
+            totalMarksLabel.setText("Total Marks : "+homeworkList.get(toggleHomework).getTotalMarks());
+            postDateLabel.setText("Post Date : "+homeworkList.get(toggleHomework).getPostDate());
+            dueDateLabel.setText("Due Date : "+homeworkList.get(toggleHomework).getDueDateString());
+            homeworkLabel.setText("<html>"+homeworkList.get(toggleHomework).getHomeworkText()+"</html>");
         }
     }
-
-    public void showNoticeBoard() {
-
+    
+    
+    public void showNoticeBoard(){
+        
         DefaultTableModel dtm = (DefaultTableModel) noticeBoardTable.getModel();
-
-        List<Notice> list = stdb.getNotice();
-        Object[] row = new Object[5];
-        for (int i = list.size() - 1; i >= 0; i--) {
-            row[0] = list.get(i).getDateString();
-            int notifier = checkDate(list.get(i).getDateString());
-            if (notifier == 1 && dateNotificationToggle != 1) {
-                dateNotificationToggle = 2;
-                noticeNotificationCheck = 1;
+        
+        List<Notice> list=stdb.getNotice();
+        Object[] row=new Object[5];
+        for(int i=list.size()-1;i>=0;i--){
+            row[0]=list.get(i).getDateString();
+            int notifier =checkDate(list.get(i).getDateString());
+            if(notifier==1&&dateNotificationToggle!=1){
+                dateNotificationToggle= 2;
+                noticeNotificationCheck=1;
             }
-            row[1] = list.get(i).getTimeString();
-            row[2] = list.get(i).getTeacherName();
-            row[3] = list.get(i).getSubject();
-            row[4] = list.get(i).getNotice();
+            row[1]=list.get(i).getTimeString();
+            row[2]=list.get(i).getTeacherName();
+            row[3]=list.get(i).getSubject();
+            row[4]=list.get(i).getNotice();
             dtm.addRow(row);
         }
     }
-
-    public void showMessage() {
-
+    
+    public void showMessage(){
+        
         DefaultTableModel dtm2 = (DefaultTableModel) messageTable.getModel();
-<<<<<<< Updated upstream
         
         List<Message> list=stdb.getMessage();
         Object[] row2=new Object[4];
@@ -1795,37 +1787,17 @@ public class StudentProfile extends javax.swing.JFrame {
             if(notifier==1){
                 dateNotificationToggle= 3;
                 messageNotificationCheck=1;
-=======
-
-        List<Message> list = stdb.getMessage();
-        Object[] row2 = new Object[4];
-        for (int i = 0; i < list.size(); i++) {
-
-            row2[0] = list.get(i).getTeacherName();
-            row2[1] = list.get(i).getMessage();
-            row2[2] = list.get(i).getDateString();
-            row2[3] = list.get(i).getTimeString();
-            int notifier = checkDate(homeworkList.get(totalHomeworks - 1).getDueDateString());
-            if (notifier == 1) {
-                dateNotificationToggle = 3;
-                messageNotificationCheck = 1;
->>>>>>> Stashed changes
             }
-
+            
             dtm2.addRow(row2);
-
+            
         }
     }
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
     public void showAttendance(String Month) {
         List<Attendance> list = stdb.getAttendance(Month);
-        int aD = 0;
-        if (list.size() == 0) {
+        int aD =0;
+        if(list.size() == 0){
             JOptionPane.showMessageDialog(null, "Attendance not updated yet");
-<<<<<<< Updated upstream
         }
         else{
             for (int i = 0; i < list.size(); i++) {
@@ -1837,22 +1809,10 @@ public class StudentProfile extends javax.swing.JFrame {
                     String pD = Integer.toString(list.get(i).getPresentDays());
                     presentDaysTextField.setText(pD);
             }
-=======
-        } else {
-            for (int i = 0; i < list.size(); i++) {
-
-                aD = list.get(i).getWorkingDays() - list.get(i).getPresentDays();
-                absentDaysTextField.setText(Integer.toString(aD));
-                String wD = Integer.toString(list.get(i).getWorkingDays());
-                workingDayTextField.setText(wD);
-                String pD = Integer.toString(list.get(i).getPresentDays());
-                presentDaysTextField.setText(pD);
-            }
-
->>>>>>> Stashed changes
         }
     }
-
+    
+    
     public void updateChart(String month) {
         int wD = 0;
         int pD = 0;
@@ -1873,29 +1833,29 @@ public class StudentProfile extends javax.swing.JFrame {
         barPanel.removeAll();
         barPanel.add(chartpanel);
     }
-    int x = 242;
-
-    public void hideSideMenu() {
-        if (x == 242) {
-            sideMenu.setSize(242, 720);
-            Thread th = new Thread() {
+    
+    
+    int x =242;
+    public void hideSideMenu(){
+        if(x==242)
+        {
+            sideMenu.setSize(242,720);
+            Thread th = new Thread(){
                 @Override
-                public void run() {
-                    try {
-                        for (int i = 242; i >= 0; i = i - 22) {
+                public void run(){
+                    try{
+                        for(int i = 242;i>=0;i=i-22){
                             Thread.sleep(1);
-                            sideMenu.setSize(i, 720);
+                            sideMenu.setSize(i,720);
                         }
-                    } catch (Exception e) {
-                        jOptionPane.showMessegeDialog(null, e);
+                    }catch(Exception e){
+                        jOptionPane.showMessegeDialog(null,e);
                     }
                 }
-            };
-            th.start();
-            x = 0;
+            };th.start();
+            x=0;
         }
     }
-<<<<<<< Updated upstream
     
     public void resultComplements(int total){
                             int finalMarks=stdb.getGrandTotal();
@@ -1921,105 +1881,125 @@ public class StudentProfile extends javax.swing.JFrame {
                 else if(percentage>80){
                    complements.setText("Satisfactory");
                }
-=======
-
-    public void resultComplements(int total) {
-        int finalMarks = stdb.getGrandTotal();
-        String b1 = Integer.toString(stdb.getBangla1st());
-        String b2 = Integer.toString(stdb.getBangla2nd());
-        String e1 = Integer.toString(stdb.getEnglish1st());
-        String e2 = Integer.toString(stdb.getEnglish2nd());
-        String m = Integer.toString(stdb.getMath());
-        String r = Integer.toString(stdb.getReligion());
-        String s = Integer.toString(stdb.getScience());
-        String ic = Integer.toString(stdb.getIct());
-        String bgs = Integer.toString(stdb.getBgs());
-        int percentage = (finalMarks * 100) / total;
-        if (b1.equals("0") || b2.equals("0") || e1.equals("0") || e2.equals("0") || m.equals("0") || r.equals("0") || s.equals("0") || ic.equals("0") || bgs.equals("0")) {
-            complements.setText("");
-        } else if (percentage < 40) {
-            complements.setText("You have failed");
-        } else if (percentage > 80) {
-            complements.setText("Excelent");
-        } else if (percentage > 80) {
-            complements.setText("Satisfactory");
-        }
->>>>>>> Stashed changes
     }
+    
+    public void resultPageClear(){
+                   bangla1st.setText("");
+                   bangla2nd.setText("");
+                   english1st.setText("");
+                   english2nd.setText("");
+                   math.setText("");
+                   religion.setText("");
+                   science.setText("");
+                   ICT.setText("");
+                   BGS.setText("");
+                   totalMarks.setText("");
+                   
+                   BanglaText.setText("");
+                   b1st.setText("");
+                   bangla2ndText.setText("");
+                   
+                   EnglishText.setText("");
+                   e1st.setText("");
+                   English2ndText.setText("");
+                   
+                   MathText.setText("");
+                   ScienceText.setText("");
+                   ICTText.setText("");
+                   BGSText.setText("");
+                   religionText.setText("");
+                   TotalText.setText("");
+                   ColonLebel.setText("");
 
-    public void resultPageClear() {
-        bangla1st.setText("");
-        bangla2nd.setText("");
-        english1st.setText("");
-        english2nd.setText("");
-        math.setText("");
-        religion.setText("");
-        science.setText("");
-        ICT.setText("");
-        BGS.setText("");
-        totalMarks.setText("");
+                   ColonLebel1.setText("");
+                   ColonLebel2.setText("");
+                   ColonLebel3.setText("");
+                   ColonLebel4.setText("");
+                   ColonLebel5.setText("");
+                   ColonLebel6.setText("");
+                   ColonLebel7.setText("");
+                   ColonLebel8.setText("");
+                   ColonLebel9.setText("");
+ }   
 
-        BanglaText.setText("");
-        b1st.setText("");
-        bangla2ndText.setText("");
-
-        EnglishText.setText("");
-        e1st.setText("");
-        English2ndText.setText("");
-
-        MathText.setText("");
-        ScienceText.setText("");
-        ICTText.setText("");
-        BGSText.setText("");
-        religionText.setText("");
-        TotalText.setText("");
-        ColonLebel.setText("");
-
-        ColonLebel1.setText("");
-        ColonLebel2.setText("");
-        ColonLebel3.setText("");
-        ColonLebel4.setText("");
-        ColonLebel5.setText("");
-        ColonLebel6.setText("");
-        ColonLebel7.setText("");
-        ColonLebel8.setText("");
-        ColonLebel9.setText("");
-    }
-
-    public void resultShow() {
-
-        String student_id = this.id;
-        String finalMarks = Integer.toString(stdb.getGrandTotal());
-        String b1 = Integer.toString(stdb.getBangla1st());
-        String b2 = Integer.toString(stdb.getBangla2nd());
-        String e1 = Integer.toString(stdb.getEnglish1st());
-        String e2 = Integer.toString(stdb.getEnglish2nd());
-        String m = Integer.toString(stdb.getMath());
-        String r = Integer.toString(stdb.getReligion());
-        String s = Integer.toString(stdb.getScience());
-        String ic = Integer.toString(stdb.getIct());
-        String bgs = Integer.toString(stdb.getBgs());
-        int resultClass = Integer.parseInt(stdb.getStudentClass());
-        if (b1.equals("0") && b2.equals("0") && e1.equals("0") && e2.equals("0") && m.equals("0") && r.equals("0") && s.equals("0") && ic.equals("0") && bgs.equals("0")) {
-            noResult.setText("No result published yet");
-            resultPageClear();
-        } else if (resultClass > 5 && resultClass < 11) {
-            if (b1.equals("0")) {
-                bangla1st.setText("-/100");
-            } else {
-                bangla1st.setText(b1 + "/100");
+public void resultShow(){
+        
+            String student_id =this.id;
+            String finalMarks=Integer.toString(stdb.getGrandTotal());
+            String b1= Integer.toString(stdb.getBangla1st());
+            String b2= Integer.toString(stdb.getBangla2nd());
+            String e1 = Integer.toString(stdb.getEnglish1st());
+            String e2=Integer.toString(stdb.getEnglish2nd());
+            String m=Integer.toString(stdb.getMath());
+            String r=Integer.toString(stdb.getReligion());
+            String s=Integer.toString(stdb.getScience());
+            String ic=Integer.toString(stdb.getIct());
+            String bgs=Integer.toString(stdb.getBgs());
+            int resultClass=Integer.parseInt(stdb.getStudentClass());
+            if(b1.equals("0") &&b2.equals("0")&& e1.equals("0") && e2.equals("0") && m.equals("0") && r.equals("0") && s.equals("0") && ic.equals("0") && bgs.equals("0")){
+               noResult.setText("No result published yet");
+                resultPageClear();
             }
-            if (b2.equals("0")) {
-                bangla2nd.setText("-/50");
-            } else {
-                bangla2nd.setText(b2 + "/50");
+            else if(resultClass>5&&resultClass<11){
+                      if(b1 .equals("0")){
+                          bangla1st.setText("-/100");
+                      }
+                      else{
+                          bangla1st.setText(b1+"/100");
+                      }
+                      if(b2.equals("0")){
+                         bangla2nd.setText("-/50");
+                      }
+                      else{
+                          bangla2nd.setText(b2+"/50");
+                      }
+                       if(e1 .equals("0")){
+                          english1st.setText("-/100");
+                      }
+                      else{
+                         english1st.setText(e1+"/100");
+                      }
+                        if(e2 .equals("0")){
+                         english2nd.setText("-/50");
+                      }
+                      else{
+                          english2nd.setText(e2+"/50");
+                      }
+                       if(m .equals("0")){
+                          math.setText("-/100");
+                      }
+                      else{
+                         math.setText(m+"/100");
+                      }
+
+                      if(r.equals("0")){
+                          religion.setText("-/100");
+                      }
+                      else{
+                         religion.setText(r+"/100");
+                      }
+                      if(s.equals("0")){
+                          science.setText("-/100");
+                      }
+                      else{
+                         science.setText(s+"/100");
+                      }
+
+                      if(ic.equals("0")){
+                          ICT.setText("-/100");
+                      }
+                      else{
+                         ICT.setText(ic+"/100");
+                      }
+                      if(bgs.equals("0")){
+                          BGS.setText("-/100");
+                      }
+                      else{
+                         BGS.setText(bgs+"/100");
+                      }
+                      totalMarks.setText(finalMarks+"/800");
+                       resultComplements(800);
             }
-            if (e1.equals("0")) {
-                english1st.setText("-/100");
-            } else {
-                english1st.setText(e1 + "/100");
-            }
-<<<<<<< Updated upstream
             else if(resultClass>3&&resultClass<6){
                         if(b1.equals("0")){
                           bangla1st.setText("-/100");
@@ -2119,135 +2099,13 @@ public class StudentProfile extends javax.swing.JFrame {
            else{
                 
            }
-=======
-            if (e2.equals("0")) {
-                english2nd.setText("-/50");
-            } else {
-                english2nd.setText(e2 + "/50");
-            }
-            if (m.equals("0")) {
-                math.setText("-/100");
-            } else {
-                math.setText(m + "/100");
-            }
-
-            if (r.equals("0")) {
-                religion.setText("-/100");
-            } else {
-                religion.setText(r + "/100");
-            }
-            if (s.equals("0")) {
-                science.setText("-/100");
-            } else {
-                science.setText(s + "/100");
-            }
-
-            if (ic.equals("0")) {
-                ICT.setText("-/100");
-            } else {
-                ICT.setText(ic + "/100");
-            }
-            if (bgs.equals("0")) {
-                BGS.setText("-/100");
-            } else {
-                BGS.setText(bgs + "/100");
-            }
-            totalMarks.setText(finalMarks + "/800");
-            resultComplements(800);
-        } else if (resultClass > 3 && resultClass < 6) {
-            if (b1.equals("0")) {
-                bangla1st.setText("-/100");
-            } else {
-                bangla1st.setText(b1);
-            }
-            if (b2.equals("0")) {
-                bangla2nd.setText("");
-                bangla2ndText.setText("");
-                b1st.setText("");
-            } else {
-                bangla2nd.setText(b2);
-            }
-            if (e1.equals("0")) {
-                english1st.setText("");
-            } else {
-                english1st.setText(e1);
-            }
-            if (e2.equals("0")) {
-                english2nd.setText("");
-                English2ndText.setText("");
-                e1st.setText("");
-            } else {
-                bangla2nd.setText(e2 + "/100");
-            }
-            if (m.equals("0")) {
-                math.setText("");
-            } else {
-                math.setText(m + "/100");
-            }
-
-            if (r.equals("0")) {
-                religion.setText("");
-            } else {
-                religion.setText(r);
-            }
-            if (bgs.equals("0")) {
-                BGS.setText("");
-            } else {
-                BGS.setText(r);
-            }
-            ColonLebel8.setText("");
-            ColonLebel9.setText("");
-            ICTText.setText("");
-            ICT.setText("");
-            totalMarks.setText(finalMarks + "/600");
-            resultComplements(600);
-        } else if (resultClass > 0 && resultClass < 4) {
-            if (b1.equals("0")) {
-                bangla1st.setText("-/100");
-            } else {
-                bangla1st.setText(b1);
-            }
-            bangla2nd.setText("");
-            bangla2ndText.setText("");
-            b1st.setText("");
-            if (e1.equals("0")) {
-                english1st.setText("");
-            } else {
-                english1st.setText(e1);
-            }
-            english2nd.setText("");
-            English2ndText.setText("");
-            e1st.setText("");
-            if (m.equals("0")) {
-                math.setText("");
-            } else {
-                math.setText(m + "/100");
-            }
-
-            if (r.equals("0")) {
-                religion.setText("");
-            } else {
-                religion.setText(r);
-            }
-            ICTText.setText("");
-            ICT.setText("");
-            BGSText.setText("");
-            BGS.setText("");
-            ColonLebel8.setText("");
-            ColonLebel9.setText("");
-            totalMarks.setText(finalMarks + "/500");
-            resultComplements(500);
-        } else {
-            //noResult.setText("Student does't have a ");
-            //resultPageClear();
-        }
->>>>>>> Stashed changes
     }
-
-    public void profileShow() {
-
-        String student_id = this.id;
-
+        
+    
+    public void profileShow(){
+        
+        String student_id =this.id;
+        
         String StudentName = stdb.getStudentName();
         String StudentPhnNo = stdb.getStudentPhoneNo();
         String Studentemail = stdb.getStudentEmail();
@@ -2255,22 +2113,25 @@ public class StudentProfile extends javax.swing.JFrame {
         ID.setText(student_id);
         Section.setText(stdb.getSection());
         Class.setText(stdb.getStudentClass());
-        if (StudentPhnNo == null) {
+        if(StudentPhnNo == null){
             phoneNo.setText("Phone not given yet");
-        } else {
+        }
+        else{
             phoneNo.setText(StudentPhnNo);
         }
-        if (Studentemail == null) {
+         if(Studentemail == null){
             Email.setText("Email not given yet");
-        } else {
+        }
+        else{
             Email.setText(Studentemail);
         }
-
+         
     }
-
+    
 //......................End Custom Functions...................//
+    
     private void home_btnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_home_btnMousePressed
-
+        
         jTabbedPane1.setSelectedIndex(0);
         setColor(home_btn);
         resetColor(homework_btn);
@@ -2278,7 +2139,7 @@ public class StudentProfile extends javax.swing.JFrame {
         resetColor(notices_btn);
         resetColor(attendance_btn);
         resetColor(messege_btn);
-
+        
         ind_0.setOpaque(true);
         ind_1.setOpaque(false);
         ind_2.setOpaque(false);
@@ -2297,7 +2158,7 @@ public class StudentProfile extends javax.swing.JFrame {
         resetColor(notices_btn);
         resetColor(attendance_btn);
         resetColor(messege_btn);
-
+        
         ind_0.setOpaque(false);
         ind_1.setOpaque(true);
         ind_2.setOpaque(false);
@@ -2316,34 +2177,35 @@ public class StudentProfile extends javax.swing.JFrame {
         resetColor(notices_btn);
         resetColor(attendance_btn);
         resetColor(messege_btn);
-
+        
         ind_0.setOpaque(false);
         ind_1.setOpaque(false);
         ind_2.setOpaque(true);
         ind_3.setOpaque(false);
         ind_4.setOpaque(false);
         ind_5.setOpaque(false);
-
+        
     }//GEN-LAST:event_result_btnMousePressed
 
     private void notices_btnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_notices_btnMousePressed
         // TODO add your handling code here:
         jTabbedPane1.setSelectedIndex(3);
         setColor(notices_btn);
-
+        
         resetColor(homework_btn);
         resetColor(result_btn);
         resetColor(home_btn);
         resetColor(attendance_btn);
         resetColor(messege_btn);
-
+        
         ind_0.setOpaque(false);
         ind_1.setOpaque(false);
         ind_2.setOpaque(false);
         ind_3.setOpaque(true);
         ind_4.setOpaque(false);
         ind_5.setOpaque(false);
-
+        
+        
     }//GEN-LAST:event_notices_btnMousePressed
 
     private void attendance_btnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_attendance_btnMousePressed
@@ -2355,73 +2217,75 @@ public class StudentProfile extends javax.swing.JFrame {
         resetColor(result_btn);
         resetColor(notices_btn);
         resetColor(messege_btn);
-
+        
+        
         ind_0.setOpaque(false);
         ind_1.setOpaque(false);
         ind_2.setOpaque(false);
         ind_3.setOpaque(false);
         ind_4.setOpaque(true);
         ind_5.setOpaque(false);
-
+        
+        
     }//GEN-LAST:event_attendance_btnMousePressed
 
     private void close_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_close_btnActionPerformed
         int input = JOptionPane.showConfirmDialog(null, "Do you want to proceed?", "Quit", JOptionPane.YES_NO_CANCEL_OPTION);
         if (input == 0) {
             System.exit(0);
-        }
+        } 
     }//GEN-LAST:event_close_btnActionPerformed
 
     private void logOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutActionPerformed
         stdb.logout();
-        logInPage LP = new logInPage();
+        logInPage LP= new logInPage();
         LP.setVisible(true);
         LP.setResizable(false);
         dispose();
     }//GEN-LAST:event_logOutActionPerformed
-
+    
     private void sideMenuHideMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sideMenuHideMouseClicked
-        if (x == 242) {
-            sideMenu.setSize(242, 720);
-            Thread th = new Thread() {
+        if(x==242)
+        {
+            sideMenu.setSize(242,720);
+            Thread th = new Thread(){
                 @Override
-                public void run() {
-                    try {
-                        for (int i = 242; i >= 0; i--) {
+                public void run(){
+                    try{
+                        for(int i = 242;i>=0;i--){
                             Thread.sleep(1);
-                            sideMenu.setSize(i, 720);
+                            sideMenu.setSize(i,720);
                         }
-                    } catch (Exception e) {
-                        jOptionPane.showMessegeDialog(null, e);
+                    }catch(Exception e){
+                        jOptionPane.showMessegeDialog(null,e);
                     }
                 }
-            };
-            th.start();
-            x = 0;
+            };th.start();
+            x=0;
         }
     }//GEN-LAST:event_sideMenuHideMouseClicked
 
     private void SideMenuShowMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SideMenuShowMouseClicked
-        if (x == 0) {
+        if(x == 0)
+        {
             sideMenu.show();
             jTabbedPane1.show();
             //jTabbedPane2.show();
-            sideMenu.setSize(242, 720);//[418, 720]
-            Thread th = new Thread() {
+            sideMenu.setSize(242,720);//[418, 720]
+            Thread th = new Thread(){
                 @Override
-                public void run() {
-                    try {
-                        for (int i = 0; i <= x; i++) {
+                public void run(){
+                    try{
+                        for(int i = 0; i <= x; i++){
                             Thread.sleep(1);
-                            sideMenu.setSize(i, 720);
+                            sideMenu.setSize(i,720);
                         }
-                    } catch (Exception e) {
-                        jOptionPane.showMessegeDialog(null, e);
+                    }catch(Exception e){
+                        jOptionPane.showMessegeDialog(null,e);
                     }
                 }
-            };
-            th.start();
-            x = 242;
+            };th.start();
+            x=242;
         }
     }//GEN-LAST:event_SideMenuShowMouseClicked
 
@@ -2433,7 +2297,8 @@ public class StudentProfile extends javax.swing.JFrame {
         resetColor(result_btn);
         resetColor(notices_btn);
         resetColor(messege_btn);
-
+        
+        
         ind_0.setOpaque(false);
         ind_1.setOpaque(false);
         ind_2.setOpaque(false);
@@ -2450,7 +2315,7 @@ public class StudentProfile extends javax.swing.JFrame {
         resetColor(result_btn);
         resetColor(notices_btn);
         resetColor(attendance_btn);
-
+        
         ind_0.setOpaque(false);
         ind_1.setOpaque(false);
         ind_2.setOpaque(false);
@@ -2496,29 +2361,31 @@ public class StudentProfile extends javax.swing.JFrame {
         String manth = (String) jComboBox2.getSelectedItem();
 
         showAttendance(manth);
-//        updateChart(manth);
+        updateChart(manth);
     }//GEN-LAST:event_showAttendanceActionPerformed
 
     private void absentDaysTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_absentDaysTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_absentDaysTextFieldActionPerformed
 
-    public void notifierButtonUse() {
-        for (int i = 0; i < 4; i++) {
-            if (dateNotificationToggle == 1) {
+    public void notifierButtonUse(){
+        for(int i=0;i<4;i++)
+            if(dateNotificationToggle==1){
                 notifierField.setText("You have a homework pending today!!");
 
-            } else if (dateNotificationToggle == 2) {
+            }
+            else if(dateNotificationToggle==2){
                 notifierField.setText("You have a notice!!");
-            } else if (dateNotificationToggle == 3) {
+            }
+            else if(dateNotificationToggle==3){
                 notifierField.setText("Check message!!");
-            } else {
+            }
+            else{
                 notifierField.setText("");
             }
-        }
     }
     private void notifierFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_notifierFieldMouseClicked
-        if (dateNotificationToggle == 1) {
+        if(dateNotificationToggle==1){
             jTabbedPane1.setSelectedIndex(1);
             setColor(homework_btn);
             resetColor(home_btn);
@@ -2533,10 +2400,11 @@ public class StudentProfile extends javax.swing.JFrame {
             ind_3.setOpaque(false);
             ind_4.setOpaque(false);
             ind_5.setOpaque(false);
-            homeworkNotificationCheck = 0;
+            homeworkNotificationCheck=0;
             dateNotificationToggle++;
 
-        } else if (dateNotificationToggle == 2) {
+        }
+        else if(dateNotificationToggle==2){
             jTabbedPane1.setSelectedIndex(3);
             setColor(notices_btn);
             resetColor(homework_btn);
@@ -2551,10 +2419,12 @@ public class StudentProfile extends javax.swing.JFrame {
             ind_3.setOpaque(true);
             ind_4.setOpaque(false);
             ind_5.setOpaque(false);
-            noticeNotificationCheck = 0;
+            noticeNotificationCheck=0;
             dateNotificationToggle++;
+            
 
-        } else if (dateNotificationToggle == 3) {
+        }
+        else if(dateNotificationToggle==3){
             jTabbedPane1.setSelectedIndex(5);
             setColor(messege_btn);
             resetColor(home_btn);
@@ -2569,12 +2439,12 @@ public class StudentProfile extends javax.swing.JFrame {
             ind_3.setOpaque(false);
             ind_4.setOpaque(false);
             ind_5.setOpaque(true);
-            dateNotificationToggle = 0;
+            dateNotificationToggle=0;
 
         }
 
     }//GEN-LAST:event_notifierFieldMouseClicked
-
+    
     /**
      * @param args the command line arguments
      */
@@ -2583,7 +2453,7 @@ public class StudentProfile extends javax.swing.JFrame {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
+        */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Windows".equals(info.getName())) {
@@ -2601,7 +2471,7 @@ public class StudentProfile extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(StudentProfile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -2609,14 +2479,19 @@ public class StudentProfile extends javax.swing.JFrame {
             }
         });
     }
-
-    private void setColor(JPanel pane) {
-        pane.setBackground(new Color(65, 59, 94));
+    
+    
+    private void setColor(JPanel pane)
+    {
+        pane.setBackground(new Color(65,59,94));
     }
-
-    private void resetColor(JPanel pane) {
-        pane.setBackground(new Color(19, 10, 52));
+    
+    
+    private void resetColor(JPanel pane)
+    {
+        pane.setBackground(new Color(19,10,52));
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AttendenceLebel;

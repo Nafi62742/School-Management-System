@@ -1,3 +1,4 @@
+
 package schoolmanagementsystem.Database;
 
 import java.awt.HeadlessException;
@@ -14,23 +15,25 @@ import javax.swing.JPanel;
 import org.apache.commons.codec.binary.Base64;
 import schoolmanagementsystem.StudentProfile;
 import schoolmanagementsystem.TeacherProfile;
+import schoolmanagementsystem.logInPage;
+import schoolmanagementsystem.newAccountForm;
+import schoolmanagementsystem.newAccountFormT;
 
 public class Accounts {
-
     public String id;
     public Connection conn = null;
     private ResultSet rs = null;
     private PreparedStatement pst = null;
     private Statement st;
-
+    
     public Accounts() {
         conn = JConnection.connectdb();
     }
-
-    public void createResultfieldForStu(String id) {
+    
+    public void createResultfieldForStu(String id){
         final JPanel panel = new JPanel();
-
-        String sql = "INSERT INTO results(ID) VALUES (?)";
+        
+       String sql = "INSERT INTO results(ID) VALUES (?)";
         try {
             pst = conn.prepareStatement(sql);
             pst.setString(1, id);
@@ -38,11 +41,11 @@ public class Accounts {
 
             //JOptionPane.showMessageDialog(null, "Marks(english2nd) have been added Successfully");
         } catch (HeadlessException | SQLException e) {
-            JOptionPane.showMessageDialog(panel, "Database error", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
         }
     }
-
-    public int createStudentAccount(String name, String studentClass, String section, String id, String userPass) {
+    
+    public int createStudentAccount(String name,String studentClass,String section,String id,String userPass){
         final JPanel panel = new JPanel();
         String sql = "INSERT INTO student_accounts(name,class,sec,id,pass) VALUES(?,?,?,?,?)";
         String pass = null;
@@ -57,21 +60,21 @@ public class Accounts {
             pst.execute();
             JOptionPane.showMessageDialog(null, "Inserted Successfully");
             return 1;
-        } catch (SQLIntegrityConstraintViolationException ex) {
-            JOptionPane.showMessageDialog(panel, "Your ID should be unique.", "Warning", JOptionPane.WARNING_MESSAGE);
+        }catch(SQLIntegrityConstraintViolationException ex){
+            JOptionPane.showMessageDialog(panel,"Your ID should be unique.", "Warning", JOptionPane.WARNING_MESSAGE);
             return 2;
         } catch (HeadlessException | SQLException e) {
             JOptionPane.showMessageDialog(panel, "Database error", "Warning", JOptionPane.WARNING_MESSAGE);
             return 0;
         }
 
+       
     }
-
-    public int createTeacherAccount(String name, String subject, String designation, String id, String userPass) {
+    public int createTeacherAccount(String name,String subject,String designation,String id,String userPass){
         final JPanel panel = new JPanel();
         String sql = "INSERT INTO teacher_accounts(name,subject,designation,id,pass) VALUES(?,?,?,?,?)";
         String pass = null;
-
+        
         pass = EncryptPass(userPass);
         try {
             pst = conn.prepareStatement(sql);
@@ -83,44 +86,45 @@ public class Accounts {
             pst.execute();
             JOptionPane.showMessageDialog(null, "Inserted Successfully");
             return 1;
-        } catch (SQLIntegrityConstraintViolationException ex) {
-            JOptionPane.showMessageDialog(panel, "Your ID should be unique.", "Warning", JOptionPane.WARNING_MESSAGE);
+        }catch(SQLIntegrityConstraintViolationException ex){
+            JOptionPane.showMessageDialog(panel,"Your ID should be unique.", "Warning", JOptionPane.WARNING_MESSAGE);
             return 2;
-        } catch (HeadlessException | SQLException e) {
-            JOptionPane.showMessageDialog(panel, "Database Error", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+        catch (HeadlessException | SQLException e) {
+            JOptionPane.showMessageDialog(panel,"Database Error", "Warning", JOptionPane.WARNING_MESSAGE);
             return 0;
         }
     }
-
-    public boolean accountLogin(String id, String password, boolean rememberUser) {
+    
+    public boolean accountLogin(String id,String password,boolean rememberUser){
         final JPanel panel = new JPanel();
         String table = null;
-        String sql = null;
-        if (id.equals("") || password.equals("")) {
-            JOptionPane.showMessageDialog(panel, "Invalid Credentials", "Warning", JOptionPane.WARNING_MESSAGE);
+        String sql =null;
+        if(id.equals("")||password.equals("")){
+            JOptionPane.showMessageDialog(panel, "Invalid Credentials","Warning",JOptionPane.WARNING_MESSAGE);
             return false;
-        } else {
+        }else{
             if (id.contains("100.")) {
                 table = "student_accounts";
-            } else if (id.contains("400.")) {
+            } else if(id.contains("400.")){
                 table = "teacher_accounts";
-            } else {
+            }else{
                 JOptionPane.showMessageDialog(panel, "User not valid", "Warning", JOptionPane.WARNING_MESSAGE);
                 return false;
             }
-            if (rememberUser == true) {
-                try {
-                    if (userValid(id, password, table)) {
-                        InetAddress myIP = InetAddress.getLocalHost();
+            if(rememberUser == true){
+                try{
+                    if(userValid(id,password,table)){
+                        InetAddress myIP=InetAddress.getLocalHost();
                         //Check user once logged in or not
-                        String sql2 = "select id from login_info where id=\'" + id + "\' and ip_address=\'" + myIP.getHostAddress() + "\'";
+                        String sql2="select id from login_info where id=\'" + id + "\' and ip_address=\'" + myIP.getHostAddress() + "\'";
                         st = (Statement) conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
                         rs = st.executeQuery(sql2);
-                        if (rs.next()) {
-                            PreparedStatement preparedStatement = conn.prepareStatement("update login_info set state =?  where id = \'" + id + "\' and ip_address=\'" + myIP.getHostAddress() + "\'");
+                        if(rs.next()){
+                            PreparedStatement  preparedStatement = conn.prepareStatement("update login_info set state =?  where id = \'"+id+"\' and ip_address=\'"+myIP.getHostAddress()+"\'");
                             preparedStatement.setInt(1, 1);
                             int update_done = preparedStatement.executeUpdate();
-                        } else {
+                        }else{
                             sql = "INSERT INTO login_info(id,ip_address,state) VALUES(?,?,?)";
                             pst = conn.prepareStatement(sql);
                             pst.setString(1, id);
@@ -128,27 +132,28 @@ public class Accounts {
                             pst.setInt(3, 1);
                             pst.execute();
                         }
-                        if (id.contains("100.")) {
+                        if(id.contains("100.")){
                             new StudentProfile(id).setVisible(true);
                             return true;
-                        } else if (id.contains("400.")) {
+                        }else if(id.contains("400.")){
                             new TeacherProfile(id).setVisible(true);
                             return true;
                         }
                     }
-                } catch (UnknownHostException e) {
-                    JOptionPane.showMessageDialog(panel, "Sorry, Can't get your IP Address.", "Warning", JOptionPane.WARNING_MESSAGE);
+                }
+                catch(UnknownHostException e){
+                    JOptionPane.showMessageDialog(panel, "Sorry, Can't get your IP Address.","Warning",JOptionPane.WARNING_MESSAGE);
                     return false;
-                } catch (SQLException e) {
-                    JOptionPane.showMessageDialog(panel, "Database error", "Warning", JOptionPane.WARNING_MESSAGE);
+                }catch(SQLException e){
+                    JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
                     return false;
                 }
-            } else {
-                if (userValid(id, password, table)) {
-                    if (id.contains("100.")) {
+            }else{
+                if(userValid(id,password,table)){
+                    if(id.contains("100.")){
                         new StudentProfile(id).setVisible(true);
                         return true;
-                    } else if (id.contains("400.")) {
+                    }else if(id.contains("400.")){
                         new TeacherProfile(id).setVisible(true);
                         return true;
                     }
@@ -157,22 +162,20 @@ public class Accounts {
         }
         return false;
     }
-
-    public void logout() {
+    public void logout(){
         final JPanel panel = new JPanel();
         try {
-            InetAddress myIP = InetAddress.getLocalHost();
-            PreparedStatement preparedStatement = conn.prepareStatement("update login_info set state =?  where id = \'" + this.id + "\' and ip_address=\'" + myIP.getHostAddress() + "\'");
+            InetAddress myIP=InetAddress.getLocalHost();
+            PreparedStatement  preparedStatement = conn.prepareStatement("update login_info set state =?  where id = \'"+this.id+"\' and ip_address=\'"+myIP.getHostAddress()+"\'");
             preparedStatement.setInt(1, 0);
             int update_done = preparedStatement.executeUpdate();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(panel, "Database error", "Warning", JOptionPane.WARNING_MESSAGE);
-
+            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
+            
         } catch (UnknownHostException ex) {
-            JOptionPane.showMessageDialog(panel, "Sorry, Can't get your IP Address.", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(panel, "Sorry, Can't get your IP Address.","Warning",JOptionPane.WARNING_MESSAGE);
         }
     }
-
     private String EncryptPass(String passwordString) {
         try {
             String originalInput = passwordString;
@@ -184,49 +187,46 @@ public class Accounts {
         }
         return null;
     }
-
-    private boolean userValid(String id, String pass, String table) {
-        String encryptedPass = EncryptPass(pass);
+    private boolean userValid(String id,String pass,String table){
+        String encryptedPass=EncryptPass(pass);
         final JPanel panel = new JPanel();
         String sql = "select id from " + table + " where id=\'" + id + "\' and pass=\'" + encryptedPass + "\'";
-        try {
+        try{
             st = (Statement) conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             rs = st.executeQuery(sql);
             if (rs.next()) {
                 return true;
-            } else {
+            }else{
                 JOptionPane.showMessageDialog(panel, "User not valid", "Warning", JOptionPane.WARNING_MESSAGE);
                 return false;
             }
-        } catch (HeadlessException | SQLException e) {
-            JOptionPane.showMessageDialog(panel, "Database error", "Warning", JOptionPane.WARNING_MESSAGE);
+        }catch(HeadlessException | SQLException e){
+            JOptionPane.showMessageDialog(panel, "Database error","Warning",JOptionPane.WARNING_MESSAGE);
         }
         return false;
     }
-
-    public String isUserLoggedIn() {
+    public String isUserLoggedIn(){
         final JPanel panel = new JPanel();
         try {
-            InetAddress myIP = InetAddress.getLocalHost();
+            InetAddress myIP=InetAddress.getLocalHost();
             String sql = "select id from login_info where ip_address=\'" + myIP.getHostAddress() + "\' and state=1";
-            try {
+            try{
                 st = (Statement) conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
                 rs = st.executeQuery(sql);
                 if (rs.next()) {
                     return rs.getString(1);
-                } else {
+                }else{
                     return null;
                 }
-            } catch (HeadlessException | SQLException e) {
-                JOptionPane.showMessageDialog(panel, "Database error. Auto login failed.", "Warning", JOptionPane.WARNING_MESSAGE);
+            }catch(HeadlessException | SQLException e){
+                JOptionPane.showMessageDialog(panel, "Database error. Auto login failed.","Warning",JOptionPane.WARNING_MESSAGE);
             }
         } catch (UnknownHostException ex) {
-            JOptionPane.showMessageDialog(panel, "Sorry, Can't get your IP Address.", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(panel, "Sorry, Can't get your IP Address.","Warning",JOptionPane.WARNING_MESSAGE);
         }
         return null;
     }
-
-    public String getId() {
+    public String getId(){
         return this.id;
     }
 
