@@ -96,7 +96,11 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+<<<<<<< Updated upstream
               <AbsoluteConstraints x="1250" y="0" width="30" height="30"/>
+=======
+              <AbsoluteConstraints x="5" y="5" width="30" height="30"/>
+>>>>>>> Stashed changes
             </Constraint>
           </Constraints>
         </Component>
@@ -139,7 +143,10 @@
               <Border info="null"/>
             </Property>
             <Property name="borderPainted" type="boolean" value="false"/>
+<<<<<<< Updated upstream
             <Property name="contentAreaFilled" type="boolean" value="false"/>
+=======
+>>>>>>> Stashed changes
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b1ActionPerformed"/>
@@ -156,7 +163,10 @@
               <Border info="null"/>
             </Property>
             <Property name="borderPainted" type="boolean" value="false"/>
+<<<<<<< Updated upstream
             <Property name="contentAreaFilled" type="boolean" value="false"/>
+=======
+>>>>>>> Stashed changes
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b2ActionPerformed"/>
@@ -175,7 +185,10 @@
               <Border info="null"/>
             </Property>
             <Property name="borderPainted" type="boolean" value="false"/>
+<<<<<<< Updated upstream
             <Property name="contentAreaFilled" type="boolean" value="false"/>
+=======
+>>>>>>> Stashed changes
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b3ActionPerformed"/>
@@ -192,7 +205,10 @@
               <Border info="null"/>
             </Property>
             <Property name="borderPainted" type="boolean" value="false"/>
+<<<<<<< Updated upstream
             <Property name="contentAreaFilled" type="boolean" value="false"/>
+=======
+>>>>>>> Stashed changes
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b4ActionPerformed"/>
@@ -209,7 +225,10 @@
               <Border info="null"/>
             </Property>
             <Property name="borderPainted" type="boolean" value="false"/>
+<<<<<<< Updated upstream
             <Property name="contentAreaFilled" type="boolean" value="false"/>
+=======
+>>>>>>> Stashed changes
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b5ActionPerformed"/>
